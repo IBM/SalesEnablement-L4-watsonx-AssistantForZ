@@ -125,11 +125,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#welcome-to-mkdocs" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -287,8 +282,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
       <a href="." class="md-nav__link md-nav__link--active">
         
@@ -361,8 +354,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -377,21 +368,98 @@
                   
 
 
-<div><h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+  <h1>Welcome</h1>
+
+<div><p>Welcome to the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide (lab guide). This lab guide covers the setup, configuration, and usage of assistants for watsonx Assistant for Z. The lab guide is part of the IBM watsonx Assistant for Z for Technical Sales Level 4 learning plan for IBM and Business Partner Technical Sales and related badge. The lab guide also enables dedicated lab environments for customized client Proof of Experiences (PoX) and demonstrations. </p>
+<p>This lab guide leverages the <a href="" target="_blank">IBM watsonx Assistant for Z Velocity collection</a> and the 3 Velocity Pilot lab environments in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). </p>
+<p>The lab guide provides guidance to:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Provisioning the lab environments</li>
+<li>Creating an assistant and configuring conversational search</li>
+<li>Configuring assistant settings</li>
+<li>Testing conversational search</li>
+<li>Deploying a dedicated instance of OpenSearch for client document ingestion (Optional)</li>
+<li>Importing skills for z/<abbr title="Operating System">OS</abbr> automations</li>
+<li>Connecting apps to assistants</li>
+<li>Creating assistant actions</li>
+<li>Creating skill flows and custom-built actions</li>
+<li>Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills</li>
+<li>Publishing and deploying your assistant</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<div class="highlight"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>Continue to the <a href="TechZoneEnvironment/">Reserve the IBM Technology Zone environments</a> section to begin the journey to obtaining the IBM watsonx Assistant for Z Technical Sales Advanced badge.</p>
+<div style="page-break-after: always;"></div>
+<h2 id="support">Support</h2>
+<p>Think something is down? Check the applicable status pages for any known issues like a site or service not available:</p>
+<ul>
+<li><a href="https://techzone.status.io/" target="_blank">IBM Technology Zone</a></li>
+</ul>
+<p>For issues with provisioning the <abbr title="IBM Technology Zone">ITZ</abbr> environment for this lab (for example, a failed reservation request due to insufficient quota capacity) open a ticket with <abbr title="IBM Technology Zone">ITZ</abbr> support:</p>
+<ul>
+<li>
+<p>Web:  <a href="https://ibmsf.force.com/ibminternalproducts/s/createrecord/NewCase?language=en_US" target="_blank">IBM Technology Zone</a></p>
+</li>
+<li>
+<p>Email: <a href="mailto:techzone.help@ibm.com" target="_blank">techzone.help.ibm.com</a></p>
+</li>
+</ul>
+<p>For issues related to specific steps found in the demonstration guide after the <abbr title="IBM Technology Zone">ITZ</abbr> environment is provisioned, contact the authors:</p>
+<ul>
+<li>Slack: <a href="mailto:https://ibm.enterprise.slack.com/archives/C07ARLXF2R1" target="_blank">#watsonx-assistant-z-technical</a> - IBM only</li>
+<li>Email: <a href="mailto:andrewj@us.ibm.com" target="_blank">andrewj@us.ibm.com</a></li>
+</ul>
+<p>Business Partners should use the IBM Training live Chat Support service or other support methods that are found on the IBM Training portal <a href="https://ibmcpsprod.service-now.com/its?id=sc_category&amp;sys_id=6568bfafdb2f13008ea7d6fa4b961990" target="_blank">here</a>.</p>
+<div style="page-break-after: always;"></div>
+<h2 id="using-the-demonstration-guide">Using the demonstration guide</h2>
+<p>Use these helpful tips to take full advantage of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide.</p>
+<details class="tip">
+<summary>Printing the demonstration guide</summary>
+<div class="admonition warning">
+<p class="admonition-title">Printed or saved copies can be out of date</p>
+<p>The IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide changes regularly to match the IBM watsonx Assistant for Z offering and associated <abbr title="IBM Technology Zone">ITZ</abbr> environment. Printed or saved copies of the demonstration guide can become out-of-date quickly and result in failed steps. </p>
+</div>
+<p>A ready-to-print PDF version of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide is <a href="_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Lab%20Guide.pdf" target="_blank">here</a>. </p>
+</details>
+<details class="tip">
+<summary>Viewing images</summary>
+<p>Images in the demonstration guide can be enlarged by clicking on the image. Press the <span class="keys"><kbd class="key-escape">Esc</kbd></span> key or click the <strong>X</strong> to dismiss the enlarged image.</p>
+<!-- <a class="glightbox" href="_attachments/testImage2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/testImage2.png" /></a> -->
+</details>
+<details class="tip">
+<summary>Image highlighting</summary>
+<p>In some images, the following styles of highlighting are used:</p>
+<ul>
+<li>
+<p><strong>Solid highlight box</strong>: This style of box highlights where to click, enter, or select an item.
+<a class="glightbox" href="_attachments/welcome-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/welcome-1.png"></a></p>
+</li>
+<li>
+<p><strong>Dash highlight box</strong>: This style of box highlights one of two things: the path to follow to get to a specific location in the user interface, or areas to explore on your own.
+<a class="glightbox" href="_attachments/welcome-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/welcome-2.png"></a></p>
+</li>
+</ul>
+</details>
+<details class="tip">
+<summary>Copying commands and prompts</summary>
+<!-- - **Copy to the clipboard**: The text is copied to the clipboard. Click the copy icon (highlighted) and then use the operating system paste function. For example, entering <code>Ctrl+v</code>, <code>Cmd+v</code>, or right-click and select <code>Paste</code>.
+<a class="glightbox" href="_attachments/welcome-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/welcome-3.png" /></a> -->
+<p>Copying and pasting commands and prompts from this demonstration guide is easy and can eliminate typographical errors.</p>
+<p>Click the highlighted copy icon and then use your operating system's paste function. For example, <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-v">V</kbd></span>, or right-click and select <code>Paste</code>.
+<a class="glightbox" href="_attachments/welcome-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/welcome-3.png"></a></p>
+</details>
+<details class="tip">
+<summary>Acronyms and terminology</summary>
+<p>IBM employees, and the tech industry in general, enjoy using acronyms. In the demonstration guide, most acronyms will appear with a dashed underline. Hover over the acronym to learn its meaning. A question mark (<a class="glightbox" href="_attachments/questionIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/questionIcon.png"></a>) icon will first appear and after a second the tool tip with the acronym's meaning is displayed. Try it here: <abbr title="Logical Partition">LPAR</abbr>. </p>
+<p><a class="glightbox" href="_attachments/acronymHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/acronymHelp.png"></a></p>
+</details>
+<details class="tip">
+<summary>The <strong>Demonstration Guide</strong> table of contents</summary>
+<p>This <strong>Demonstration Guide</strong> uses a responsive browser-based interface to ensure a pages are usable on various devices with different screen sizes. The Demonstration Guide table of contents may be displayed as highlighted in the green dashed box in this image:</p>
+<p><a class="glightbox" href="_attachments/demoGuide1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/demoGuide1a.png"></a></p>
+<p>However, if the browser window is sized smaller, the table of contents can be accessed by clicking the main menu icon (<a class="glightbox" href="_attachments/MainMenuIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/MainMenuIcon.png"></a>):</p>
+<p><a class="glightbox" href="_attachments/demoGuide2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/demoGuide2b.png"></a></p>
+<p>Click the main menu icon (<a class="glightbox" href="_attachments/MainMenuIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/MainMenuIcon.png"></a>) to expand the table of contents.</p>
+<!-- <a class="glightbox" href="_attachments/demoGuide3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/demoGuide3.png" /></a> -->
+</details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 

@@ -380,8 +380,14 @@
 
 
 <div><h1 id="ibm-technology-zone-environment">IBM Technology Zone environment</h1>
+<p>*</p>
+<!-- The environments leveraged for the watsonx Assistant for Z Velocity lab environment can be found here and consist of:
+1. watsonx Assistant for Z lab – watsonx Orchestrate – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for much of the assistant configuration, configuring conversational search, importing skills and configuring assistant actions
+2. watsonx Assistant for Z lab – AAP & z/OS – a pattern used to deploy a pre-configured instance of Ansible Automation Platform and WAZI z/OS with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section.
+3. Single Node OpenShift with NFS storage – an optional environment used to provision a single-node OpenShift cluster (SNO) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This is an optional component in cases where client document ingestion is in scope for a lab and you need a dedicated instance of OpenSearch for conversational search. -->
+
 <p>To enable sellers to demonstrate IBM watsonx Assistant for Z, an environment was created in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). This environment mimics a typical client deployment of IBM watsonx Assistant for Z, similar to this deployment architecture.
-    <a class="glightbox" href="_attachments/architectureV2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/architectureV2.png"></a></p>
+    <a class="glightbox" href="../_attachments/architectureV2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/architectureV2.png"></a></p>
 <p>Follow the instructions in this section to create a new reservation request, extend the reservation, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environment.</p>
 <h2 id="create-a-reservation-request">Create a reservation request</h2>
 <p>Follow these steps to create a reservation in <abbr title="IBM Technology Zone">ITZ</abbr>.</p>
@@ -392,12 +398,12 @@
 <p class="admonition-title">You may be asked to authenticate to IBM Technology Zone</p>
 <p>The steps to authenticate to <abbr title="IBM Technology Zone">ITZ</abbr> are not detailed here as they may vary between users.</p>
 </div>
-<p><a href="https://techzone.ibm.com/my/reservations/create/66da252ae16da2001edc932d" target="_blank">IBM watsonx Assistant for Z - reservation page</a></p>
+<p><a href="{{%20no%20such%20element:%20super_collections.SuperDict%20object['environment']%20}}" target="_blank">IBM watsonx Assistant for Z - reservation page</a></p>
 </li>
 <li>
 <p>Click <strong>Reserve now</strong>.</p>
 <p>The <strong>Reserve now</strong> option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, like when you will be at your client's office.</p>
-<p><a class="glightbox" href="_attachments/itzRSVPReserveNow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzRSVPReserveNow.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzRSVPReserveNow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReserveNow.png"></a></p>
 </li>
 <li>
 <p>Complete the reservation request and click <strong>Submit</strong>.</p>
@@ -408,7 +414,7 @@
 <p><strong>e</strong>. The <strong>End date and time</strong> will be set to 2 days after the current date and time.</p>
 <p><strong>f</strong>. Accept the IBM Technology Zone's terms and conditions and security policies.</p>
 <p><strong>g</strong>. When satisfied with the parameters, click <strong>Submit</strong>.</p>
-<p><a class="glightbox" href="_attachments/itzRSVPReservationPage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzRSVPReservationPage.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzRSVPReservationPage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage.png"></a></p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
@@ -420,18 +426,18 @@
 <ol start="4">
 <li>
 <p>In the IBM Technology Zone portal, expand <strong>My TechZone</strong> at the top and select <strong>My Reservations</strong>.</p>
-<p><a class="glightbox" href="_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzMyReservations.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations.png"></a></p>
 </li>
 <li>
-<p>Click the <strong>overflow icon</strong> (<a class="glightbox" href="_attachments/overflowIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/overflowIcon.png"></a>) on the reservation tile and select <strong>Extend</strong>.</p>
-<p><a class="glightbox" href="_attachments/itzExtendMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzExtendMenu.png"></a></p>
+<p>Click the <strong>overflow icon</strong> (<a class="glightbox" href="../_attachments/overflowIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/overflowIcon.png"></a>) on the reservation tile and select <strong>Extend</strong>.</p>
+<p><a class="glightbox" href="../_attachments/itzExtendMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzExtendMenu.png"></a></p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
 <ol start="6">
 <li>
 <p>Click the <strong>Select a date</strong> option, specify the date to extend to, and then click <strong>Extend</strong>.</p>
-<p><a class="glightbox" href="_attachments/itzExtendRsvp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzExtendRsvp.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzExtendRsvp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzExtendRsvp.png"></a></p>
 </li>
 </ol>
 <p>If you anticipate needing more time, repeat Steps 5 and 6 to extend the reservation to the maximum of 6 days.</p>
@@ -441,11 +447,11 @@
 <ol start="7">
 <li>
 <p>Click on reservation tile in the <abbr title="IBM Technology Zone">ITZ</abbr> <strong>My reservations</strong> page.</p>
-<p><a class="glightbox" href="_attachments/itzRSVPTile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzRSVPTile.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzRSVPTile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPTile.png"></a></p>
 </li>
 <li>
 <p>Click <strong>Open your IBM Cloud environment</strong>.</p>
-<p><a class="glightbox" href="_attachments/itzRSVPOpenEnvironment.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzRSVPOpenEnvironment.png"></a></p>
+<p><a class="glightbox" href="../_attachments/itzRSVPOpenEnvironment.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPOpenEnvironment.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">You may be prompted to authenticate</p>
 <p>In some instances, you may be prompted to authenticate when attempting to access the <strong>Open our IBM Cloud environment</strong> link. Use the same IBM ID and password used to reserve the <abbr title="IBM Technology Zone">ITZ</abbr> environment.</p>
@@ -461,7 +467,7 @@
 <ol start="9">
 <li>
 <p>Click the <strong>Virtual Assistant chat icon</strong>.</p>
-<p><a class="glightbox" href="_attachments/chatIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/chatIcon.png"></a></p>
+<p><a class="glightbox" href="../_attachments/chatIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/chatIcon.png"></a></p>
 </li>
 </ol>
 <p>This action opens the virtual assistant in the current browser page as a pop-up dialog. This approach provides an integrated view of the web page and the virtual assistant dialog; however, the dialog could be considered small for giving a live demonstration if the audience is expected to read the output.</p>
@@ -470,7 +476,7 @@
 <ol start="10">
 <li>
 <p>Close the <strong>Virtual Assistant</strong> dialog.</p>
-<p><a class="glightbox" href="_attachments/closeVA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/closeVA.png"></a></p>
+<p><a class="glightbox" href="../_attachments/closeVA.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/closeVA.png"></a></p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
@@ -480,15 +486,15 @@
 <ol start="11">
 <li>
 <p>Scroll to the bottom of the page and click <strong>Techbot (in a new tab)</strong> under <strong>Technology</strong>.</p>
-<p><a class="glightbox" href="_attachments/techBotFS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/techBotFS.png"></a></p>
+<p><a class="glightbox" href="../_attachments/techBotFS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/techBotFS.png"></a></p>
 <p>The full-page virtual assistant interface opens in a new browser window or tab (this is dependant on your browser preferences). The full-page virtual assistant interface is used for all screen captures in later chapters.</p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
 
 <h3 id="using-the-virtual-assistant">Using the virtual assistant</h3>
-<p>Enter a query into the field and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> or click the <strong>Send</strong> icon (<a class="glightbox" href="_attachments/sendIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/sendIcon.png"></a>).
-    <a class="glightbox" href="_attachments/enterQuery.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/enterQuery.png"></a></p>
+<p>Enter a query into the field and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> or click the <strong>Send</strong> icon (<a class="glightbox" href="../_attachments/sendIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/sendIcon.png"></a>).
+    <a class="glightbox" href="../_attachments/enterQuery.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/enterQuery.png"></a></p>
 <p>Proceed to the next section to run through different IBM watsonx Assistant for Z client scenarios detailed in this demonstration guide.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
