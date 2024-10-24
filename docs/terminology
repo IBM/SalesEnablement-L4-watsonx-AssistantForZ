@@ -1,0 +1,31 @@
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication -->
+*[AI]: Artificial intelligence
+*[APAR]: Authorized Program Analysis Report
+*[APARs]: Authorized Program Analysis Report
+*[APF]: Authorized Program Facility
+*[CICS]: Custom Information Control System
+*[GMTRAN]: System initialization parameter specifying the ID of a transaction
+*[HIPER]: HIghly PERvasive
+*[HIPERs]: HIghly PERvasive
+*[IPL]: Initial Program Load
+*[ISPF]: Interactive System Productivity Facility
+*[ITZ]: IBM Technology Zone
+*[JCL]: Job Control Language
+*[LLM]: Large language model 
+*[LPAR]: Logical Partition
+*[PE]: Pause element
+*[PEs]: Pause elements
+*[PTF]: Program Temporary Fix
+*[PTFs]:Program Temporary Fixes
+*[PSI]: Problem Source Identification
+*[OS]: Operating System
+*[RACF]: Resource Access Control Facility
+*[RAG]: Retrieval augmented generation
+*[REXX]: Restructured Extended Executor
+*[SDSF]: System Display and Search Facility
+*[SMF]: System Management Facility
+*[SSL]: Secure Sockets Layer 
+*[sysprog]: Systems programmer
+*[zparm]: Subsystem parameter
+*[zparms]: Subsystem parameters

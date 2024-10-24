@@ -1,0 +1,142 @@
+# Project info
+site_name: IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide
+site_description: IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide 
+site_author: Andrew R. Jones (andrewj@us.ibm.com)
+copyright: Copyright &copy; 2024 IBM - V 2.0
+
+# Repository
+repo_name:  IBM/SalesEnablement-L4-watsonx-AssistantForZ
+
+#repo_url: https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ
+#edit_uri: edit/master/docs
+docs_dir: docs
+
+# navigation menu moved to nav.md
+# nav:
+#   - 'Welcome': 'index.md'
+#   - 'Reserve the IBM Technology Zone environments': 'TechZoneEnvironment.md'
+#   - 'Next steps': 'NextSteps.md'
+
+# don't add the terminology file to the navigation
+not_in_nav: |
+  /terminology
+
+theme:
+  name: material
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.footer
+    # - content.tabs.link
+    - hide:                 # hide right hand side document toc
+        - toc
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+plugins:
+    - mkdocs-video
+    - macros
+    - search
+    - glightbox
+    - literate-nav:
+        nav_file: nav.md
+
+markdown_extensions:
+  - toc:
+      toc_depth : "1-1"
+  - sane_lists
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - abbr
+  - pymdownx.details
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      auto_append: ["terminology"]
+      base_path: ["docs"]
+  - pymdownx.superfences
+  - pymdownx.keys
+  - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.pathconverter:
+      base_path: '' # default: ''
+      relative_path: '' # default ''
+      absolute: false # default: false
+      tags: 'a script img link object embed'
+# add custom style sheet to make the prompt code blocks display nicer without a vertical scroll bar.
+extra_css:
+  - style.css
+extra:
+  generator: false
+  supportEmail: "andrewj@us.ibm.com"
+  supportSlack: 
+    name: "#watsonx-assistant-z-technical"
+    url: "https://ibm.enterprise.slack.com/archives/C07ARLXF2R1"
+  gitRepo: "https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ"
+  learningplan:
+    name: "IBM watsonx Assistant for Z for Technical Sales Level 4"
+    YLurl: ""
+    BPurl: ""
+  level3learningplan:
+    name: "IBM watsonx Assistant for Z for Technical Sales Level 3"
+    YLurl: "https://yourlearning.ibm.com/activity/PLAN-FEA26E32C03A"
+    BPurl: "https://learn.ibm.com/course/view.php?id=17043"
+  level2learningplan:
+    name: "IBM watsonx Assistant for Z Level 2"
+    YLurl: "https://yourlearning.ibm.com/activity/PLAN-8281F4855A45"
+    BPurl: "https://learn.ibm.com/course/view.php?id=16848"
+  badge:
+    name: "IBM watsonx Assistant for Z Technical Sales Advanced"
+  offering:
+    name: "IBM watsonx Assistant for Z"
+  guide:
+    name: "IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide"
+    lastUpdate: "26 December 2024"
+    url: "https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/"
+    pdf: "_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Lab%20Guide.pdf"
+  itz:
+    # account: "23269B285157EA97338 - ITZ-VMWARE"
+    collectionName: "IBM watsonx Assistant for Z"
+    collectionURL: "https://techzone.ibm.com/collection/ibm-watsonx-assistant-z"
+    orchestrateEnv: "https://techzone.ibm.com/my/reservations/create/66f6f414c428e2fc24fa1088"
+    aapEnv: "https://techzone.ibm.com/my/reservations/create/66f806f842f6741b9e19f99c"
+    snoEnv: "https://techzone.ibm.com/my/reservations/create/66f6f42ec428e2fc24fa1089"
+  watsonx4Z:
+    version: "V 2"
+  
