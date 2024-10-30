@@ -16,7 +16,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../NextSteps/">
+        <link rel="next" href="../Setup/creatingAssistant-configuringConvoSearch/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -90,6 +90,20 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="../style.css">
     
@@ -332,6 +346,69 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [Setup]
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            [Setup]
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/creatingAssistant-configuringConvoSearch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating an Assistant and configuring conversational search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../NextSteps/" class="md-nav__link">
         
@@ -379,17 +456,21 @@
                   
 
 
-<div><h1 id="ibm-technology-zone-environment">IBM Technology Zone environment</h1>
+<div><h1 id="ibm-technology-zone-environment">IBM Technology Zone environment<a class="headerlink" href="#ibm-technology-zone-environment" title="Permanent link">#</a></h1>
 <p>*</p>
 <!-- The environments leveraged for the watsonx Assistant for Z Velocity lab environment can be found here and consist of:
 1. watsonx Assistant for Z lab – watsonx Orchestrate – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for much of the assistant configuration, configuring conversational search, importing skills and configuring assistant actions
 2. watsonx Assistant for Z lab – AAP & z/OS – a pattern used to deploy a pre-configured instance of Ansible Automation Platform and WAZI z/OS with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section.
 3. Single Node OpenShift with NFS storage – an optional environment used to provision a single-node OpenShift cluster (SNO) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This is an optional component in cases where client document ingestion is in scope for a lab and you need a dedicated instance of OpenSearch for conversational search. -->
 
-<p>To enable sellers to demonstrate IBM watsonx Assistant for Z, an environment was created in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). This environment mimics a typical client deployment of IBM watsonx Assistant for Z, similar to this deployment architecture.
-    <a class="glightbox" href="../_attachments/architectureV2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/architectureV2.png"></a></p>
-<p>Follow the instructions in this section to create a new reservation request, extend the reservation, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environment.</p>
-<h2 id="create-a-reservation-request">Create a reservation request</h2>
+<p>To enable sellers to both learn how to and actually pilot IBM watsonx Assistant for Z, multiple environments have been created in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). </p>
+<!-- Add architecture info here -->
+
+<p>While all 3 environments may not be required for a specific client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced, you will need to provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments. <abbr title="IBM Technology Zone">ITZ</abbr> currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training.</p>
+<p>Follow the instructions in this section to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments.</p>
+<!-- Directions below need to be updated to reflect all 3 environments and changed to use opportunity ID -->
+
+<h2 id="create-a-reservation-request">Create a reservation request<a class="headerlink" href="#create-a-reservation-request" title="Permanent link">#</a></h2>
 <p>Follow these steps to create a reservation in <abbr title="IBM Technology Zone">ITZ</abbr>.</p>
 <ol>
 <li>
@@ -419,7 +500,7 @@
 </ol>
 <div style="page-break-after: always;"></div>
 
-<h2 id="extend-the-reservation">Extend the reservation</h2>
+<h2 id="extend-the-reservation">Extend the reservation<a class="headerlink" href="#extend-the-reservation" title="Permanent link">#</a></h2>
 <p>The <abbr title="IBM Technology Zone">ITZ</abbr> provisioning process takes approximately 15 minutes. Multiple emails are sent to you from <abbr title="IBM Technology Zone">ITZ</abbr> as the provisioning process runs. One email states the reservation is provisioning and the other email states that the environment is <strong>Ready</strong>. </p>
 <p>In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3.</p>
 <p>When the reservation is in the <strong>Ready</strong> state, you can extend your reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions.</p>
@@ -442,7 +523,7 @@
 </ol>
 <p>If you anticipate needing more time, repeat Steps 5 and 6 to extend the reservation to the maximum of 6 days.</p>
 <div style="page-break-after: always;"></div>
-<h2 id="accessing-the-demonstration-environment">Accessing the demonstration environment</h2>
+<h2 id="accessing-the-demonstration-environment">Accessing the demonstration environment<a class="headerlink" href="#accessing-the-demonstration-environment" title="Permanent link">#</a></h2>
 <p>Access to the IBM watsonx Assistant for Z demonstration environment is provided through a web interface to a fictitious company's intranet website.</p>
 <ol start="7">
 <li>
@@ -460,9 +541,9 @@
 </ol>
 <div style="page-break-after: always;"></div>
 
-<h2 id="the-demonstration-portal-page">The demonstration portal page</h2>
+<h2 id="the-demonstration-portal-page">The demonstration portal page<a class="headerlink" href="#the-demonstration-portal-page" title="Permanent link">#</a></h2>
 <p>The demonstration portal page provides two ways of accessing the IBM watsonx Assistant for Z virtual assistant. </p>
-<h3 id="the-chat-icon">The chat icon</h3>
+<h3 id="the-chat-icon">The chat icon<a class="headerlink" href="#the-chat-icon" title="Permanent link">#</a></h3>
 <p>The first method is to use the assistant chat icon that appears at the lower right of the page. The <strong>Hi! I'm a virtual assistant. How can I help you today?</strong> dialog appears after a few seconds as the page loads.</p>
 <ol start="9">
 <li>
@@ -481,7 +562,7 @@
 </ol>
 <div style="page-break-after: always;"></div>
 
-<h3 id="the-full-page-virtual-assistant">The full page virtual assistant</h3>
+<h3 id="the-full-page-virtual-assistant">The full page virtual assistant<a class="headerlink" href="#the-full-page-virtual-assistant" title="Permanent link">#</a></h3>
 <p>The second user interface available for the virtual assistant is a full browser page experience.</p>
 <ol start="11">
 <li>
@@ -492,7 +573,7 @@
 </ol>
 <div style="page-break-after: always;"></div>
 
-<h3 id="using-the-virtual-assistant">Using the virtual assistant</h3>
+<h3 id="using-the-virtual-assistant">Using the virtual assistant<a class="headerlink" href="#using-the-virtual-assistant" title="Permanent link">#</a></h3>
 <p>Enter a query into the field and press <span class="keys"><kbd class="key-enter">Enter</kbd></span> or click the <strong>Send</strong> icon (<a class="glightbox" href="../_attachments/sendIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/sendIcon.png"></a>).
     <a class="glightbox" href="../_attachments/enterQuery.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/enterQuery.png"></a></p>
 <p>Proceed to the next section to run through different IBM watsonx Assistant for Z client scenarios detailed in this demonstration guide.</p>
@@ -544,13 +625,13 @@
         
         
           
-          <a href="../NextSteps/" class="md-footer__link md-footer__link--next" aria-label="Next: Next steps">
+          <a href="../Setup/creatingAssistant-configuringConvoSearch/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating an Assistant and configuring conversational search">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Next steps
+                Creating an Assistant and configuring conversational search
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -587,6 +668,8 @@
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
