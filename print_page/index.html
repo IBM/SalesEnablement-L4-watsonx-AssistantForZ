@@ -590,7 +590,9 @@
 </ul>
 <p>For issues related to specific steps found in the demonstration guide after the <abbr title="IBM Technology Zone">ITZ</abbr> environment is provisioned, contact the authors:</p>
 <ul>
-<li>Slack: <a href="mailto:https://ibm.enterprise.slack.com/archives/C07ARLXF2R1" target="_blank">#watsonx-assistant-z-technical</a> - IBM only</li>
+<li>Slack: </li>
+<li><a href="https://ibm.enterprise.slack.com/archives/C07ARLXF2R1" target="_blank">#watsonx-assistant-z-technical</a> - IBM only</li>
+<li><a href="https://ibm.enterprise.slack.com/archives/C05B099DNG6" target="_blank">#wxo-practitioners</a> - IBM only - for questions related to the software as a service (SaaS) instance of watsonx Orchestrate</li>
 <li>Email: <a href="mailto:andrewj@us.ibm.com" target="_blank">andrewj@us.ibm.com</a></li>
 </ul>
 <p>Business Partners should use the IBM Training live Chat Support service or other support methods that are found on the IBM Training portal <a href="https://ibmcpsprod.service-now.com/its?id=sc_category&amp;sys_id=6568bfafdb2f13008ea7d6fa4b961990" target="_blank">here</a>.</p>
@@ -822,24 +824,75 @@
 </li>
 <li>
 <p>Complete the <strong>Personalize your assistant</strong> form and click <strong>Next</strong>.</p>
+<p>Explore the personalization options. When creating an assistant for a client pilot consider specifying attributes that align with the client's business.</p>
+<p><strong>a</strong>. Select <strong>Web</strong>.</p>
+<p><strong>b</strong>. Select the industry of your choice.</p>
+<p><strong>c</strong>. Select the role of your choice.</p>
+<p><strong>d</strong>. Select the need of your choice.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createAssistant2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createAssistant2.png"></a></p>
 </li>
-</ol>
-<!-- MAY WANT TO ADD INFO ON WHY THESE CHOICES OR HOW THEY ARE ACTUALLY USED DOWN THE ROAD -->
-
-<div class="highlight"><pre><span></span><code>**a**. Select **Web**.
-
-**b**. Select the industry of your choice.
-
-**c**. Select the role of your choice.
-
-**d**. Select the need of your choice.
-
-![](_attachments/createAssistant2.png)
-</code></pre></div>
-<ol start="8">
 <li>
 <p>Complete the <strong>Customize your chat UI</strong> form and click <strong>Next</strong>.</p>
-<p><a class="glightbox" href="../Setup/_attachments/Zeeves.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/Zeeves.png"></a></p>
+<p>Explore the customization options. When creating an assistant for a client pilot consider specifying attributes that align with the client (for example, colors and logos).</p>
+<p><a class="glightbox" href="../Setup/_attachments/createAssistant3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createAssistant3.png"></a></p>
+</li>
+<li>
+<p>Preview your assistant and then click <strong>Create</strong>.</p>
+<p><a class="glightbox" href="../Setup/creatingAssistant-configuringConvoSearch/_attachments_/createAssistant4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/creatingAssistant-configuringConvoSearch/_attachments_/createAssistant4.png"></a></p>
+</li>
+</ol>
+<p>At this point, the assistant has been created.</p>
+<p><a class="glightbox" href="../Setup/_attachments/assistantHomePage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/assistantHomePage.png"></a></p>
+<h2 id="setup-creatingassistant-configuringconvosearch-configure-conversational-search">Configure conversational search<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-configure-conversational-search" title="Permanent link">#</a></h2>
+<p>The next step will be to configure <strong>conversational search</strong> for your assistant using a hosted instance of OpenSearch.</p>
+<ol start="10">
+<li>
+<p>Click <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong> menu item (<a class="glightbox" href="../Setup/_attachments/GenAIIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/GenAIIcon.png"></a>) in the left navigation.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAIMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIMenu.png"></a></p>
+</li>
+<li>
+<p>Review the base large language model (<abbr title="Large language model">LLM</abbr>) settings.</p>
+<p>Notice the other <abbr title="Large language model">LLM</abbr> models available. For most pilots, the <strong>granite-3-8b-instruct</strong> model is appropriate.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAILLMdefaults.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAILLMdefaults.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set up your Search Integration</strong>.</p>
+<p>By default, conversational search is not enabled when an assistant is created. Conversational search will take priority over general-purpose answering if both are enabled. Learn more about conversational search in watsonx <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-conversational-search" target="_blank">here</a>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAILLMdefaults2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAILLMdefaults2.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom service</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISetupCS1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS1.png"></a></p>
+</li>
+<li>
+<p>Complete the <strong>Custom service</strong> form and then click <strong>Next</strong>.</p>
+<p><strong>a</strong>. Select <strong>By providing credentials</strong>.
+<strong>b</strong>. Enter the following value in the <strong>URL</strong> field (use the copy icon to avoid typographical errors).</p>
+<div class="highlight"><pre><span></span><code>```
+https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
+```
+</code></pre></div>
+<p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISetupCS2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS2.png"></a></p>
+</li>
+<li>
+<p>Enable <strong>conversational search</strong> and then click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISetupCS3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS3.png"></a></p>
+</li>
+<li>
+<p>Update the conversational search <strong>custom service</strong> settings based upon your requirements and click <strong>Save</strong>.</p>
+<p>Note: the <strong>Settings</strong> page is divided into two sections in the images below to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
+<p>The following settings have proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
+<p><strong>a</strong>. Enable <strong>Conversational search</strong>
+<strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-prem. Please be mindful in using this option and ensure the client understands what is currently supported today by the solution.
+<strong>c</strong>. Specify the text appears to expand the list of citations in the assistant (except web chat client).
+<strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.
+<strong>e</strong>. Select <strong>Verbose</strong> for the generated response length.This setting affects the average response length. Depending on user input, variations from the selected length may occur.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings1.png"></a></p>
+<p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.
+<strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <strong>Deploy a dedicated OpenSearch instance for document ingestion</strong> section. Leave the field empty for now.
+<strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2.png"></a></p>
 </li>
 </ol>
 <h2 id="setup-creatingassistant-configuringconvosearch-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-troubleshooting" title="Permanent link">#</a></h2>
