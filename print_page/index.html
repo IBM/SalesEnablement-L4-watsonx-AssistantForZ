@@ -866,12 +866,10 @@
 </li>
 <li>
 <p>Complete the <strong>Custom service</strong> form and then click <strong>Next</strong>.</p>
-<p><strong>a</strong>. Select <strong>By providing credentials</strong>.
-<strong>b</strong>. Enter the following value in the <strong>URL</strong> field (use the copy icon to avoid typographical errors).</p>
-<div class="highlight"><pre><span></span><code>```
-https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
-```
-</code></pre></div>
+<p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
+<p><strong>b</strong>. Enter the following value in the <strong>URL</strong> field (use the copy icon to avoid typographical errors).</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
+</span></code></pre></div>
 <p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISetupCS2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS2.png"></a></p>
 </li>
@@ -883,16 +881,17 @@ https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3
 <p>Update the conversational search <strong>custom service</strong> settings based upon your requirements and click <strong>Save</strong>.</p>
 <p>Note: the <strong>Settings</strong> page is divided into two sections in the images below to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
 <p>The following settings have proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
-<p><strong>a</strong>. Enable <strong>Conversational search</strong>
-<strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-prem. Please be mindful in using this option and ensure the client understands what is currently supported today by the solution.
-<strong>c</strong>. Specify the text appears to expand the list of citations in the assistant (except web chat client).
-<strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.
-<strong>e</strong>. Select <strong>Verbose</strong> for the generated response length.This setting affects the average response length. Depending on user input, variations from the selected length may occur.</p>
+<p><strong>a</strong>. Enable <strong>Conversational search</strong>.</p>
+<p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-prem. Please be mindful in using this option and ensure the client understands what is currently supported today by the solution.</p>
+<p><strong>c</strong>. Specify the text appears to expand the list of citations in the assistant (except web chat client).</p>
+<p><strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.</p>
+<p><strong>e</strong>. Select <strong>Verbose</strong> for the generated response length.This setting affects the average response length. Depending on user input, variations from the selected length may occur.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings1.png"></a></p>
-<p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.
-<strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <strong>Deploy a dedicated OpenSearch instance for document ingestion</strong> section. Leave the field empty for now.
-<strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.</p>
+<p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.</p>
+<p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <strong>Deploy a dedicated OpenSearch instance for document ingestion</strong> section. Leave the field empty for now.</p>
+<p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2.png"></a></p>
+<p>Be sure to click <strong>Save</strong> if you make changes.</p>
 </li>
 </ol>
 <h2 id="setup-creatingassistant-configuringconvosearch-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-troubleshooting" title="Permanent link">#</a></h2>
