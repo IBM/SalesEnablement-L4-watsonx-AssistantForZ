@@ -608,7 +608,7 @@
 <details class="tip">
 <summary>Viewing images</summary>
 <p>Images in the demonstration guide can be enlarged by clicking on the image. Press the <span class="keys"><kbd class="key-escape">Esc</kbd></span> key or click the <strong>X</strong> to dismiss the enlarged image.</p>
-<!-- <a class="glightbox" href="../_attachments/testImage2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/testImage2.png" /></a> -->
+<p><a class="glightbox" href="../_attachments/enlargeImages.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/enlargeImages.gif"></a></p>
 </details>
 <details class="tip">
 <summary>Image highlighting</summary>
@@ -650,7 +650,7 @@
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="techzoneenvironment"><div><h1 id="ibm-technology-zone-environment">IBM Technology Zone environment<a class="headerlink" href="#techzoneenvironment-ibm-technology-zone-environment" title="Permanent link">#</a></h1>
 <p>To enable sellers to both learn how to perform client pilots of IBM watsonx Assistant for Z, multiple environments have been created in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). The environments leveraged for the watsonx Assistant for Z Velocity lab environment can be found in the <a href="https://techzone.ibm.com/collection/ibm-watsonx-assistant-z" target="_blank">IBM watsonx Assistant for Z</a> collection and consist of:</p>
-<ol>
+<ul>
 <li>
 <p><strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for much of the assistant configuration, configuring conversational search, importing skills and configuring assistant actions</p>
 </li>
@@ -660,19 +660,17 @@
 <li>
 <p><strong>Single Node OpenShift with NFS storage</strong> – used to provision a single-node OpenShift cluster (SNO) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.</p>
 </li>
-</ol>
+</ul>
 <!-- Add architecture info here -->
 
 <p>While all 3 environments may not be required for a specific client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced badge, you will need to provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all the sections in the lab guide. Ignore any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding <strong>optional</strong> environment or tasks. </p>
 <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
 
 <p>Follow the instructions in this section to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments.</p>
-<!-- Directions below need to be updated to reflect all 3 environments and changed to use opportunity ID -->
-
 <h2 id="techzoneenvironment-create-a-reservation-request">Create a reservation request<a class="headerlink" href="#techzoneenvironment-create-a-reservation-request" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Click each of the following links to open a browser to the reservation pages of the <strong>IBM watsonx Assistant for Z</strong>.</p>
+<p>Click each of the links to open a browser to the reservation pages of the <strong>IBM watsonx Assistant for Z</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">You may be asked to authenticate to IBM Technology Zone</p>
 <p>The steps to authenticate to <abbr title="IBM Technology Zone">ITZ</abbr> are not detailed here as they may vary between users.</p>
@@ -720,7 +718,7 @@
 
 <h2 id="techzoneenvironment-extend-the-reservation">Extend the reservation<a class="headerlink" href="#techzoneenvironment-extend-the-reservation" title="Permanent link">#</a></h2>
 <p>During the provisioning process, multiple emails are sent to you from <abbr title="IBM Technology Zone">ITZ</abbr> as the provisioning process runs. One email states the reservation is provisioning and the other email states that the environment is <strong>Ready</strong>.</p>
-<p>In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision.</p>
+<p>In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. If issues continue, open an <abbr title="IBM Technology Zone">ITZ</abbr> support ticket using the methods mentioned in the <a href="#index.md-support">Support</a> section of this guide.</p>
 <p>When the reservations are in the <strong>Ready</strong> state, you can extend each reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions. Plan your time accordingly.</p>
 <ol start="4">
 <li>
@@ -744,7 +742,7 @@
 <div style="page-break-after: always;"></div>
 
 <h2 id="techzoneenvironment-join-the-itz-ibm-cloud-accounts">Join the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud accounts<a class="headerlink" href="#techzoneenvironment-join-the-itz-ibm-cloud-accounts" title="Permanent link">#</a></h2>
-<p>Both the <strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> and the <strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> environments include adding you to an IBM Cloud account. During the provisioning process of the <abbr title="IBM Technology Zone">ITZ</abbr> environments, you should have received two emails. In order to access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. </p>
+<p>Both the <strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> and the <strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> environments include adding you to an IBM Cloud account while your reservation is active. During the provisioning process of the <abbr title="IBM Technology Zone">ITZ</abbr> environments, you should receive two emails. In order to access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. </p>
 <ol start="7">
 <li>
 <p>Open the emails from <strong>IBM Cloud</strong> and click the <strong>Join now</strong> links.</p>
@@ -792,6 +790,16 @@
 <p>This section will cover how to begin using <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create a new assistant for watsonx Assistant for Z and configure conversational search. You will be able to configure your assistant to use conversational search using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) in which the Large Language Model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> is augmented by this knowledge based on IBM Z documentation. All of which helps create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
 <!-- Note: In this section, you can test setting up conversational search using a hosted OpenSearch instance in ITZ. If you would like to support a use case in which you’re able to ingest your own documentation in addition to the pre-packaged IBM Z Documentation, you will need to leverage Bring Your Own Search (BYOS). The following section after this is optional and provides guidance on how to do this, i.e. deploying your own OpenSearch instance on an OCP cluster. The instance will have the pre-installed IBM Z documentation along with a data ingestion service that you can use to load your own documents. You will then be able to configure watsonx Assistant for Z and its search parameters to fetch content from these documents. -->
 
+<h2 id="setup-creatingassistant-configuringconvosearch-create-your-assistant">Create your Assistant<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-create-your-assistant" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>If not already open, click the link below to open a browser to the IBM Cloud portal and authenticate using your email address.</p>
+<p><a href="../Setup/creatingAssistant-configuringConvoSearch/cloud.ibm.com" target="_blank"><strong>IBM Cloud portal</strong></a></p>
+</li>
+<li>
+<p>Click the account menu and select the 2701257 - itz-watsonx-3 account.</p>
+</li>
+</ol>
 <h2 id="setup-creatingassistant-configuringconvosearch-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="#index-support">Support</a> section of this guide.</p>
 <details class="failure">
