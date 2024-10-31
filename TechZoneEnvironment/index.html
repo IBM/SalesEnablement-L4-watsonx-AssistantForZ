@@ -471,7 +471,7 @@
 </ol>
 <!-- Add architecture info here -->
 
-<p>While all 3 environments may not be required for a specific client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced, you will need to provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all the sections in the lab guide. Ignore any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding <strong>optional</strong> environment or tasks. All tasks in this lab guide are required to complete the requirements for the IBM watsonx Assistant for Z Technical Sales Advanced</p>
+<p>While all 3 environments may not be required for a specific client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced badge, you will need to provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all the sections in the lab guide. Ignore any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding <strong>optional</strong> environment or tasks. </p>
 <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
 
 <p>Follow the instructions in this section to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments.</p>
@@ -502,6 +502,7 @@
 </li>
 <li>
 <p>Complete the reservation request and click <strong>Submit</strong>.</p>
+<p>The first two reservations will be similar to the first image below and and have fields <strong>a</strong>-<strong>e</strong> that will need to be completed.</p>
 <p><strong>a</strong>. Optionally, change the <strong>Name</strong> field for the reservation.</p>
 <p><strong>b</strong>. Select the <strong>Education</strong> purpose tile.</p>
 <p><strong>c</strong>. Enter a <strong>Purpose description</strong>.</p>
@@ -510,6 +511,17 @@
 <p><strong>f</strong>. Accept the IBM Technology Zone's terms and conditions and security policies.</p>
 <p><strong>g</strong>. When satisfied with the parameters, click <strong>Submit</strong>.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReservationPage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage.png"></a></p>
+<p>In addition to the above fields, the reservation for the <strong>Single Node OpenShift with NFS storage</strong> will have these additional fields:</p>
+<p><strong>h</strong>. Leave the default setting of <strong>10.128.0.0/14</strong>.</p>
+<p><strong>i</strong>. Leave the default setting of <strong>No</strong>.</p>
+<p><strong>j</strong>. Select <strong>16 vCPU x 64 GB - 300 GB ephemeral storage</strong> in the <strong>Master Single Node Flavor</strong> pull-down menu.</p>
+<p><strong>k</strong>. Select <strong>4.14</strong> in the <strong>OpenShift Version</strong> pull-down menu.</p>
+<p><strong>l</strong>. Leave the default setting of <strong>172.30.0.0/16</strong>.</p>
+<details class="warning">
+<summary>If your reservation for the Single Node OpenShift environment fails...</summary>
+<p>If your reservation for the Single Node OpenShift environment fails, try selecting one of the <strong>eu-gb region</strong> options as the <strong>Preferred Geography</strong>.</p>
+</details>
+<p><a class="glightbox" href="../_attachments/itzRSVPReservationPage2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage2.png"></a></p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
@@ -539,6 +551,43 @@
 <p>If you anticipate needing more time, repeat Steps 5 and 6 to extend the reservation to the maximum of 6 days.</p>
 <div style="page-break-after: always;"></div>
 
+<h2 id="join-the-itz-ibm-cloud-accounts">Join the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud accounts<a class="headerlink" href="#join-the-itz-ibm-cloud-accounts" title="Permanent link">#</a></h2>
+<p>Both the <strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> and the <strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> environments include adding you to an IBM Cloud account. During the provisioning process of the <abbr title="IBM Technology Zone">ITZ</abbr> environments, you should have received two emails. In order to access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. </p>
+<ol start="7">
+<li>
+<p>Open the emails from <strong>IBM Cloud</strong> and click the <strong>Join now</strong> links.</p>
+<p><a class="glightbox" href="../_attachments/itzJoinCloudEmail.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzJoinCloudEmail.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Join IBM Cloud</strong> browser windows that open, select the <strong>I accept the product Terms and Conditions of this registration form, and then click </strong>Join Account**.</p>
+<p><a class="glightbox" href="../_attachments/itzJoinCloud.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzJoinCloud.png"></a></p>
+</li>
+</ol>
+<p><strong>Repeat steps 7 and 8 for the second invitation.</strong></p>
+<p>After joining both accounts, verify both accounts appear in your available account list in the IBM Cloud portal.</p>
+<ol start="9">
+<li>
+<p>Click the link below to open a browser to the IBM Cloud Portal.</p>
+<p><a href="cloud.ibm.com" target="_blank"><strong>IBM Cloud portal</strong></a></p>
+</li>
+<li>
+<p>Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to <abbr title="IBM Technology Zone">ITZ</abbr>. The login steps may very depending on any two-factor authentication methods enabled. </p>
+<p><a class="glightbox" href="../_attachments/itzCloudLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudLogin.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>account</strong> menu and verify access to the two IBM Cloud accounts: <strong>2701257 - itz-watsonx-3</strong> and <strong>2628583 - itz-shared-z</strong></p>
+<div class="admonition important">
+<p class="admonition-title">These accounts may change within <abbr title="IBM Technology Zone">ITZ</abbr>.</p>
+<p>Over time, the accounts may change for the environments. The accounts names should align with the accounts named in the invitation emails you received. </p>
+</div>
+<p><a class="glightbox" href="../_attachments/itzCloudAccountsVerify.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudAccountsVerify.png"></a></p>
+<details class="tip">
+<summary>Does your IBM Cloud portal view look different?</summary>
+<p>If your IBM Cloud portal looks different from the images above, it could be because the IBM Cloud portal has done through a design change, or your browser window is set to smaller size. Instead of the current selected account appearing in the top menu, you may see this <strong>change account</strong> icon: <a class="glightbox" href="../_attachments/itzCloudChangeAccountIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudChangeAccountIcon.png"></a>. Click this icon to view the list of accounts you can access.</p>
+<p><a class="glightbox" href="../_attachments/itzCloudChangeAccountIconBig.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudChangeAccountIconBig.png"></a></p>
+</details>
+</li>
+</ol>
 <h2 id="accessing-the-environments">Accessing the environments<a class="headerlink" href="#accessing-the-environments" title="Permanent link">#</a></h2>
 <p>Each reservation provides access to its respective environment. Details for accessing each environment are provided in the <strong>Pilot setup</strong> sections that follow in the lab guide.</p>
 <p>Proceed to the next section to perform the pilot setup steps.</p>
