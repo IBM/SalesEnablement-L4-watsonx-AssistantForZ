@@ -1327,6 +1327,37 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#setup-documentingestion-__codelineno-8-12"></a>  - icr-pull-secret
 </span></code></pre></div>
 </li>
+<li>
+<p>Create your document catalog in the OpenShift operator.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#setup-documentingestion-__codelineno-9-1"></a>oc apply -f catalogSource.yaml
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/createCatalog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createCatalog.png"></a></p>
+</li>
+<li>
+<p>In the OpenShift web console, click <strong>OperatorHub</strong> and select the <strong>wxa4z-byos</strong> project.</p>
+<p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator0.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>ibm watsonx</strong> in the search field and the click the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Install</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator2.png"></a></p>
+</li>
+<li>
+<p>Select <strong>A specific namespace on the cluster</strong> under <strong>Installation mode</strong> and <strong>wxa4z-byos</strong> for the <strong>Installed Namespace</strong>, then click <strong>Install</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator3.png"></a></p>
+<p>The install process will take a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator4.png"></a></p>
+</li>
+<li>
+<p>In your command prompt or terminal window, run the following commands to add the container registry credential to the operator's service account.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#setup-documentingestion-__codelineno-10-1"></a>oc project wxa4z-byos
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#setup-documentingestion-__codelineno-11-1"></a>oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
+</span></code></pre></div>
+</li>
 </ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
