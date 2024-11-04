@@ -6,6 +6,7 @@
 *[APARs]: Authorized Program Analysis Report
 *[APF]: Authorized Program Facility
 *[CICS]: Custom Information Control System
+*[CLI]: Command Line Interface
 *[GMTRAN]: System initialization parameter specifying the ID of a transaction
 *[HIPER]: HIghly PERvasive
 *[HIPERs]: HIghly PERvasive
@@ -26,6 +27,7 @@
 *[REXX]: Restructured Extended Executor
 *[SDSF]: System Display and Search Facility
 *[SMF]: System Management Facility
+*[SNO]: Single-node Red Hat OpenShift
 *[SSL]: Secure Sockets Layer 
 *[sysprog]: Systems programmer
 *[zparm]: Subsystem parameter

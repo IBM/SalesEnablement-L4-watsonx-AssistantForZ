@@ -379,6 +379,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/documentIngestion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document ingestion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -462,6 +483,15 @@
   <a href="#setup-creatingassistant-configuringconvosearch" class="md-nav__link">
     <span class="md-ellipsis">
       Creating an Assistant and configuring conversational search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-documentingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document ingestion
     </span>
   </a>
   
@@ -660,7 +690,7 @@
 <p><strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> – a pattern used to deploy a pre-configured instance of <abbr title="Ansible Automation Platform">AAP</abbr> and Wazi z/<abbr title="Operating System">OS</abbr> with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section. To learn more about <abbr title="Ansible Automation Platform">AAP</abbr>, go <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. To learn more about Wazi, go <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.</p>
 </li>
 <li>
-<p><strong>Single Node OpenShift with NFS storage</strong> – used to provision a single-node OpenShift cluster (SNO) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.</p>
+<p><strong>Single Node OpenShift with NFS storage</strong> – used to provision a single-node OpenShift cluster (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.</p>
 </li>
 </ul>
 <!-- Add architecture info here -->
@@ -1087,6 +1117,143 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </li>
 </ul>
 </details>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-documentingestion"><div><h1 id="document-ingestion">Document ingestion<a class="headerlink" href="#setup-documentingestion-document-ingestion" title="Permanent link">#</a></h1>
+<p>This section will cover how to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. This requires deploying a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. </p>
+<p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not already reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
+<a href="#techzoneenvironment">IBM Technology Zone environment</a> section to complete the reservation.</p>
+<h2 id="setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command line interface utility<a class="headerlink" href="#setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
+<p>The Red Hat OpenShift command line interface (<abbr title="Command Line Interface">CLI</abbr>) utility, known as <strong>oc</strong>, must be installed on your local machine. If you already have the <strong>oc</strong> utility installed, you can proceed to <a href="#setup-documentingestion-Log%20in%20to%20the%20SNO%20cluster">Log into the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> cluster</a>.</p>
+<ol>
+<li>
+<p>Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
+<p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</a></p>
+</li>
+<li>
+<p>Click the <strong>Single Node OpenShift</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzMyReservations.png"></a></p>
+</li>
+<li>
+<p>Scroll to the bottom of the reservation page and record the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOIdPw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOIdPw.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>OCP Console</strong> link.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLink.png"></a></p>
+</li>
+<li>
+<p>Enter the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong> values from step 3 and click <strong>Log in</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLogin.png"></a></p>
+</li>
+<li>
+<p>Click the help (<a class="glightbox" href="../Setup/_attachments/ocpHelpIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocpHelpIcon.png"></a>) and then click <strong>Command Line Tools</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPHelp.png"></a></p>
+</li>
+<li>
+<p>Click the link under <strong>oc - OpenShift Command Line Interface (<abbr title="Command Line Interface">CLI</abbr>)</strong> for the operating system of your local machine.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOoCPDownload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOoCPDownload.png"></a></p>
+</li>
+</ol>
+<p>Clicking the above link will automatically download either a <strong>zip</strong> or <strong>tar</strong> file specific to your operating system. You should unzip or un-tar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. Since this will vary by operating system and individual settings, details for doing this are not provided. </p>
+<p>Once properly installed, verify the installation by running the <strong>oc</strong> command in a terminal on your local machine.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-documentingestion-__codelineno-0-1"></a>oc --help
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/ocHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocHelp.png"></a></p>
+<h2 id="setup-documentingestion-prepare-to-ingest-documents">Prepare to ingest documents<a class="headerlink" href="#setup-documentingestion-prepare-to-ingest-documents" title="Permanent link">#</a></h2>
+<p>Before ingesting documents, a few setup steps must be taken.</p>
+<h3 id="setup-documentingestion-login-to-the-openshift-cluster-from-your-local-machine">Login to the OpenShift cluster from your local machine<a class="headerlink" href="#setup-documentingestion-login-to-the-openshift-cluster-from-your-local-machine" title="Permanent link">#</a></h3>
+<p>Note, the next 5 steps are the same as the previous instructions.</p>
+<ol>
+<li>
+<p>Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
+<p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</a></p>
+</li>
+<li>
+<p>Click the <strong>Single Node OpenShift</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzMyReservations.png"></a></p>
+</li>
+<li>
+<p>Scroll to the bottom of the reservation page and record the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOIdPw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOIdPw.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>OCP Console</strong> link.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLink.png"></a></p>
+</li>
+<li>
+<p>Enter the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong> values from step 3 and click <strong>Log in</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLogin.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>kube:admin</strong> profile drop-down and click <strong>Copy login command</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPProfile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPProfile.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Display Token</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLoginCommand1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLoginCommand1.png"></a></p>
+</li>
+<li>
+<p>Select and copy the <strong>Log in with this token</strong> string.</p>
+<p>The steps to select and copy the value may differ by operating system, but for most, you should be able to double-click the value and then right click and select <strong>Copy</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLoginCommand2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLoginCommand2.png"></a></p>
+</li>
+<li>
+<p>Open a command prompt or terminal window on your local machine.</p>
+</li>
+<li>
+<p>Paste the login command line in the terminal window and press <strong>enter</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLoginCommand3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLoginCommand3.png"></a></p>
+</li>
+</ol>
+<h3 id="setup-documentingestion-create-a-working-directory">Create a working directory<a class="headerlink" href="#setup-documentingestion-create-a-working-directory" title="Permanent link">#</a></h3>
+<ol start="11">
+<li>
+<p>Create a directory that will be used to store the configuration files that will be created in the next steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Instructions may vary by your local machines operating system</p>
+<p>The directions that follow may vary depending on your operating system. The examples provided are based upon MacOS.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-documentingestion-__codelineno-1-1"></a>mkdir watsonxAssistant
+</span></code></pre></div>
+</li>
+<li>
+<p>Change to the new directory.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-documentingestion-__codelineno-2-1"></a>cd watsonxAssistant
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/SNOOCPLoginCommand4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLoginCommand4.png"></a></p>
+</li>
+</ol>
+<h3 id="setup-documentingestion-install-ibm-certificate-manager-on-openshift">Install IBM Certificate Manager on OpenShift<a class="headerlink" href="#setup-documentingestion-install-ibm-certificate-manager-on-openshift" title="Permanent link">#</a></h3>
+<ol start="13">
+<li>
+<p>Create a file named <strong>catalogCertManager.yaml</strong> using a text editor and paste the following text into the file.</p>
+<div class="admonition important">
+<p class="admonition-title">Formatting of the yaml file is critical!</p>
+<p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-documentingestion-__codelineno-3-1"></a>apiVersion: operators.coreos.com/v1alpha1 
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#setup-documentingestion-__codelineno-3-2"></a>kind: CatalogSource 
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#setup-documentingestion-__codelineno-3-3"></a>metadata: 
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#setup-documentingestion-__codelineno-3-4"></a>  name: ibm-cert-manager-catalog 
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#setup-documentingestion-__codelineno-3-5"></a>  namespace: openshift-marketplace 
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#setup-documentingestion-__codelineno-3-6"></a>spec: 
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#setup-documentingestion-__codelineno-3-7"></a>  displayName: ibm-cert-manager-4.2.7 
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#setup-documentingestion-__codelineno-3-8"></a>  grpcPodConfig: 
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#setup-documentingestion-__codelineno-3-9"></a>    securityContextConfig: restricted 
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#setup-documentingestion-__codelineno-3-10"></a>  image: icr.io/cpopen/ibm-cert-manager-operator-catalog@sha256:4dcf4ace4b5f166f83b31063f7e6404dbf78d8e98a9d4fcf52fedf576a55ca6c 
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#setup-documentingestion-__codelineno-3-11"></a>  publisher: IBM 
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#setup-documentingestion-__codelineno-3-12"></a>  sourceType: grpc 
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#setup-documentingestion-__codelineno-3-13"></a>  updateStrategy: 
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#setup-documentingestion-__codelineno-3-14"></a>    registryPoll: 
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#setup-documentingestion-__codelineno-3-15"></a>      interval: 30m0s
+</span></code></pre></div>
+</li>
+<li>
+<p>Install the IBM Certificate Manager operator in the OpenShift cluster.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-documentingestion-__codelineno-4-1"></a>oc apply -f catalogCertManager.yaml
+</span></code></pre></div>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
 <p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
