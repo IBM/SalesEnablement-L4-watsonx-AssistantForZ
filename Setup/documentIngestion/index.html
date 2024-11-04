@@ -621,7 +621,7 @@
 </li>
 <li>
 <p>Click the <strong>Project</strong> to pull-down menu and click the <strong>Show default projects</strong> toggle.</p>
-<p><a class="glightbox" href="_attachments/SNOOCPOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/SNOOCPOperator1.png"></a></p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator1.png"></a></p>
 </li>
 <li>
 <p>Scroll down and select <strong>openshift-marketplace</strong>.</p>
@@ -666,7 +666,26 @@
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
 </span></code></pre></div>
-<p><a class="glightbox" href="_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/createPullSecret.png"></a></p>
+<p><a class="glightbox" href="../_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createPullSecret.png"></a></p>
+</li>
+<li>
+<p>Create a file called <strong>catalogSource.yaml</strong> with the follow content.</p>
+<div class="admonition important">
+<p class="admonition-title">Formatting of the yaml file is critical!</p>
+<p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>apiVersion: operators.coreos.com/v1alpha1 
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>kind: CatalogSource 
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>metadata: 
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  name: ibm-wxa4z-operator-catalog 
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  namespace: wxa4z-byos 
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>spec: 
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  displayName: "IBM watsonx Assistant for Z Operator Catalog" 
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.1@sha256:bc4101ceea397e78adaec8b59f6d36c4f79d2a4492bbec21214bfc1b12cfc060 
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  publisher: 'IBM' 
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  sourceType: grpc 
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>  secrets: - icr-pull-secret
+</span></code></pre></div>
 </li>
 </ol>
 <!-- Terminology -->
