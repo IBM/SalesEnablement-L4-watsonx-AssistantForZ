@@ -613,6 +613,60 @@
 <p>Install the IBM Certificate Manager operator in the OpenShift cluster.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc apply -f catalogCertManager.yaml
 </span></code></pre></div>
+<p>The above command should return a message stating the <strong>ibm-cert-manager-catalog</strong> was created.</p>
+</li>
+<li>
+<p>In the OpenShift web console, click <strong>Operators</strong> and select <strong>OperatorHub</strong>.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Project</strong> to pull-down menu and click the <strong>Show default projects</strong> toggle.</p>
+<p><a class="glightbox" href="_attachments/SNOOCPOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/SNOOCPOperator1.png"></a></p>
+</li>
+<li>
+<p>Scroll down and select <strong>openshift-marketplace</strong>.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator2.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>IBM Cert Manager</strong> in the search field and then click the <strong>IBM Cert Manager</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator3.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Install</strong>.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator4.png"></a></p>
+</li>
+<li>
+<p>Keep the default settings and click <strong>Install</strong>.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator5.png"></a></p>
+<p>The install process will take a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p><a class="glightbox" href="../_attachments/SNOOCPOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator6.png"></a></p>
+</li>
+</ol>
+<h3 id="install-the-watsonx-assistant-for-z-operator-for-opensearch">Install the watsonx Assistant for Z Operator (for OpenSearch)<a class="headerlink" href="#install-the-watsonx-assistant-for-z-operator-for-opensearch" title="Permanent link">#</a></h3>
+<ol start="21">
+<li>
+<p>In your command prompt or terminal window, create a new namespace called <strong>wxa4z-byos</strong> in the OpenShift cluster.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc create namespace wxa4z-byos 
+</span></code></pre></div>
+</li>
+<li>
+<p>Create a <strong>production entitlement key</strong>.</p>
+<p>A <strong>production entitlement key</strong> is required to pull the container images that get deployed by the operator.</p>
+<p>To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key.</p>
+<p>Once you locate your existing key or create a new key continue to the next step.</p>
+</li>
+<li>
+<p>Copy the <strong>production entitlement key</strong>.</p>
+<p><a class="glightbox" href="../_attachments/copyEntitlementKey.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/copyEntitlementKey.png"></a></p>
+</li>
+<li>
+<p>Using the command below in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the container registry.</p>
+<p>Substitute your <strong>production entitlement key</strong> for the "<entitlement key>" string.</entitlement></p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
+</span></code></pre></div>
+<p><a class="glightbox" href="_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/createPullSecret.png"></a></p>
 </li>
 </ol>
 <!-- Terminology -->
