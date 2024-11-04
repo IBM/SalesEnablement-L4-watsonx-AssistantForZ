@@ -8,7 +8,7 @@ This section will cover how to begin using [watsonx Orchestrate](https://www.ibm
 
     <a href="cloud.ibm.com" target="_blank">**IBM Cloud portal**</a>
 
-2. Click the account menu and select the {{itz.account1}} account.
+2. Click the account menu and select the **{{itz.account1}}** account.
 
     ![](_attachments/itzCloudSwitchAccounts.png)
 
@@ -34,7 +34,7 @@ This section will cover how to begin using [watsonx Orchestrate](https://www.ibm
 
 7. Complete the **Personalize your assistant** form and click **Next**.
 
-<!-- MAY WANT TO ADD INFO ON WHY THESE CHOICES OR HOW THEY ARE ACTUALLY USED DOWN THE ROAD -->
+    Explore the personalization options. When creating an assistant for a client pilot consider specifying attributes that align with the client's business.
 
     **a**. Select **Web**.
 
@@ -48,12 +48,152 @@ This section will cover how to begin using [watsonx Orchestrate](https://www.ibm
 
 8. Complete the **Customize your chat UI** form and click **Next**.
 
-    ![](_attachments/Zeeves.png)
+    Explore the customization options. When creating an assistant for a client pilot consider specifying attributes that align with the client (for example, colors and logos).
 
+    ![](_attachments/createAssistant3.png)
+
+9. Preview your assistant and then click **Create**.
+
+    ![](_attachments/createAssistant4.png)
+
+At this point, the assistant has been created.
+
+![](_attachments/assistantHomePage.png)
+## Configure conversational search
+The next step will be to configure **conversational search** for your assistant using a hosted instance of OpenSearch.
+
+10. Click **Generative AI** menu item (![](_attachments/GenAIIcon.png)) in the left navigation.
+
+    ![](_attachments/genAIMenu.png)
+
+11. Review the base large language model (LLM) settings.
+
+    Notice the other LLM models available. For most pilots, the **granite-3-8b-instruct** model is appropriate.
+
+    ![](_attachments/genAILLMdefaults.png)
+
+12. Click **Set up your Search Integration**.
+
+    By default, conversational search is not enabled when an assistant is created. Conversational search will take priority over general-purpose answering if both are enabled. Learn more about conversational search in watsonx <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-conversational-search" target="_blank">here</a>.
+
+    ![](_attachments/genAILLMdefaults2.png)
+
+13. Click **Custom service**.
+
+    ![](_attachments/genAISetupCS1.png)
+
+14. Complete the **Custom service** form and then click **Next**.
+
+    **a**. Select **By providing credentials**.
+
+    **b**. Enter the following value in the **URL** field (use the copy icon to avoid typographical errors).
+    ```
+    {{itz.hostedOpenSearchInstance}}
+    ```
+
+    **c**. Select **None** in the **Choose an authentication type** drop-down list.
+
+    ![](_attachments/genAISetupCS2.png)
+
+15. Enable **conversational search** and then click **Save**.
+
+    ![](_attachments/genAISetupCS3.png)
+       
+16. Update the conversational search **custom service** settings based upon your requirements.
+
+    Note: the **Settings** page is divided into two sections in the images below to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.
+
+    The following settings have proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.
+
+    **a**. Enable **Conversational search**.
+
+    **b**. Select **Single turn**. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-prem. Please be mindful in using this option and ensure the client understands what is currently supported today by the solution.
     
+    **c**. Specify the text appears to expand the list of citations in the assistant (except web chat client).
 
+    **d**. Select **Rarely** for the tendency to say "I don't know" setting.
 
+    **e**. Select **Verbose** for the generated response length.This setting affects the average response length. Depending on user input, variations from the selected length may occur.
 
+    ![](_attachments/genAISettings1.png)
+
+    **f**. Leave the **Default filter** field empty.
+
+    **g**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the **Deploy a dedicated OpenSearch instance for document ingestion** section. Leave the field empty for now.
+
+    **h**. The **Search display text** options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.
+
+    ![](_attachments/genAISettings2.png)
+
+17. Click **Save** and then click **Close**.
+
+    ![](_attachments/genAISettings3.png)
+## Additional configuration
+Once you have saved and closed the **Conversational search** configuration page, there are a few more configurations needed to get the best experience from your conversational chat. Details on these settings are available <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0?topic=cluster-configuring-your-assistant-use-byos" target="_blank">here</a>.
+
+18. Hover over the **Generative AI** icon (![](_attachments/GenAIIcon.png)) in left navigation and click **Actions**.
+
+    ![](_attachments/genAIActionsMenu.png)
+
+19. Click **Set by assistant** under the **All items** menu.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu.png)
+
+20. Click **no matches**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu2.png)
+
+21. Click **Step 1** under **Conversation steps**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu3.png)
+
+22. Select (**a**) **without conditions** in the **Is taken** drop-down menu and then click (**b**) **Clear conditions**.
+
+    Note, the **Is taken** value does not change from **with conditions** after selecting **without conditions**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu4.png)
+
+23. Delete the default text in the **Assistant says** entry field.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu5.png)
+
+24. Select **Search for the answer** in the **And then** drop-down menu.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu6.png)
+
+25. Click **Edit settings**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu7.png)
+
+26. Select **End the actions after returning results** and then click **Apply**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu8.png)
+
+27. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
+
+    ![](_attachments/genAIActionsSetByAssistantMenu9.png)
+
+28. Click **Delete** in the confirmation dialog to delete step 2.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu10.png)
+
+29. Click the **x** to close the **Editor** window.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu11.png)
+
+30. Click **Fallback** in the **Actions** table.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu12.png)
+
+31. Delete **all** of the **Conversation steps**.
+
+    Note: the image below has been edited. Only 5 steps are show, but all 6 need to be deleted. You will need to select each step individually, click the delete icon (![](_attachments/deleteIcon.png)), and confirm the deletion.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu13.png)
+
+32. Verify all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu14.png)
 
 ## Troubleshooting
 
@@ -63,7 +203,7 @@ The following are issues you may encounter. If the provided resolutions do not w
 
     This Assistant is unable to connect to the custom service URL specified. This could be a network issue, the service may be down, the service may be restarting, or the service is no longer running at that URL.
 
-    Before reaching out to support, try the following:
+    Before reaching out to [Support](../index.md#support), try the following:
 
     - Wait a few minutes and try again. It may be the service was in the process of restarting.
         

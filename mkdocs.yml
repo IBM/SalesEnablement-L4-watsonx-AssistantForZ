@@ -129,6 +129,9 @@ extra:
   supportSlack: 
     name: "#watsonx-assistant-z-technical"
     url: "https://ibm.enterprise.slack.com/archives/C07ARLXF2R1"
+  wxoSupportSlack:
+    name: "#wxo-practitioners"
+    url: "https://ibm.enterprise.slack.com/archives/C05B099DNG6"
   gitRepo: "https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ"
   learningplan:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 4"

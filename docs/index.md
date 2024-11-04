@@ -41,7 +41,9 @@ For issues with provisioning the ITZ environment for this lab (for example, a fa
 
 For issues related to specific steps found in the demonstration guide after the ITZ environment is provisioned, contact the authors:
 
-- Slack: <a href="mailto:{{supportSlack.url}}" target="_blank">{{supportSlack.name}}</a> - IBM only
+- Slack: 
+  - <a href="{{supportSlack.url}}" target="_blank">{{supportSlack.name}}</a> - IBM only
+  - <a href="{{wxoSupportSlack.url}}" target="_blank">{{wxoSupportSlack.name}}</a> - IBM only - for questions related to the software as a service (SaaS) instance of watsonx Orchestrate
 - Email: <a href="mailto:{{supportEmail}}" target="_blank">{{supportEmail}}</a>
 
 Business Partners should use the IBM Training live Chat Support service or other support methods that are found on the IBM Training portal <a href="https://ibmcpsprod.service-now.com/its?id=sc_category&sys_id=6568bfafdb2f13008ea7d6fa4b961990" target="_blank">here</a>.
