@@ -1300,7 +1300,7 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </li>
 <li>
 <p>Using the command below in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the container registry.</p>
-<p>Substitute your <strong>production entitlement key</strong> for the "<entitlement key>" string.</entitlement></p>
+<p>Substitute your <strong>production entitlement key</strong> for the "\&lt;entitlement key&gt;" string.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-documentingestion-__codelineno-6-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-documentingestion-__codelineno-7-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
