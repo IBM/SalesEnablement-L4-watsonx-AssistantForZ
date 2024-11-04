@@ -548,7 +548,7 @@
 <p><a class="glightbox" href="../_attachments/genAISetupCS3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISetupCS3.png"></a></p>
 </li>
 <li>
-<p>Update the conversational search <strong>custom service</strong> settings based upon your requirements and click <strong>Save</strong>.</p>
+<p>Update the conversational search <strong>custom service</strong> settings based upon your requirements.</p>
 <p>Note: the <strong>Settings</strong> page is divided into two sections in the images below to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
 <p>The following settings have proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
 <p><strong>a</strong>. Enable <strong>Conversational search</strong>.</p>
@@ -561,7 +561,76 @@
 <p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <strong>Deploy a dedicated OpenSearch instance for document ingestion</strong> section. Leave the field empty for now.</p>
 <p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.</p>
 <p><a class="glightbox" href="../_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2.png"></a></p>
-<p>Be sure to click <strong>Save</strong> if you make changes.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong> and then click <strong>Close</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAISettings3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings3.png"></a></p>
+</li>
+</ol>
+<h2 id="additional-configuration">Additional configuration<a class="headerlink" href="#additional-configuration" title="Permanent link">#</a></h2>
+<p>Once you have saved and closed the <strong>Conversational search</strong> configuration page, there are a few more configurations needed to get the best experience from your conversational chat. Details on these settings are available <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0?topic=cluster-configuring-your-assistant-use-byos" target="_blank">here</a>.</p>
+<ol start="18">
+<li>
+<p>Hover over the <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong> icon (<a class="glightbox" href="../_attachments/GenAIIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/GenAIIcon.png"></a>) in left navigation and click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsMenu.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set by assistant</strong> under the <strong>All items</strong> menu.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu.png"></a></p>
+</li>
+<li>
+<p>Click <strong>no matches</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu2.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Step 1</strong> under <strong>Conversation steps</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu3.png"></a></p>
+</li>
+<li>
+<p>Select (<strong>a</strong>) <strong>without conditions</strong> in the <strong>Is taken</strong> drop-down menu and then click (<strong>b</strong>) <strong>Clear conditions</strong>.</p>
+<p>Note, the <strong>Is taken</strong> value does not change from <strong>with conditions</strong> after selecting <strong>without conditions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu4.png"></a></p>
+</li>
+<li>
+<p>Delete the default text in the <strong>Assistant says</strong> entry field.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu5.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Search for the answer</strong> in the <strong>And then</strong> drop-down menu.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu6.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit settings</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu7.png"></a></p>
+</li>
+<li>
+<p>Select <strong>End the actions after returning results</strong> and then click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu8.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Step 2</strong> (<strong>No matches count</strong>) under <strong>Conversation steps</strong> and click the delete icon (<a class="glightbox" href="../_attachments/deleteIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/deleteIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu9.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Delete</strong> in the confirmation dialog to delete step 2.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu10.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>x</strong> to close the <strong>Editor</strong> window.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu11.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Fallback</strong> in the <strong>Actions</strong> table.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu12.png"></a></p>
+</li>
+<li>
+<p>Delete <strong>all</strong> of the <strong>Conversation steps</strong>.</p>
+<p>Note: the image below has been edited. Only 5 steps are show, but all 6 need to be deleted. You will need to select each step individually, click the delete icon (<a class="glightbox" href="_attachmetns/deleteIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachmetns/deleteIcon.png"></a>), and confirm the deletion.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu13.png"></a></p>
+</li>
+<li>
+<p>Verify all <strong>Conversation steps</strong> are deleted and then click the <strong>x</strong> to close the <strong>Editor</strong> window.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu14.png"></a></p>
 </li>
 </ol>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
