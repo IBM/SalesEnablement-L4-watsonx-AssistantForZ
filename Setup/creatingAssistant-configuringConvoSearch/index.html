@@ -481,18 +481,36 @@
 
 <div><h1 id="creating-an-assistant-configuring-conversational-search">Creating an Assistant &amp; configuring conversational search<a class="headerlink" href="#creating-an-assistant-configuring-conversational-search" title="Permanent link">#</a></h1>
 <p>This section will cover how to begin using <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create a new assistant for watsonx Assistant for Z and configure conversational search. You will be able to configure your assistant to use conversational search using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) in which the Large Language Model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> is augmented by this knowledge based on IBM Z documentation. All of which helps create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
-<!-- Note: In this section, you can test setting up conversational search using a hosted OpenSearch instance in ITZ. If you would like to support a use case in which you’re able to ingest your own documentation in addition to the pre-packaged IBM Z Documentation, you will need to leverage Bring Your Own Search (BYOS). The following section after this is optional and provides guidance on how to do this, i.e. deploying your own OpenSearch instance on an OCP cluster. The instance will have the pre-installed IBM Z documentation along with a data ingestion service that you can use to load your own documents. You will then be able to configure watsonx Assistant for Z and its search parameters to fetch content from these documents. -->
-
-<h2 id="create-your-assistant">Create your Assistant<a class="headerlink" href="#create-your-assistant" title="Permanent link">#</a></h2>
+<h2 id="access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment">Access the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud account for the watsonx Assistant for Z Pilot environment<a class="headerlink" href="#access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>If not already open, click the link below to open a browser to the IBM Cloud portal and authenticate using your email address.</p>
-<p><a href="cloud.ibm.com" target="_blank"><strong>IBM Cloud portal</strong></a></p>
+<p>In the IBM Technology Zone portal, expand <strong>My TechZone</strong> at the top and select <strong>My Reservations</strong>.</p>
+<p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</strong></a></p>
+<p><a class="glightbox" href="../_attachments/itzMyReservations0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations0.png"></a></p>
 </li>
 <li>
-<p>Click the account menu and select the <strong>2701257 - itz-watsonx-3</strong> account.</p>
-<p><a class="glightbox" href="../_attachments/itzCloudSwitchAccounts.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudSwitchAccounts.png"></a></p>
+<p>Click the <strong>watsonx Assistant for Z Pilot - watsonx Orchestrate</strong> tile.</p>
+<p><a class="glightbox" href="_attachments/itzMyReservations1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/itzMyReservations1.png"></a></p>
 </li>
+<li>
+<p>Record the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud account name/number associated with the reservation.</p>
+<p><a class="glightbox" href="../_attachments/itzMyReservations2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations2.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>IBM Cloud Login</strong> link.</p>
+<p><a class="glightbox" href="../_attachments/itzMyReservations3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations3.png"></a></p>
+</li>
+<li>
+<p>Verify the current IBM Cloud account is the same as the account name/number recorded in step 3, if not the same, switch to the proper account.</p>
+<p>Note: the formatting of the name may appear differently than what was shown in the <abbr title="IBM Technology Zone">ITZ</abbr> reservation.</p>
+<p><a class="glightbox" href="../_attachments/itzMyReservations4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations4.png"></a></p>
+<p>If the proper account is not listed, click the account drop down and select the proper account. Note, if your browser window is narrow, the account drop down may be depicted with the switch account icon (<a class="glightbox" href="../_attachments/itzCloudChangeAccountIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudChangeAccountIcon.png"></a>).</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/itzSwitchAccounts0.png)
+</code></pre></div>
+</li>
+</ol>
+<h2 id="create-your-assistant">Create your Assistant<a class="headerlink" href="#create-your-assistant" title="Permanent link">#</a></h2>
+<ol start="6">
 <li>
 <p>Click the <strong>resources</strong> icon (<a class="glightbox" href="../_attachments/cloudResourcesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cloudResourcesIcon.png"></a>).</p>
 <p><a class="glightbox" href="../_attachments/cloudResourcesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cloudResourcesMenu.png"></a></p>
@@ -536,7 +554,7 @@
 <p><a class="glightbox" href="../_attachments/assistantHomePage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/assistantHomePage.png"></a></p>
 <h2 id="configure-conversational-search">Configure conversational search<a class="headerlink" href="#configure-conversational-search" title="Permanent link">#</a></h2>
 <p>The next step will be to configure <strong>conversational search</strong> for your assistant using a hosted instance of OpenSearch.</p>
-<ol start="10">
+<ol start="14">
 <li>
 <p>Click <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong> menu item (<a class="glightbox" href="../_attachments/GenAIIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/GenAIIcon.png"></a>) in the left navigation.</p>
 <p><a class="glightbox" href="../_attachments/genAIMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIMenu.png"></a></p>
@@ -704,7 +722,7 @@
 <h2 id="configure-the-base-large-language-model-llm">Configure the base Large Language Model (<abbr title="Large language model">LLM</abbr>)<a class="headerlink" href="#configure-the-base-large-language-model-llm" title="Permanent link">#</a></h2>
 <p>Once the above steps have been completed, there are some final enhancements that can be made to configure how the <abbr title="Large language model">LLM</abbr> will respond to your queries. This includes Adding prompt instructions as well as configuring the <abbr title="Large language model">LLM</abbr>’s answer behavior.
 These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0?topic=assistant-configuring-base-llm" target="_blank">here</a>.</p>
-<ol start="45">
+<ol start="49">
 <li>
 <p>Hover over the <strong>home</strong> (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) and click <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong>.</p>
 <p><a class="glightbox" href="../_attachments/genAIGenAI1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIGenAI1.png"></a></p>
@@ -735,7 +753,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <h2 id="testing-conversational-search">Testing conversational search<a class="headerlink" href="#testing-conversational-search" title="Permanent link">#</a></h2>
 <p>Now that all of your assistant settings have been made and you have enabled conversational search, you can begin issuing queries to test the responses.</p>
 <p>It is important to keep in mind that many of the settings configured above can be iteratively modified based on your assessment of the quality of responses. These can be revisited and changed at any point (for example, adding additional prompt instructions, changing verbosity of the responses, and modifying the indexes used for OpenSearch).</p>
-<ol start="49">
+<ol start="53">
 <li>
 <p>Hover over the <strong>home</strong> (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) and click <strong>Preview</strong>.</p>
 <p><a class="glightbox" href="../_attachments/preview0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/preview0.png"></a></p>
