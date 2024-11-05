@@ -481,25 +481,28 @@
 <p>To enable sellers to both learn how to perform client pilots of IBM watsonx Assistant for Z, multiple environments have been created in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). The environments leveraged for the watsonx Assistant for Z Velocity lab environment can be found in the <a href="https://techzone.ibm.com/collection/ibm-watsonx-assistant-z" target="_blank">IBM watsonx Assistant for Z</a> collection and consist of:</p>
 <ul>
 <li>
-<p><strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for much of the assistant configuration, configuring conversational search, importing skills and configuring assistant actions</p>
+<p><strong>watsonx Assistant for Z lab – watsonx Orchestrate</strong> – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for creating and configuring the assistant, configuring conversational search, importing skills, and configuring assistant actions.</p>
 </li>
 <li>
-<p><strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> – a pattern used to deploy a pre-configured instance of <abbr title="Ansible Automation Platform">AAP</abbr> and Wazi z/<abbr title="Operating System">OS</abbr> with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section. To learn more about <abbr title="Ansible Automation Platform">AAP</abbr>, go <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. To learn more about Wazi, go <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.</p>
+<p><strong>Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; z/<abbr title="Operating System">OS</abbr></strong> – a pattern used to deploy a pre-configured instance of <abbr title="Ansible Automation Platform">AAP</abbr> and Wazi z/<abbr title="Operating System">OS</abbr> with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section. Learn more about <abbr title="Ansible Automation Platform">AAP</abbr> <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.</p>
 </li>
 <li>
-<p><strong>Single Node OpenShift with NFS storage</strong> – used to provision a single-node OpenShift cluster (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) on IBM Cloud used to install a dedicated instance of OpenSearch for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.</p>
+<p><strong>Single Node OpenShift with NFS storage</strong> – used to provision a single-node OpenShift cluster (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) on IBM Cloud. The cluster is used to install a dedicated instance of <a href="https://opensearch.org/">OpenSearch</a> for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.</p>
 </li>
 </ul>
 <!-- Add architecture info here -->
 
-<p>While all 3 environments may not be required for a specific client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced badge, you will need to provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all the sections in the lab guide. Ignore any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding <strong>optional</strong> environment or tasks. </p>
+<div class="admonition warning">
+<p class="admonition-title">All activities in this lab guide are required learning.</p>
+<p>While all 3 environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced badge, you must provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all sections in the lab guide. <strong>Any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding optional environments or tasks should be ignored.</strong></p>
+</div>
 <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
 
 <p>Follow the instructions in this section to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments.</p>
 <h2 id="create-a-reservation-request">Create a reservation request<a class="headerlink" href="#create-a-reservation-request" title="Permanent link">#</a></h2>
 <ol>
 <li>
-<p>Click each of the links to open a browser to the reservation pages of the <strong>IBM watsonx Assistant for Z</strong>.</p>
+<p>Click each of the links that follow to open a browser to the reservation pages of the <strong>IBM watsonx Assistant for Z</strong> <abbr title="IBM Technology Zone">ITZ</abbr> environments.</p>
 <div class="admonition warning">
 <p class="admonition-title">You may be asked to authenticate to IBM Technology Zone</p>
 <p>The steps to authenticate to <abbr title="IBM Technology Zone">ITZ</abbr> are not detailed here as they may vary between users.</p>
@@ -516,39 +519,39 @@
 <ol start="2">
 <li>
 <p>Click <strong>Reserve now</strong>.</p>
-<p>The <strong>Reserve now</strong> option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, like when you will be at your client's office.</p>
+<p>The <strong>Reserve now</strong> option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, for example, when you will be at your client's office to start a pilot.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReserveNow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReserveNow.png"></a></p>
 </li>
 <li>
 <p>Complete the reservation request and click <strong>Submit</strong>.</p>
 <p>The first two reservations will be similar to the first image below and and have fields <strong>a</strong>-<strong>e</strong> that will need to be completed.</p>
-<p><strong>a</strong>. Optionally, change the <strong>Name</strong> field for the reservation.</p>
-<p><strong>b</strong>. Select the <strong>Education</strong> purpose tile.</p>
-<p><strong>c</strong>. Enter a <strong>Purpose description</strong>.</p>
-<p><strong>d</strong>. Select the region nearest your physical location in the <strong>Preferred Geography</strong> drop-down.</p>
-<p><strong>e</strong>. The <strong>End date and time</strong> will be set to 2 days after the current date and time.</p>
+<p><strong>a</strong>. Name: specify a name for the reservation (optional).</p>
+<p><strong>b</strong>. Purpose: select the <strong>Education</strong> purpose tile.</p>
+<p><strong>c</strong>. Purpose description: enter a description, for example: Level 4 education.</p>
+<p><strong>d</strong>. Preferred geography: select the region nearest your physical location for improved performance and reduced network latency.</p>
+<p><strong>e</strong>. End date and time: the initial maximum will be set to 2 days after the current date and time. Instructions follow to extend the reservation end date.</p>
 <p><strong>f</strong>. Accept the IBM Technology Zone's terms and conditions and security policies.</p>
 <p><strong>g</strong>. When satisfied with the parameters, click <strong>Submit</strong>.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReservationPage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage.png"></a></p>
 <p>In addition to the above fields, the reservation for the <strong>Single Node OpenShift with NFS storage</strong> will have these additional fields:</p>
-<p><strong>h</strong>. Leave the default setting of <strong>10.128.0.0/14</strong>.</p>
-<p><strong>i</strong>. Leave the default setting of <strong>No</strong>.</p>
-<p><strong>j</strong>. Select <strong>16 vCPU x 64 GB - 300 GB ephemeral storage</strong> in the <strong>Master Single Node Flavor</strong> pull-down menu.</p>
-<p><strong>k</strong>. Select <strong>4.14</strong> in the <strong>OpenShift Version</strong> pull-down menu.</p>
-<p><strong>l</strong>. Leave the default setting of <strong>172.30.0.0/16</strong>.</p>
-<details class="warning">
-<summary>If your reservation for the Single Node OpenShift environment fails...</summary>
-<p>If your reservation for the Single Node OpenShift environment fails, try selecting one of the <strong>eu-gb region</strong> options as the <strong>Preferred Geography</strong>.</p>
-</details>
+<p><strong>h</strong>. OCP/Kubernetes cluster network: leave the default setting of <strong>10.128.0.0/14</strong>.</p>
+<p><strong>i</strong>. Enable <abbr title="Federal Information Processing Standards">FIPS</abbr> security: leave the default setting of <strong>No</strong>. Learn more about the Federal Information Processing Standards (<abbr title="Federal Information Processing Standards">FIPS</abbr>) <a href="https://en.wikipedia.org/wiki/Federal_Information_Processing_Standards#:~:text=The%20Federal%20Information%20Processing%20Standards,States%20government%20agencies%20and%20contractors." target="_blank">here</a>.</p>
+<p><strong>j</strong>. Master single node flavor: select <strong>16 vCPU x 64 GB - 300 GB ephemeral storage</strong>.</p>
+<p><strong>k</strong>. OpenShift version: select <strong>4.14</strong>.</p>
+<p><strong>l</strong>. OCP/Kubernetes service network: leave the default setting of <strong>172.30.0.0/16</strong>.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReservationPage2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage2.png"></a></p>
 </li>
 </ol>
 <div style="page-break-after: always;"></div>
 
-<h2 id="extend-the-reservation">Extend the reservation<a class="headerlink" href="#extend-the-reservation" title="Permanent link">#</a></h2>
 <p>During the provisioning process, multiple emails are sent to you from <abbr title="IBM Technology Zone">ITZ</abbr> as the provisioning process runs. One email states the reservation is provisioning and the other email states that the environment is <strong>Ready</strong>.</p>
-<p>In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. If issues continue, open an <abbr title="IBM Technology Zone">ITZ</abbr> support ticket using the methods mentioned in the <a href="../#support">Support</a> section of this guide.</p>
-<p>When the reservations are in the <strong>Ready</strong> state, you can extend each reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions. Plan your time accordingly.</p>
+<p>In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. In addition, review the <a href="#troubleshooting">Troubleshooting</a> section below. If issues continue, open an <abbr title="IBM Technology Zone">ITZ</abbr> support ticket using the methods mentioned in the <a href="../#support">Support</a> section of this guide.</p>
+<h2 id="extend-the-reservation">Extend the reservation<a class="headerlink" href="#extend-the-reservation" title="Permanent link">#</a></h2>
+<p>When the reservations are in the <strong>Ready</strong> state, you can extend each reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions. Plan your time accordingly. </p>
+<div class="admonition tip">
+<p class="admonition-title">Actual client pilots</p>
+<p>For client pilots, set the <strong>Purpose</strong> field in the reservation to <strong>Pilot</strong> and provide an opportunity number to receive a longer reservation.</p>
+</div>
 <ol start="4">
 <li>
 <p>In the IBM Technology Zone portal, expand <strong>My TechZone</strong> at the top and select <strong>My Reservations</strong>.</p>
@@ -610,6 +613,11 @@
 <h2 id="accessing-the-environments">Accessing the environments<a class="headerlink" href="#accessing-the-environments" title="Permanent link">#</a></h2>
 <p>Each reservation provides access to its respective environment. Details for accessing each environment are provided in the <strong>Pilot setup</strong> sections that follow in the lab guide.</p>
 <p>Proceed to the next section to perform the pilot setup steps.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<details class="failure">
+<summary>If your reservation for the Single Node OpenShift environment fails...</summary>
+<p>If your reservation for the Single Node OpenShift environment fails, try selecting one of the <strong>eu-gb region</strong> options as the <strong>Preferred Geography</strong>. </p>
+</details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 

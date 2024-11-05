@@ -718,8 +718,33 @@
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
 </span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/installAssistantOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator5.png"></a></p>
+</li>
+<li>
+<p>In the OpenShift web console, click <strong>Workloads</strong> and select the <strong>Pods</strong>.</p>
+<p><a class="glightbox" href="../_attachments/installAssistantOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator6.png"></a></p>
+</li>
+<li>
+<p>Verify the two pods that start with <strong>ibm-wxa4z-operator</strong> have a Status of <strong>Running</strong> and that all pods are <strong>Ready</strong>.</p>
+<p><a class="glightbox" href="../_attachments/installAssistantOperator7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator7.png"></a></p>
+</li>
+<li>
+<p>Run the following command to set the administrative policy for the workspace.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc -n wxa4z-byos adm policy add-scc-to-user privileged -z byos
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/installAssistantOperator8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator8.png"></a></p>
 </li>
 </ol>
+<h3 id="deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resource<a class="headerlink" href="#deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource" title="Permanent link">#</a></h3>
+<ol start="35">
+<li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="../../#support">Support</a> section of this guide.</p>
+<details class="failure">
+<summary>Pods have a status of <strong>ErrImagePull</strong> or <strong>ImagePullBackoff</strong></summary>
+<p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
+</details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
