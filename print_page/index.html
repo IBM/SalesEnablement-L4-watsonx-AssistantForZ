@@ -385,6 +385,41 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ingesting client documents
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ingesting client documents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../Setup/documentIngestion/" class="md-nav__link">
         
@@ -395,6 +430,35 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/zassist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing and using zassist to ingest client documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -483,15 +547,6 @@
   <a href="#setup-creatingassistant-configuringconvosearch" class="md-nav__link">
     <span class="md-ellipsis">
       Creating an assistant and configuring conversational search
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup-documentingestion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a standalone OpenSearch instance for document ingestion
     </span>
   </a>
   
@@ -1132,7 +1187,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
 
 <p>You should now have a working assistant using IBM watsonx Assistant for Z.
-Feel free to explore with different prompt instructions and settings. If you encounter any issues, the <a href="#setup-creatingassistant-configuringconvosearch-Troubleshooting">Troubleshooting</a> section that follows may help resolve them.</p>
+Feel free to explore with different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows may help resolve them.</p>
 <p>Continue to the <a href="#setup-documentingestion">Creating a standalone OpenSearch instance for document ingestion</a> learn how to configure a dedicated OpenSearch instance for ingesting client specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
 <h2 id="setup-creatingassistant-configuringconvosearch-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="#index-support">Support</a> section of this guide.</p>
@@ -1150,7 +1205,11 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </ul>
 </details>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-documentingestion"><div><h1 id="creating-a-standalone-opensearch-instance-for-document-ingestion">Creating a standalone OpenSearch instance for document ingestion<a class="headerlink" href="#setup-documentingestion-creating-a-standalone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
+<!-- Keep the list alphabetized for easy deduplication --></div></section>
+                        <h2 class='nav-section-title' id='section-ingesting-client-documents'>
+                            Ingesting client documents <a class='headerlink' href='#section-ingesting-client-documents' title='Permanent link'>↵</a>
+                        </h2>
+                        <section class="print-page" id="setup-documentingestion"><div><h1 id="creating-a-standalone-opensearch-instance-for-document-ingestion">Creating a standalone OpenSearch instance for document ingestion<a class="headerlink" href="#setup-documentingestion-creating-a-standalone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
 <p>This section will cover how to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. This requires deploying a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. </p>
 <p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not already reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="#techzoneenvironment">IBM Technology Zone environment</a> section to complete the reservation.</p>
@@ -1555,7 +1614,9 @@ Sample output:
 <p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
 </details>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-zassist"><div><p>tbd</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
 <p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
 <p>Also, the focus of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide was the <em>end-user</em> use of IBM watsonx Assistant for Z. To learn more about deploying, configuring, and customizing IBM watsonx Assistant for Z explore the other capabilities that are included in the <abbr title="IBM Technology Zone">ITZ</abbr> collection <a href="https://techzone.ibm.com/collection/6633e75d979046001eea2b77" target="_blank">here</a>. Included are guidance for running client pilots and the ability to manage an IBM watsonx Assistant for Z deployment. In the Velocity Pilot environment, you can explore all the capabilities of the offering like creating an assistant, importing documents, and adding automation skills.</p>
 <h2 id="nextsteps-earn-the-badge">Earn the badge<a class="headerlink" href="#nextsteps-earn-the-badge" title="Permanent link">#</a></h2>
