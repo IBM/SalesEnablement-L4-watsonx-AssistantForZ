@@ -662,7 +662,7 @@ Sample output:
 </li>
 <li>
 <p>Using the command below in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the container registry.</p>
-<p>Substitute your <strong>production entitlement key</strong> for the "&lt;entitlement key&gt;" string.</p>
+<p>Substitute your <strong>production entitlement key</strong> for the <strong>&lt;entitlement key&gt;</strong> string.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
@@ -778,11 +778,15 @@ Sample output:
 <p>Obtain and record your cluster domain used for routes by running the following command.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
-<p>Note, the output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com%       **</p>
+<div class="admonition warning">
+<p class="admonition-title">Remove the trailing <strong>%</strong> from the cluster domain name.</p>
+<p>The value returned for the cluster domain may include a <strong>%</strong> character at the end. Do not include the <strong>%</strong> in the next step!</p>
+</div>
+<p>Note, the output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
 <li>
 <p>Create a file called <strong>byos.yaml</strong> with the following content.</p>
-<p>Substitute the domain name recorded in the previous step for the string <strong>&lt;YOUR_CLUSTER_DOMAIN&gt;</strong>.</p>
+<p>Substitute the domain name recorded in the previous step for the string <strong>&lt;YOUR_CLUSTER_DOMAIN&gt;</strong>. Do not include the <strong>%</strong> at the end of the domain name.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>kind: BYOSearch
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>metadata:
@@ -840,8 +844,37 @@ Sample output:
 </li>
 </ol>
 <p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment will begin and could take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</p>
+<h3 id="verify-all-the-required-pods-are-running">Verify all the required pods are running<a class="headerlink" href="#verify-all-the-required-pods-are-running" title="Permanent link">#</a></h3>
+<ol start="42">
+<li>
+<p>Verify all pods are either have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
+<p><a class="glightbox" href="_attachments/ocpWorkloadsPodsStatus.pdf" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/ocpWorkloadsPodsStatus.pdf"></a></p>
+</li>
+</ol>
 <p>Once finished deploying and all the pods have a status of “Ready” or “Running”, you must retrieve you <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<p>by going into the OpenShift console, navigating to Networking &gt; Routes and then copying the <abbr title="Uniform Resource Locator">URL</abbr>/location associated with the “wxa4z-opensearch-wrapper” route shown below:</p>
+<ol start="43">
+<li>
+<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click on <strong>Networking</strong> and then <strong>Routes</strong>.</p>
+<p><a class="glightbox" href="_attachments/ocpNetworkingRoutesMenu.pdf" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/ocpNetworkingRoutesMenu.pdf"></a></p>
+</li>
+<li>
+<p>Copy and record the location for the <strong>wxa4z-opensearch-wrapper</strong> route.
+NEED THIS IMAGE</p>
+<p><a class="glightbox" href="_attachments/ocpRouteToWrapper.pdf" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/ocpRouteToWrapper.pdf"></a></p>
+</li>
+</ol>
+<h3 id="update-your-assistant-with-the-new-byos-search-instance">Update your assistant with the new <abbr title="Bring Your Own Search">BYOS</abbr> search instance<a class="headerlink" href="#update-your-assistant-with-the-new-byos-search-instance" title="Permanent link">#</a></h3>
+<ol start="45">
+<li>
+<p>Configure your assistant with the route recorded in previous step.</p>
+<p>First, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to the following:</p>
+<p><strong>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</strong></p>
+<p>Note, the above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. You must use the value of your specific OpenSearch instance recorded in the previous step.</p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to do this is illustrated in the animated gif below. You can revisit this step in the prior section <a href="../creatingAssistant-configuringConvoSearch/#Configure%20conversational%20search">here</a>.</p>
+<p><a class="glightbox" href="../_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changeCustomSearchURL.gif"></a></p>
+</li>
+</ol>
+<h3 id="install-the-zassist-command">Install the <strong>zassist</strong> command<a class="headerlink" href="#install-the-zassist-command" title="Permanent link">#</a></h3>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="../../#support">Support</a> section of this guide.</p>
 <details class="failure">
