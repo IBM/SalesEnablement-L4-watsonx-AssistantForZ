@@ -1410,7 +1410,7 @@ Sample output:
 <ol start="35">
 <li>
 <p>Create a file called <strong>os-secret.yaml</strong> with the following content.</p>
-<p>Substitute a secure password of your choosing for the string <strong><opensearch_password></opensearch_password></strong></p>
+<p>Substitute a secure password of your choosing for the string <strong>&lt;OPENSEARCH_PASSWORD&gt;</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#setup-documentingestion-__codelineno-13-1"></a>apiVersion: v1 
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#setup-documentingestion-__codelineno-13-2"></a>stringData: 
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#setup-documentingestion-__codelineno-13-3"></a>  password: &lt;OPENSEARCH_PASSWORD&gt; 
@@ -1422,13 +1422,13 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>Create teh secret by running the following command.</p>
+<p>Create the secret by running the following command.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#setup-documentingestion-__codelineno-14-1"></a>oc apply -f os-secret.yaml
 </span></code></pre></div>
 </li>
 <li>
 <p>Create a file called <strong>client-ingestion-secret.yaml</strong> with the following content.</p>
-<p>Substitute a secure authentication key of your choosing for the string <strong><client_ingestion_authkey></client_ingestion_authkey></strong></p>
+<p>Substitute a secure authentication key of your choosing for the string <strong>&lt;CLIENT_INGESTION_AUTHKEY&gt;</strong>. The authentication key can just be a random password.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#setup-documentingestion-__codelineno-15-1"></a>apiVersion: v1 
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#setup-documentingestion-__codelineno-15-2"></a>stringData: 
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#setup-documentingestion-__codelineno-15-3"></a>  authkey: &lt;CLIENT_INGESTION_AUTHKEY&gt; 
@@ -1448,10 +1448,11 @@ Sample output:
 <p>Obtain and record your cluster domain used for routes by running the following command.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
+<p>Note, the output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com%       **</p>
 </li>
 <li>
-<p>Create a file called byos.yaml with the following content.</p>
-<p>Substitute the domain name recorded in the previous step for the string <strong><your_cluster_domain></your_cluster_domain></strong>.</p>
+<p>Create a file called <strong>byos.yaml</strong> with the following content.</p>
+<p>Substitute the domain name recorded in the previous step for the string <strong>&lt;YOUR_CLUSTER_DOMAIN&gt;</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#setup-documentingestion-__codelineno-18-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#setup-documentingestion-__codelineno-18-2"></a>kind: BYOSearch
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#setup-documentingestion-__codelineno-18-3"></a>metadata:
@@ -1504,7 +1505,7 @@ Sample output:
 </li>
 <li>
 <p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#setup-documentingestion-__codelineno-19-1"></a>oc apply f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#setup-documentingestion-__codelineno-19-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </li>
 </ol>
