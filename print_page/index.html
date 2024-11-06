@@ -690,7 +690,7 @@
 <p class="admonition-title">Printed or saved copies can be out of date</p>
 <p>The IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide changes regularly to match the IBM watsonx Assistant for Z offering and associated <abbr title="IBM Technology Zone">ITZ</abbr> environment. Printed or saved copies of the demonstration guide can become out-of-date quickly and result in failed steps. </p>
 </div>
-<p>A ready-to-print PDF version of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide is <a href="../_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Lab%20Guide.pdf" target="_blank">here</a>. </p>
+<p>A ready-to-print <abbr title="Portable Document Format">PDF</abbr> version of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide is <a href="../_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Lab%20Guide.pdf" target="_blank">here</a>. </p>
 </details>
 <details class="tip">
 <summary>Viewing images</summary>
@@ -1614,7 +1614,25 @@ Sample output:
 <p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
 </details>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-zassist"><div><p>tbd</p>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-zassist"><div><h1 id="installing-and-using-zassist-to-ingest-client-documents">Installing and using zassist to ingest client documents<a class="headerlink" href="#setup-zassist-installing-and-using-zassist-to-ingest-client-documents" title="Permanent link">#</a></h1>
+<p>With Bring Your Own Search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr> and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion. </p>
+<p>To prepare for doc ingestion, you can also reference the setup instructions located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.</p>
+<h2 id="setup-zassist-install-the-zassist-utility">Install the zassist utility<a class="headerlink" href="#setup-zassist-install-the-zassist-utility" title="Permanent link">#</a></h2>
+<p>The <strong>zassist</strong> utility is an executable program that automates the ingestion of client documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> for watsxonx Assistant for Z. The utility is available to clients via <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.</p>
+<p>A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps below to download and install <strong>zassist</strong>.</p>
+<ol>
+<li>Open the link below and download the <strong>zassist.zip</strong> file.</li>
+</ol>
+<p><a href="https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77" target="_blank">https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77</a></p>
+<ol start="2">
+<li>Unzip the <strong>zassist.zip</strong> file.</li>
+<li>Locate the appropriate executable for your local machines operating system.</li>
+<li>
+<p>Either copy the appropriate <strong>zassist</strong> executable to a directory in your command prompt or terminal window's PATH, or copy it to a directory and add that directory PATH to your PATH environment variable.</p>
+<p>Additional information for performing the above tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.</p>
+</li>
+</ol>
+<p>With the zassist executable ready, you are now able to begin ingesting data. Follow the instructions here for guidance on doing so: https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
 <p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
