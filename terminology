@@ -5,6 +5,7 @@
 *[APAR]: Authorized Program Analysis Report
 *[APARs]: Authorized Program Analysis Report
 *[APF]: Authorized Program Facility
+*[BYOS]: Bring Your Own Search
 *[CICS]: Custom Information Control System
 *[CLI]: Command Line Interface
 *[FIPS]: Federal Information Processing Standards
@@ -22,6 +23,7 @@
 *[PTF]: Program Temporary Fix
 *[PTFs]:Program Temporary Fixes
 *[PSI]: Problem Source Identification
+*[OCP]: OpenShift Container Platform
 *[OS]: Operating System
 *[RACF]: Resource Access Control Facility
 *[RAG]: Retrieval augmented generation
@@ -31,5 +33,6 @@
 *[SNO]: Single-node Red Hat OpenShift
 *[SSL]: Secure Sockets Layer 
 *[sysprog]: Systems programmer
+*[URL]: Uniform Resource Locator
 *[zparm]: Subsystem parameter
 *[zparms]: Subsystem parameters

@@ -579,7 +579,7 @@
 <li>
 <p>Complete the <strong>Custom service</strong> form and then click <strong>Next</strong>.</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
-<p><strong>b</strong>. Enter the following value in the <strong>URL</strong> field (use the copy icon to avoid typographical errors).
+<p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors).
 </p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
 <p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
@@ -724,7 +724,7 @@
 </ol>
 <h2 id="configure-the-base-large-language-model-llm">Configure the base Large Language Model (<abbr title="Large language model">LLM</abbr>)<a class="headerlink" href="#configure-the-base-large-language-model-llm" title="Permanent link">#</a></h2>
 <p>Once the above steps have been completed, there are some final enhancements that can be made to configure how the <abbr title="Large language model">LLM</abbr> will respond to your queries. This includes Adding prompt instructions as well as configuring the <abbr title="Large language model">LLM</abbr>’s answer behavior.
-These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0?topic=assistant-configuring-base-llm" target="_blank">here</a>.</p>
+These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.</p>
 <ol start="49">
 <li>
 <p>Hover over the <strong>home</strong> (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) and click <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong>.</p>
@@ -781,6 +781,8 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p><a class="glightbox" href="../_attachments/preview3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/preview3.png"></a></p>
 </li>
 </ol>
+<!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
+
 <p>You should now have a working assistant using IBM watsonx Assistant for Z.
 Feel free to explore with different prompt instructions and settings. If you encounter any issues, the <a href="#Troubleshooting">Troubleshooting</a> section that follows may help resolve them.</p>
 <p>Continue to the <a href="../documentIngestion/">Creating a standalone OpenSearch instance for document ingestion</a> learn how to configure a dedicated OpenSearch instance for ingesting client specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
@@ -788,14 +790,14 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="../../#support">Support</a> section of this guide.</p>
 <details class="failure">
 <summary>Assistant responds to all prompts with, "I might have information related to your query to share, but am unable to connect to my knowledge base at the moment"</summary>
-<p>This Assistant is unable to connect to the custom service URL specified. This could be a network issue, the service may be down, the service may be restarting, or the service is no longer running at that URL.</p>
+<p>This Assistant is unable to connect to the custom service <abbr title="Uniform Resource Locator">URL</abbr> specified. This could be a network issue, the service may be down, the service may be restarting, or the service is no longer running at that <abbr title="Uniform Resource Locator">URL</abbr>.</p>
 <p>Before reaching out to <a href="../../#support">Support</a>, try the following:</p>
 <ul>
 <li>
 <p>Wait a few minutes and try again. It may be the service was in the process of restarting.</p>
 </li>
 <li>
-<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service URL (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The URL may have changed since you saved or printed the lab guide.</p>
+<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
 </li>
 </ul>
 </details>

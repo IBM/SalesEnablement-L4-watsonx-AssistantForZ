@@ -737,11 +737,11 @@
 <p><strong>g</strong>. When satisfied with the parameters, click <strong>Submit</strong>.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReservationPage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage.png"></a></p>
 <p>In addition to the above fields, the reservation for the <strong>Single Node OpenShift with NFS storage</strong> will have these additional fields:</p>
-<p><strong>h</strong>. OCP/Kubernetes cluster network: leave the default setting of <strong>10.128.0.0/14</strong>.</p>
+<p><strong>h</strong>. <abbr title="OpenShift Container Platform">OCP</abbr>/Kubernetes cluster network: leave the default setting of <strong>10.128.0.0/14</strong>.</p>
 <p><strong>i</strong>. Enable <abbr title="Federal Information Processing Standards">FIPS</abbr> security: leave the default setting of <strong>No</strong>. Learn more about the Federal Information Processing Standards (<abbr title="Federal Information Processing Standards">FIPS</abbr>) <a href="https://en.wikipedia.org/wiki/Federal_Information_Processing_Standards#:~:text=The%20Federal%20Information%20Processing%20Standards,States%20government%20agencies%20and%20contractors." target="_blank">here</a>.</p>
 <p><strong>j</strong>. Master single node flavor: select <strong>16 vCPU x 64 GB - 300 GB ephemeral storage</strong>.</p>
 <p><strong>k</strong>. OpenShift version: select <strong>4.14</strong>.</p>
-<p><strong>l</strong>. OCP/Kubernetes service network: leave the default setting of <strong>172.30.0.0/16</strong>.</p>
+<p><strong>l</strong>. <abbr title="OpenShift Container Platform">OCP</abbr>/Kubernetes service network: leave the default setting of <strong>172.30.0.0/16</strong>.</p>
 <p><a class="glightbox" href="../_attachments/itzRSVPReservationPage2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzRSVPReservationPage2.png"></a></p>
 </li>
 </ol>
@@ -926,7 +926,7 @@
 <li>
 <p>Complete the <strong>Custom service</strong> form and then click <strong>Next</strong>.</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
-<p><strong>b</strong>. Enter the following value in the <strong>URL</strong> field (use the copy icon to avoid typographical errors).
+<p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors).
 </p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
 <p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
@@ -1071,7 +1071,7 @@
 </ol>
 <h2 id="setup-creatingassistant-configuringconvosearch-configure-the-base-large-language-model-llm">Configure the base Large Language Model (<abbr title="Large language model">LLM</abbr>)<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-configure-the-base-large-language-model-llm" title="Permanent link">#</a></h2>
 <p>Once the above steps have been completed, there are some final enhancements that can be made to configure how the <abbr title="Large language model">LLM</abbr> will respond to your queries. This includes Adding prompt instructions as well as configuring the <abbr title="Large language model">LLM</abbr>’s answer behavior.
-These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0?topic=assistant-configuring-base-llm" target="_blank">here</a>.</p>
+These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.</p>
 <ol start="49">
 <li>
 <p>Hover over the <strong>home</strong> (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) and click <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong>.</p>
@@ -1128,6 +1128,8 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p><a class="glightbox" href="../Setup/_attachments/preview3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/preview3.png"></a></p>
 </li>
 </ol>
+<!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
+
 <p>You should now have a working assistant using IBM watsonx Assistant for Z.
 Feel free to explore with different prompt instructions and settings. If you encounter any issues, the <a href="#setup-creatingassistant-configuringconvosearch-Troubleshooting">Troubleshooting</a> section that follows may help resolve them.</p>
 <p>Continue to the <a href="#setup-documentingestion">Creating a standalone OpenSearch instance for document ingestion</a> learn how to configure a dedicated OpenSearch instance for ingesting client specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
@@ -1135,14 +1137,14 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="#index-support">Support</a> section of this guide.</p>
 <details class="failure">
 <summary>Assistant responds to all prompts with, "I might have information related to your query to share, but am unable to connect to my knowledge base at the moment"</summary>
-<p>This Assistant is unable to connect to the custom service URL specified. This could be a network issue, the service may be down, the service may be restarting, or the service is no longer running at that URL.</p>
+<p>This Assistant is unable to connect to the custom service <abbr title="Uniform Resource Locator">URL</abbr> specified. This could be a network issue, the service may be down, the service may be restarting, or the service is no longer running at that <abbr title="Uniform Resource Locator">URL</abbr>.</p>
 <p>Before reaching out to <a href="#index-support">Support</a>, try the following:</p>
 <ul>
 <li>
 <p>Wait a few minutes and try again. It may be the service was in the process of restarting.</p>
 </li>
 <li>
-<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service URL (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The URL may have changed since you saved or printed the lab guide.</p>
+<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
 </li>
 </ul>
 </details>
@@ -1167,7 +1169,7 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <p><a class="glightbox" href="../Setup/_attachments/SNOIdPw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOIdPw.png"></a></p>
 </li>
 <li>
-<p>Click the <strong>OCP Console</strong> link.</p>
+<p>Click the <strong><abbr title="OpenShift Container Platform">OCP</abbr> Console</strong> link.</p>
 <p><a class="glightbox" href="../Setup/_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLink.png"></a></p>
 </li>
 <li>
@@ -1185,19 +1187,19 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </ol>
 <p>Clicking the above link will automatically download either a <strong>zip</strong> or <strong>tar</strong> file specific to your operating system. You should unzip or un-tar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. Since this will vary by operating system and individual settings, details for doing this are not provided. </p>
 <p>Once properly installed, verify the installation by running the <strong>oc</strong> command in a terminal on your local machine.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-documentingestion-__codelineno-0-1"></a>oc --help
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-documentingestion-__codelineno-0-1"></a>oc --help
 </span></code></pre></div>
+Sample output:
 <p><a class="glightbox" href="../Setup/_attachments/ocHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocHelp.png"></a></p>
 <h2 id="setup-documentingestion-prepare-to-ingest-documents">Prepare to ingest documents<a class="headerlink" href="#setup-documentingestion-prepare-to-ingest-documents" title="Permanent link">#</a></h2>
 <p>Before ingesting documents, a few setup steps must be taken.</p>
 <p><a name="Login2OpenShift"></a></p>
 <h3 id="setup-documentingestion-login-to-the-openshift-cluster-from-your-local-machine">Login to the OpenShift cluster from your local machine<a class="headerlink" href="#setup-documentingestion-login-to-the-openshift-cluster-from-your-local-machine" title="Permanent link">#</a></h3>
-<p>Note: if you just installed the <strong>oc</strong> utility, you should be able to skip the next 5 steps.</p>
-<ol>
-<li>
-<p>Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
-<p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</a></p>
-</li>
+<p>Note: if you just installed the <strong>oc</strong> utility, you should be able to skip the next 5 steps.
+1. Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
+<div class="highlight"><pre><span></span><code>&lt;a href="https://techzone.ibm.com/my/reservations" target="_blank"&gt;ITZ My reservations&lt;/a&gt;
+</code></pre></div>
+<ol start="2">
 <li>
 <p>Click the <strong>Single Node OpenShift</strong> tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzMyReservations.png"></a></p>
@@ -1207,7 +1209,7 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <p><a class="glightbox" href="../Setup/_attachments/SNOIdPw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOIdPw.png"></a></p>
 </li>
 <li>
-<p>Click the <strong>OCP Console</strong> link.</p>
+<p>Click the <strong><abbr title="OpenShift Container Platform">OCP</abbr> Console</strong> link.</p>
 <p><a class="glightbox" href="../Setup/_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLink.png"></a></p>
 </li>
 <li>
@@ -1319,9 +1321,9 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </span></code></pre></div>
 </li>
 <li>
-<p>Create a <strong>production entitlement key</strong>.</p>
+<p>Create or obtain your IBM Container Software <strong>production entitlement key</strong>.</p>
 <p>A <strong>production entitlement key</strong> is required to pull the container images that get deployed by the operator.</p>
-<p>To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key.</p>
+<p>To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key. </p>
 <p>Once you locate your existing key or create a new key continue to the next step.</p>
 </li>
 <li>
@@ -1338,7 +1340,7 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <p><a class="glightbox" href="../Setup/_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createPullSecret.png"></a></p>
 </li>
 <li>
-<p>Create a file called <strong>catalogSource.yaml</strong> with the follow content.</p>
+<p>Create a file called <strong>catalogSource.yaml</strong> with the following content.</p>
 <div class="admonition important">
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
 <p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
@@ -1350,7 +1352,7 @@ Feel free to explore with different prompt instructions and settings. If you enc
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#setup-documentingestion-__codelineno-8-5"></a>  namespace: wxa4z-byos 
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#setup-documentingestion-__codelineno-8-6"></a>spec: 
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#setup-documentingestion-__codelineno-8-7"></a>  displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#setup-documentingestion-__codelineno-8-8"></a>  image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.1@sha256:bc4101ceea397e78adaec8b59f6d36c4f79d2a4492bbec21214bfc1b12cfc060 
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#setup-documentingestion-__codelineno-8-8"></a>  image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.2@sha256:d457aa24af07c23d7b36727a9cff95995ca1c4ed49fb980ef4f386fda09a29b4
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#setup-documentingestion-__codelineno-8-9"></a>  publisher: 'IBM' 
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#setup-documentingestion-__codelineno-8-10"></a>  sourceType: grpc 
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#setup-documentingestion-__codelineno-8-11"></a>  secrets: 
@@ -1407,7 +1409,108 @@ Feel free to explore with different prompt instructions and settings. If you enc
 <h3 id="setup-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resource<a class="headerlink" href="#setup-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource" title="Permanent link">#</a></h3>
 <ol start="35">
 <li>
+<p>Create a file called <strong>os-secret.yaml</strong> with the following content.</p>
+<p>Substitute a secure password of your choosing for the string <strong><opensearch_password></opensearch_password></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#setup-documentingestion-__codelineno-13-1"></a>apiVersion: v1 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#setup-documentingestion-__codelineno-13-2"></a>stringData: 
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#setup-documentingestion-__codelineno-13-3"></a>  password: &lt;OPENSEARCH_PASSWORD&gt; 
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#setup-documentingestion-__codelineno-13-4"></a>kind: Secret 
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#setup-documentingestion-__codelineno-13-5"></a>metadata: 
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#setup-documentingestion-__codelineno-13-6"></a>  name: opensearch-creds 
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#setup-documentingestion-__codelineno-13-7"></a>  namespace: wxa4z-byos 
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#setup-documentingestion-__codelineno-13-8"></a>type: Opaque
+</span></code></pre></div>
+</li>
+<li>
+<p>Create teh secret by running the following command.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#setup-documentingestion-__codelineno-14-1"></a>oc apply -f os-secret.yaml
+</span></code></pre></div>
+</li>
+<li>
+<p>Create a file called <strong>client-ingestion-secret.yaml</strong> with the following content.</p>
+<p>Substitute a secure authentication key of your choosing for the string <strong><client_ingestion_authkey></client_ingestion_authkey></strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#setup-documentingestion-__codelineno-15-1"></a>apiVersion: v1 
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#setup-documentingestion-__codelineno-15-2"></a>stringData: 
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#setup-documentingestion-__codelineno-15-3"></a>  authkey: &lt;CLIENT_INGESTION_AUTHKEY&gt; 
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#setup-documentingestion-__codelineno-15-4"></a>kind: Secret 
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#setup-documentingestion-__codelineno-15-5"></a>metadata: 
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#setup-documentingestion-__codelineno-15-6"></a>  name: client-ingestion-authkey 
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#setup-documentingestion-__codelineno-15-7"></a>  namespace: wxa4z-byos 
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#setup-documentingestion-__codelineno-15-8"></a>type: Opaque
+</span></code></pre></div>
+</li>
+<li>
+<p>Create the secret by running the following command.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#setup-documentingestion-__codelineno-16-1"></a>oc apply -f client-ingestion-secret.yaml
+</span></code></pre></div>
+</li>
+<li>
+<p>Obtain and record your cluster domain used for routes by running the following command.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
+</span></code></pre></div>
+</li>
+<li>
+<p>Create a file called byos.yaml with the following content.</p>
+<p>Substitute the domain name recorded in the previous step for the string <strong><your_cluster_domain></your_cluster_domain></strong>.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#setup-documentingestion-__codelineno-18-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#setup-documentingestion-__codelineno-18-2"></a>kind: BYOSearch
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#setup-documentingestion-__codelineno-18-3"></a>metadata:
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#setup-documentingestion-__codelineno-18-4"></a>  name: byosearch
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#setup-documentingestion-__codelineno-18-5"></a>  namespace: wxa4z-byos
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#setup-documentingestion-__codelineno-18-6"></a>spec:
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#setup-documentingestion-__codelineno-18-7"></a>  imagePullSecrets:
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#setup-documentingestion-__codelineno-18-8"></a>  - name : icr-pull-secret
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#setup-documentingestion-__codelineno-18-9"></a>  namespace: wxa4z-byos
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#setup-documentingestion-__codelineno-18-10"></a>  clusterName: wxa4z-byos-cluster
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#setup-documentingestion-__codelineno-18-11"></a>  clusterDomain: &lt;YOUR_CLUSTER_DOMAIN&gt;
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#setup-documentingestion-__codelineno-18-12"></a>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#setup-documentingestion-__codelineno-18-13"></a>  opensearch:
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#setup-documentingestion-__codelineno-18-14"></a>    secretName: opensearch-creds
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#setup-documentingestion-__codelineno-18-15"></a>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#setup-documentingestion-__codelineno-18-16"></a>    persistence:
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#setup-documentingestion-__codelineno-18-17"></a>      enabled: true
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#setup-documentingestion-__codelineno-18-18"></a>      storageClass: "managed-nfs-storage"
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#setup-documentingestion-__codelineno-18-19"></a>      accessModes:
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#setup-documentingestion-__codelineno-18-20"></a>        - ReadWriteOnce
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#setup-documentingestion-__codelineno-18-21"></a>      size: 24Gi
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#setup-documentingestion-__codelineno-18-22"></a>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#setup-documentingestion-__codelineno-18-23"></a>  wrapper:
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#setup-documentingestion-__codelineno-18-24"></a>    createRoute: true
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#setup-documentingestion-__codelineno-18-25"></a>    resources:
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#setup-documentingestion-__codelineno-18-26"></a>      requests:
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#setup-documentingestion-__codelineno-18-27"></a>        cpu: 4
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#setup-documentingestion-__codelineno-18-28"></a>        memory: "500Mi"
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#setup-documentingestion-__codelineno-18-29"></a>    limits:
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#setup-documentingestion-__codelineno-18-30"></a>        cpu: 4
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#setup-documentingestion-__codelineno-18-31"></a>        memory: "1Gi"
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#setup-documentingestion-__codelineno-18-32"></a>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#setup-documentingestion-__codelineno-18-33"></a>  clientIngestion:
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#setup-documentingestion-__codelineno-18-34"></a>    secretName: client-ingestion-authkey
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#setup-documentingestion-__codelineno-18-35"></a>
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#setup-documentingestion-__codelineno-18-36"></a>    resources:
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#setup-documentingestion-__codelineno-18-37"></a>      limits:
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#setup-documentingestion-__codelineno-18-38"></a>        cpu: "500m"
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#setup-documentingestion-__codelineno-18-39"></a>        memory: 2Gi
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#setup-documentingestion-__codelineno-18-40"></a>        nvidia.com/gpu: "0"
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#setup-documentingestion-__codelineno-18-41"></a>      requests:
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#setup-documentingestion-__codelineno-18-42"></a>        cpu: "500m"
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#setup-documentingestion-__codelineno-18-43"></a>        memory: 1Gi
+</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#setup-documentingestion-__codelineno-18-44"></a>        nvidia.com/gpu: "0"
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#setup-documentingestion-__codelineno-18-45"></a>    pvc:
+</span><span id="__span-18-46"><a id="__codelineno-18-46" name="__codelineno-18-46" href="#setup-documentingestion-__codelineno-18-46"></a>      storageClass: "managed-nfs-storage"
+</span><span id="__span-18-47"><a id="__codelineno-18-47" name="__codelineno-18-47" href="#setup-documentingestion-__codelineno-18-47"></a>      enabled: true
+</span><span id="__span-18-48"><a id="__codelineno-18-48" name="__codelineno-18-48" href="#setup-documentingestion-__codelineno-18-48"></a>      size: 24Gi
+</span></code></pre></div>
+</li>
+<li>
+<p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#setup-documentingestion-__codelineno-19-1"></a>oc apply f byos.yaml
+</span></code></pre></div>
+</li>
 </ol>
+<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment will begin and could take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</p>
+<p>Once finished deploying and all the pods have a status of “Ready” or “Running”, you must retrieve you <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>by going into the OpenShift console, navigating to Networking &gt; Routes and then copying the <abbr title="Uniform Resource Locator">URL</abbr>/location associated with the “wxa4z-opensearch-wrapper” route shown below:</p>
 <h2 id="setup-documentingestion-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-documentingestion-troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="#index-support">Support</a> section of this guide.</p>
 <details class="failure">
