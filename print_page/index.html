@@ -1003,7 +1003,7 @@
 <p><strong>e</strong>. Select <strong>Verbose</strong> for the generated response length.This setting affects the average response length. Depending on user input, variations from the selected length may occur.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings1.png"></a></p>
 <p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.</p>
-<p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <strong>Deploy a dedicated OpenSearch instance for document ingestion</strong> section. Leave the field empty for now.</p>
+<p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the <a href="#setup-creatingassistant-configuringconvosearch-setup-zassist.md">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
 <p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2.png"></a></p>
 </li>
@@ -1629,20 +1629,92 @@ Sample output:
 <li>
 <p>Unzip the <strong>zassist.zip</strong> file.</p>
 </li>
-<li>Locate the appropriate executable for your local machines operating system.</li>
+<li>
+<p>Locate the appropriate executable for your local machines operating system.</p>
+<p><a class="glightbox" href="../Setup/_attachments/zasstZIPFile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/zasstZIPFile.png"></a></p>
+</li>
 <li>
 <p>Either copy the appropriate <strong>zassist</strong> executable to a directory in your command prompt or terminal window's PATH, or copy it to a directory and add that directory PATH to your PATH environment variable.</p>
-<p>Additional information for performing the above tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.
-5. Verify the <strong>zassist</strong> utility is working.</p>
+<p>Additional information for performing the above tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.</p>
+</li>
+<li>
+<p>Verify the <strong>zassist</strong> utility is working.</p>
 <p><a class="glightbox" href="../Setup/_attachments/zassistRunning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/zassistRunning.png"></a></p>
 </li>
 </ol>
 <h2 id="setup-zassist-ingest-client-documentation-using-zassist">Ingest client documentation using <strong>zassist</strong><a class="headerlink" href="#setup-zassist-ingest-client-documentation-using-zassist" title="Permanent link">#</a></h2>
 <p>With the zassist executable ready, you are now able to begin ingesting data. </p>
 <p>Step-by-step guidance for ingesting documents using zassist are provided in the IBM watsonx Assistant for Z documentation <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a>.</p>
-<p>These steps are not repeated in this lab guide, rather the video below illustrates all of the steps to ingest a single document.</p>
+<p>These steps are not repeated in this lab guide, rather the video below illustrates all of the steps to ingest a single document. This video has no audio.</p>
 <p><div class="video-container"><iframe src="../_videos/zassitIngest-final.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <p>The document ingested in the video is a compressed <abbr title="Portable Document Format">PDF</abbr> version of the <strong>IBM z/<abbr title="Operating System">OS</abbr> Continuous Delivery</strong> Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.</p>
+<h2 id="setup-zassist-verify-the-document-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document ingested is now returned as a source file for a query.<a class="headerlink" href="#setup-zassist-verify-the-document-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
+<p>Use the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder to verify your document ingestion.</p>
+<ol start="6">
+<li>Hover over the home (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) icon and click <strong>Preview</strong>.</li>
+<li>
+<p>Enter the following prompt in your assistant.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-zassist-__codelineno-0-1"></a>What is z/OS continuous delivery?
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/verifyIngest0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest0.png"></a></p>
+</li>
+<li>
+<p>Expand the sources section by clicking the (<a class="glightbox" href="../Setup/_attachments/downArrowIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/downArrowIcon.png"></a>).</p>
+<p><a class="glightbox" href="../Setup/_attachments/verifyIngest1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest1.png"></a></p>
+</li>
+<li>
+<p>Click through the list of resources and find the reference to the Red Piece document you ingested.</p>
+<p><a class="glightbox" href="../Setup/_attachments/verifyIngest2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest2.png"></a></p>
+</li>
+<li>
+<p>Click the ingested document reference.</p>
+<p><a class="glightbox" href="../Setup/_attachments/verifyIngest3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest3.png"></a></p>
+</li>
+<li>
+<p>Accept the security risk to view the source document.</p>
+<p>The steps to accept the security risk for the document are not shown. This occurs as the certificate for the connection to the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> instance is not secure. Notice the <abbr title="Uniform Resource Locator">URL</abbr> contains the a path to your <abbr title="Single-node Red Hat OpenShift">SNO</abbr> instance route.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/verifyIngest4.png)
+</code></pre></div>
+</li>
+</ol>
+<p>## Adjusting your assistant's search behavior
+ Do you recall the <strong>Metadata</strong> field when you were configuring your assistant?</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2.png"></a></p>
+<p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs ingested for conversational search, you can set the metadata field for your assistant to use those documents in it’s content-grounded search.
+If you leave the metadata field empty, then it defaults to settings found to perform well experimentally. This replaces having to paste a complicated search string.
+By default (without any string in the Metadata field), it will search all the default IBM provided documentation and all ingested customer documentation using the following:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,“customer_indices”:“customer_*”}
+</span></code></pre></div>
+<p>Replacing the wildcard string with an explicit list of indices allows personalization. This is where you could input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. Out of the box there are over 220 products and topics which the OpenSearch instance has IBM documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
+<p>You have the ability to input a subset of indices into the “Metadata” field in cases where you only want your assistant gathering context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-zassist-__codelineno-2-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
+</span></code></pre></div>
+<p>For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/<abbr title="Operating System">OS</abbr>” and no ingested client documentation, you could enter the following into the metadata field:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-zassist-__codelineno-3-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
+</span></code></pre></div>
+<p>If you have a mix of IBM documentation and client documentation ingested, then there’s an optional search string you can use to set the “weights” used for each. </p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-zassist-__codelineno-4-1"></a>{"doc_weight":
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-zassist-__codelineno-4-2"></a>{"product_docs":0.5,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-zassist-__codelineno-4-3"></a> "customer_docs":0.5},
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-zassist-__codelineno-4-4"></a>"ibm_indicies":"*_ibm_docs_slate",
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-zassist-__codelineno-4-5"></a>"customer_indicies":"customer_*"
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-zassist-__codelineno-4-6"></a>}
+</span></code></pre></div>
+<p>In this case, “product_docs” is the weight assigned to “ibm_indices” and “customer_docs” is the weight assigned to “customer_indices”.</p>
+<p>Once you’ve configured all the above settings for Conversational Search on that page, you can click “Save” in the top-right of the page.</p>
+<p>For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href target="_blank">here. THIS LINK IS CURRENTLY BROKEN</href></p>
+<p>You are encouraged to experiment with the metadata field!
+Try setting the metadata field to the following which weights ingested docs higher than the product docs:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#setup-zassist-__codelineno-5-2"></a>{"product_docs":0.2,
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#setup-zassist-__codelineno-5-3"></a> "customer_docs":0.8},
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#setup-zassist-__codelineno-5-4"></a>"ibm_indicies":"*_ibm_docs_slate",
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#setup-zassist-__codelineno-5-5"></a>"customer_indicies":"customer_*"
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#setup-zassist-__codelineno-5-6"></a>}
+</span></code></pre></div>
+<p>Now redo steps 6 through 8 above. Notice the ingested Red Piece document is now the first sited reference!</p>
+<p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
 <p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
