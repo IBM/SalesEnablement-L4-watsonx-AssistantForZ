@@ -527,6 +527,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../Setup/exploreAAP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explore Ansible Automation Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Setup/importSkills/" class="md-nav__link">
         
   
@@ -940,7 +961,7 @@
 <p class="admonition-title">Printed or saved copies can be out of date</p>
 <p>The IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide changes regularly to match the IBM watsonx Assistant for Z offering and associated <abbr title="IBM Technology Zone">ITZ</abbr> environment. Printed or saved copies of the demonstration guide can become out-of-date quickly and result in failed steps. </p>
 </div>
-<p>A ready-to-print <abbr title="Portable Document Format">PDF</abbr> version of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide is <a href="../_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Lab%20Guide.pdf" target="_blank">here</a>. </p>
+<p>A ready-to-print <abbr title="Portable Document Format">PDF</abbr> version of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide is <a href="../_pdf/IBM%20watsonx%20Assistant%20for%20Z%Level%4%20Lab%20Guide.pdf" target="_blank">here</a>. </p>
 </details>
 <details class="tip">
 <summary>Viewing images</summary>
@@ -1196,7 +1217,7 @@
 <p><a class="glightbox" href="../Setup/_attachments/createAssistant2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createAssistant2.png"></a></p>
 </li>
 <li>
-<p>Complete the <strong>Customize your chat UI</strong> form and click <strong>Next</strong>.</p>
+<p>Complete the <strong>Customize your chat <abbr title="User Interface">UI</abbr></strong> form and click <strong>Next</strong>.</p>
 <p>Explore the customization options. When creating an assistant for a client pilot consider specifying attributes that align with the client (for example, colors and logos).</p>
 <p><a class="glightbox" href="../Setup/_attachments/createAssistant3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createAssistant3.png"></a></p>
 </li>
@@ -1960,7 +1981,7 @@ By default (without any string in the Metadata field), it will search all the de
 </span></code></pre></div>
 <p>In this case, “product_docs” is the weight assigned to “ibm_indices” and “customer_docs” is the weight assigned to “customer_indices”.</p>
 <p>Once you’ve configured all the above settings for Conversational Search on that page, you can click “Save” in the top-right of the page.</p>
-<p>For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href target="_blank">here. THIS LINK IS CURRENTLY BROKEN</href></p>
+<p>For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href target="_blank">here.</href></p>
 <p>You are encouraged to experiment with the metadata field!
 Try setting the metadata field to the following which weights ingested docs higher than the product docs:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
@@ -1998,8 +2019,94 @@ Try setting the metadata field to the following which weights ingested docs high
 <li>Execute <abbr title="Time Sharing Option">TSO</abbr> commands</li>
 <li>And more</li>
 </ul>
+<p>Each of the sections that follow build upon each other. Complete each in order to successfully enhance your assistant starting with <a href="#setup-exploreaap">Explore Ansible Automation Platform</a>.</p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-importskills"><div><p>TBD</p>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-exploreaap"><div><h1 id="explore-ansible-automation-platform-aap">Explore Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>)<a class="headerlink" href="#setup-exploreaap-explore-ansible-automation-platform-aap" title="Permanent link">#</a></h1>
+<p>Once you have provisioned the <abbr title="Ansible Automation Platform">AAP</abbr> &amp; Wazi z/<abbr title="Operating System">OS</abbr> environments in <abbr title="IBM Technology Zone">ITZ</abbr> and the reservation is in the <strong>Ready</strong> state, follow these steps to explore <abbr title="Ansible Automation Platform">AAP</abbr>. </p>
+<h2 id="setup-exploreaap-access-the-aap-and-wazi-as-a-service-environment">Access the <abbr title="Ansible Automation Platform">AAP</abbr> and Wazi as a Service environment<a class="headerlink" href="#setup-exploreaap-access-the-aap-and-wazi-as-a-service-environment" title="Permanent link">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Be sure to record the information as instructed</p>
+<p>Several of the steps below instruct you to record values from your <abbr title="IBM Technology Zone">ITZ</abbr> reservation. Be sure to do this as they will not only be used in this section, but also in later sections of the lab guide.</p>
+</div>
+<ol>
+<li>
+<p>In the IBM Technology Zone portal, expand <strong>My TechZone</strong> at the top and select <strong>My Reservations</strong>, or click the link below.</p>
+<p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><strong><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</strong></a></p>
+<p><a class="glightbox" href="../Setup/_attachments/itzMyReservations0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzMyReservations0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr></strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/itzMyReservations5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzMyReservations5.png"></a></p>
+</li>
+<li>
+<p>Locate and record the  <strong><abbr title="Ansible Automation Platform">AAP</abbr> User Name (For <abbr title="User Interface">UI</abbr> access)</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> User Password</strong> fields.</p>
+<p><a class="glightbox" href="../Setup/_attachments/itzAAPReservation0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzAAPReservation0.png"></a></p>
+</li>
+<li>
+<p>Record and then click the <strong>Ansible Automation Platform <abbr title="User Interface">UI</abbr></strong> link.</p>
+<p><a class="glightbox" href="../Setup/_attachments/itzAAPReservation1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/itzAAPReservation1.png"></a></p>
+</li>
+<li>
+<p>Enter the <strong>Username</strong> and <strong>Password</strong> recorded in step 3 and click <strong>Log In</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/aapLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/aapLogin.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Templates</strong> under the <strong>Resources</strong> section.</p>
+<p><a class="glightbox" href="../Setup/_attachments/aapTemplatesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/aapTemplatesMenu.png"></a></p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">The <abbr title="Ansible Automation Platform">AAP</abbr> instances is preconfigured to the Wazi aaS instance</p>
+<p>Note that because the <abbr title="Ansible Automation Platform">AAP</abbr> instance and the back-end z/<abbr title="Operating System">OS</abbr> system are preconfigured, no changes are needed to execute the templates and they will target your provisioned z/<abbr title="Operating System">OS</abbr> system by default.</p>
+</div>
+<ol start="7">
+<li>
+<p>Locate the <strong>z/<abbr title="Operating System">OS</abbr> Ping</strong> template and Click the rocket (<a class="glightbox" href="../Setup/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/rocketIcon.png"></a>) icon to launch the template. </p>
+<p><a class="glightbox" href="../Setup/_attachments/launchzOSPing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/launchzOSPing.png"></a></p>
+</li>
+<li>
+<p>Observe the <strong>z/<abbr title="Operating System">OS</abbr> Ping</strong> job run.</p>
+<p><a class="glightbox" href="../Setup/_attachments/zOSpingJob.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/zOSpingJob.png"></a></p>
+</li>
+</ol>
+<p>Spend some time exploring the other templates that are ready to use. Learn more about the automation capabilities <a href="https://ibm.ent.box.com/v/ansible4zos-demo-guide" target="_blank">here</a>.</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-importskills"><div><h1 id="importing-skills-from-ansible-automation-platform">Importing skills from Ansible Automation Platform<a class="headerlink" href="#setup-importskills-importing-skills-from-ansible-automation-platform" title="Permanent link">#</a></h1>
+<p>Once you have a better understanding of <abbr title="Ansible Automation Platform">AAP</abbr> and the pre-loaded automations available, you can begin to import them as skills into your watsonx Orchestrate instance which will ultimately be used for assistant guided actions.</p>
+<h2 id="setup-importskills-import-skills-into-your-assistant">Import skills into your assistant<a class="headerlink" href="#setup-importskills-import-skills-into-your-assistant" title="Permanent link">#</a></h2>
+<p>The next steps assume you have an active browser window to the watsonx Orchestrate <abbr title="IBM Technology Zone">ITZ</abbr> cloud account. If you do not, refer to the initial steps in <a href="#setup-creatingassistant-configuringconvosearch">Creating an assistant and configuring conversational search</a>.</p>
+<ol>
+<li>
+<p>Click the <strong>resources</strong> icon (<a class="glightbox" href="../Setup/_attachments/cloudResourcesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/cloudResourcesIcon.png"></a>).</p>
+<p><a class="glightbox" href="../Setup/_attachments/cloudResourcesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/cloudResourcesMenu.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Launch watsonx Orchestrate</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/wOResource0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/wOResource0.png"></a></p>
+</li>
+<li>
+<p>Click the main menu (<a class="glightbox" href="../Setup/_attachments/hamburger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/hamburger.png"></a>) and then click <strong>Skill studio</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/woSkillStudioMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/woSkillStudioMenu.png"></a></p>
+</li>
+<li>
+<p>Expand <strong>Create</strong> and click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/woSkillStudioImportMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/woSkillStudioImportMenu.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillsTrialTile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillsTrialTile.png"></a></p>
+</li>
+<li>
+<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="#setup-exploreaap">Explore Ansible Automation Platform</a> section earlier.</p>
+<p><strong>a</strong>: Connection Type: <strong>ansible</strong>
+<strong>b</strong>: Application Name: <enter a meaningful name for the skills you will import>
+<strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: <enter the url for your aap ui>
+<strong>d</strong>: User Name: <enter the aap user name ui access>
+<strong>e</strong>: Password: <enter the aap user password>
+<strong>f</strong>: Search Pattern: <strong>*</strong></enter></enter></enter></enter></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-connectingapp"><div><p>TBD</p>
 <!-- Terminology -->
