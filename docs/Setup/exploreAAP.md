@@ -1,5 +1,5 @@
 # Explore Ansible Automation Platform (AAP)
-Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reservation is in the **Ready** state, follow these steps to explore AAP. 
+After you reserved the AAP and Wazi z/OS environment in IBM Technology Zone (ITZ) and the reservation is in the **Ready** state, follow these steps to explore AAP. 
 
 ## Access the AAP and Wazi as a Service environment
 
@@ -7,7 +7,7 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     Several of the steps below instruct you to record values from your ITZ reservation. Be sure to do this as they will not only be used in this section, but also in later sections of the lab guide.
 
-1. In the IBM Technology Zone portal, expand **My TechZone** at the top and select **My Reservations**, or click the link below.
+1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**, or click the following link.
 
      <a href="https://techzone.ibm.com/my/reservations" target="_blank">**ITZ My reservations**</a>
    
@@ -17,7 +17,7 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     ![](_attachments/itzMyReservations5.png)
 
-3. Locate and record the  **AAP User Name (For UI access)** and **AAP User Password** fields.
+3. Locate and record the **AAP User Name (For UI access)** and **AAP User Password** fields.
 
     ![](_attachments/itzAAPReservation0.png)
 
@@ -25,7 +25,7 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     ![](_attachments/itzAAPReservation1.png)
 
-5. Enter the **Username** and **Password** recorded in step 3 and click **Log In**.
+5. Enter the **Username** and **Password** that is recorded in step 3 and click **Log In**.
 
     ![](_attachments/aapLogin.png)
 
@@ -37,7 +37,7 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     Note that because the AAP instance and the back-end z/OS system are preconfigured, no changes are needed to execute the templates and they will target your provisioned z/OS system by default.
 
-7. Locate the **z/OS Ping** template and Click the rocket (![](_attachments/rocketIcon.png)) icon to launch the template. 
+7. Locate the **z/OS Ping** template and click the rocket (![](_attachments/rocketIcon.png)) icon to start the template. 
 
     ![](_attachments/launchzOSPing.png)
 
@@ -45,4 +45,4 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     ![](_attachments/zOSpingJob.png)
 
-Spend some time exploring the other templates that are ready to use. Learn more about the automation capabilities <a href="https://ibm.ent.box.com/v/ansible4zos-demo-guide" target="_blank">here</a>.
+Take time to explore the other templates that are ready to use. Learn more about the automation capabilities <a href="https://ibm.ent.box.com/v/ansible4zos-demo-guide" target="_blank">here</a>.

@@ -1,21 +1,21 @@
 # IBM Technology Zone environment
-To enable sellers to both learn how to perform client pilots of {{offering.name}}, multiple environments have been created in IBM Technology Zone (ITZ). The environments leveraged for the watsonx Assistant for Z Velocity lab environment can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection and consist of:
+To enable sellers to both learn how to deliver client pilots of {{offering.name}}, multiple environments are available in IBM Technology Zone (ITZ). The environments that are used for the watsonx Assistant for Z Velocity lab environment can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection and consist of:
 
-- **watsonx Assistant for Z lab – watsonx Orchestrate** – a dedicated tenant of watsonx Orchestrate on IBM Cloud and is leveraged for creating and configuring the assistant, configuring conversational search, importing skills, and configuring assistant actions.
+- **Watsonx Assistant for Z lab – watsonx Orchestrate**: a dedicated environment with watsonx Orchestrate on IBM Cloud that is used for creating and configuring the assistant, configuring conversational search, importing skills, and configuring actions.
 
-- **Ansible Automation Platform (AAP) & z/OS** – a pattern used to deploy a pre-configured instance of AAP and Wazi z/OS with pre-loaded Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. Provides pre-loaded templates for various use cases which will be covered in a later section. Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
+- **Ansible Automation Platform (AAP) & z/OS**: a pre-configured instance of AAP and Wazi z/OS. The environment includes preinstalled Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. The environment provides preinstalled templates for various use cases that are covered in a later section. Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
 
-- **Single Node OpenShift with NFS storage** – used to provision a single-node OpenShift cluster (SNO) on IBM Cloud. The cluster is used to install a dedicated instance of [OpenSearch](https://opensearch.org/) for watsonx Assistant for Z. This environment enables ingestion of client supplied documents.
+- **Single Node OpenShift with NFS storage**: used to provision a single-node Red Hat OpenShift cluster (SNO) on IBM Cloud. The cluster is used to install a dedicated instance of [OpenSearch](https://opensearch.org/) for watsonx Assistant for Z. This environment enables ingestion of client-supplied documents.
 
 <!-- Add architecture info here -->
 
-!!! Warning "All activities in this lab guide are required learning."
+!!! Warning "All activities in this lab guide are required."
 
     While all 3 environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the {{badge.name}} badge, you must provision all three ITZ environments and complete all sections in the lab guide. **Any statements in the ITZ collection regarding optional environments or tasks should be ignored.**
 
  <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
 
-Follow the instructions in this section to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
+Follow the instructions in to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
 
 ## Create a reservation request
 1. Click each of the links that follow to open a browser to the reservation pages of the **{{itz.collectionName}}** ITZ environments.
@@ -24,25 +24,25 @@ Follow the instructions in this section to create new reservation requests, exte
 
         The steps to authenticate to ITZ are not detailed here as they may vary between users.
 
-    <a href="{{itz.orchestrateEnv}}" target="_blank">watsonx Assistant for Z lab – watsonx Orchestrate - reservation page</a>
+    <a href="{{itz.orchestrateEnv}}" target="_blank">Watsonx Assistant for Z lab – watsonx Orchestrate - reservation page</a>
     
     <a href="{{itz.aapEnv}}" target="_blank">Ansible Automation Platform (AAP) & z/OS - reservation page</a>
     
     <a href="{{itz.snoEnv}}" target="_blank">Single Node OpenShift with NFS storage - reservation page</a>
 
-!!! Important "Images below are for 1 of the 3 environments"
+!!! Important "The following images are for 1 of the 3 environments"
 
     **Be sure to follow these steps to create a reservation in ITZ for all three environments!**
 
 2. Click **Reserve now**.
 
-    The **Reserve now** option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, for example, when you will be at your client's office to start a pilot.
+    The **Reserve now** option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, for example, when you are at your client's office to start a pilot.
 
     ![](_attachments/itzRSVPReserveNow.png)
 
 3. Complete the reservation request and click **Submit**.
 
-    The first two reservations will be similar to the first image below and and have fields **a**-**e** that will need to be completed.
+    The first two reservations are similar to the first image and have fields **a**-**e** that need to be completed.
 
     **a**. Name: specify a name for the reservation (optional).
 
@@ -54,7 +54,7 @@ Follow the instructions in this section to create new reservation requests, exte
 
     **c**. Purpose description: enter a description, for example: Level 4 education.
 
-    **d**. Preferred geography: select the region nearest your physical location for improved performance and reduced network latency.
+    **d**. Preferred geography: select the region nearest to your physical location for improved performance and reduced network latency.
 
     **e**. End date and time: the initial maximum will be set to 2 days after the current date and time. Instructions follow to extend the reservation end date.
 
@@ -64,7 +64,7 @@ Follow the instructions in this section to create new reservation requests, exte
 
     ![](_attachments/itzRSVPReservationPage.png)
 
-    In addition to the above fields, the reservation for the **Single Node OpenShift with NFS storage** will have these additional fields:
+    In addition to the preceding fields, the reservation for the **Single Node OpenShift with NFS storage** has these additional fields:
 
     **h**. OCP/Kubernetes cluster network: leave the default setting of **10.128.0.0/14**.
 
@@ -82,12 +82,12 @@ Follow the instructions in this section to create new reservation requests, exte
 
 During the provisioning process, multiple emails are sent to you from ITZ as the provisioning process runs. One email states the reservation is provisioning and the other email states that the environment is **Ready**.
 
-In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. In addition, review the [Troubleshooting](#troubleshooting) section below. If issues continue, open an ITZ support ticket using the methods mentioned in the [Support](index.md#support) section of this guide.
+In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. In addition, review the [Troubleshooting](#troubleshooting) section that follows. If issues continue, open an ITZ support ticket by using the methods that are mentioned in the [Support](index.md#support) section.
 
 ## Extend the reservation
-When the reservations are in the **Ready** state, you can extend each reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions. Plan your time accordingly. 
+When the reservations are in the **Ready** state, you can extend each reservation to a total of 6 days. 
 
-4. In the IBM Technology Zone portal, expand **My TechZone** at the top and select **My Reservations**.
+4. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**.
 
     ![](_attachments/itzMyReservations.png)
 
@@ -104,7 +104,7 @@ If you anticipate needing more time, repeat Steps 5 and 6 to extend the reservat
 <div style="page-break-after: always;"></div>
 
 ## Join the ITZ IBM Cloud accounts
-Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansible Automation Platform (AAP) & z/OS** environments add you to an IBM Cloud account while your reservation is active. During the provisioning process of these ITZ environments, you should receive two emails from IBM Cloud. In order to access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. 
+Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansible Automation Platform (AAP) & z/OS** environments add you to an IBM Cloud account while your reservation is active. During the provisioning process of these ITZ environments, you receive two emails from IBM Cloud. To access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. 
 
 7. Open the emails from **IBM Cloud** and click the **Join now** links.
 
@@ -116,13 +116,13 @@ Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansib
 
 **Repeat steps 7 and 8 for the second invitation.**
 
-After joining both accounts, verify both accounts appear in your available account list in the IBM Cloud portal.
+After joining both accounts, verify that both accounts appear in your available account list in the IBM Cloud portal.
 
-9. Click the link below to open a browser to the IBM Cloud Portal.
+9. Click the following link to open a browser to the IBM Cloud portal.
 
     <a href="cloud.ibm.com" target="_blank">**IBM Cloud portal**</a>
 
-10. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps may very depending on any two-factor authentication methods enabled. 
+10. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps very depending on any two-factor authentication methods enabled. 
 
     ![](_attachments/itzCloudLogin.png)
 
@@ -143,7 +143,7 @@ After joining both accounts, verify both accounts appear in your available accou
 ## Accessing the environments
 Each reservation provides access to its respective environment. Details for accessing each environment are provided in the **Pilot setup** sections that follow in the lab guide.
 
-Once all three reservations are in the **Ready** state and you have accepted the invitations to the IBM Cloud accounts, proceed to the next section to complete the pilot setup.
+After all three reservations are in the **Ready** state and you accepted the invitations to the IBM Cloud accounts, proceed to the next section to complete the pilot setup.
 
 ## Troubleshooting
 ??? Failure "If your reservation for the Single Node OpenShift environment fails..."

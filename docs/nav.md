@@ -3,7 +3,7 @@
 * Pilot setup
     * [Creating an assistant and configuring conversational search](Setup/creatingAssistant-configuringConvoSearch.md)
     * Ingesting client documents
-        * [Creating a standalone OpenSearch instance for document ingestion](Setup/documentIngestion.md)
+        * [Creating a stand-alone OpenSearch instance for document ingestion](Setup/documentIngestion.md)
         * [Installing and using zassist to ingest client documents](Setup/zassist.md)
     * Adding skills to the assistant
         * [Getting started with skills and actions](Setup/gettingStartedSkills.md)

@@ -1,8 +1,8 @@
-# Importing skills from Ansible Automation Platform
-Once you have a better understanding of AAP and the pre-loaded automations available, you can begin to import them as skills into your watsonx Orchestrate instance which will ultimately be used for assistant guided actions.
+# Importing skills from Ansible Automation Platform (AAP)
+Now that you understand AAP and the preinstalled automations available, you can import them as skills into your watsonx Orchestrate instance, which is used for assistant guided actions.
 
 ## Import skills into your assistant
-The next steps assume you have an active browser window to the watsonx Orchestrate ITZ cloud account. If you do not, refer to the initial steps in [Creating an assistant and configuring conversational search](creatingAssistant-configuringConvoSearch.md).
+The next steps assume that you have an active browser window to the watsonx Orchestrate ITZ cloud account. If you do not, refer to the initial steps in [Creating an assistant and configuring conversational search](creatingAssistant-configuringConvoSearch.md).
 
 1. Click the **resources** icon (![](_attachments/cloudResourcesIcon.png)).
 
@@ -30,7 +30,7 @@ The next steps assume you have an active browser window to the watsonx Orchestra
 
     **a**: Connection Type: **ansible**
 
-    **b**: Application Name: <enter a meaningful name for the skills you will import\>
+    **b**: Application Name: <enter a meaningful name for the skills that you will import\>
 
     **c**: Connection URL: <enter the URL for your AAP UI\>
 

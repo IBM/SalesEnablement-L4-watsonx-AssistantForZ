@@ -1,13 +1,13 @@
-# Creating a standalone OpenSearch instance for document ingestion
-This section will cover how to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. This requires deploying a dedicated [OpenSearch](https://opensearch.org/) instance. 
+# Creating a stand-alone OpenSearch instance for document ingestion
+Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. The first step is to deploy a dedicated [OpenSearch](https://opensearch.org/) instance. 
 
-Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not already reserved this environment, or it is not in the **Ready** state, return to the 
+Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Install the Red Hat OpenShift command line interface utility 
-The Red Hat OpenShift command line interface (CLI) utility, known as **oc**, must be installed on your local machine. If you already have the **oc** utility installed, you can proceed to [Log into the SNO cluster](#Login2OpenShift).
+## Install the Red Hat OpenShift command-line interface utility 
+The Red Hat OpenShift command-line interface (CLI) utility, which is known as **oc**, must be installed on your local workstation. If you already installed the **oc** utility, you can proceed to [log in to the SNO cluster](#Login2OpenShift).
 
-1. Click the link below to open a browser window to your ITZ reservations.
+1. Click the following link to open a browser window to your ITZ reservations.
 
     <a href="https://techzone.ibm.com/my/reservations" target="_blank">ITZ My reservations</a>
 
@@ -15,11 +15,13 @@ The Red Hat OpenShift command line interface (CLI) utility, known as **oc**, mus
 
     ![](_attachments/itzMyReservations.png)
 
-3. Scroll to the bottom of the reservation page and record the **Cluster Admin Username** and **Cluster Admin Password**.
+3. Scroll down and record the **Cluster Admin Username** and **Cluster Admin Password**.
 
     ![](_attachments/SNOIdPw.png)
 
 4. Click the **OCP Console** link.
+
+    Note, OCP stands for OpenShift Container Platform.
 
     ![](_attachments/SNOOCPLink.png)
 
@@ -35,9 +37,9 @@ The Red Hat OpenShift command line interface (CLI) utility, known as **oc**, mus
 
     ![](_attachments/SNOoCPDownload.png)
 
-Clicking the above link will automatically download either a **zip** or **tar** file specific to your operating system. You should unzip or un-tar the file and place the **oc** binary in a directory that is in your default PATH. Since this will vary by operating system and individual settings, details for doing this are not provided. 
+Clicking the preceding link automatically downloads either a **.zip** or **.tar** file specific to your operating system. Unzip or untar the file and place the **oc** binary in a directory that is in your default PATH. The PATH will can by operating system and individual settings, detailed instructions are not provided. 
 
-Once properly installed, verify the installation by running the **oc** command in a terminal on your local machine.
+After properly installed, verify the installation by running the **oc** command on your local workstation.
 
 ```
 oc --help
@@ -50,9 +52,9 @@ Sample output:
 Before ingesting documents, a few setup steps must be taken.
 
 <a name="Login2OpenShift"></a>
-### Login to the OpenShift cluster from your local machine
-Note: if you just installed the **oc** utility, you should be able to skip the next 5 steps.
-1. Click the link below to open a browser window to your ITZ reservations.
+### Login to the OpenShift cluster from your local terminal
+Note: if you just installed the **oc** utility, you can skip the next 5 steps.
+1. Click the following link to open a browser window to your ITZ reservations.
 
     <a href="https://techzone.ibm.com/my/reservations" target="_blank">ITZ My reservations</a>
 
@@ -82,20 +84,20 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
 8. Select and copy the **Log in with this token** string.
 
-    The steps to select and copy the value may differ by operating system, but for most, you should be able to double-click the value and then right click and select **Copy**.
+    The steps to select and copy the value may differ by operating system, but for most, you can double-click the value and then right click and select **Copy**.
 
     ![](_attachments/SNOOCPLoginCommand2.png)
 
-9. Open a command prompt or terminal window on your local machine.
+9. Open a command prompt or terminal window on your local workstation.
 
-10. Paste the login command line in the terminal window and press **enter**.
+10. Paste the login command and press **enter**.
 
     ![](_attachments/SNOOCPLoginCommand3.png)
 
 ### Create a working directory
 11. Create a directory that will be used to store the configuration files that will be created in the next steps.
 
-    !!! Note "Instructions may vary by your local machines operating system"
+    !!! Note "Instructions vary by your local workstation's operating system"
     
         The directions that follow may vary depending on your operating system. The examples provided are based upon MacOS.
 
@@ -111,8 +113,8 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     ![](_attachments/SNOOCPLoginCommand4.png)
 
-### Install IBM Certificate Manager on OpenShift
-13. Create a file named **catalogCertManager.yaml** using a text editor and paste the following text into the file.
+### Install IBM Certificate Manager on Red Hat OpenShift
+13. Create a file that is named **catalogCertManager.yaml** using a text editor and paste the following text into the file.
 
     !!! Important "Formatting of the yaml file is critical!"
 
@@ -136,13 +138,13 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
           interval: 30m0s
     ```
 
-14. Install the IBM Certificate Manager operator in the OpenShift cluster.
+14. Install the IBM Certificate Manager operator in the Red Hat OpenShift cluster.
 
     ```
     oc apply -f catalogCertManager.yaml
     ```
 
-    The above command should return a message stating the **ibm-cert-manager-catalog** was created.
+    The preceding command returns a message that states the **ibm-cert-manager-catalog** was created.
 
 15. In the OpenShift web console, click **Operators** and select **OperatorHub**.
 
@@ -168,12 +170,12 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     ![](_attachments/SNOOCPOperator5.png)
 
-    The install process will take a few minutes. Do not continue until you see the message: **Installed operator: ready for use**.
+    The installation process takes a few minutes. Do not continue until you see the message: **Installed operator: ready for use**.
 
     ![](_attachments/SNOOCPOperator6.png)
 
 ### Install the watsonx Assistant for Z Operator (for OpenSearch)
-21. In your command prompt or terminal window, create a new namespace called **wxa4z-byos** in the OpenShift cluster.
+21. In your command prompt or terminal window, create a new namespace called **wxa4z-byos** in the Red Hat OpenShift cluster.
 
     ```
     oc create namespace wxa4z-byos 
@@ -185,13 +187,13 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key. 
 
-    Once you locate your existing key or create a new key continue to the next step.
+    After locating your existing key or creating a new key, continue to the next step.
 
 23. Copy the **production entitlement key**.
 
     ![](_attachments/copyEntitlementKey.png)
 
-24. Using the command below in your command prompt or terminal window, set an environment variable with your **production entitlement key** and then create a pull secret for the container registry.
+24. Using the following command in your command prompt or terminal window, set an environment variable with your **production entitlement key** and then create a pull secret for the Container Registry.
 
     Substitute your **production entitlement key** for the **<entitlement key\>** string.
 
@@ -226,7 +228,7 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
       - icr-pull-secret
     ```
 
-26. Create your document catalog in the OpenShift operator.
+26. Create your document catalog in the Red Hat OpenShift operator.
 
     ```
     oc apply -f catalogSource.yaml
@@ -234,7 +236,7 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     ![](_attachments/createCatalog.png)
 
-27. In the OpenShift web console, click **OperatorHub** and select the **wxa4z-byos** project.
+27. In the Red Hat OpenShift web console, click **OperatorHub** and select the **wxa4z-byos** project.
 
     ![](_attachments/installAssistantOperator0.png)
 
@@ -250,11 +252,11 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     ![](_attachments/installAssistantOperator3.png)
 
-    The install process will take a few minutes. Do not continue until you see the message: **Installed operator: ready for use**.
+    The installation process takes a few minutes. Do not continue until you see the message: **Installed operator: ready for use**.
 
     ![](_attachments/installAssistantOperator4.png)
 
-31. In your command prompt or terminal window, run the following commands to add the container registry credential to the operator's service account.
+31. In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.
 
     ```
     oc project wxa4z-byos
@@ -266,7 +268,7 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
     ![](_attachments/installAssistantOperator5.png)
 
-32. In the OpenShift web console, click **Workloads** and select the **Pods**.
+32. In the Red Hat OpenShift web console, click **Workloads** and select the **Pods**.
 
     ![](_attachments/installAssistantOperator6.png)
 
@@ -307,7 +309,7 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
 
 37. Create a file called **client-ingestion-secret.yaml** with the following content.
 
-    Substitute a secure authentication key of your choosing for the string **<CLIENT_INGESTION_AUTHKEY\>**. The authentication key can just be a random password.
+    Substitute a secure authentication key of your choosing for the string **<CLIENT_INGESTION_AUTHKEY\>**. The authentication key can be a random password.
 
     ```
     apiVersion: v1 
@@ -326,7 +328,7 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
     oc apply -f client-ingestion-secret.yaml
     ```
 
-39. Obtain and record your cluster domain used for routes by running the following command.
+39. Obtain and record your cluster domain that is used for routes by running the following command.
 
     ```
     oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
@@ -399,16 +401,16 @@ Note: if you just installed the **oc** utility, you should be able to skip the n
     oc apply -f byos.yaml
     ```
 
-The BYOS deployment will begin and could take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the OCP console.
+The BYOS deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the OCP console.
 
 ### Verify all the required pods are running
-42. Verify all pods are either have the status of **Running** or **Completed**.
+42. Verify that all pods have the status of **Running** or **Completed**.
 
     ![](_attachments/ocpWorkloadsPodsStatus.png)
 
-Once finished deploying and all the pods have a status of “Ready” or “Running”, you must retrieve you BYOS endpoint URL.
+When deployment completes and all the pods have a status of “Ready” or “Running”, you must retrieve you BYOS endpoint URL.
 
-43. In the OCP console, click on **Networking** and then **Routes**.
+43. In the OCP console, click **Networking** and then **Routes**.
 
     ![](_attachments/ocpNetworkingRoutesMenu.png)
 
@@ -419,15 +421,15 @@ Once finished deploying and all the pods have a status of “Ready” or “Runn
 
 ### Update your assistant with the new BYOS search instance
 
-45. Configure your assistant with the route recorded in previous step.
+45. Configure your assistant with the route recorded in the previous step.
 
-    First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to the following:
+    First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
 
     **https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query**
 
-    Note, the above URL will not work for you. You must use the value of your specific OpenSearch instance recorded in the previous step.
+    Note, the above URL will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.
 
-    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to do this is illustrated in the animated gif below. You can revisit this step in the prior section [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
+    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
 
     ??? Tip "How to set the custom search integration URL."
 
@@ -438,7 +440,7 @@ Once finished deploying and all the pods have a status of “Ready” or “Runn
 ### Install the **zassist** command
 
 ## Troubleshooting
-The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the [Support](../index.md#support) section of this guide.
+The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.
 
 ??? Failure "Pods have a status of **ErrImagePull** or **ImagePullBackoff**"
 
