@@ -24,7 +24,7 @@
     
     
       
-        <title>Creating a standalone OpenSearch instance for document ingestion - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
+        <title>Creating a stand-alone OpenSearch instance for document ingestion - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
       
     
     
@@ -142,7 +142,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-standalone-opensearch-instance-for-document-ingestion" class="md-skip">
+        <a href="#creating-a-stand-alone-opensearch-instance-for-document-ingestion" class="md-skip">
           Skip to content
         </a>
       
@@ -178,7 +178,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a standalone OpenSearch instance for document ingestion
+              Creating a stand-alone OpenSearch instance for document ingestion
             
           </span>
         </div>
@@ -445,7 +445,7 @@
         
   
   <span class="md-ellipsis">
-    Creating a standalone OpenSearch instance for document ingestion
+    Creating a stand-alone OpenSearch instance for document ingestion
   </span>
   
 
@@ -798,15 +798,15 @@
                   
 
 
-<div><h1 id="creating-a-standalone-opensearch-instance-for-document-ingestion">Creating a standalone OpenSearch instance for document ingestion<a class="headerlink" href="#creating-a-standalone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
-<p>This section will cover how to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. This requires deploying a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. </p>
-<p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not already reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
+<div><h1 id="creating-a-stand-alone-opensearch-instance-for-document-ingestion">Creating a stand-alone OpenSearch instance for document ingestion<a class="headerlink" href="#creating-a-stand-alone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
+<p>Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. The first step is to deploy a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. </p>
+<p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="../../TechZoneEnvironment/">IBM Technology Zone environment</a> section to complete the reservation.</p>
-<h2 id="install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command line interface utility<a class="headerlink" href="#install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
-<p>The Red Hat OpenShift command line interface (<abbr title="Command Line Interface">CLI</abbr>) utility, known as <strong>oc</strong>, must be installed on your local machine. If you already have the <strong>oc</strong> utility installed, you can proceed to <a href="#Login2OpenShift">Log into the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> cluster</a>.</p>
+<h2 id="install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command-line interface utility<a class="headerlink" href="#install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
+<p>The Red Hat OpenShift command-line interface (<abbr title="Command Line Interface">CLI</abbr>) utility, which is known as <strong>oc</strong>, must be installed on your local workstation. If you already installed the <strong>oc</strong> utility, you can proceed to <a href="#Login2OpenShift">log in to the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> cluster</a>.</p>
 <ol>
 <li>
-<p>Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
+<p>Click the following link to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
 <p><a href="https://techzone.ibm.com/my/reservations" target="_blank"><abbr title="IBM Technology Zone">ITZ</abbr> My reservations</a></p>
 </li>
 <li>
@@ -814,11 +814,12 @@
 <p><a class="glightbox" href="../_attachments/itzMyReservations.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations.png"></a></p>
 </li>
 <li>
-<p>Scroll to the bottom of the reservation page and record the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong>.</p>
+<p>Scroll down and record the <strong>Cluster Admin Username</strong> and <strong>Cluster Admin Password</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOIdPw.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOIdPw.png"></a></p>
 </li>
 <li>
 <p>Click the <strong><abbr title="OpenShift Container Platform">OCP</abbr> Console</strong> link.</p>
+<p>Note, <abbr title="OpenShift Container Platform">OCP</abbr> stands for OpenShift Container Platform.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLink.png"></a></p>
 </li>
 <li>
@@ -834,8 +835,8 @@
 <p><a class="glightbox" href="../_attachments/SNOoCPDownload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOoCPDownload.png"></a></p>
 </li>
 </ol>
-<p>Clicking the above link will automatically download either a <strong>zip</strong> or <strong>tar</strong> file specific to your operating system. You should unzip or un-tar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. Since this will vary by operating system and individual settings, details for doing this are not provided. </p>
-<p>Once properly installed, verify the installation by running the <strong>oc</strong> command in a terminal on your local machine.</p>
+<p>Clicking the preceding link automatically downloads either a <strong>.zip</strong> or <strong>.tar</strong> file specific to your operating system. Unzip or untar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. The PATH will can by operating system and individual settings, detailed instructions are not provided. </p>
+<p>After properly installed, verify the installation by running the <strong>oc</strong> command on your local workstation.</p>
 <p></p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oc --help
 </span></code></pre></div>
 Sample output:
@@ -843,9 +844,9 @@ Sample output:
 <h2 id="prepare-to-ingest-documents">Prepare to ingest documents<a class="headerlink" href="#prepare-to-ingest-documents" title="Permanent link">#</a></h2>
 <p>Before ingesting documents, a few setup steps must be taken.</p>
 <p><a name="Login2OpenShift"></a></p>
-<h3 id="login-to-the-openshift-cluster-from-your-local-machine">Login to the OpenShift cluster from your local machine<a class="headerlink" href="#login-to-the-openshift-cluster-from-your-local-machine" title="Permanent link">#</a></h3>
-<p>Note: if you just installed the <strong>oc</strong> utility, you should be able to skip the next 5 steps.
-1. Click the link below to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
+<h3 id="login-to-the-openshift-cluster-from-your-local-terminal">Login to the OpenShift cluster from your local terminal<a class="headerlink" href="#login-to-the-openshift-cluster-from-your-local-terminal" title="Permanent link">#</a></h3>
+<p>Note: if you just installed the <strong>oc</strong> utility, you can skip the next 5 steps.
+1. Click the following link to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
 <div class="highlight"><pre><span></span><code>&lt;a href="https://techzone.ibm.com/my/reservations" target="_blank"&gt;ITZ My reservations&lt;/a&gt;
 </code></pre></div>
 <ol start="2">
@@ -875,14 +876,14 @@ Sample output:
 </li>
 <li>
 <p>Select and copy the <strong>Log in with this token</strong> string.</p>
-<p>The steps to select and copy the value may differ by operating system, but for most, you should be able to double-click the value and then right click and select <strong>Copy</strong>.</p>
+<p>The steps to select and copy the value may differ by operating system, but for most, you can double-click the value and then right click and select <strong>Copy</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPLoginCommand2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLoginCommand2.png"></a></p>
 </li>
 <li>
-<p>Open a command prompt or terminal window on your local machine.</p>
+<p>Open a command prompt or terminal window on your local workstation.</p>
 </li>
 <li>
-<p>Paste the login command line in the terminal window and press <strong>enter</strong>.</p>
+<p>Paste the login command and press <strong>enter</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPLoginCommand3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLoginCommand3.png"></a></p>
 </li>
 </ol>
@@ -891,7 +892,7 @@ Sample output:
 <li>
 <p>Create a directory that will be used to store the configuration files that will be created in the next steps.</p>
 <div class="admonition note">
-<p class="admonition-title">Instructions may vary by your local machines operating system</p>
+<p class="admonition-title">Instructions vary by your local workstation's operating system</p>
 <p>The directions that follow may vary depending on your operating system. The examples provided are based upon MacOS.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir watsonxAssistant
@@ -904,10 +905,10 @@ Sample output:
 <p><a class="glightbox" href="../_attachments/SNOOCPLoginCommand4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLoginCommand4.png"></a></p>
 </li>
 </ol>
-<h3 id="install-ibm-certificate-manager-on-openshift">Install IBM Certificate Manager on OpenShift<a class="headerlink" href="#install-ibm-certificate-manager-on-openshift" title="Permanent link">#</a></h3>
+<h3 id="install-ibm-certificate-manager-on-red-hat-openshift">Install IBM Certificate Manager on Red Hat OpenShift<a class="headerlink" href="#install-ibm-certificate-manager-on-red-hat-openshift" title="Permanent link">#</a></h3>
 <ol start="13">
 <li>
-<p>Create a file named <strong>catalogCertManager.yaml</strong> using a text editor and paste the following text into the file.</p>
+<p>Create a file that is named <strong>catalogCertManager.yaml</strong> using a text editor and paste the following text into the file.</p>
 <div class="admonition important">
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
 <p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
@@ -930,10 +931,10 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>Install the IBM Certificate Manager operator in the OpenShift cluster.</p>
+<p>Install the IBM Certificate Manager operator in the Red Hat OpenShift cluster.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc apply -f catalogCertManager.yaml
 </span></code></pre></div>
-<p>The above command should return a message stating the <strong>ibm-cert-manager-catalog</strong> was created.</p>
+<p>The preceding command returns a message that states the <strong>ibm-cert-manager-catalog</strong> was created.</p>
 </li>
 <li>
 <p>In the OpenShift web console, click <strong>Operators</strong> and select <strong>OperatorHub</strong>.</p>
@@ -958,14 +959,14 @@ Sample output:
 <li>
 <p>Keep the default settings and click <strong>Install</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator5.png"></a></p>
-<p>The install process will take a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p>The installation process takes a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator6.png"></a></p>
 </li>
 </ol>
 <h3 id="install-the-watsonx-assistant-for-z-operator-for-opensearch">Install the watsonx Assistant for Z Operator (for OpenSearch)<a class="headerlink" href="#install-the-watsonx-assistant-for-z-operator-for-opensearch" title="Permanent link">#</a></h3>
 <ol start="21">
 <li>
-<p>In your command prompt or terminal window, create a new namespace called <strong>wxa4z-byos</strong> in the OpenShift cluster.</p>
+<p>In your command prompt or terminal window, create a new namespace called <strong>wxa4z-byos</strong> in the Red Hat OpenShift cluster.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc create namespace wxa4z-byos 
 </span></code></pre></div>
 </li>
@@ -973,14 +974,14 @@ Sample output:
 <p>Create or obtain your IBM Container Software <strong>production entitlement key</strong>.</p>
 <p>A <strong>production entitlement key</strong> is required to pull the container images that get deployed by the operator.</p>
 <p>To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key. </p>
-<p>Once you locate your existing key or create a new key continue to the next step.</p>
+<p>After locating your existing key or creating a new key, continue to the next step.</p>
 </li>
 <li>
 <p>Copy the <strong>production entitlement key</strong>.</p>
 <p><a class="glightbox" href="../_attachments/copyEntitlementKey.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/copyEntitlementKey.png"></a></p>
 </li>
 <li>
-<p>Using the command below in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the container registry.</p>
+<p>Using the following command in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the Container Registry.</p>
 <p>Substitute your <strong>production entitlement key</strong> for the <strong>&lt;entitlement key&gt;</strong> string.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
 </span></code></pre></div>
@@ -1009,13 +1010,13 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>Create your document catalog in the OpenShift operator.</p>
+<p>Create your document catalog in the Red Hat OpenShift operator.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc apply -f catalogSource.yaml
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/createCatalog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createCatalog.png"></a></p>
 </li>
 <li>
-<p>In the OpenShift web console, click <strong>OperatorHub</strong> and select the <strong>wxa4z-byos</strong> project.</p>
+<p>In the Red Hat OpenShift web console, click <strong>OperatorHub</strong> and select the <strong>wxa4z-byos</strong> project.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator0.png"></a></p>
 </li>
 <li>
@@ -1029,11 +1030,11 @@ Sample output:
 <li>
 <p>Select <strong>A specific namespace on the cluster</strong> under <strong>Installation mode</strong> and <strong>wxa4z-byos</strong> for the <strong>Installed Namespace</strong>, then click <strong>Install</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator3.png"></a></p>
-<p>The install process will take a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p>The installation process takes a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator4.png"></a></p>
 </li>
 <li>
-<p>In your command prompt or terminal window, run the following commands to add the container registry credential to the operator's service account.</p>
+<p>In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc project wxa4z-byos
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
@@ -1041,7 +1042,7 @@ Sample output:
 <p><a class="glightbox" href="../_attachments/installAssistantOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator5.png"></a></p>
 </li>
 <li>
-<p>In the OpenShift web console, click <strong>Workloads</strong> and select the <strong>Pods</strong>.</p>
+<p>In the Red Hat OpenShift web console, click <strong>Workloads</strong> and select the <strong>Pods</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator6.png"></a></p>
 </li>
 <li>
@@ -1077,7 +1078,7 @@ Sample output:
 </li>
 <li>
 <p>Create a file called <strong>client-ingestion-secret.yaml</strong> with the following content.</p>
-<p>Substitute a secure authentication key of your choosing for the string <strong>&lt;CLIENT_INGESTION_AUTHKEY&gt;</strong>. The authentication key can just be a random password.</p>
+<p>Substitute a secure authentication key of your choosing for the string <strong>&lt;CLIENT_INGESTION_AUTHKEY&gt;</strong>. The authentication key can be a random password.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>apiVersion: v1 
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>stringData: 
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  authkey: &lt;CLIENT_INGESTION_AUTHKEY&gt; 
@@ -1094,7 +1095,7 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>Obtain and record your cluster domain used for routes by running the following command.</p>
+<p>Obtain and record your cluster domain that is used for routes by running the following command.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
 <div class="admonition warning">
@@ -1162,18 +1163,18 @@ Sample output:
 </span></code></pre></div>
 </li>
 </ol>
-<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment will begin and could take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</p>
+<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</p>
 <h3 id="verify-all-the-required-pods-are-running">Verify all the required pods are running<a class="headerlink" href="#verify-all-the-required-pods-are-running" title="Permanent link">#</a></h3>
 <ol start="42">
 <li>
-<p>Verify all pods are either have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
+<p>Verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
 <p><a class="glightbox" href="../_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpWorkloadsPodsStatus.png"></a></p>
 </li>
 </ol>
-<p>Once finished deploying and all the pods have a status of “Ready” or “Running”, you must retrieve you <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>When deployment completes and all the pods have a status of “Ready” or “Running”, you must retrieve you <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
 <ol start="43">
 <li>
-<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click on <strong>Networking</strong> and then <strong>Routes</strong>.</p>
+<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click <strong>Networking</strong> and then <strong>Routes</strong>.</p>
 <p><a class="glightbox" href="../_attachments/ocpNetworkingRoutesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpNetworkingRoutesMenu.png"></a></p>
 </li>
 <li>
@@ -1184,11 +1185,11 @@ Sample output:
 <h3 id="update-your-assistant-with-the-new-byos-search-instance">Update your assistant with the new <abbr title="Bring Your Own Search">BYOS</abbr> search instance<a class="headerlink" href="#update-your-assistant-with-the-new-byos-search-instance" title="Permanent link">#</a></h3>
 <ol start="45">
 <li>
-<p>Configure your assistant with the route recorded in previous step.</p>
-<p>First, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to the following:</p>
+<p>Configure your assistant with the route recorded in the previous step.</p>
+<p>First, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
 <p><strong>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</strong></p>
-<p>Note, the above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. You must use the value of your specific OpenSearch instance recorded in the previous step.</p>
-<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to do this is illustrated in the animated gif below. You can revisit this step in the prior section <a href="../creatingAssistant-configuringConvoSearch/#configureCustomSearchURL">here</a>.</p>
+<p>Note, the above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.</p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can see the steps <a href="../creatingAssistant-configuringConvoSearch/#configureCustomSearchURL">here</a>.</p>
 <details class="tip">
 <summary>How to set the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</summary>
 <p><a class="glightbox" href="../_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changeCustomSearchURL.gif"></a></p>
@@ -1197,7 +1198,7 @@ Sample output:
 </ol>
 <h3 id="install-the-zassist-command">Install the <strong>zassist</strong> command<a class="headerlink" href="#install-the-zassist-command" title="Permanent link">#</a></h3>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>The following are issues you may encounter. If the provided resolutions do not work, contact support using the methods mentioned in the <a href="../../#support">Support</a> section of this guide.</p>
+<p>The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the <a href="../../#support">Support</a> section.</p>
 <details class="failure">
 <summary>Pods have a status of <strong>ErrImagePull</strong> or <strong>ImagePullBackoff</strong></summary>
 <p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
