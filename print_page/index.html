@@ -1613,6 +1613,12 @@ Sample output:
 <summary>Pods have a status of <strong>ErrImagePull</strong> or <strong>ImagePullBackoff</strong></summary>
 <p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
 </details>
+<details class="failure">
+<summary>wxa4z-client-ingestion pod does not start</summary>
+<p>Did you include teh <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#setup-documentingestion-__codelineno-20-1"></a>oc apply -f byos.yaml
+</span></code></pre></div>
+</details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-zassist"><div><h1 id="installing-and-using-zassist-to-ingest-client-documents">Installing and using zassist to ingest client documents<a class="headerlink" href="#setup-zassist-installing-and-using-zassist-to-ingest-client-documents" title="Permanent link">#</a></h1>
 <p>With Bring Your Own Search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr>, and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion. </p>
