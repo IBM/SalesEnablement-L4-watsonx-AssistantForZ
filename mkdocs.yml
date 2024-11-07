@@ -153,7 +153,7 @@ extra:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide"
     lastUpdate: "26 December 2024"
     url: "https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/"
-    pdf: "_pdf/IBM%20watsonx%20Assistant%20for%20Z%Level%4%20Lab%20Guide.pdf"
+    pdf: "_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Level%204%20Lab%20Guide.pdf"
   itz:
     account1: "2701257 - itz-watsonx-3"
     account2: "2628583 - itz-shared-z"
