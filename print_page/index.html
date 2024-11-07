@@ -464,6 +464,217 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Adding skills to the assistant
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Adding skills to the assistant
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/importSkills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importing skills from Ansible Automation Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/connectingApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connecting the app to your assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/creatingActions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating actions for your assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/creatingFlows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating skill flows for your assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/creatingCustomActions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating custom-built actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/importingzOSskills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importing pre-packaged z/OS skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/publishDeploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publishing and deploying your assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/otherIntegrations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding other integrations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -547,6 +758,24 @@
   <a href="#setup-creatingassistant-configuringconvosearch" class="md-nav__link">
     <span class="md-ellipsis">
       Creating an assistant and configuring conversational search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-publishdeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing and deploying your assistant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-otherintegrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding other integrations
     </span>
   </a>
   
@@ -1614,8 +1843,8 @@ Sample output:
 <p>If the pods starting with <strong>ibm-wxa4z-operator</strong> have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.</p>
 </details>
 <details class="failure">
-<summary>wxa4z-client-ingestion pod does not start</summary>
-<p>Did you include teh <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again.</p>
+<summary>The <strong>wxa4z-client-ingestion</strong> pod does not start</summary>
+<p>Did you include teh <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#setup-documentingestion-__codelineno-20-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </details>
@@ -1689,7 +1918,8 @@ Sample output:
 <p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs ingested for conversational search, you can set the metadata field for your assistant to use those documents in it’s content-grounded search.
 If you leave the metadata field empty, then it defaults to settings found to perform well experimentally. This replaces having to paste a complicated search string.
 By default (without any string in the Metadata field), it will search all the default IBM provided documentation and all ingested customer documentation using the following:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,“customer_indices”:“customer_*”}
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#setup-zassist-__codelineno-1-2"></a>“customer_indices”:“customer_*”}
 </span></code></pre></div>
 <p>Replacing the wildcard string with an explicit list of indices allows personalization. This is where you could input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. Out of the box there are over 220 products and topics which the OpenSearch instance has IBM documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
 <p>You have the ability to input a subset of indices into the “Metadata” field in cases where you only want your assistant gathering context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
@@ -1722,7 +1952,27 @@ Try setting the metadata field to the following which weights ingested docs high
 <p>Now redo steps 6 through 8 above. Notice the ingested Red Piece document is now the first sited reference!</p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1>
+                        <h2 class='nav-section-title' id='section-adding-skills-to-the-assistant'>
+                            Adding skills to the assistant <a class='headerlink' href='#section-adding-skills-to-the-assistant' title='Permanent link'>↵</a>
+                        </h2>
+                        <section class="print-page" id="setup-importskills"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-connectingapp"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingactions"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingflows"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingcustomactions"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-importingzosskills"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Adding skills to the assistant</h1><section class="print-page" id="setup-publishdeploy"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-otherintegrations"><div><p>TBD</p>
+<!-- Terminology -->
+<!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
 <p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
 <p>Also, the focus of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide was the <em>end-user</em> use of IBM watsonx Assistant for Z. To learn more about deploying, configuring, and customizing IBM watsonx Assistant for Z explore the other capabilities that are included in the <abbr title="IBM Technology Zone">ITZ</abbr> collection <a href="https://techzone.ibm.com/collection/6633e75d979046001eea2b77" target="_blank">here</a>. Included are guidance for running client pilots and the ability to manage an IBM watsonx Assistant for Z deployment. In the Velocity Pilot environment, you can explore all the capabilities of the offering like creating an assistant, importing documents, and adding automation skills.</p>
 <h2 id="nextsteps-earn-the-badge">Earn the badge<a class="headerlink" href="#nextsteps-earn-the-badge" title="Permanent link">#</a></h2>

@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../documentIngestion/">
+        <link rel="prev" href="../connectingApp/">
       
       
-        <link rel="next" href="../importSkills/">
+        <link rel="next" href="../creatingFlows/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Installing and using zassist to ingest client documents - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
+        <title>Creating actions for your assistant - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
       
     
     
@@ -141,11 +141,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#installing-and-using-zassist-to-ingest-client-documents" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -178,7 +173,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installing and using zassist to ingest client documents
+              Creating actions for your assistant
             
           </span>
         </div>
@@ -392,19 +387,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -418,7 +411,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Ingesting client documents
@@ -450,19 +443,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../zassist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +455,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -489,17 +472,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -513,7 +498,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Adding skills to the assistant
@@ -566,10 +551,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../creatingActions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -578,6 +570,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -740,8 +733,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -756,108 +747,9 @@
                   
 
 
-<div><h1 id="installing-and-using-zassist-to-ingest-client-documents">Installing and using zassist to ingest client documents<a class="headerlink" href="#installing-and-using-zassist-to-ingest-client-documents" title="Permanent link">#</a></h1>
-<p>With Bring Your Own Search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr>, and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion. </p>
-<p>To prepare for document ingestion, you can also reference the setup instructions located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.</p>
-<h2 id="install-the-zassist-utility">Install the zassist utility<a class="headerlink" href="#install-the-zassist-utility" title="Permanent link">#</a></h2>
-<p>The <strong>zassist</strong> utility is an executable program that automates the ingestion of client documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> for watsxonx Assistant for Z. The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.</p>
-<p>A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps below to download and install <strong>zassist</strong>.</p>
-<ol>
-<li>
-<p>Click the link below and download the <strong>zassist.zip</strong> file.</p>
-<p><a href="https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77" target="_blank">https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77</a></p>
-<p><a class="glightbox" href="../_attachments/zassistDownload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zassistDownload.png"></a></p>
-</li>
-<li>
-<p>Unzip the <strong>zassist.zip</strong> file.</p>
-</li>
-<li>
-<p>Locate the appropriate executable for your local machines operating system.</p>
-<p><a class="glightbox" href="../_attachments/zasstZIPFile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zasstZIPFile.png"></a></p>
-</li>
-<li>
-<p>Either copy the appropriate <strong>zassist</strong> executable to a directory in your command prompt or terminal window's PATH, or copy it to a directory and add that directory PATH to your PATH environment variable.</p>
-<p>Additional information for performing the above tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.</p>
-</li>
-<li>
-<p>Verify the <strong>zassist</strong> utility is working.</p>
-<p><a class="glightbox" href="../_attachments/zassistRunning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zassistRunning.png"></a></p>
-</li>
-</ol>
-<h2 id="ingest-client-documentation-using-zassist">Ingest client documentation using <strong>zassist</strong><a class="headerlink" href="#ingest-client-documentation-using-zassist" title="Permanent link">#</a></h2>
-<p>With the zassist executable ready, you are now able to begin ingesting data. </p>
-<p>Step-by-step guidance for ingesting documents using zassist are provided in the IBM watsonx Assistant for Z documentation <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a>.</p>
-<p>These steps are not repeated in this lab guide, rather the video below illustrates all of the steps to ingest a single document. This video has no audio.</p>
-<p><div class="video-container"><iframe src="../_videos/zassitIngest-final.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
-<p>The document ingested in the video is a compressed <abbr title="Portable Document Format">PDF</abbr> version of the <strong>IBM z/<abbr title="Operating System">OS</abbr> Continuous Delivery</strong> Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.</p>
-<h2 id="verify-the-document-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document ingested is now returned as a source file for a query.<a class="headerlink" href="#verify-the-document-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
-<p>Use the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder to verify your document ingestion.</p>
-<ol start="6">
-<li>Hover over the home (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) icon and click <strong>Preview</strong>.</li>
-<li>
-<p>Enter the following prompt in your assistant.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>What is z/OS continuous delivery?
-</span></code></pre></div>
-<p><a class="glightbox" href="../_attachments/verifyIngest0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest0.png"></a></p>
-</li>
-<li>
-<p>Expand the sources section by clicking the (<a class="glightbox" href="../_attachments/downArrowIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/downArrowIcon.png"></a>).</p>
-<p><a class="glightbox" href="../_attachments/verifyIngest1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest1.png"></a></p>
-</li>
-<li>
-<p>Click through the list of resources and find the reference to the Red Piece document you ingested.</p>
-<p><a class="glightbox" href="../_attachments/verifyIngest2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest2.png"></a></p>
-</li>
-<li>
-<p>Click the ingested document reference.</p>
-<p><a class="glightbox" href="../_attachments/verifyIngest3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest3.png"></a></p>
-</li>
-<li>
-<p>Accept the security risk to view the source document.</p>
-<p>The steps to accept the security risk for the document are not shown. This occurs as the certificate for the connection to the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> instance is not secure. Notice the <abbr title="Uniform Resource Locator">URL</abbr> contains the a path to your <abbr title="Single-node Red Hat OpenShift">SNO</abbr> instance route.</p>
-<div class="highlight"><pre><span></span><code>![](_attachments/verifyIngest4.png)
-</code></pre></div>
-</li>
-</ol>
-<p>## Adjusting your assistant's search behavior
- Do you recall the <strong>Metadata</strong> field when you were configuring your assistant?</p>
-<p><a class="glightbox" href="../_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2.png"></a></p>
-<p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs ingested for conversational search, you can set the metadata field for your assistant to use those documents in it’s content-grounded search.
-If you leave the metadata field empty, then it defaults to settings found to perform well experimentally. This replaces having to paste a complicated search string.
-By default (without any string in the Metadata field), it will search all the default IBM provided documentation and all ingested customer documentation using the following:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>“customer_indices”:“customer_*”}
-</span></code></pre></div>
-<p>Replacing the wildcard string with an explicit list of indices allows personalization. This is where you could input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. Out of the box there are over 220 products and topics which the OpenSearch instance has IBM documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
-<p>You have the ability to input a subset of indices into the “Metadata” field in cases where you only want your assistant gathering context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
-</span></code></pre></div>
-<p>For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/<abbr title="Operating System">OS</abbr>” and no ingested client documentation, you could enter the following into the metadata field:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
-</span></code></pre></div>
-<p>If you have a mix of IBM documentation and client documentation ingested, then there’s an optional search string you can use to set the “weights” used for each. </p>
-<p>For example:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>{"doc_weight":
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{"product_docs":0.5,
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> "customer_docs":0.5},
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>"ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>"customer_indicies":"customer_*"
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>}
-</span></code></pre></div>
-<p>In this case, “product_docs” is the weight assigned to “ibm_indices” and “customer_docs” is the weight assigned to “customer_indices”.</p>
-<p>Once you’ve configured all the above settings for Conversational Search on that page, you can click “Save” in the top-right of the page.</p>
-<p>For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href target="_blank">here. THIS LINK IS CURRENTLY BROKEN</href></p>
-<p>You are encouraged to experiment with the metadata field!
-Try setting the metadata field to the following which weights ingested docs higher than the product docs:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{"doc_weight":
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>{"product_docs":0.2,
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> "customer_docs":0.8},
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>"ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>"customer_indicies":"customer_*"
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
-</span></code></pre></div>
-<p>Now redo steps 6 through 8 above. Notice the ingested Red Piece document is now the first sited reference!</p>
-<p><a class="glightbox" href="../_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest5.png"></a></p>
+  <h1>Creating actions for your assistant</h1>
+
+<div><p>TBD</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
@@ -889,7 +781,7 @@ Try setting the metadata field to the following which weights ingested docs high
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../documentIngestion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a standalone OpenSearch instance for document ingestion">
+          <a href="../connectingApp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Connecting the app to your assistant">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -899,20 +791,20 @@ Try setting the metadata field to the following which weights ingested docs high
                 Previous
               </span>
               <div class="md-ellipsis">
-                Creating a standalone OpenSearch instance for document ingestion
+                Connecting the app to your assistant
               </div>
             </div>
           </a>
         
         
           
-          <a href="../importSkills/" class="md-footer__link md-footer__link--next" aria-label="Next: Importing skills from Ansible Automation Platform">
+          <a href="../creatingFlows/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating skill flows for your assistant">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Importing skills from Ansible Automation Platform
+                Creating skill flows for your assistant
               </div>
             </div>
             <div class="md-footer__button md-icon">
