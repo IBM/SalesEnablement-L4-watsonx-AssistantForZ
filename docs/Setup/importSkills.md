@@ -30,13 +30,13 @@ The next steps assume you have an active browser window to the watsonx Orchestra
 
     **a**: Connection Type: **ansible**
 
-    **b**: Application Name: <enter a meaningful name for the skills you will import>
+    **b**: Application Name: <enter a meaningful name for the skills you will import\>
 
-    **c**: Connection URL: <enter the URL for your AAP UI>
+    **c**: Connection URL: <enter the URL for your AAP UI\>
 
-    **d**: User Name: <enter the AAP User Name (for UI access)>
+    **d**: User Name: <enter the AAP User Name (for UI access)\>
 
-    **e**: Password: <enter the AAP User Password>
+    **e**: Password: <enter the AAP User Password\>
 
     **f**: Search Pattern: **\***
 

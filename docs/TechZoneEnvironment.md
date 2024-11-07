@@ -48,6 +48,10 @@ Follow the instructions in this section to create new reservation requests, exte
 
     **b**. Purpose: select the **Education** purpose tile.
 
+    !!! Tip "For actual client pilots..."
+
+    For client pilots, set the **Purpose** field in the reservation to **Pilot** and provide an opportunity number to receive a longer reservation.
+
     **c**. Purpose description: enter a description, for example: Level 4 education.
 
     **d**. Preferred geography: select the region nearest your physical location for improved performance and reduced network latency.
@@ -82,10 +86,6 @@ In rare cases, the provisioning process may fail. If you receive an email statin
 
 ## Extend the reservation
 When the reservations are in the **Ready** state, you can extend each reservation to a total of 6 days. Remember, IBM sellers need the environment to record their Stand and Deliver and Business Partners need an environment to answer quiz questions. Plan your time accordingly. 
-
-!!! Tip "Actual client pilots"
-
-    For client pilots, set the **Purpose** field in the reservation to **Pilot** and provide an opportunity number to receive a longer reservation.
 
 4. In the IBM Technology Zone portal, expand **My TechZone** at the top and select **My Reservations**.
 
