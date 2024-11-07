@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../importingzOSskills/">
+        <link rel="prev" href="../zassist/">
       
       
-        <link rel="next" href="../otherIntegrations/">
+        <link rel="next" href="../importSkills/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Publishing and deploying your assistant - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
+        <title>Getting started with skills and actions - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
       
     
     
@@ -141,6 +141,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#getting-started-with-skills-and-actions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -173,7 +178,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Publishing and deploying your assistant
+              Getting started with skills and actions
             
           </span>
         </div>
@@ -472,17 +477,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -496,7 +503,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Adding skills to the assistant
@@ -507,10 +514,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gettingStartedSkills/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -519,6 +535,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -662,17 +679,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../publishDeploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,7 +691,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -752,6 +761,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -766,9 +777,27 @@
                   
 
 
-  <h1>Publishing and deploying your assistant</h1>
-
-<div><p>TBD</p>
+<div><h1 id="getting-started-with-skills-and-actions">Getting started with skills and actions<a class="headerlink" href="#getting-started-with-skills-and-actions" title="Permanent link">#</a></h1>
+<p>Watsonx Assistant for Z provides the ability to import skills to automate a range of IBM Z related tasks through assistant interactions. Each skill is a pre-defined automation that performs a different task to accomplish some work. For example, you can use a skill to view z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> information, or work with z/<abbr title="Operating System">OS</abbr> datasets.</p>
+<p>IBM watsonx Assistant for Z provides an extension within watsonx Orchestrate that allows you to build new skills from Ansible Automation platform or z/<abbr title="Operating System">OS</abbr> Management Facility (z/OSMF). This extension, Z Skills Accelerator, allows you to connect to Ansible and z/<abbr title="Operating System">OS</abbr> application programming interfaces (<abbr title="Application Programming Interfaces">APIs</abbr>) and enables you to import automation as Ansible Playbooks, <abbr title="Job Control Language">JCL</abbr>, or <abbr title="Restructured Extended Executor">REXX</abbr> as skills. Learn more importing and building skills <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=building-skills-from-ansible-controller-zos" target="_blank">here</a>.</p>
+<h2 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">#</a></h2>
+<h3 id="watsonx-orchestrate">watsonx Orchestrate<a class="headerlink" href="#watsonx-orchestrate" title="Permanent link">#</a></h3>
+<p>The extension for watsonx Assistant for Z that allows for importing skills from Ansible Automation platform (<abbr title="Ansible Automation Platform">AAP</abbr>) or z/OSMF is called the ‘z/<abbr title="Operating System">OS</abbr> Skills Accelerator’ which is already configured in your watsonx Orchestrate IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environment. You will be using this component when it comes to importing new skills.</p>
+<h3 id="ansible-automation-platform-aap-and-wazi-as-a-service-aas">Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) and Wazi as a Service (aaS)<a class="headerlink" href="#ansible-automation-platform-aap-and-wazi-as-a-service-aas" title="Permanent link">#</a></h3>
+<p>To import skills for automations, you will be using Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) and Wazi aaS to serve as the z/<abbr title="Operating System">OS</abbr> back-end. Learn more about <abbr title="Ansible Automation Platform">AAP</abbr> <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.</p>
+<p>The two resources are provisioned together in the <abbr title="IBM Technology Zone">ITZ</abbr> environment you reserved earlier. This environment will enable the ability to manage and automate z/<abbr title="Operating System">OS</abbr> tasks and subsystems with a variety of pre-loaded ansible playbooks ready for immediate use, as well as z/<abbr title="Operating System">OS</abbr> installed with all prerequisites needed (no additional setup required).</p>
+<p>The playbooks provided cover a variety of simple use cases for automating z/<abbr title="Operating System">OS</abbr> management. Ansible’s capabilities for automating various Z-specific tasks are not limited to the use cases that are pre-loaded in the <abbr title="Ansible Automation Platform">AAP</abbr> instance. These are mostly tasks from the ‘IBM z/<abbr title="Operating System">OS</abbr> core collection’. Leveraging this environment will accelerate the ability to showcase the value of watsonx assistant for Z when it comes to automation, and to get started with simple automations that can be expanded.</p>
+<p>The <abbr title="IBM Technology Zone">ITZ</abbr> environment gives you access to <abbr title="Ansible Automation Platform">AAP</abbr> which is preconfigured to target the accompanying z/<abbr title="Operating System">OS</abbr> Wazi system, along with web-based access to <abbr title="Ansible Automation Platform">AAP</abbr> to experiment with different playbook templates. These templates will be imported into watsonx Orchestrate as skills and connected to your assistant.</p>
+<p>For more information on the <abbr title="Ansible Automation Platform">AAP</abbr> &amp; Wazi z/<abbr title="Operating System">OS</abbr> environments, refer to this <a href="https://ibm.ent.box.com/v/ansible4zos-demo-guide" target="_blank">document</a>. </p>
+<p>The playbook templates pre-loaded into <abbr title="Ansible Automation Platform">AAP</abbr> cover various use cases which you will be able to explore, including:</p>
+<ul>
+<li>z/<abbr title="Operating System">OS</abbr> Certificate Management (create, delete, list and renew certificates)</li>
+<li>dataset management (create, delete, fetch datasets)</li>
+<li>Submit <abbr title="Job Control Language">JCL</abbr></li>
+<li>Execute Operator commands</li>
+<li>Execute <abbr title="Time Sharing Option">TSO</abbr> commands</li>
+<li>And more</li>
+</ul>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
@@ -800,7 +829,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../importingzOSskills/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Importing pre-packaged z/OS skills">
+          <a href="../zassist/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installing and using zassist to ingest client documents">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -810,20 +839,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Importing pre-packaged z/OS skills
+                Installing and using zassist to ingest client documents
               </div>
             </div>
           </a>
         
         
           
-          <a href="../otherIntegrations/" class="md-footer__link md-footer__link--next" aria-label="Next: Adding other integrations">
+          <a href="../importSkills/" class="md-footer__link md-footer__link--next" aria-label="Next: Importing skills from Ansible Automation Platform">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Adding other integrations
+                Importing skills from Ansible Automation Platform
               </div>
             </div>
             <div class="md-footer__button md-icon">
