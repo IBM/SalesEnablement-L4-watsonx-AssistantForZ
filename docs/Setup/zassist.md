@@ -79,7 +79,8 @@ If you leave the metadata field empty, then it defaults to settings found to per
 By default (without any string in the Metadata field), it will search all the default IBM provided documentation and all ingested customer documentation using the following:
 
 ```
-{“ibm_indices”:“*_ibm_docs_slate”,“customer_indices”:“customer_*”}
+{“ibm_indices”:“*_ibm_docs_slate”,
+“customer_indices”:“customer_*”}
 ```
 
 Replacing the wildcard string with an explicit list of indices allows personalization. This is where you could input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. Out of the box there are over 220 products and topics which the OpenSearch instance has IBM documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.
@@ -113,7 +114,7 @@ In this case, “product_docs” is the weight assigned to “ibm_indices” and
 
 Once you’ve configured all the above settings for Conversational Search on that page, you can click “Save” in the top-right of the page.
 
-For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1660573947630" target="_blank">here</a>. THIS LINK IS CURRENTLY BROKEN
+For more information on customizing the metadata field for conversational search, please refer to this supplemental video found <href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
 
 You are encouraged to experiment with the metadata field!
 Try setting the metadata field to the following which weights ingested docs higher than the product docs:

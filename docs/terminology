@@ -5,6 +5,7 @@
 *[APAR]: Authorized Program Analysis Report
 *[APARs]: Authorized Program Analysis Report
 *[APF]: Authorized Program Facility
+*[APIs]: Application Programming Interfaces
 *[BYOS]: Bring Your Own Search
 *[CICS]: Custom Information Control System
 *[CLI]: Command Line Interface
@@ -36,6 +37,8 @@
 *[SNO]: Single-node Red Hat OpenShift
 *[SSL]: Secure Sockets Layer 
 *[sysprog]: Systems programmer
+*[TSO]: Time Sharing Option
+*[UI]: User Interface
 *[URL]: Uniform Resource Locator
 *[zparm]: Subsystem parameter
 *[zparms]: Subsystem parameters

@@ -143,7 +143,7 @@ The next step will be to configure **conversational search** for your assistant 
 
     **f**. Leave the **Default filter** field empty.
 
-    **g**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the [Installing and using zassist to ingest client documents](Setup/zassist.md). Leave the field empty for now.
+    **g**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option will be explored in detail in the [Installing and using zassist to ingest client documents](./zassist.md). Leave the field empty for now.
 
     **h**. The **Search display text** options specify the default text displayed when no results are found or when there are connectivity issues to the backend search service. You can keep the defaults or customize.
 

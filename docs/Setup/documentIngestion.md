@@ -443,3 +443,11 @@ The following are issues you may encounter. If the provided resolutions do not w
 ??? Failure "Pods have a status of **ErrImagePull** or **ImagePullBackoff**"
 
     If the pods starting with **ibm-wxa4z-operator** have a status of “ErrImagePull” or “ImagePullBackoff”, you can delete the pod and it will automatically restart and pull the image successfully. Wait until the pod is re-created successfully.
+
+??? Failure "The **wxa4z-client-ingestion** pod does not start"
+
+    Did you include teh **%** character in the **clusterDomain** name when creating the **byos.yaml**? To resolve, edit the **byos.yaml** file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.
+
+    ```
+    oc apply -f byos.yaml
+    ```
