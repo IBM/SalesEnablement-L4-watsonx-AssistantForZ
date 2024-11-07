@@ -26,14 +26,23 @@ The next steps assume you have an active browser window to the watsonx Orchestra
 
 6. Enter the following values in the **z/OS Skills accelerator** form and then click **Connect**.
 
-    Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](Setup/exploreAAP.md) section earlier.
+    Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
 
     **a**: Connection Type: **ansible**
+
     **b**: Application Name: <enter a meaningful name for the skills you will import>
+
     **c**: Connection URL: <enter the URL for your AAP UI>
+
     **d**: User Name: <enter the AAP User Name (for UI access)>
+
     **e**: Password: <enter the AAP User Password>
+
     **f**: Search Pattern: **\***
+
+    ![](_attachments/skillsForm.png)
+
+
 
 
 

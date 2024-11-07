@@ -37,7 +37,7 @@ Once you have provisioned the AAP & Wazi z/OS environments in ITZ and the reserv
 
     Note that because the AAP instance and the back-end z/OS system are preconfigured, no changes are needed to execute the templates and they will target your provisioned z/OS system by default.
 
-7. Locate the **z/OS Ping** template and Click the rocket (![](_attachmetns/rocketIcon.png)) icon to launch the template. 
+7. Locate the **z/OS Ping** template and Click the rocket (![](_attachments/rocketIcon.png)) icon to launch the template. 
 
     ![](_attachments/launchzOSPing.png)
 

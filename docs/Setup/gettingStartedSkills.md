@@ -27,4 +27,4 @@ The playbook templates pre-loaded into AAP cover various use cases which you wil
 - Execute TSO commands
 - And more
 
-Each of the sections that follow build upon each other. Complete each in order to successfully enhance your assistant starting with [Explore Ansible Automation Platform](Setup/exploreAAP.md).
+Each of the sections that follow build upon each other. Complete each in order to successfully enhance your assistant starting with [Explore Ansible Automation Platform](exploreAAP.md).
