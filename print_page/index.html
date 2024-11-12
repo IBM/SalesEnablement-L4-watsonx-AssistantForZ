@@ -1992,6 +1992,34 @@ By default (without any string in the Metadata field), it searches all the defau
 </span></code></pre></div>
 <p>Now, repeat steps 6 through 8 (make sure you start a fresh preview of the assistant). Notice that the ingested Red Piece document is now the first sited reference!</p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
+<h2 id="setup-zassist-guidance-for-the-pilot-environment">Guidance for the pilot environment<a class="headerlink" href="#setup-zassist-guidance-for-the-pilot-environment" title="Permanent link">#</a></h2>
+<p>If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot <abbr title="IBM Technology Zone">ITZ</abbr> environment is limited in compute and storage capacity. The following limits should be adhered to:</p>
+<ul>
+<li>
+<p>Greater than 15,000 documents is not supported.</p>
+</li>
+<li>
+<p>Individual documents should be less than 10 megabytes (MB).</p>
+</li>
+<li>
+<p>Larger documents greater than 50 MB should work if the document contains mostly images.</p>
+</li>
+<li>
+<p>Loading documents can take a long time, especially with &gt; 100 MB of text.</p>
+</li>
+<li>
+<p>It is recommended to run large loads late at night.</p>
+</li>
+<li>
+<p>When loading, ensure your workstations does not sleep during the process.</p>
+</li>
+<li>
+<p>If you receive a <strong>batch time error</strong>, set the batch size to a lower number for that command. For example:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>zassist ingest . -s 50
+</span></code></pre></div>
+</li>
+</ul>
+<p>After ingesting all the your additional documents, proceed to the next section to learn about adding skills to your assistant.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Ingesting client documents</h1>
                         <h2 class='nav-section-title' id='section-adding-skills-to-the-assistant'>
