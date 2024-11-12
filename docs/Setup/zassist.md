@@ -67,11 +67,9 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
     The steps to accept the security risk for the document are not shown. The risk occurs because the certificate for the connection to the SNO instance is not secure. Notice that the URL contains the path to your SNO instance route.
 
     ![](_attachments/verifyIngest4.png)
-
  
- ## Adjusting the search behavior
-
- Do you recall the **Metadata** field when you configured your assistant?
+## Adjusting the search behavior
+Do you recall the **Metadata** field when you configured your assistant?
 
 ![](_attachments/genAISettings2.png)
 
