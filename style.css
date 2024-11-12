@@ -8,5 +8,3 @@ pre code,  /* stackoverflow - wordwrap in code blocks*/
 .md-grid {
     max-width: initial; 
   }
-/* enable print site ignore? */
-{: .print-site-plugin-ignore }
