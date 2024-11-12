@@ -34,6 +34,10 @@ Step-by-step guidance for ingesting documents using zassist are provided in the 
 
 These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. This video has no audio.
 
+??? Info "Seeing a 404 in the PDF file version of the lab guide?"
+
+    If you are viewing the PDF of the lab guide, you can access the video <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/raw/refs/heads/main/docs/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+
 ![type:video](_videos/zassitIngest-final.mp4)
 
 The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
