@@ -1480,7 +1480,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
                             Ingesting client documents <a class='headerlink' href='#section-ingesting-client-documents' title='Permanent link'>↵</a>
                         </h2>
                         <section class="print-page" id="setup-documentingestion"><div><h1 id="creating-a-stand-alone-opensearch-instance-for-document-ingestion">Creating a stand-alone OpenSearch instance for document ingestion<a class="headerlink" href="#setup-documentingestion-creating-a-stand-alone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
-<p>Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. The first step is to deploy a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. </p>
+<p>Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. The first step is to deploy a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. The dedicated search instance will be referred to as bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>).</p>
 <p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="#techzoneenvironment">IBM Technology Zone environment</a> section to complete the reservation.</p>
 <h2 id="setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command-line interface utility<a class="headerlink" href="#setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
@@ -1703,6 +1703,7 @@ Sample output:
 </li>
 <li>
 <p>Enter <strong>ibm watsonx</strong> in the search field and the click the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile.</p>
+<p>Note, it may take a few minutes for the operator to appear. Try again if it is not initially found.</p>
 <p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator1.png"></a></p>
 </li>
 <li>
@@ -1853,7 +1854,7 @@ Sample output:
 <p><a class="glightbox" href="../Setup/_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocpWorkloadsPodsStatus.png"></a></p>
 </li>
 </ol>
-<p>When deployment completes and all the pods have a status of “Ready” or “Running”, you must retrieve you <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
 <ol start="43">
 <li>
 <p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click <strong>Networking</strong> and then <strong>Routes</strong>.</p>
