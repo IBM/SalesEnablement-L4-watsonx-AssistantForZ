@@ -36,7 +36,7 @@ These steps are not repeated in this lab guide. The following video illustrates 
 
 ??? Info "Seeing a 404 in the PDF file version of the lab guide?"
 
-    If you are viewing the PDF of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/zassist/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+    If you are viewing the PDF of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
 
 ![type:video](_videos/zassitIngest-final.mp4)
 
