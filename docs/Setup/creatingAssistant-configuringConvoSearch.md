@@ -149,7 +149,7 @@ The next step will be to configure **conversational search** for your assistant 
 
     ![](_attachments/genAISettings2.png)
 
-21. Click **Save** and then click **Close**.
+21. Click (a) **Save** and then click (b) **Close**.
 
     ![](_attachments/genAISettings3.png)
 ## More configurations
