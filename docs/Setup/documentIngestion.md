@@ -1,5 +1,5 @@
 # Creating a stand-alone OpenSearch instance for document ingestion
-Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. The first step is to deploy a dedicated [OpenSearch](https://opensearch.org/) instance. 
+Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. The first step is to deploy a dedicated [OpenSearch](https://opensearch.org/) instance. The dedicated search instance will be referred to as bring-your-own-search (BYOS).
 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
@@ -54,6 +54,7 @@ Before ingesting documents, a few setup steps must be taken.
 <a name="Login2OpenShift"></a>
 ### Login to the OpenShift cluster from your local terminal
 Note: if you just installed the **oc** utility, you can skip the next 5 steps.
+
 1. Click the following link to open a browser window to your ITZ reservations.
 
     <a href="https://techzone.ibm.com/my/reservations" target="_blank">ITZ My reservations</a>
@@ -242,6 +243,8 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 28. Enter **ibm watsonx** in the search field and the click the **IBM watsonx Assistant for Z Operator Catalog** tile.
 
+    Note, it may take a few minutes for the operator to appear. Try again if it is not initially found.
+
     ![](_attachments/installAssistantOperator1.png)
 
 29. Click **Install**.
@@ -408,7 +411,7 @@ The BYOS deployment begins and might take up to 20 minutes or more for the image
 
     ![](_attachments/ocpWorkloadsPodsStatus.png)
 
-When deployment completes and all the pods have a status of “Ready” or “Running”, you must retrieve you BYOS endpoint URL.
+When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your BYOS endpoint URL.
 
 43. In the OCP console, click **Networking** and then **Routes**.
 
@@ -434,10 +437,6 @@ When deployment completes and all the pods have a status of “Ready” or “Ru
     ??? Tip "How to set the custom search integration URL."
 
         ![](_attachments/changeCustomSearchURL.gif)
-
-
-
-### Install the **zassist** command
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.

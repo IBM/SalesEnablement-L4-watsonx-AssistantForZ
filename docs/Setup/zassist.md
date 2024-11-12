@@ -1,6 +1,5 @@
 # Installing and using zassist to ingest client documents
-With Bring Your Own Search (BYOS) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only PDF, HTML, and DOCX file formats are supported for ingestion. 
-
+With bring-your-own-search (BYOS) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only PDF, HTML, and DOCX file formats are supported for ingestion. 
 
 To prepare for document ingestion, you can also reference the setup instructions that are located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.
 
@@ -67,10 +66,12 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     The steps to accept the security risk for the document are not shown. The risk occurs because the certificate for the connection to the SNO instance is not secure. Notice that the URL contains the path to your SNO instance route.
 
-        ![](_attachments/verifyIngest4.png)
+    ![](_attachments/verifyIngest4.png)
 
- ## Adjusting your assistant's search behavior
- Do you recall the **Metadata** field when you were configuring your assistant?
+ 
+ ## Adjusting the search behavior
+
+ Do you recall the **Metadata** field when you configured your assistant?
 
 ![](_attachments/genAISettings2.png)
 
