@@ -862,7 +862,7 @@
 </ol>
 <h2 id="adjusting-the-search-behavior">Adjusting the search behavior<a class="headerlink" href="#adjusting-the-search-behavior" title="Permanent link">#</a></h2>
 <p>Do you recall the <strong>Metadata</strong> field when you configured your assistant?</p>
-<p><a class="glightbox" href="../_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2.png"></a></p>
+<p><a class="glightbox" href="../_attachments/genAISettings2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2b.png"></a></p>
 <p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.
 By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
@@ -887,8 +887,8 @@ By default (without any string in the Metadata field), it searches all the defau
 <p>In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.</p>
 <p>After you have configured all the settings for Conversational Search on the page, click “Save” in the upper-right of the page.</p>
 <p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <href target="_blank">here.</href></p>
-<p>You are encouraged to experiment with the metadata field!
-Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</p>
+<p>You are encouraged to experiment with the metadata field!</p>
+<p><strong>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</strong></p>
 <div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{"doc_weight":
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>{"product_docs":0.2,
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> "customer_docs":0.8},
@@ -896,7 +896,7 @@ Try setting the metadata field to the following, which weights ingested docs hig
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>"customer_indicies":"customer_*"
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
 </span></code></pre></div>
-<p>Now, repeat steps 6 through 8. Notice that the ingested Red Piece document is now the first sited reference!</p>
+<p>Now, repeat steps 6 through 8 (make sure you start a fresh preview of the assistant). Notice that the ingested Red Piece document is now the first sited reference!</p>
 <p><a class="glightbox" href="../_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/verifyIngest5.png"></a></p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
