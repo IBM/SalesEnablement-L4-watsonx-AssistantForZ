@@ -7,8 +7,8 @@ IBM watsonx Assistant for Z provides an extension within watsonx Orchestrate to 
 ### Watsonx Orchestrate
 The Z Skills Accelerator extension is already configured in your watsonx Orchestrate IBM Technology Zone (ITZ) environment. You can use this component to import new skills.
 
-### Ansible Automation Platform (AAP) and Wazi as a Service (aaS)
-To import skills for automations, you use Ansible Automation Platform (AAP) and Wazi aaS to serve as the z/OS back-end. Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
+### Ansible Automation Platform and Wazi as a Service
+To import skills for automations, you use Ansible Automation Platform (AAP) and Wazi as a Service (Wazi aaS) to serve as the z/OS back-end. Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
 
 The two resources are provisioned together in the ITZ environment that you reserved earlier. This environment enables the ability to manage and automate z/OS tasks and subsystems with various preinstalled ansible playbooks. It includes a z/OS back-end (Wazi as a Service) with all needed prerequisites.
 

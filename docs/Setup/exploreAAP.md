@@ -1,5 +1,5 @@
-# Explore Ansible Automation Platform (AAP)
-After you reserved the AAP and Wazi z/OS environment in IBM Technology Zone (ITZ) and the reservation is in the **Ready** state, follow these steps to explore AAP. 
+# Explore Ansible Automation Platform
+After you reserved the Ansible Automation Platform (AAP) and Wazi z/OS environment in IBM Technology Zone (ITZ) and the reservation is in the **Ready** state, follow these steps to explore AAP. 
 
 ## Access the AAP and Wazi as a Service environment
 

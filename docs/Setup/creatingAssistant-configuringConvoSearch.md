@@ -269,8 +269,8 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIEnviroments6.png)
 
-## Configure the base large language model (LLM)
-After the preceding steps are completed, there are enhancements that can be made to configure how the LLM responds to your queries. Including adding prompt instructions and configuring the LLM’s answer behavior.
+## Configure the base large language model
+After the preceding steps are completed, there are enhancements that can be made to configure how the large language model (LLM) responds to your queries. Including adding prompt instructions and configuring the LLM’s answer behavior.
 These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.
 
 1.  Hover over the **home** (![](_attachments/homeIcon.png)) and click **Generative AI**.
