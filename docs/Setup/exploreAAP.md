@@ -33,7 +33,7 @@ After you reserved the AAP and Wazi z/OS environment in IBM Technology Zone (ITZ
 
     ![](_attachments/aapTemplatesMenu.png)
 
-!!! Info "The AAP instances is preconfigured to the Wazi aaS instance"
+!!! Info "The AAP instance is preconfigured to the Wazi aaS instance"
 
     Note that because the AAP instance and the back-end z/OS system are preconfigured, no changes are needed to execute the templates and they will target your provisioned z/OS system by default.
 

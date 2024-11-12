@@ -71,7 +71,7 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 ## Adjusting the search behavior
 Do you recall the **Metadata** field when you configured your assistant?
 
-![](_attachments/genAISettings2.png)
+![](_attachments/genAISettings2b.png)
 
 The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.
 By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:
@@ -115,7 +115,8 @@ After you have configured all the settings for Conversational Search on the page
 For more information on customizing the metadata field for conversational search, refer to this supplemental video found <href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
 
 You are encouraged to experiment with the metadata field!
-Try setting the metadata field to the following, which weights ingested docs higher than the product docs:
+
+**Try setting the metadata field to the following, which weights ingested docs higher than the product docs:**
 
 ```
 {"doc_weight":
@@ -126,7 +127,29 @@ Try setting the metadata field to the following, which weights ingested docs hig
 }
 ```
 
-Now, repeat steps 6 through 8. Notice that the ingested Red Piece document is now the first sited reference!
+Now, repeat steps 6 through 8 (make sure you start a fresh preview of the assistant). Notice that the ingested Red Piece document is now the first sited reference!
 
 ![](_attachments/verifyIngest5.png)
 
+## Guidance for the pilot environment
+If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot ITZ environment is limited in compute and storage capacity. The following limits should be adhered to:
+
+- Greater than 15,000 documents is not supported.
+
+- Individual documents should be less than 10 megabytes (MB).
+
+- Larger documents greater than 50 MB should work if the document contains mostly images.
+
+- Loading documents can take a long time, especially with > 100 MB of text.
+
+- It is recommended to run large loads late at night.
+
+- When loading, ensure your workstations does not sleep during the process.
+
+- If you receive a **batch time error**, set the batch size to a lower number for that command. For example:
+  
+    ```
+    zassist ingest . -s 50
+    ```
+
+After ingesting all the your additional documents, proceed to the next section to learn about adding skills to your assistant.
