@@ -30,7 +30,7 @@ Follow the instructions in to create new reservation requests, extend the reserv
     
     <a href="{{itz.snoEnv}}" target="_blank">Single Node OpenShift with NFS storage - reservation page</a>
 
-!!! Important "The following images are for 1 of the 3 environments"
+!!! Important "The next two steps are for 1 of the 3 environments. Repeat for all three environments."
 
     **Be sure to follow these steps to create a reservation in ITZ for all three environments!**
 
