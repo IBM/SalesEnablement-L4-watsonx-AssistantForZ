@@ -1703,7 +1703,7 @@ Sample output:
 </li>
 <li>
 <p>Enter <strong>ibm watsonx</strong> in the search field and the click the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile.</p>
-<p>Note, it may take a few minutes for the operator to appear. Try again if it is not initially found.</p>
+<p>Note, it may take a few minutes for the operator to appear. If the operator is not found initially,refresh the browser page and try the search again.</p>
 <p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator1.png"></a></p>
 </li>
 <li>
@@ -1788,7 +1788,7 @@ Sample output:
 <p>Note, the output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
 <li>
-<p>Create a file called <strong>byos.yaml</strong> with the following content.</p>
+<p>Create a file called <strong><code>byos.yaml</code></strong> with the following content.</p>
 <p>Substitute the domain name recorded in the previous step for the string <strong>&lt;YOUR_CLUSTER_DOMAIN&gt;</strong>. Do not include the <strong>%</strong> at the end of the domain name.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#setup-documentingestion-__codelineno-18-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#setup-documentingestion-__codelineno-18-2"></a>kind: BYOSearch
@@ -1846,7 +1846,7 @@ Sample output:
 </span></code></pre></div>
 </li>
 </ol>
-<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</p>
+<p><strong>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</strong></p>
 <h3 id="setup-documentingestion-verify-all-the-required-pods-are-running">Verify all the required pods are running<a class="headerlink" href="#setup-documentingestion-verify-all-the-required-pods-are-running" title="Permanent link">#</a></h3>
 <ol start="42">
 <li>
