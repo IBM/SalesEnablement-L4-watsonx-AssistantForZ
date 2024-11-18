@@ -121,6 +121,12 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
         The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.
 
+    File name: 
+    ```
+    catalogCertManager.yaml
+    ```
+
+    File contents:
     ```
     apiVersion: operators.coreos.com/v1alpha1 
     kind: CatalogSource 
@@ -212,8 +218,14 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
     !!! Important "Formatting of the yaml file is critical!"
 
-        The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.
+        The content of YAML files must be formatted exactly as shown. Use the copy icon to prevent typographical errors.
 
+    File name: 
+    ```
+    catalogSource.yaml
+    ```
+
+    File contents:
     ```
     apiVersion: operators.coreos.com/v1alpha1 
     kind: CatalogSource 
@@ -243,7 +255,7 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 28. Enter **ibm watsonx** in the search field and the click the **IBM watsonx Assistant for Z Operator Catalog** tile.
 
-    Note, it may take a few minutes for the operator to appear. Try again if it is not initially found.
+    Note, it may take a few minutes for the operator to appear. If the operator is not found initially,refresh the browser page and try the search again.
 
     ![](_attachments/installAssistantOperator1.png)
 
@@ -291,8 +303,14 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 35. Create a file called **os-secret.yaml** with the following content.
 
-    Substitute a secure password of your choosing for the string **<OPENSEARCH_PASSWORD\>**.
+    File name: 
+    ```
+    os-secret.yaml
+    ```
 
+    Substitute a secure password of your choosing for the string **<OPENSEARCH_PASSWORD\>**.
+    
+    File contents:
     ```
     apiVersion: v1 
     stringData: 
@@ -312,8 +330,14 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 37. Create a file called **client-ingestion-secret.yaml** with the following content.
 
-    Substitute a secure authentication key of your choosing for the string **<CLIENT_INGESTION_AUTHKEY\>**. The authentication key can be a random password.
+    File name: 
+    ```
+    client-ingestion-secret.yaml
+    ```
 
+    Substitute a secure authentication key of your choosing for the string **<CLIENT_INGESTION_AUTHKEY\>**. The authentication key can be a random password.
+    
+    File contents:
     ```
     apiVersion: v1 
     stringData: 
@@ -345,8 +369,14 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 40. Create a file called **byos.yaml** with the following content.
 
+    File name: 
+    ```
+    byos.yaml
+    ```
+
     Substitute the domain name recorded in the previous step for the string **<YOUR_CLUSTER_DOMAIN\>**. Do not include the **%** at the end of the domain name.
 
+    File contents:
     ```
     apiVersion: wxa4z.watsonx.ibm.com/v1
     kind: BYOSearch
@@ -404,7 +434,7 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
     oc apply -f byos.yaml
     ```
 
-The BYOS deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the OCP console.
+**The BYOS deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the OCP console.**
 
 ### Verify all the required pods are running
 42. Verify that all pods have the status of **Running** or **Completed**.
