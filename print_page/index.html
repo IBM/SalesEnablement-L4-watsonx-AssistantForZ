@@ -1595,26 +1595,30 @@ Sample output:
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
 <p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-documentingestion-__codelineno-3-1"></a>apiVersion: operators.coreos.com/v1alpha1 
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#setup-documentingestion-__codelineno-3-2"></a>kind: CatalogSource 
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#setup-documentingestion-__codelineno-3-3"></a>metadata: 
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#setup-documentingestion-__codelineno-3-4"></a>  name: ibm-cert-manager-catalog 
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#setup-documentingestion-__codelineno-3-5"></a>  namespace: openshift-marketplace 
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#setup-documentingestion-__codelineno-3-6"></a>spec: 
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#setup-documentingestion-__codelineno-3-7"></a>  displayName: ibm-cert-manager-4.2.7 
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#setup-documentingestion-__codelineno-3-8"></a>  grpcPodConfig: 
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#setup-documentingestion-__codelineno-3-9"></a>    securityContextConfig: restricted 
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#setup-documentingestion-__codelineno-3-10"></a>  image: icr.io/cpopen/ibm-cert-manager-operator-catalog@sha256:4dcf4ace4b5f166f83b31063f7e6404dbf78d8e98a9d4fcf52fedf576a55ca6c 
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#setup-documentingestion-__codelineno-3-11"></a>  publisher: IBM 
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#setup-documentingestion-__codelineno-3-12"></a>  sourceType: grpc 
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#setup-documentingestion-__codelineno-3-13"></a>  updateStrategy: 
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#setup-documentingestion-__codelineno-3-14"></a>    registryPoll: 
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#setup-documentingestion-__codelineno-3-15"></a>      interval: 30m0s
+<p>File name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-documentingestion-__codelineno-3-1"></a>catalogCertManager.yaml
+</span></code></pre></div>
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-documentingestion-__codelineno-4-1"></a>apiVersion: operators.coreos.com/v1alpha1 
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-documentingestion-__codelineno-4-2"></a>kind: CatalogSource 
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-documentingestion-__codelineno-4-3"></a>metadata: 
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-documentingestion-__codelineno-4-4"></a>  name: ibm-cert-manager-catalog 
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-documentingestion-__codelineno-4-5"></a>  namespace: openshift-marketplace 
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-documentingestion-__codelineno-4-6"></a>spec: 
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#setup-documentingestion-__codelineno-4-7"></a>  displayName: ibm-cert-manager-4.2.7 
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#setup-documentingestion-__codelineno-4-8"></a>  grpcPodConfig: 
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#setup-documentingestion-__codelineno-4-9"></a>    securityContextConfig: restricted 
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#setup-documentingestion-__codelineno-4-10"></a>  image: icr.io/cpopen/ibm-cert-manager-operator-catalog@sha256:4dcf4ace4b5f166f83b31063f7e6404dbf78d8e98a9d4fcf52fedf576a55ca6c 
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#setup-documentingestion-__codelineno-4-11"></a>  publisher: IBM 
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#setup-documentingestion-__codelineno-4-12"></a>  sourceType: grpc 
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#setup-documentingestion-__codelineno-4-13"></a>  updateStrategy: 
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#setup-documentingestion-__codelineno-4-14"></a>    registryPoll: 
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#setup-documentingestion-__codelineno-4-15"></a>      interval: 30m0s
 </span></code></pre></div>
 </li>
 <li>
 <p>Install the IBM Certificate Manager operator in the Red Hat OpenShift cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-documentingestion-__codelineno-4-1"></a>oc apply -f catalogCertManager.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-documentingestion-__codelineno-5-1"></a>oc apply -f catalogCertManager.yaml
 </span></code></pre></div>
 <p>The preceding command returns a message that states the <strong>ibm-cert-manager-catalog</strong> was created.</p>
 </li>
@@ -1649,7 +1653,7 @@ Sample output:
 <ol start="21">
 <li>
 <p>In your command prompt or terminal window, create a new namespace called <strong>wxa4z-byos</strong> in the Red Hat OpenShift cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-documentingestion-__codelineno-5-1"></a>oc create namespace wxa4z-byos 
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-documentingestion-__codelineno-6-1"></a>oc create namespace wxa4z-byos 
 </span></code></pre></div>
 </li>
 <li>
@@ -1665,9 +1669,9 @@ Sample output:
 <li>
 <p>Using the following command in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the Container Registry.</p>
 <p>Substitute your <strong>production entitlement key</strong> for the <strong>&lt;entitlement key&gt;</strong> string.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-documentingestion-__codelineno-6-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-documentingestion-__codelineno-7-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-documentingestion-__codelineno-7-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#setup-documentingestion-__codelineno-8-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createPullSecret.png"></a></p>
 </li>
@@ -1675,25 +1679,29 @@ Sample output:
 <p>Create a file called <strong>catalogSource.yaml</strong> with the following content.</p>
 <div class="admonition important">
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
-<p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
+<p>The content of YAML files must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#setup-documentingestion-__codelineno-8-1"></a>apiVersion: operators.coreos.com/v1alpha1 
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#setup-documentingestion-__codelineno-8-2"></a>kind: CatalogSource 
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#setup-documentingestion-__codelineno-8-3"></a>metadata: 
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#setup-documentingestion-__codelineno-8-4"></a>  name: ibm-wxa4z-operator-catalog 
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#setup-documentingestion-__codelineno-8-5"></a>  namespace: wxa4z-byos 
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#setup-documentingestion-__codelineno-8-6"></a>spec: 
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#setup-documentingestion-__codelineno-8-7"></a>  displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#setup-documentingestion-__codelineno-8-8"></a>  image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.2@sha256:d457aa24af07c23d7b36727a9cff95995ca1c4ed49fb980ef4f386fda09a29b4
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#setup-documentingestion-__codelineno-8-9"></a>  publisher: 'IBM' 
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#setup-documentingestion-__codelineno-8-10"></a>  sourceType: grpc 
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#setup-documentingestion-__codelineno-8-11"></a>  secrets: 
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#setup-documentingestion-__codelineno-8-12"></a>  - icr-pull-secret
+<p>File name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#setup-documentingestion-__codelineno-9-1"></a>catalogSource.yaml
+</span></code></pre></div>
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#setup-documentingestion-__codelineno-10-1"></a>apiVersion: operators.coreos.com/v1alpha1 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#setup-documentingestion-__codelineno-10-2"></a>kind: CatalogSource 
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#setup-documentingestion-__codelineno-10-3"></a>metadata: 
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#setup-documentingestion-__codelineno-10-4"></a>  name: ibm-wxa4z-operator-catalog 
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#setup-documentingestion-__codelineno-10-5"></a>  namespace: wxa4z-byos 
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#setup-documentingestion-__codelineno-10-6"></a>spec: 
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#setup-documentingestion-__codelineno-10-7"></a>  displayName: "IBM watsonx Assistant for Z Operator Catalog" 
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#setup-documentingestion-__codelineno-10-8"></a>  image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.2@sha256:d457aa24af07c23d7b36727a9cff95995ca1c4ed49fb980ef4f386fda09a29b4
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#setup-documentingestion-__codelineno-10-9"></a>  publisher: 'IBM' 
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#setup-documentingestion-__codelineno-10-10"></a>  sourceType: grpc 
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#setup-documentingestion-__codelineno-10-11"></a>  secrets: 
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#setup-documentingestion-__codelineno-10-12"></a>  - icr-pull-secret
 </span></code></pre></div>
 </li>
 <li>
 <p>Create your document catalog in the Red Hat OpenShift operator.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#setup-documentingestion-__codelineno-9-1"></a>oc apply -f catalogSource.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#setup-documentingestion-__codelineno-11-1"></a>oc apply -f catalogSource.yaml
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/createCatalog.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createCatalog.png"></a></p>
 </li>
@@ -1718,9 +1726,9 @@ Sample output:
 </li>
 <li>
 <p>In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#setup-documentingestion-__codelineno-10-1"></a>oc project wxa4z-byos
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#setup-documentingestion-__codelineno-12-1"></a>oc project wxa4z-byos
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#setup-documentingestion-__codelineno-11-1"></a>oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#setup-documentingestion-__codelineno-13-1"></a>oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator5.png"></a></p>
 </li>
@@ -1734,7 +1742,7 @@ Sample output:
 </li>
 <li>
 <p>Run the following command to set the administrative policy for the workspace.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#setup-documentingestion-__codelineno-12-1"></a>oc -n wxa4z-byos adm policy add-scc-to-user privileged -z byos
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#setup-documentingestion-__codelineno-14-1"></a>oc -n wxa4z-byos adm policy add-scc-to-user privileged -z byos
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/installAssistantOperator8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/installAssistantOperator8.png"></a></p>
 </li>
@@ -1743,43 +1751,51 @@ Sample output:
 <ol start="35">
 <li>
 <p>Create a file called <strong>os-secret.yaml</strong> with the following content.</p>
+<p>File name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#setup-documentingestion-__codelineno-15-1"></a>os-secret.yaml
+</span></code></pre></div>
 <p>Substitute a secure password of your choosing for the string <strong>&lt;OPENSEARCH_PASSWORD&gt;</strong>.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#setup-documentingestion-__codelineno-13-1"></a>apiVersion: v1 
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#setup-documentingestion-__codelineno-13-2"></a>stringData: 
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#setup-documentingestion-__codelineno-13-3"></a>  password: &lt;OPENSEARCH_PASSWORD&gt; 
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#setup-documentingestion-__codelineno-13-4"></a>kind: Secret 
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#setup-documentingestion-__codelineno-13-5"></a>metadata: 
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#setup-documentingestion-__codelineno-13-6"></a>  name: opensearch-creds 
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#setup-documentingestion-__codelineno-13-7"></a>  namespace: wxa4z-byos 
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#setup-documentingestion-__codelineno-13-8"></a>type: Opaque
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#setup-documentingestion-__codelineno-16-1"></a>apiVersion: v1 
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#setup-documentingestion-__codelineno-16-2"></a>stringData: 
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#setup-documentingestion-__codelineno-16-3"></a>  password: &lt;OPENSEARCH_PASSWORD&gt; 
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#setup-documentingestion-__codelineno-16-4"></a>kind: Secret 
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#setup-documentingestion-__codelineno-16-5"></a>metadata: 
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#setup-documentingestion-__codelineno-16-6"></a>  name: opensearch-creds 
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#setup-documentingestion-__codelineno-16-7"></a>  namespace: wxa4z-byos 
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#setup-documentingestion-__codelineno-16-8"></a>type: Opaque
 </span></code></pre></div>
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#setup-documentingestion-__codelineno-14-1"></a>oc apply -f os-secret.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc apply -f os-secret.yaml
 </span></code></pre></div>
 </li>
 <li>
 <p>Create a file called <strong>client-ingestion-secret.yaml</strong> with the following content.</p>
+<p>File name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#setup-documentingestion-__codelineno-18-1"></a>client-ingestion-secret.yaml
+</span></code></pre></div>
 <p>Substitute a secure authentication key of your choosing for the string <strong>&lt;CLIENT_INGESTION_AUTHKEY&gt;</strong>. The authentication key can be a random password.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#setup-documentingestion-__codelineno-15-1"></a>apiVersion: v1 
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#setup-documentingestion-__codelineno-15-2"></a>stringData: 
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#setup-documentingestion-__codelineno-15-3"></a>  authkey: &lt;CLIENT_INGESTION_AUTHKEY&gt; 
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#setup-documentingestion-__codelineno-15-4"></a>kind: Secret 
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#setup-documentingestion-__codelineno-15-5"></a>metadata: 
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#setup-documentingestion-__codelineno-15-6"></a>  name: client-ingestion-authkey 
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#setup-documentingestion-__codelineno-15-7"></a>  namespace: wxa4z-byos 
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#setup-documentingestion-__codelineno-15-8"></a>type: Opaque
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#setup-documentingestion-__codelineno-19-1"></a>apiVersion: v1 
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#setup-documentingestion-__codelineno-19-2"></a>stringData: 
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#setup-documentingestion-__codelineno-19-3"></a>  authkey: &lt;CLIENT_INGESTION_AUTHKEY&gt; 
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#setup-documentingestion-__codelineno-19-4"></a>kind: Secret 
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#setup-documentingestion-__codelineno-19-5"></a>metadata: 
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#setup-documentingestion-__codelineno-19-6"></a>  name: client-ingestion-authkey 
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#setup-documentingestion-__codelineno-19-7"></a>  namespace: wxa4z-byos 
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#setup-documentingestion-__codelineno-19-8"></a>type: Opaque
 </span></code></pre></div>
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#setup-documentingestion-__codelineno-16-1"></a>oc apply -f client-ingestion-secret.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#setup-documentingestion-__codelineno-20-1"></a>oc apply -f client-ingestion-secret.yaml
 </span></code></pre></div>
 </li>
 <li>
 <p>Obtain and record your cluster domain that is used for routes by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#setup-documentingestion-__codelineno-21-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Remove the trailing <strong>%</strong> from the cluster domain name.</p>
@@ -1788,61 +1804,65 @@ Sample output:
 <p>Note, the output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
 <li>
-<p>Create a file called <strong><code>byos.yaml</code></strong> with the following content.</p>
+<p>Create a file called <strong>byos.yaml</strong> with the following content.</p>
+<p>File name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#setup-documentingestion-__codelineno-22-1"></a>byos.yaml
+</span></code></pre></div>
 <p>Substitute the domain name recorded in the previous step for the string <strong>&lt;YOUR_CLUSTER_DOMAIN&gt;</strong>. Do not include the <strong>%</strong> at the end of the domain name.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#setup-documentingestion-__codelineno-18-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#setup-documentingestion-__codelineno-18-2"></a>kind: BYOSearch
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#setup-documentingestion-__codelineno-18-3"></a>metadata:
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#setup-documentingestion-__codelineno-18-4"></a>  name: byosearch
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#setup-documentingestion-__codelineno-18-5"></a>  namespace: wxa4z-byos
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#setup-documentingestion-__codelineno-18-6"></a>spec:
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#setup-documentingestion-__codelineno-18-7"></a>  imagePullSecrets:
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#setup-documentingestion-__codelineno-18-8"></a>  - name : icr-pull-secret
-</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#setup-documentingestion-__codelineno-18-9"></a>  namespace: wxa4z-byos
-</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#setup-documentingestion-__codelineno-18-10"></a>  clusterName: wxa4z-byos-cluster
-</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#setup-documentingestion-__codelineno-18-11"></a>  clusterDomain: &lt;YOUR_CLUSTER_DOMAIN&gt;
-</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#setup-documentingestion-__codelineno-18-12"></a>
-</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#setup-documentingestion-__codelineno-18-13"></a>  opensearch:
-</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#setup-documentingestion-__codelineno-18-14"></a>    secretName: opensearch-creds
-</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#setup-documentingestion-__codelineno-18-15"></a>
-</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#setup-documentingestion-__codelineno-18-16"></a>    persistence:
-</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#setup-documentingestion-__codelineno-18-17"></a>      enabled: true
-</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#setup-documentingestion-__codelineno-18-18"></a>      storageClass: "managed-nfs-storage"
-</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#setup-documentingestion-__codelineno-18-19"></a>      accessModes:
-</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#setup-documentingestion-__codelineno-18-20"></a>        - ReadWriteOnce
-</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#setup-documentingestion-__codelineno-18-21"></a>      size: 24Gi
-</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#setup-documentingestion-__codelineno-18-22"></a>
-</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#setup-documentingestion-__codelineno-18-23"></a>  wrapper:
-</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#setup-documentingestion-__codelineno-18-24"></a>    createRoute: true
-</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#setup-documentingestion-__codelineno-18-25"></a>    resources:
-</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#setup-documentingestion-__codelineno-18-26"></a>      requests:
-</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#setup-documentingestion-__codelineno-18-27"></a>        cpu: 4
-</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#setup-documentingestion-__codelineno-18-28"></a>        memory: "500Mi"
-</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#setup-documentingestion-__codelineno-18-29"></a>    limits:
-</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#setup-documentingestion-__codelineno-18-30"></a>        cpu: 4
-</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#setup-documentingestion-__codelineno-18-31"></a>        memory: "1Gi"
-</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#setup-documentingestion-__codelineno-18-32"></a>
-</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#setup-documentingestion-__codelineno-18-33"></a>  clientIngestion:
-</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#setup-documentingestion-__codelineno-18-34"></a>    secretName: client-ingestion-authkey
-</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#setup-documentingestion-__codelineno-18-35"></a>
-</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#setup-documentingestion-__codelineno-18-36"></a>    resources:
-</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#setup-documentingestion-__codelineno-18-37"></a>      limits:
-</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#setup-documentingestion-__codelineno-18-38"></a>        cpu: "500m"
-</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#setup-documentingestion-__codelineno-18-39"></a>        memory: 2Gi
-</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#setup-documentingestion-__codelineno-18-40"></a>        nvidia.com/gpu: "0"
-</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#setup-documentingestion-__codelineno-18-41"></a>      requests:
-</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#setup-documentingestion-__codelineno-18-42"></a>        cpu: "500m"
-</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#setup-documentingestion-__codelineno-18-43"></a>        memory: 1Gi
-</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#setup-documentingestion-__codelineno-18-44"></a>        nvidia.com/gpu: "0"
-</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#setup-documentingestion-__codelineno-18-45"></a>    pvc:
-</span><span id="__span-18-46"><a id="__codelineno-18-46" name="__codelineno-18-46" href="#setup-documentingestion-__codelineno-18-46"></a>      storageClass: "managed-nfs-storage"
-</span><span id="__span-18-47"><a id="__codelineno-18-47" name="__codelineno-18-47" href="#setup-documentingestion-__codelineno-18-47"></a>      enabled: true
-</span><span id="__span-18-48"><a id="__codelineno-18-48" name="__codelineno-18-48" href="#setup-documentingestion-__codelineno-18-48"></a>      size: 24Gi
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#setup-documentingestion-__codelineno-23-1"></a>apiVersion: wxa4z.watsonx.ibm.com/v1
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#setup-documentingestion-__codelineno-23-2"></a>kind: BYOSearch
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#setup-documentingestion-__codelineno-23-3"></a>metadata:
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#setup-documentingestion-__codelineno-23-4"></a>  name: byosearch
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#setup-documentingestion-__codelineno-23-5"></a>  namespace: wxa4z-byos
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#setup-documentingestion-__codelineno-23-6"></a>spec:
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#setup-documentingestion-__codelineno-23-7"></a>  imagePullSecrets:
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#setup-documentingestion-__codelineno-23-8"></a>  - name : icr-pull-secret
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#setup-documentingestion-__codelineno-23-9"></a>  namespace: wxa4z-byos
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#setup-documentingestion-__codelineno-23-10"></a>  clusterName: wxa4z-byos-cluster
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#setup-documentingestion-__codelineno-23-11"></a>  clusterDomain: &lt;YOUR_CLUSTER_DOMAIN&gt;
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#setup-documentingestion-__codelineno-23-12"></a>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#setup-documentingestion-__codelineno-23-13"></a>  opensearch:
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#setup-documentingestion-__codelineno-23-14"></a>    secretName: opensearch-creds
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#setup-documentingestion-__codelineno-23-15"></a>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#setup-documentingestion-__codelineno-23-16"></a>    persistence:
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#setup-documentingestion-__codelineno-23-17"></a>      enabled: true
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#setup-documentingestion-__codelineno-23-18"></a>      storageClass: "managed-nfs-storage"
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#setup-documentingestion-__codelineno-23-19"></a>      accessModes:
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#setup-documentingestion-__codelineno-23-20"></a>        - ReadWriteOnce
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#setup-documentingestion-__codelineno-23-21"></a>      size: 24Gi
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#setup-documentingestion-__codelineno-23-22"></a>
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#setup-documentingestion-__codelineno-23-23"></a>  wrapper:
+</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#setup-documentingestion-__codelineno-23-24"></a>    createRoute: true
+</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#setup-documentingestion-__codelineno-23-25"></a>    resources:
+</span><span id="__span-23-26"><a id="__codelineno-23-26" name="__codelineno-23-26" href="#setup-documentingestion-__codelineno-23-26"></a>      requests:
+</span><span id="__span-23-27"><a id="__codelineno-23-27" name="__codelineno-23-27" href="#setup-documentingestion-__codelineno-23-27"></a>        cpu: 4
+</span><span id="__span-23-28"><a id="__codelineno-23-28" name="__codelineno-23-28" href="#setup-documentingestion-__codelineno-23-28"></a>        memory: "500Mi"
+</span><span id="__span-23-29"><a id="__codelineno-23-29" name="__codelineno-23-29" href="#setup-documentingestion-__codelineno-23-29"></a>    limits:
+</span><span id="__span-23-30"><a id="__codelineno-23-30" name="__codelineno-23-30" href="#setup-documentingestion-__codelineno-23-30"></a>        cpu: 4
+</span><span id="__span-23-31"><a id="__codelineno-23-31" name="__codelineno-23-31" href="#setup-documentingestion-__codelineno-23-31"></a>        memory: "1Gi"
+</span><span id="__span-23-32"><a id="__codelineno-23-32" name="__codelineno-23-32" href="#setup-documentingestion-__codelineno-23-32"></a>
+</span><span id="__span-23-33"><a id="__codelineno-23-33" name="__codelineno-23-33" href="#setup-documentingestion-__codelineno-23-33"></a>  clientIngestion:
+</span><span id="__span-23-34"><a id="__codelineno-23-34" name="__codelineno-23-34" href="#setup-documentingestion-__codelineno-23-34"></a>    secretName: client-ingestion-authkey
+</span><span id="__span-23-35"><a id="__codelineno-23-35" name="__codelineno-23-35" href="#setup-documentingestion-__codelineno-23-35"></a>
+</span><span id="__span-23-36"><a id="__codelineno-23-36" name="__codelineno-23-36" href="#setup-documentingestion-__codelineno-23-36"></a>    resources:
+</span><span id="__span-23-37"><a id="__codelineno-23-37" name="__codelineno-23-37" href="#setup-documentingestion-__codelineno-23-37"></a>      limits:
+</span><span id="__span-23-38"><a id="__codelineno-23-38" name="__codelineno-23-38" href="#setup-documentingestion-__codelineno-23-38"></a>        cpu: "500m"
+</span><span id="__span-23-39"><a id="__codelineno-23-39" name="__codelineno-23-39" href="#setup-documentingestion-__codelineno-23-39"></a>        memory: 2Gi
+</span><span id="__span-23-40"><a id="__codelineno-23-40" name="__codelineno-23-40" href="#setup-documentingestion-__codelineno-23-40"></a>        nvidia.com/gpu: "0"
+</span><span id="__span-23-41"><a id="__codelineno-23-41" name="__codelineno-23-41" href="#setup-documentingestion-__codelineno-23-41"></a>      requests:
+</span><span id="__span-23-42"><a id="__codelineno-23-42" name="__codelineno-23-42" href="#setup-documentingestion-__codelineno-23-42"></a>        cpu: "500m"
+</span><span id="__span-23-43"><a id="__codelineno-23-43" name="__codelineno-23-43" href="#setup-documentingestion-__codelineno-23-43"></a>        memory: 1Gi
+</span><span id="__span-23-44"><a id="__codelineno-23-44" name="__codelineno-23-44" href="#setup-documentingestion-__codelineno-23-44"></a>        nvidia.com/gpu: "0"
+</span><span id="__span-23-45"><a id="__codelineno-23-45" name="__codelineno-23-45" href="#setup-documentingestion-__codelineno-23-45"></a>    pvc:
+</span><span id="__span-23-46"><a id="__codelineno-23-46" name="__codelineno-23-46" href="#setup-documentingestion-__codelineno-23-46"></a>      storageClass: "managed-nfs-storage"
+</span><span id="__span-23-47"><a id="__codelineno-23-47" name="__codelineno-23-47" href="#setup-documentingestion-__codelineno-23-47"></a>      enabled: true
+</span><span id="__span-23-48"><a id="__codelineno-23-48" name="__codelineno-23-48" href="#setup-documentingestion-__codelineno-23-48"></a>      size: 24Gi
 </span></code></pre></div>
 </li>
 <li>
 <p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#setup-documentingestion-__codelineno-19-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#setup-documentingestion-__codelineno-24-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </li>
 </ol>
@@ -1888,7 +1908,7 @@ Sample output:
 <details class="failure">
 <summary>The <strong>wxa4z-client-ingestion</strong> pod does not start</summary>
 <p>Did you include teh <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#setup-documentingestion-__codelineno-20-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#setup-documentingestion-__codelineno-25-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </details>
 <!-- Terminology -->
