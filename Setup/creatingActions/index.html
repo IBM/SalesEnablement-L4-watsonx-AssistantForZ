@@ -842,22 +842,43 @@
 </li>
 <li>
 <p>On the <strong>New action</strong> dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click <strong>Save</strong>.</p>
-<p>Some example phrases:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Get z/OS facts.
+<p>Sample prompts:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Get z/OS facts
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Gather z/OS facts.
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Gather z/OS facts
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/createActions5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions5.png"></a></p>
 </li>
 <li>
-<p>Add any additional prompts and then click <strong>Preview</strong>.</p>
+<p>Add any (a) additional prompts and then (b) click the save (<a class="glightbox" href="_attachments/diskIcon" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/diskIcon"></a>).</p>
 <p><a class="glightbox" href="../_attachments/createActions6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions6.png"></a></p>
 </li>
 <li>
-<p>In the assistant preview, enter one of the prompts you specified in the previous steps.</p>
-<p><a class="glightbox" href="_attachments/createActions7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/createActions7.png"></a></p>
+<p>Click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../_attachments/createActions7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions7.png"></a></p>
+</li>
+<li>
+<p>Enter one of the prompts you specified in step 9 or 10.</p>
+<p>Prompt:
+</p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Get z/OS facts
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/createActions8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions8.png"></a></p>
+</li>
+<li>
+<p>Review the returned results.</p>
+<p><a class="glightbox" href="../_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions9.png"></a></p>
 </li>
 </ol>
+<p>In the execution of this skill-based action, the skill executed properly and the output is the job id. Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.</p>
+<h1 id="verify-the-job-in-the-ansible-automation-platform-console">Verify the job in the Ansible Automation Platform console<a class="headerlink" href="#verify-the-job-in-the-ansible-automation-platform-console" title="Permanent link">#</a></h1>
+<p>Return to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console and review the job information.</p>
+<ol start="14">
+<li>
+<p>Click <strong>Jobs</strong> and expand the <strong>## - z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> job.</p>
+<p><a class="glightbox" href="../_attachments/createActions10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions10.png"></a></p>
+</li>
+</ol>
+<p>As seen in the assistant, the actual contents of the output aren’t displayed. The utility skills are used to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
