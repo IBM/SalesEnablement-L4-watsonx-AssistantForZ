@@ -2151,22 +2151,159 @@ By default (without any string in the Metadata field), it searches all the defau
 <p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillsTrialTile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillsTrialTile.png"></a></p>
 </li>
+</ol>
+<p><a name="skillApp"></a>
+6. Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<div class="highlight"><pre><span></span><code>Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
+
+**a**: Connection Type: **ansible**
+
+**b**: Application Name: &lt;enter a meaningful name for the skills that you will import\&gt; - *be sure to remember this name, you will need in the next section*
+
+**c**: Connection URL: &lt;enter the URL for your AAP UI\&gt;
+
+**d**: User Name: &lt;enter the AAP User Name (for UI access)\&gt;
+
+**e**: Password: &lt;enter the AAP User Password\&gt;
+
+**f**: Search Pattern: **\***
+
+![](_attachments/skillsForm.png)
+</code></pre></div>
+<ol start="7">
 <li>
-<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
-<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="#setup-exploreaap">Explore Ansible Automation Platform</a> section earlier.</p>
-<p><strong>a</strong>: Connection Type: <strong>ansible</strong></p>
-<p><strong>b</strong>: Application Name: &lt;enter a meaningful name for the skills that you will import&gt;</p>
-<p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: &lt;enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
-<p><strong>d</strong>: User Name: &lt;enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Name (for <abbr title="User Interface">UI</abbr> access)&gt;</p>
-<p><strong>e</strong>: Password: &lt;enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
-<p><strong>f</strong>: Search Pattern: <strong>*</strong></p>
-<p><a class="glightbox" href="../Setup/_attachments/skillsForm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillsForm.png"></a></p>
+<p>Expand the <strong>Ansible Job Template Proj...</strong> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Browse the other available skills</p>
+</div>
+<p>There are also utility skills provided out of the box with the “Z Skills Accelerator” which are needed for actions such as retrieving the output of an Ansible skill (i.e. “Retrieve job output”). You should also import these utility skills to enable more complete automation execution flows.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills0.png"></a></p>
+</li>
+<li>
+<p>Click <strong>aap4zos</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills1.png"></a></p>
+</li>
+<li>
+<p>Select the skills you want to import into your application and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills2.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (![]_attachments/ellipsesIcon.png)) for the first skill and select <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills3.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Publish</strong>.</p>
+<p>On the <strong>Enhance this skill</strong> page, you can specify enhancements to the default skill.  Refer to <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=files-enhancing-publishing-skills" target="_blank">this documentation</a> for more information on enhancing skills.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills4.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 10 and 11 for each skill you imported.</p>
+<p><a class="glightbox" href="../Setup/_attachments/addSkills5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills5.png"></a></p>
 </li>
 </ol>
+<p>The selected skills are now ready for use and available to your assistant. In the next section, learn how to connect them to your assistant.</p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-connectingapp"><div><p>TBD</p>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-connectingapp"><div><h1 id="connecting-skills-to-your-assistant">Connecting skills to your assistant<a class="headerlink" href="#setup-connectingapp-connecting-skills-to-your-assistant" title="Permanent link">#</a></h1>
+<p>Once you have a subset of skills published, the application you created can be connected to your assistant. </p>
+<ol>
+<li>
+<p>Expand the main menu and select <strong>Skill sets</strong>.</p>
+<p><a class="glightbox" href="../Setup/connectingApp/_attachments/skillSets0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/connectingApp/_attachments/skillSets0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Team Skills</strong> drop-down and select the <strong>Draft</strong> of your assistant.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets1.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Connections</strong> tab.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets2.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Search</strong> (<a class="glightbox" href="../Setup/connectingApp/attachments/searchIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/connectingApp/attachments/searchIcon.png"></a>).</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets3.png"></a></p>
+</li>
+<li>
+<p>Search for the application name you specified in the <a href="#setup-importskills-skillApp">previous section</a>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets4.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../Setup/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ellipsesIcon.png"></a>) and click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets5.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Connect to Ansible Controller Skills</strong> form, keep the defaults and click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillSets6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets6.png"></a></p>
+</li>
+<li>
+<p>Enter the (a) <strong>username</strong> and (b) <strong>password</strong> using the username (<strong>admin</strong>) and password for your IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) <em>watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr></em> reservation (<strong><abbr title="Ansible Automation Platform">AAP</abbr> User Password (Use SSH key to login, only use password for <abbr title="User Interface">UI</abbr>)</strong>), and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../Setup/connectingApp/_attachments/skillSets7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/connectingApp/_attachments/skillSets7.png"></a></p>
+</li>
+</ol>
+<p>The application should now be connected to the draft version of your assistant.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillSets8.png)
+</code></pre></div>
+<p>Continue to the next section to create actions for your assistant.</p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingactions"><div><p>TBD</p>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingactions"><div><h1 id="creating-actions-for-your-assistant">Creating actions for your assistant<a class="headerlink" href="#setup-creatingactions-creating-actions-for-your-assistant" title="Permanent link">#</a></h1>
+<p>Once the skills in your application are connected to your assistant, you’re ready to begin creating actions tied to those skills. Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a></p>
+<h1 id="setup-creatingactions-configure-the-number-of-input-fields">Configure the number of input fields<a class="headerlink" href="#setup-creatingactions-configure-the-number-of-input-fields" title="Permanent link">#</a></h1>
+<p>Before configuring actions, it’s important to modify a setting within watsonx Orchestrate that allows triggered skills to display as forms (versus conversational skills). </p>
+<ol>
+<li>
+<p>Click your (a) profile icon and then click (b) <strong>Settings</strong></p>
+<p>Learn more about configuring input fields <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=actions-defining-how-interact-skill-in-conversation#configuring-multi-turn-conversations" target="_blank">here</a>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillsConfig0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillsConfig0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Skill configurations</strong> tab.</p>
+<p><a class="glightbox" href="../Setup/creatingActions/_attachments/skillsConfig1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/creatingActions/_attachments/skillsConfig1.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>0</strong> for the <strong>Number of form fields</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillsConfig2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillsConfig2.png"></a></p>
+</li>
+</ol>
+<h2 id="setup-creatingactions-create-actions">Create actions<a class="headerlink" href="#setup-creatingactions-create-actions" title="Permanent link">#</a></h2>
+<ol start="4">
+<li>
+<p>Click the main menu and select <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions0.png"></a></p>
+</li>
+<li>
+<p>Hover over the <strong>Home</strong> icon (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) and click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create action</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions2.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Skill-based action</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions3.png"></a></p>
+</li>
+<li>
+<p>Select the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> tile and click <strong>Next</strong>.</p>
+<p>Note, the date shown in the tile should reflect when you add the skill to your application.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions4.png"></a></p>
+</li>
+<li>
+<p>On the <strong>New action</strong> dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click <strong>Save</strong>.</p>
+<p>Some example phrases:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingactions-__codelineno-0-1"></a>Get z/OS facts.
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-creatingactions-__codelineno-1-1"></a>Gather z/OS facts.
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/createActions5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions5.png"></a></p>
+</li>
+<li>
+<p>Add any additional prompts and then click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/createActions6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions6.png"></a></p>
+</li>
+<li>
+<p>In the assistant preview, enter one of the prompts you specified in the previous steps.</p>
+<p><a class="glightbox" href="../Setup/creatingActions/_attachments/createActions7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/creatingActions/_attachments/createActions7.png"></a></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingflows"><div><p>TBD</p>
 <!-- Terminology -->

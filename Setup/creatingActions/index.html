@@ -141,6 +141,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#creating-actions-for-your-assistant" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -602,6 +607,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -775,6 +782,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -789,9 +798,66 @@
                   
 
 
-  <h1>Creating actions for your assistant</h1>
-
-<div><p>TBD</p>
+<div><h1 id="creating-actions-for-your-assistant">Creating actions for your assistant<a class="headerlink" href="#creating-actions-for-your-assistant" title="Permanent link">#</a></h1>
+<p>Once the skills in your application are connected to your assistant, you’re ready to begin creating actions tied to those skills. Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a></p>
+<h1 id="configure-the-number-of-input-fields">Configure the number of input fields<a class="headerlink" href="#configure-the-number-of-input-fields" title="Permanent link">#</a></h1>
+<p>Before configuring actions, it’s important to modify a setting within watsonx Orchestrate that allows triggered skills to display as forms (versus conversational skills). </p>
+<ol>
+<li>
+<p>Click your (a) profile icon and then click (b) <strong>Settings</strong></p>
+<p>Learn more about configuring input fields <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=actions-defining-how-interact-skill-in-conversation#configuring-multi-turn-conversations" target="_blank">here</a>.</p>
+<p><a class="glightbox" href="../_attachments/skillsConfig0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsConfig0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Skill configurations</strong> tab.</p>
+<p><a class="glightbox" href="_attachments/skillsConfig1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/skillsConfig1.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>0</strong> for the <strong>Number of form fields</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsConfig2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsConfig2.png"></a></p>
+</li>
+</ol>
+<h2 id="create-actions">Create actions<a class="headerlink" href="#create-actions" title="Permanent link">#</a></h2>
+<ol start="4">
+<li>
+<p>Click the main menu and select <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong>.</p>
+<p><a class="glightbox" href="../_attachments/createActions0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions0.png"></a></p>
+</li>
+<li>
+<p>Hover over the <strong>Home</strong> icon (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) and click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/createActions1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create action</strong>.</p>
+<p><a class="glightbox" href="../_attachments/createActions2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions2.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Skill-based action</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/createActions3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions3.png"></a></p>
+</li>
+<li>
+<p>Select the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> tile and click <strong>Next</strong>.</p>
+<p>Note, the date shown in the tile should reflect when you add the skill to your application.</p>
+<p><a class="glightbox" href="../_attachments/createActions4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions4.png"></a></p>
+</li>
+<li>
+<p>On the <strong>New action</strong> dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click <strong>Save</strong>.</p>
+<p>Some example phrases:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Get z/OS facts.
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Gather z/OS facts.
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/createActions5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions5.png"></a></p>
+</li>
+<li>
+<p>Add any additional prompts and then click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../_attachments/createActions6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions6.png"></a></p>
+</li>
+<li>
+<p>In the assistant preview, enter one of the prompts you specified in the previous steps.</p>
+<p><a class="glightbox" href="_attachments/createActions7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/createActions7.png"></a></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 

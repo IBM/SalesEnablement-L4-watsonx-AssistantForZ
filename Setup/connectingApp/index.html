@@ -141,6 +141,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#connecting-skills-to-your-assistant" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -581,6 +586,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -775,6 +782,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -789,9 +798,46 @@
                   
 
 
-  <h1>Connecting the app to your assistant</h1>
-
-<div><p>TBD</p>
+<div><h1 id="connecting-skills-to-your-assistant">Connecting skills to your assistant<a class="headerlink" href="#connecting-skills-to-your-assistant" title="Permanent link">#</a></h1>
+<p>Once you have a subset of skills published, the application you created can be connected to your assistant. </p>
+<ol>
+<li>
+<p>Expand the main menu and select <strong>Skill sets</strong>.</p>
+<p><a class="glightbox" href="_attachments/skillSets0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/skillSets0.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Team Skills</strong> drop-down and select the <strong>Draft</strong> of your assistant.</p>
+<p><a class="glightbox" href="../_attachments/skillSets1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets1.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Connections</strong> tab.</p>
+<p><a class="glightbox" href="../_attachments/skillSets2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets2.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Search</strong> (<a class="glightbox" href="attachments/searchIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="attachments/searchIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/skillSets3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets3.png"></a></p>
+</li>
+<li>
+<p>Search for the application name you specified in the <a href="../importSkills/#skillApp">previous section</a>.</p>
+<p><a class="glightbox" href="../_attachments/skillSets4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets4.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ellipsesIcon.png"></a>) and click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillSets5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets5.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Connect to Ansible Controller Skills</strong> form, keep the defaults and click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillSets6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillSets6.png"></a></p>
+</li>
+<li>
+<p>Enter the (a) <strong>username</strong> and (b) <strong>password</strong> using the username (<strong>admin</strong>) and password for your IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) <em>watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr></em> reservation (<strong><abbr title="Ansible Automation Platform">AAP</abbr> User Password (Use SSH key to login, only use password for <abbr title="User Interface">UI</abbr>)</strong>), and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="_attachments/skillSets7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/skillSets7.png"></a></p>
+</li>
+</ol>
+<p>The application should now be connected to the draft version of your assistant.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillSets8.png)
+</code></pre></div>
+<p>Continue to the next section to create actions for your assistant.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 

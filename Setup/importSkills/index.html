@@ -823,18 +823,57 @@
 <p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
 <p><a class="glightbox" href="../_attachments/skillsTrialTile.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsTrialTile.png"></a></p>
 </li>
+</ol>
+<p><a name="skillApp"></a>
+6. Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<div class="highlight"><pre><span></span><code>Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
+
+**a**: Connection Type: **ansible**
+
+**b**: Application Name: &lt;enter a meaningful name for the skills that you will import\&gt; - *be sure to remember this name, you will need in the next section*
+
+**c**: Connection URL: &lt;enter the URL for your AAP UI\&gt;
+
+**d**: User Name: &lt;enter the AAP User Name (for UI access)\&gt;
+
+**e**: Password: &lt;enter the AAP User Password\&gt;
+
+**f**: Search Pattern: **\***
+
+![](_attachments/skillsForm.png)
+</code></pre></div>
+<ol start="7">
 <li>
-<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
-<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="../exploreAAP/">Explore Ansible Automation Platform</a> section earlier.</p>
-<p><strong>a</strong>: Connection Type: <strong>ansible</strong></p>
-<p><strong>b</strong>: Application Name: &lt;enter a meaningful name for the skills that you will import&gt;</p>
-<p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: &lt;enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
-<p><strong>d</strong>: User Name: &lt;enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Name (for <abbr title="User Interface">UI</abbr> access)&gt;</p>
-<p><strong>e</strong>: Password: &lt;enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
-<p><strong>f</strong>: Search Pattern: <strong>*</strong></p>
-<p><a class="glightbox" href="../_attachments/skillsForm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsForm.png"></a></p>
+<p>Expand the <strong>Ansible Job Template Proj...</strong> folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Browse the other available skills</p>
+</div>
+<p>There are also utility skills provided out of the box with the “Z Skills Accelerator” which are needed for actions such as retrieving the output of an Ansible skill (i.e. “Retrieve job output”). You should also import these utility skills to enable more complete automation execution flows.</p>
+<p><a class="glightbox" href="../_attachments/addSkills0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills0.png"></a></p>
+</li>
+<li>
+<p>Click <strong>aap4zos</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addSkills1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills1.png"></a></p>
+</li>
+<li>
+<p>Select the skills you want to import into your application and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addSkills2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills2.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (![]_attachments/ellipsesIcon.png)) for the first skill and select <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addSkills3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills3.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Publish</strong>.</p>
+<p>On the <strong>Enhance this skill</strong> page, you can specify enhancements to the default skill.  Refer to <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=files-enhancing-publishing-skills" target="_blank">this documentation</a> for more information on enhancing skills.</p>
+<p><a class="glightbox" href="../_attachments/addSkills4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills4.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 10 and 11 for each skill you imported.</p>
+<p><a class="glightbox" href="../_attachments/addSkills5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addSkills5.png"></a></p>
 </li>
 </ol>
+<p>The selected skills are now ready for use and available to your assistant. In the next section, learn how to connect them to your assistant.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
