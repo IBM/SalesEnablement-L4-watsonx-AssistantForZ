@@ -30,23 +30,25 @@ A version of zassist is available for download for IBMers and Business Partners 
 ## Ingest client documentation using **zassist**
 With the **zassist** command installed, you are now able to begin ingesting data. 
 
-Step-by-step guidance for ingesting documents using zassist are provided in the IBM watsonx Assistant for Z documentation <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a>.
+Step-by-step guidance for ingesting documents using zassist are provided in the IBM watsonx Assistant for Z documentation. In the directions, when running the log in command in step 7, use the **CLIENT_INGESTION_AUTHKEY** you created in the [previous section](documentIngestion.md/#AuthKey).
 
-These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. This video has no audio.
+6. Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.
 
-![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
+    These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. This video has no audio.
 
-??? Info "Don't see the video in the PDF version of the lab guide?"
+    ![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
 
-    If you are viewing the PDF of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+    ??? Info "Don't see the video in the PDF version of the lab guide?"
 
-The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
+        If you are viewing the PDF of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+
+    The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
 
 ## Verify the document that is ingested is now returned as a source file for a query.
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
 
-6. Hover over the home (![](_attachments/homeIcon.png)) icon and click **Preview**.
-7. Enter the following prompt in your assistant.
+7. Hover over the home (![](_attachments/homeIcon.png)) icon and click **Preview**.
+8. Enter the following prompt in your assistant.
 
     ```
     What is z/OS continuous delivery?
@@ -54,19 +56,19 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     ![](_attachments/verifyIngest0.png)
 
-8. Expand the sources section by clicking the (![](_attachments/downArrowIcon.png)).
+9. Expand the sources section by clicking the (![](_attachments/downArrowIcon.png)).
    
     ![](_attachments/verifyIngest1.png)
 
-9. Click through the list of resources and find the reference to the Red Piece document you ingested.
+10. Click through the list of resources and find the reference to the Red Piece document you ingested.
 
     ![](_attachments/verifyIngest2.png)
 
-10. Click the ingested document reference.
+11. Click the ingested document reference.
 
     ![](_attachments/verifyIngest3.png)
 
-11. Accept the security risk to view the source document.
+12. Accept the security risk to view the source document.
 
     The steps to accept the security risk for the document are not shown. The risk occurs because the certificate for the connection to the SNO instance is not secure. Notice that the URL contains the path to your SNO instance route.
 

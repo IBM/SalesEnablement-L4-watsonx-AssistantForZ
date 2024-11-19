@@ -327,7 +327,7 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
     ```
     oc apply -f os-secret.yaml
     ```
-
+<a name="AuthKey"></a>
 37. Create a file called **client-ingestion-secret.yaml** with the following content.
 
     File name: 

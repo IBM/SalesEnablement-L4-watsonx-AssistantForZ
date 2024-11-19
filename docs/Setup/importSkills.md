@@ -24,13 +24,14 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     ![](_attachments/skillsTrialTile.png)
 
+<a name="skillApp"></a>
 6. Enter the following values in the **z/OS Skills accelerator** form and then click **Connect**.
 
     Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
 
     **a**: Connection Type: **ansible**
 
-    **b**: Application Name: <enter a meaningful name for the skills that you will import\>
+    **b**: Application Name: <enter a meaningful name for the skills that you will import\> - *be sure to remember this name, you will need in the next section*
 
     **c**: Connection URL: <enter the URL for your AAP UI\>
 
@@ -42,7 +43,34 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     ![](_attachments/skillsForm.png)
 
+7. Expand the **Ansible Job Template Proj...** folder.
 
+    !!! Note "Browse the other available skills"
 
+    There are also utility skills provided out of the box with the “Z Skills Accelerator” which are needed for actions such as retrieving the output of an Ansible skill (i.e. “Retrieve job output”). You should also import these utility skills to enable more complete automation execution flows.
 
+    ![](_attachments/addSkills0.png)
 
+8. Click **aap4zos**.
+
+    ![](_attachments/addSkills1.png)
+
+9. Select the skills you want to import into your application and then click **Save as draft**.
+
+    ![](_attachments/addSkills2.png)
+
+10. Click the ellipses (![]_attachments/ellipsesIcon.png)) for the first skill and select **Enhance this skill**.
+
+    ![](_attachments/addSkills3.png)
+
+11. Click **Publish**.
+
+    On the **Enhance this skill** page, you can specify enhancements to the default skill.  Refer to <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=files-enhancing-publishing-skills" target="_blank">this documentation</a> for more information on enhancing skills.
+
+    ![](_attachments/addSkills4.png)
+
+12. Repeat steps 10 and 11 for each skill you imported.
+
+    ![](_attachments/addSkills5.png)
+
+The selected skills are now ready for use and available to your assistant. In the next section, learn how to connect them to your assistant.
