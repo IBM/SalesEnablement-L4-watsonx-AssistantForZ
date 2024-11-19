@@ -55,7 +55,7 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     ![](_attachments/createActions5.png)
 
-10. Add any (a) additional prompts and then (b) click the save (![](_attachments/diskIcon)).
+10. Add any (a) additional prompts and then (b) click the save (![](_attachments/diskIcon.png)).
 
     ![](_attachments/createActions6.png)
 

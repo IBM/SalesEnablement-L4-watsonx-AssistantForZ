@@ -36,6 +36,6 @@ Once you have a subset of skills published, the application you created can be c
 
 The application should now be connected to the draft version of your assistant.
 
-    ![](_attachments/skillSets8.png)
+![](_attachments/skillSets8.png)
 
 Continue to the next section to create actions for your assistant.
