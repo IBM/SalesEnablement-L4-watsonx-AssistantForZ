@@ -251,4 +251,4 @@ On the **Enhancing the skill** pages, you can:
 
 The scenario shown above may or may not be relevant for your client's use case. It is intended to show how you to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to experiment with your own skill flows and prompts using other skills available within the AAP instance.
 
-Next, learn about creating custom-built actions.
+Next, learn about custom-built actions.
