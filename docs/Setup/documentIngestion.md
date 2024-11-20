@@ -453,7 +453,7 @@ When deployment completes and all the pods have a status of “Ready”, “Runn
     ![](_attachments/ocpRouteToWrapper.png)
 
 ### Update your assistant with the new BYOS search instance
-
+<a name="BYOS-url">
 45. Configure your assistant with the route recorded in the previous step.
 
     First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
