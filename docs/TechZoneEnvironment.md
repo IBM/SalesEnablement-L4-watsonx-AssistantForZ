@@ -1,5 +1,5 @@
 # IBM Technology Zone environment
-To enable sellers to both learn how to deliver client pilots of {{offering.name}}, multiple environments are available in IBM Technology Zone (ITZ). The environments that are used for the watsonx Assistant for Z Velocity lab environment can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection and consist of:
+To enable sellers to learn how to deliver client pilots of {{offering.name}}, multiple environments are available in IBM Technology Zone (ITZ). The following environments are used for the watsonx Assistant for Z Velocity lab environment and can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection:
 
 - **Watsonx Assistant for Z lab – watsonx Orchestrate**: a dedicated environment with watsonx Orchestrate on IBM Cloud that is used for creating and configuring the assistant, configuring conversational search, importing skills, and configuring actions.
 
@@ -11,7 +11,7 @@ To enable sellers to both learn how to deliver client pilots of {{offering.name}
 
 !!! Warning "All activities in this lab guide are required."
 
-    While all 3 environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the {{badge.name}} badge, you must provision all three ITZ environments and complete all sections in the lab guide. **Any statements in the ITZ collection regarding optional environments or tasks should be ignored.**
+    While all three environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the {{badge.name}} badge, you must provision all three ITZ environments and complete all sections in the lab guide. **Any statements in the ITZ collection regarding optional environments or tasks should be ignored.**
 
  <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
 
@@ -20,7 +20,7 @@ Follow the instructions in to create new reservation requests, extend the reserv
 ## Create a reservation request
 1. Click each of the links that follow to open a browser to the reservation pages of the **{{itz.collectionName}}** ITZ environments.
 
-    !!! Warning "You may be asked to authenticate to IBM Technology Zone"
+    !!! Warning "You may be asked to authenticate to IBM Technology Zone."
 
         The steps to authenticate to ITZ are not detailed here as they may vary between users.
 
@@ -30,9 +30,9 @@ Follow the instructions in to create new reservation requests, extend the reserv
     
     <a href="{{itz.snoEnv}}" target="_blank">Single Node OpenShift with NFS storage - reservation page</a>
 
-!!! Important "The next two steps are for 1 of the 3 environments. Repeat for all three environments."
+!!! Important "The next two steps are for one of the three environments. Repeat for all three environments."
 
-    **Be sure to follow these steps to create a reservation in ITZ for all three environments!**
+    **Be sure to follow these steps to create a reservation in ITZ for all three environments.**
 
 2. Click **Reserve now**.
 
@@ -56,11 +56,11 @@ Follow the instructions in to create new reservation requests, extend the reserv
 
     **d**. Preferred geography: select the region nearest to your physical location for improved performance and reduced network latency.
 
-    **e**. End date and time: the initial maximum will be set to 2 days after the current date and time. Instructions follow to extend the reservation end date.
+    **e**. End date and time: the initial maximum will be set to two days after the current date and time. Instructions follow to extend the reservation end date.
 
     **f**. Accept the IBM Technology Zone's terms and conditions and security policies.
 
-    **g**. When satisfied with the parameters, click **Submit**.
+    **g**. Click **Submit**.
 
     ![](_attachments/itzRSVPReservationPage.png)
 
@@ -75,6 +75,10 @@ Follow the instructions in to create new reservation requests, extend the reserv
     **k**. OpenShift version: select **4.14**.
 
     **l**. OCP/Kubernetes service network: leave the default setting of **172.30.0.0/16**.
+    
+    **m**. Accept the IBM Technology Zone's terms and conditions and security policies.
+
+    **n**. Click **Submit**.
 
     ![](_attachments/itzRSVPReservationPage2.png)
 
@@ -85,7 +89,7 @@ During the provisioning process, multiple emails are sent to you from ITZ as the
 In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. In addition, review the [Troubleshooting](#troubleshooting) section that follows. If issues continue, open an ITZ support ticket by using the methods that are mentioned in the [Support](index.md#support) section.
 
 ## Extend the reservation
-When the reservations are in the **Ready** state, you can extend each reservation to a total of 6 days. 
+When the reservations are in the **Ready** state, you can extend each reservation to a total of six days. 
 
 4. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**.
 
@@ -100,7 +104,7 @@ When the reservations are in the **Ready** state, you can extend each reservatio
 
     ![](_attachments/itzExtendRsvp.png)
 
-If you anticipate needing more time, repeat Steps 5 and 6 to extend the reservation to the maximum of 6 days. Repeat these steps for the other two reservations.
+If you anticipate needing more time, repeat Steps 5-6 to extend the reservation to the maximum of six days. Repeat these steps for the other two reservations.
 <div style="page-break-after: always;"></div>
 
 ## Join the ITZ IBM Cloud accounts
@@ -110,11 +114,11 @@ Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansib
 
     ![](_attachments/itzJoinCloudEmail.png)
 
-8. In the **Join IBM Cloud** browser windows that open, select the **I accept the product Terms and Conditions of this registration form, and then click **Join Account**.
+8. In the **Join IBM Cloud** browser window that opens, select the **I accept the product Terms and Conditions** of the registration form, and then click **Join Account**.
 
     ![](_attachments/itzJoinCloud.png)
 
-**Repeat steps 7 and 8 for the second invitation.**
+**Repeat Steps 7-8 for the second invitation.**
 
 After joining both accounts, verify that both accounts appear in your available account list in the IBM Cloud portal.
 
@@ -122,7 +126,7 @@ After joining both accounts, verify that both accounts appear in your available 
 
     <a href="cloud.ibm.com" target="_blank">**IBM Cloud portal**</a>
 
-10. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps very depending on any two-factor authentication methods enabled. 
+10. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps vary depending on any two-factor authentication methods enabled. 
 
     ![](_attachments/itzCloudLogin.png)
 
@@ -136,14 +140,14 @@ After joining both accounts, verify that both accounts appear in your available 
 
     ??? Tip "Does your IBM Cloud portal view look different?"
 
-        If your IBM Cloud portal looks different from the images above, it could be because the IBM Cloud portal has done through a design change, or your browser window is set to smaller size. Instead of the current selected account appearing in the top menu, you may see this **change account** icon: ![](_attachments/itzCloudChangeAccountIcon.png). Click this icon to view the list of accounts you can access.
+        If your IBM Cloud portal looks different from the images above, it could be because the IBM Cloud portal has gone through a design change, or your browser window is set to smaller size. Instead of the current selected account appearing in the top menu, you may see this **change account** icon: ![](_attachments/itzCloudChangeAccountIcon.png). Click this icon to view the list of accounts you can access.
 
         ![](_attachments/itzCloudChangeAccountIconBig.png)
 
 ## Accessing the environments
 Each reservation provides access to its respective environment. Details for accessing each environment are provided in the **Pilot setup** sections that follow in the lab guide.
 
-After all three reservations are in the **Ready** state and you accepted the invitations to the IBM Cloud accounts, proceed to the next section to complete the pilot setup.
+After all three reservations are in the **Ready** state and you accept the invitations to the IBM Cloud accounts, proceed to the next section to complete the pilot setup.
 
 ## Troubleshooting
 ??? Failure "If your reservation for the Single Node OpenShift environment fails..."

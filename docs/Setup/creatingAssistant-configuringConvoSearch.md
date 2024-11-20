@@ -1,5 +1,5 @@
 # Creating an assistant and configuring conversational search
-To create your watsonx Assistant for Z, you use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
+To create your watsonx Assistant for Z, use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
 
 ## Access the ITZ IBM Cloud account for the watsonx Assistant for Z Pilot environment
 1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**, or click the following link.
@@ -24,18 +24,18 @@ To create your watsonx Assistant for Z, you use [watsonx Orchestrate](https://ww
 
         You may need to authenticate to IBM Cloud after clicking the link. These steps are not shown here as they may vary by individual.
 
-5. Verify that the current IBM Cloud account is the same as the account name recorded in step 3, if not the same, switch to the proper account.
+5. Verify that the current IBM Cloud account is the same as the account name recorded in step 3. If the account is not the same, switch to the proper account.
 
     Note: the formatting of the name can appear differently than what is shown in the ITZ reservation.
 
     ![](_attachments/itzMyReservations4.png)
 
-    If the proper account is not listed, click the account drop down and select the proper account. Note, if your browser window is narrow, the account drop down can be depicted with the switch account icon (![](_attachments/itzCloudChangeAccountIcon.png)).
+    If the proper account is not listed, click the account drop down and select the proper account. Note: if your browser window is narrow, the account drop down can be depicted with the Switch Account icon (![](_attachments/itzCloudChangeAccountIcon.png)).
 
     ![](_attachments/itzSwitchAccounts0.png)
 
 ## Create your Assistant
-6. Click the **resources** icon (![](_attachments/cloudResourcesIcon.png)).
+6. Click the **Resources** icon (![](_attachments/cloudResourcesIcon.png)).
 
     ![](_attachments/cloudResourcesMenu.png)
 
@@ -125,7 +125,7 @@ The next step will be to configure **conversational search** for your assistant 
        
 20. Update the conversational search **custom service** settings based on your requirements.
 
-    Note: the **Settings** page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.
+    **Note**: the **Settings** page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.
 
     The following settings are proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.
 
@@ -133,7 +133,7 @@ The next step will be to configure **conversational search** for your assistant 
 
     **b**. Select **Single turn**. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.
     
-    **c**. Specify the text appears to expand the list of citations in the assistant (except web chat client).
+    **c**. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).
 
     **d**. Select **Rarely** for the tendency to say "I don't know" setting.
 
@@ -145,7 +145,7 @@ The next step will be to configure **conversational search** for your assistant 
 
     **g**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the [Installing and using zassist to ingest client documents](./zassist.md). Leave the field empty for now.
 
-    **h**. The **Search display text** options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize.
+    **h**. The **Search display text** options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.
 
     ![](_attachments/genAISettings2.png)
 
@@ -163,7 +163,7 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu.png)
 
-24. Click **no matches**.
+24. Click **No matches**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu2.png)
 

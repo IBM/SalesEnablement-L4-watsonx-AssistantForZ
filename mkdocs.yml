@@ -125,7 +125,8 @@ extra_css:
   - style.css
 extra:
   generator: false
-  supportEmail: "andrewj@us.ibm.com;maxwell.g.weiss@ibm.com"
+  supportEmailMailTo: "andrewj@us.ibm.com;maxwell.g.weiss@ibm.com"
+  supportEmail: "andrewj@us.ibm.com and maxwell.g.weiss@ibm.com"
   supportSlack: 
     name: "#watsonx-assistant-z-technical"
     url: "https://ibm.enterprise.slack.com/archives/C07ARLXF2R1"
