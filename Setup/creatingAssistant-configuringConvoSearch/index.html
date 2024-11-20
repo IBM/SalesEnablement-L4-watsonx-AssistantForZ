@@ -797,7 +797,7 @@
 
 
 <div><h1 id="creating-an-assistant-and-configuring-conversational-search">Creating an assistant and configuring conversational search<a class="headerlink" href="#creating-an-assistant-and-configuring-conversational-search" title="Permanent link">#</a></h1>
-<p>To create your watsonx Assistant for Z, you use <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>). The large language model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
+<p>To create your watsonx Assistant for Z, use <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>). The large language model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
 <h2 id="access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment">Access the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud account for the watsonx Assistant for Z Pilot environment<a class="headerlink" href="#access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -822,17 +822,17 @@
 </div>
 </li>
 <li>
-<p>Verify that the current IBM Cloud account is the same as the account name recorded in step 3, if not the same, switch to the proper account.</p>
+<p>Verify that the current IBM Cloud account is the same as the account name recorded in step 3. If the account is not the same, switch to the proper account.</p>
 <p>Note: the formatting of the name can appear differently than what is shown in the <abbr title="IBM Technology Zone">ITZ</abbr> reservation.</p>
 <p><a class="glightbox" href="../_attachments/itzMyReservations4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzMyReservations4.png"></a></p>
-<p>If the proper account is not listed, click the account drop down and select the proper account. Note, if your browser window is narrow, the account drop down can be depicted with the switch account icon (<a class="glightbox" href="../_attachments/itzCloudChangeAccountIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudChangeAccountIcon.png"></a>).</p>
+<p>If the proper account is not listed, click the account drop down and select the proper account. Note: if your browser window is narrow, the account drop down can be depicted with the Switch Account icon (<a class="glightbox" href="../_attachments/itzCloudChangeAccountIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzCloudChangeAccountIcon.png"></a>).</p>
 <p><a class="glightbox" href="../_attachments/itzSwitchAccounts0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/itzSwitchAccounts0.png"></a></p>
 </li>
 </ol>
 <h2 id="create-your-assistant">Create your Assistant<a class="headerlink" href="#create-your-assistant" title="Permanent link">#</a></h2>
 <ol start="6">
 <li>
-<p>Click the <strong>resources</strong> icon (<a class="glightbox" href="../_attachments/cloudResourcesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cloudResourcesIcon.png"></a>).</p>
+<p>Click the <strong>Resources</strong> icon (<a class="glightbox" href="../_attachments/cloudResourcesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cloudResourcesIcon.png"></a>).</p>
 <p><a class="glightbox" href="../_attachments/cloudResourcesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cloudResourcesMenu.png"></a></p>
 </li>
 <li>
@@ -909,17 +909,17 @@
 </li>
 <li>
 <p>Update the conversational search <strong>custom service</strong> settings based on your requirements.</p>
-<p>Note: the <strong>Settings</strong> page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
+<p><strong>Note</strong>: the <strong>Settings</strong> page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
 <p>The following settings are proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
 <p><strong>a</strong>. Enable <strong>Conversational search</strong>.</p>
 <p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.</p>
-<p><strong>c</strong>. Specify the text appears to expand the list of citations in the assistant (except web chat client).</p>
+<p><strong>c</strong>. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).</p>
 <p><strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.</p>
 <p><strong>e</strong>. Select <strong>Verbose</strong> for the generated response length. This setting affects the average response length. Depending on user input, variations from the selected length can occur.</p>
 <p><a class="glightbox" href="../_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings1.png"></a></p>
 <p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.</p>
 <p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the <a href="../zassist/">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
-<p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize.</p>
+<p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.</p>
 <p><a class="glightbox" href="../_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2.png"></a></p>
 </li>
 <li>
@@ -937,7 +937,7 @@
 <p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu.png"></a></p>
 </li>
 <li>
-<p>Click <strong>no matches</strong>.</p>
+<p>Click <strong>No matches</strong>.</p>
 <p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu2.png"></a></p>
 </li>
 <li>
