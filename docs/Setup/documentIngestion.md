@@ -167,6 +167,10 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 18. Enter **IBM Cert Manager** in the search field and then click the **IBM Cert Manager** tile.
 
+    !!! tip "Be patient."
+
+        It may take a minute or two for the **IBM Cert Manager** tile to appear. 
+
     ![](_attachments/SNOOCPOperator3.png)
 
 19. Click **Install**.
@@ -255,7 +259,9 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
 
 28. Enter **ibm watsonx** in the search field and the click the **IBM watsonx Assistant for Z Operator Catalog** tile.
 
-    Note, it may take a few minutes for the operator to appear. If the operator is not found initially,refresh the browser page and try the search again.
+    !!! tip "Be patient."
+
+        It may take a minute or two for the **IBM watsonx Assistant for Z Operator Catalog** tile to appear. 
 
     ![](_attachments/installAssistantOperator1.png)
 
@@ -328,6 +334,7 @@ Note: if you just installed the **oc** utility, you can skip the next 5 steps.
     oc apply -f os-secret.yaml
     ```
 <a name="AuthKey"></a>
+
 37. Create a file called **client-ingestion-secret.yaml** with the following content.
 
     File name: 
@@ -453,20 +460,20 @@ When deployment completes and all the pods have a status of “Ready”, “Runn
     ![](_attachments/ocpRouteToWrapper.png)
 
 ### Update your assistant with the new BYOS search instance
-<a name="BYOS-url">
-45. Configure your assistant with the route recorded in the previous step.
+<a name="BYOS-url"></a>
+Configure your assistant with the route recorded in the previous step.
 
-    First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
+Using the route recorded in Step 44, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
 
-    **https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query**
+**https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query**
 
-    Note, the above URL will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.
+**Note**: the above URL will not work for you. **Use the value of your specific OpenSearch instance that is recorded in the previous step.**
 
-    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
+Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
 
-    ??? Tip "How to set the custom search integration URL."
+??? Tip "How to set the custom search integration URL."
 
-        ![](_attachments/changeCustomSearchURL.gif)
+    ![](_attachments/changeCustomSearchURL.gif)
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.

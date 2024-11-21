@@ -34,7 +34,7 @@ Once you have a subset of skills published, the application you created can be c
 
     ![](_attachments/skillSets7.png)
 
-The application should now be connected to the draft version of your assistant.
+The application is now connected to the draft version of your assistant.
 
 ![](_attachments/skillSets8.png)
 

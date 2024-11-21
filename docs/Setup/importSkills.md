@@ -4,28 +4,21 @@ Now that you understand Ansible Automation Platform (AAP) and the preinstalled a
 ## Import skills into your assistant
 The next steps assume that you have an active browser window to the watsonx Orchestrate ITZ cloud account. If you do not, refer to the initial steps in [Creating an assistant and configuring conversational search](creatingAssistant-configuringConvoSearch.md).
 
-1. Click the **resources** icon (![](_attachments/cloudResourcesIcon.png)).
-
-    ![](_attachments/cloudResourcesMenu.png)
-
-2. Click **Launch watsonx Orchestrate**.
-
-    ![](_attachments/wOResource0.png)
-
-3. Click the main menu (![](_attachments/hamburger.png)) and then click **Skill studio**.
+1. Return to your watsonx Orchestrate instance and expand the main menu and click **Skill studio**. 
 
     ![](_attachments/woSkillStudioMenu.png)
 
-4. Expand **Create** and click **Import API**.
+2. Expand **Create** and click **Import API**.
 
     ![](_attachments/woSkillStudioImportMenu.png)
 
-5. Click the **z/OS Skills accelerator (Trial)** tile.
+3. Click the **z/OS Skills accelerator (Trial)** tile.
 
     ![](_attachments/skillsTrialTile.png)
 
 <a name="skillApp"></a>
-6. Enter the following values in the **z/OS Skills accelerator** form and then click **Connect**.
+
+4. Enter the following values in the **z/OS Skills accelerator** form and then click **Connect**.
 
     Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
 
@@ -43,33 +36,35 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     ![](_attachments/skillsForm.png)
 
-7. Expand the **Ansible Job Template Proj...** folder.
+5. Expand the **Ansible Job Template Proj...** folder.
 
-    !!! Note "Browse the other available skills"
+    !!! Note "Explore the other available skills"
 
-    There are also utility skills provided out of the box with the “Z Skills Accelerator” which are needed for actions such as retrieving the output of an Ansible skill (i.e. “Retrieve job output”). You should also import these utility skills to enable more complete automation execution flows.
+        Take time to explore the available skills. There are many utility skills provided out of the box with the “Z Skills Accelerator” which are needed for actions such as retrieving the output of an Ansible skill. Consider importing these utility skills to enable more complete automation execution flows.
 
     ![](_attachments/addSkills0.png)
 
-8. Click **aap4zos**.
+6. Click **aap4zos**.
 
     ![](_attachments/addSkills1.png)
 
-9. Select the skills you want to import into your application and then click **Save as draft**.
+7. Select the skills you want to import into your application and then click **Save as draft**.
+
+    For this lab, select the **Z/os ping** and **Z/os gather facts** skills.
 
     ![](_attachments/addSkills2.png)
 
-10. Click the ellipses (![]_attachments/ellipsesIcon.png)) for the first skill and select **Enhance this skill**.
+8. Click the ellipses (![](_attachments/ellipsesIcon.png)) for the first skill and select **Enhance this skill**.
 
     ![](_attachments/addSkills3.png)
 
-11. Click **Publish**.
+9.  Review the skill enhancement options and then click **Publish**.
 
     On the **Enhance this skill** page, you can specify enhancements to the default skill.  Refer to <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=files-enhancing-publishing-skills" target="_blank">this documentation</a> for more information on enhancing skills.
 
     ![](_attachments/addSkills4.png)
 
-12. Repeat steps 10 and 11 for each skill you imported.
+10. Repeat steps 8 and 9 for each skill you imported.
 
     ![](_attachments/addSkills5.png)
 

@@ -106,11 +106,11 @@ The next step will be to configure **conversational search** for your assistant 
 
     ![](_attachments/genAISetupCS1.png)
 
-18. Complete the **Custom service** form and then click **Next**.
+18. Complete the **Custom service** form and then (d) click **Next**.
 
     **a**. Select **By providing credentials**.
 
-    **b**. Enter the following value in the **URL** field (use the copy icon to avoid typographical errors).
+    **b**. Enter the following value in the **URL** field (use the copy icon to avoid typographical errors). This is the URL for the a shared [OpenSearch](https://opensearch.org/) instance. In later sections you will created and customize a dedicated instance.
     ```
     {{itz.hostedOpenSearchInstance}}
     ```
@@ -181,7 +181,7 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu5.png)
 
-28. Select **Search for the answer** in the **And then** drop-down menu.
+28. Expand the **And then** drop-down menu and select **Search for the answer**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu6.png)
 
@@ -193,79 +193,83 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu8.png)
 
-31. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
+31. Click the **Save** (![](_attachments/diskIcon.png)) icon.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu9-b.png)
+
+32. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
 
     ![](_attachments/genAIActionsSetByAssistantMenu9.png)
 
-32. Click **Delete** in the confirmation dialog to delete step 2.
+33. Click **Delete** in the confirmation dialog to delete step 2.
 
     ![](_attachments/genAIActionsSetByAssistantMenu10.png)
 
-33. Click the **x** to close the **Editor** window.
+34. Click the **x** to close the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu11.png)
 
-34. Click **Fallback** in the **Actions** table.
+35. Click **Fallback** in the **Actions** table.
 
     ![](_attachments/genAIActionsSetByAssistantMenu12.png)
 
-35. Delete **all** of the **Conversation steps**.
+36. Delete **all** of the **Conversation steps**.
 
     Note: the following image is edited. Only 5 steps are shown, but all 6 need to be deleted. You need to select each step individually, click the delete icon (![](_attachments/deleteIcon.png)), and confirm the deletion.
 
     ![](_attachments/genAIActionsSetByAssistantMenu13.png)
 
-36. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
+37. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu14.png)
 
-37. Click the **global settings** (![](_attachments/globalSettingsIcon.png)).
+38. Click the **global settings** (![](_attachments/globalSettingsIcon.png)).
 
     ![](_attachments/genAIGlobalSettings1.png)
 
-38. Click **No matches** under the **Conversation routing** tab.
+39. Click **No matches** under the **Conversation routing** tab.
 
     ![](_attachments/genAIGlobalSettings2.png)
 
-39. Move the slider to **More often** (or select **More often** in the drop-down).
+40. Move the slider to **More often** (or select **More often** in the drop-down).
 
     The setting helps ensure that actions are triggered less often unless the user’s query specifically matches the action’s input.
 
     ![](_attachments/genAIGlobalSettings3.png)
 
-40. Click **Autocorrection**.
+41. Click **Autocorrection**.
 
     ![](_attachments/genAIGlobalSettings4.png)
 
-41. Click the **autocorrection** toggle to turn the feature **off**.
+42. Click the **autocorrection** toggle to turn the feature **off**.
     
     ![](_attachments/genAIGlobalSettings5.png)
 
-42. Click (a) **Save** and then (b) **Close**.
+43. Click (a) **Save** and then (b) **Close**.
 
     ![](_attachments/genAIGlobalSettings6.png)
 
-43. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Environments**.
+44. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Environments**.
 
     ![](_attachments/genAIEnviroments1.png)
 
-44. Click **Web chat**.
+45. Click **Web chat**.
 
     ![](_attachments/genAIEnviroments2.png)
 
-45. On the **Style** tab, click the **Streaming** toggle to enable streaming.
+46. On the **Style** tab, click the **Streaming** toggle to enable streaming.
 
     ![](_attachments/genAIEnviroments3.png)
 
-46. Click **Suggestions**.
+47. Click **Suggestions**.
 
     ![](_attachments/genAIEnviroments4.png)
 
-47. Click the **Suggestions** toggle to turn this feature **off**.
+48. Click the **Suggestions** toggle to turn this feature **off**.
     
     ![](_attachments/genAIEnviroments5.png)
 
-48. Click **Save and exit**.
+49. Click **Save and exit**.
 
     ![](_attachments/genAIEnviroments6.png)
 

@@ -48,7 +48,11 @@ Step-by-step guidance for ingesting documents using zassist are provided in the 
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
 
 7. Hover over the home (![](_attachments/homeIcon.png)) icon and click **Preview**.
-8. Enter the following prompt in your assistant.
+8. Click the **Restart conversation** (![](_attachments/reloadAssistantIcon.png)) icon.
+
+    ![](_attachments/reloadAssistant.png)
+
+9.  Enter the following prompt in your assistant.
 
     ```
     What is z/OS continuous delivery?
@@ -56,19 +60,19 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     ![](_attachments/verifyIngest0.png)
 
-9. Expand the sources section by clicking the (![](_attachments/downArrowIcon.png)).
+10. Expand the sources section by clicking the (![](_attachments/downArrowIcon.png)).
    
     ![](_attachments/verifyIngest1.png)
 
-10. Click through the list of resources and find the reference to the Red Piece document you ingested.
+11. Click through the list of resources and find the reference to the Red Piece document you ingested.
 
     ![](_attachments/verifyIngest2.png)
 
-11. Click the ingested document reference.
+12. Click the ingested document reference.
 
     ![](_attachments/verifyIngest3.png)
 
-12. Accept the security risk to view the source document.
+13. Accept the security risk to view the source document.
 
     The steps to accept the security risk for the document are not shown. The risk occurs because the certificate for the connection to the SNO instance is not secure. Notice that the URL contains the path to your SNO instance route.
 
@@ -133,7 +137,7 @@ You are encouraged to experiment with the metadata field!
 }
 ```
 
-Now, repeat steps 6 through 8 (make sure you start a fresh preview of the assistant). Notice that the ingested Red Piece document is now the first sited reference!
+**Now, repeat steps 6 through 8 (make sure you restart the assistant preview (![](_attachments/reloadAssistantIcon.png))). Notice that the ingested Red Piece document is now the first sited reference!**
 
 ![](_attachments/verifyIngest5.png)
 

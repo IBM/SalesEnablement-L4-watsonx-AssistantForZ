@@ -87,3 +87,12 @@ Return to the Ansible Automation Platform (AAP) console and review the job infor
 
 As seen in the assistant, the actual contents of the output aren’t displayed. The utility skills are used to retrieve the job output. It is also possible to create a skill flow that executes the **z/OS Gather Facts** skill followed by the **Retrieve job output** utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.
 
+## Troubleshooting
+
+??? Failure "Skill returns ERR_PROV_GENERAL**."
+
+    If you encounter the following error:
+
+        ```{'status_code': 'ERR_PROV_GENERAL', 'output': 'Unable to execute skill due to internal error', 'error': 'Unable to execute skill due to internal error'}```
+    
+    ARJ - WHAT DO WE DO??????
