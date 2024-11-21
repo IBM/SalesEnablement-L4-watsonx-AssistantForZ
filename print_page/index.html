@@ -1261,9 +1261,9 @@
 <p><a class="glightbox" href="../Setup/_attachments/genAISetupCS1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS1.png"></a></p>
 </li>
 <li>
-<p>Complete the <strong>Custom service</strong> form and then click <strong>Next</strong>.</p>
+<p>Complete the <strong>Custom service</strong> form and then (d) click <strong>Next</strong>.</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
-<p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors).
+<p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors). This is the <abbr title="Uniform Resource Locator">URL</abbr> for the a shared <a href="https://opensearch.org/">OpenSearch</a> instance. In later sections you will created and customize a dedicated instance.
 </p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
 <p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
@@ -1320,7 +1320,7 @@
 <p><a class="glightbox" href="../Setup/_attachments/genAIActionsSetByAssistantMenu5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIActionsSetByAssistantMenu5.png"></a></p>
 </li>
 <li>
-<p>Select <strong>Search for the answer</strong> in the <strong>And then</strong> drop-down menu.</p>
+<p>Expand the <strong>And then</strong> drop-down menu and select <strong>Search for the answer</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAIActionsSetByAssistantMenu6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIActionsSetByAssistantMenu6.png"></a></p>
 </li>
 <li>
@@ -1896,19 +1896,15 @@ Sample output:
 </ol>
 <h3 id="setup-documentingestion-update-your-assistant-with-the-new-byos-search-instance">Update your assistant with the new <abbr title="Bring Your Own Search">BYOS</abbr> search instance<a class="headerlink" href="#setup-documentingestion-update-your-assistant-with-the-new-byos-search-instance" title="Permanent link">#</a></h3>
 <p><a name="BYOS-url">
-45. Configure your assistant with the route recorded in the previous step.</a></p>
-<div class="highlight"><pre><span></span><code>First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
-
-**https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query**
-
-Note, the above URL will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.
-
-Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
-
-??? Tip "How to set the custom search integration URL."
-
-    ![](_attachments/changeCustomSearchURL.gif)
-</code></pre></div>
+Configure your assistant with the route recorded in the previous step.</a></p>
+<p>First, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
+<p><strong>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</strong></p>
+<p><strong>Note</strong>: the above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. <strong>Use the value of your specific OpenSearch instance that is recorded in the previous step.</strong></p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can see the steps <a href="#setup-creatingassistant-configuringconvosearch-configureCustomSearchURL">here</a>.</p>
+<details class="tip">
+<summary>How to set the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</summary>
+<p><a class="glightbox" href="../Setup/_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/changeCustomSearchURL.gif"></a></p>
+</details>
 <h2 id="setup-documentingestion-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-documentingestion-troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the <a href="#index-support">Support</a> section.</p>
 <details class="failure">

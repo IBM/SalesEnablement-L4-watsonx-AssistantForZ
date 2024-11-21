@@ -1205,19 +1205,15 @@ Sample output:
 </ol>
 <h3 id="update-your-assistant-with-the-new-byos-search-instance">Update your assistant with the new <abbr title="Bring Your Own Search">BYOS</abbr> search instance<a class="headerlink" href="#update-your-assistant-with-the-new-byos-search-instance" title="Permanent link">#</a></h3>
 <p><a name="BYOS-url">
-45. Configure your assistant with the route recorded in the previous step.</a></p>
-<div class="highlight"><pre><span></span><code>First, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
-
-**https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query**
-
-Note, the above URL will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.
-
-Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
-
-??? Tip "How to set the custom search integration URL."
-
-    ![](_attachments/changeCustomSearchURL.gif)
-</code></pre></div>
+Configure your assistant with the route recorded in the previous step.</a></p>
+<p>First, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
+<p><strong>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</strong></p>
+<p><strong>Note</strong>: the above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. <strong>Use the value of your specific OpenSearch instance that is recorded in the previous step.</strong></p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can see the steps <a href="../creatingAssistant-configuringConvoSearch/#configureCustomSearchURL">here</a>.</p>
+<details class="tip">
+<summary>How to set the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</summary>
+<p><a class="glightbox" href="../_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changeCustomSearchURL.gif"></a></p>
+</details>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the <a href="../../#support">Support</a> section.</p>
 <details class="failure">
