@@ -9,6 +9,6 @@ To this point, you have learned how to:
 
 - combine skills in a skill flow
   
-There is also the ability to create **custom-built** actions. Creating custom-built actions allow you to create a new action with different steps to take in the conversation and form a sequence of prompts that define the conversation experience. The steps can be defined with or without conditions, which help control the custom responses. Steps within the custom action can end with routing to conversational search, triggering another existing sub-action, and other actions. This is a powerful way of customizing the end-user’s experience.
+There is also the ability to create **custom-built** actions. Custom-built actions allow you to create new actions with different steps to take in conversations and form sequences of prompts that define the conversation experience. The steps can be defined with or without conditions, which help control the custom responses. Steps within the custom action can end with routing to conversational search, triggering another existing sub-action, and other actions. This is a powerful way of customizing the end-user’s experience.
 
 Learn more about creating custom-built actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions#build-actions-from-scratch" target="_blank">here</a>.

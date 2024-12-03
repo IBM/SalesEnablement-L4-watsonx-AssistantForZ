@@ -2,17 +2,26 @@
 Provided with Version 2 of watsonx Assistant for Z is a set of pre-packaged skills which can be used to automate various tasks on z/OS, such as running different console commands and retrieving logs from batch jobs.
 
 The list of pre-packaged skills available include:
+
 - Authorized program list
+
 - z/OS IPL Information
+
 - Display zOS parmlib datasets
+
 - Unix System services options
+
 - Display zOS subsystems
+
 - List spool files
+
 - Retrieve dataset content
+
 - Retrieve spool file content
+
 - Retrieve z/OS Management Facility (OSMF) job status
 
-IBM watsonx Orchestrate requires that any OSMF environment you connect to for skill execution has certificate authority (CA) signed certificates. In the case of the Ansible Automation Platform (AAP) & Wazi z/OS environment provisioned in IBM Technology Zone (ITZ), the z/OS system is not currently using CA signed certificates and therefore won’t be able to execute the pre-packaged skills on your own z/OS system. For demo purposes, it is still recommended to import them so that the pre-packaged skills can be shown. 
+IBM watsonx Orchestrate requires that any OSMF environment you connect to for skill execution has certificate authority (CA) signed certificates. In the case of the Ansible Automation Platform (AAP) & Wazi z/OS environment provisioned in IBM Technology Zone (ITZ), the z/OS system is not currently using CA signed certificates and therefore cannot execute the pre-packaged skills on your own z/OS system. For demo purposes, it is still recommended to import them so that the pre-packaged skills can be shown. 
      
 Work is in progress to modify the ITZ environments so that they are enabled for skill execution using these pre-packaged skills. In the meantime, the underlying automation for these pre-packaged skills can still be demonstrated using the Ansible skill ‘z/OS Operator Command’ which is available to import. This works because the pre-packaged skills are executing console commands directly using OSMF APIs which can also be run using the Ansible template skill ‘z/OS Operator command’. For example, here are the console commands being used in some of the pre-packaged skills:
 

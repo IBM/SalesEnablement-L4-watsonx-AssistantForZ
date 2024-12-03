@@ -4,19 +4,19 @@
 
 To this point, acting as an Assistant Builder, you have built out the assistant, configured conversational search, and added skills and automations. While doing so, you have been testing your assistant using the **preview** capability of AI Assistant Builder. The **preview** capability is a closed environment for experimenting with prompts.
 
-Once your assistant is finalized, you are able to publish it to make it available to end-users. Each assistant you create comes with two **environments**:
-*draft* and *live*. At this point, you have likely been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.
+Once your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two **environments**:
+*draft* and *live*. You have been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.
 
-The **Environments** page in the AI assistant builder has tabs for managing the Draft environment and the Live environment:
+The **Environments** page in the AI assistant builder has tabs for managing both the **Draft environment** and the **Live environment**:
 
 ![](_attachments/draftView0.png)
 
 ![](_attachments/liveView0.png)
 
-The Draft environment contains all your in-progress work in the Actions, Preview, and Publish pages. Use the Draft environment tab to build out your assistant and use for internal testing before deployment. Any integrations you use (i.e. channels) for the draft environment are unique to that environment, and changes to draft integrations don’t affect the live environment.
+The **Draft environment** contains all your in-progress work in the Actions, Preview, and Publish pages. Use the **Draft environment** tab to build out your assistant and use for internal testing before deployment. Any integrations you use (i.e. channels) for the **Draft environment** are unique to that environment, and changes to draft integrations don’t affect the **Live environment**.
 
 ## Publish the assistant
-Each time that you publish, you’re creating a new version of the assistant, for example V1. When you publish your content, you’re creating a snapshot of the draft content, resulting in a version.
+Each time that you publish, you’re creating a new version of the assistant, for example *V1*. When you publish your content, you’re creating a snapshot of the draft content, resulting in a version.
 
 !!! Warning "Versions do not contain integration configurations or environment settings"
 
@@ -62,6 +62,10 @@ OpenSearch instance used for conversational search).
     
     Explore all the other tabs.
 
+    !!! Important "Customize your Live environment."
+    
+        For this lab, toggle **Streaming** on and turn **Suggestions** off on the **Suggestions** tab. You may also want to change the theme to **Dark** to differentiate your Draft and Live environments. 
+
     ![](_attachments/publish7.png)
 
 8. Click **Save and exit**.
@@ -88,7 +92,7 @@ OpenSearch instance used for conversational search).
 
     ![](_attachments/publish12.png)
 
-13. Update the (a) **conversational search** settings, (b) click **Close**, and then (c) click **Save**.
+13. Update the (a) - (f) **Custom service** settings, (g) click **Save**, and then (h) click **Close**.
 
     !!! Tip "Feel free to customize the settings."
 
@@ -103,7 +107,7 @@ After configuring your assistant’s settings and publishing, the final step is 
 
 There are several options for deploying your assistant through channels and integrations to satisfy the use cases that you might address. Learn more about all the deployment options <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-deploying-your-ai-assistant" target="_blank">here</a>.
 
-For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website and there’s a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.
+For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website. There is a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.
 
 14. Click **Web chat** for the **Live** environment.
 
@@ -117,13 +121,13 @@ For this lab, you will deploy the assistant using the web chat integration. The 
 
     ![](_attachments/publish16.png)
 
-17. Click the link to download a sample web chat hyper text markup language (HTML) page.
+17. Click the link below to download a sample web chat hyper text markup language (HTML) page.
 
     <a href="https://ibm.box.com/s/5fgw9zddqps7h8sxjbuqx0q5wv0fxvl2" target="_blank">**Watson Assistant Chat.html**</a>
 
     ![](_attachments/publish17.png)
 
-18. Edit the **Watson Assistant Chat.html** file and set the values for your assistant you copied in step 16.
+18. Edit the **Watson Assistant Chat.html** file and insert the values for your assistant you copied in step 16.
 
     ![](_attachments/publish18.png)
 

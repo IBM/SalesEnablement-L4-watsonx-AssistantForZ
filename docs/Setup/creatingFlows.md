@@ -262,13 +262,9 @@ On the **Enhancing the skill** pages, you can:
 
     ![](_attachments/skillFlow44.png)
 
-    ??? Example "foo"
+    ??? Example "Sample output form the Z/OS gather facts flow."
 
-        my foo
-
-    ??? Example "Sample output form the Z/OS gather facts flow".
-
-        content 
+        Content 
 
         Identity added: /runner/artifacts/16/ssh_key_data (/runner/artifacts/16/ssh_key_data)
         [1;35m[WARNING]: Collection ibm.ibm_zos_core does not support Ansible version 2.14.2[0m
