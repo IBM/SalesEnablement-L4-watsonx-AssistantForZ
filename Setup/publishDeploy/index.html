@@ -798,14 +798,14 @@
 
 <div><h1 id="publishing-and-deploying-your-assistant">Publishing and deploying your assistant<a class="headerlink" href="#publishing-and-deploying-your-assistant" title="Permanent link">#</a></h1>
 <p>To this point, acting as an Assistant Builder, you have built out the assistant, configured conversational search, and added skills and automations. While doing so, you have been testing your assistant using the <strong>preview</strong> capability of <abbr title="Artificial intelligence">AI</abbr> Assistant Builder. The <strong>preview</strong> capability is a closed environment for experimenting with prompts.</p>
-<p>Once your assistant is finalized, you are able to publish it to make it available to end-users. Each assistant you create comes with two <strong>environments</strong>:
-<em>draft</em> and <em>live</em>. At this point, you have likely been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.</p>
-<p>The <strong>Environments</strong> page in the <abbr title="Artificial intelligence">AI</abbr> assistant builder has tabs for managing the Draft environment and the Live environment:</p>
+<p>Once your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two <strong>environments</strong>:
+<em>draft</em> and <em>live</em>. You have been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.</p>
+<p>The <strong>Environments</strong> page in the <abbr title="Artificial intelligence">AI</abbr> assistant builder has tabs for managing both the <strong>Draft environment</strong> and the <strong>Live environment</strong>:</p>
 <p><a class="glightbox" href="../_attachments/draftView0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/draftView0.png"></a></p>
 <p><a class="glightbox" href="../_attachments/liveView0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/liveView0.png"></a></p>
-<p>The Draft environment contains all your in-progress work in the Actions, Preview, and Publish pages. Use the Draft environment tab to build out your assistant and use for internal testing before deployment. Any integrations you use (i.e. channels) for the draft environment are unique to that environment, and changes to draft integrations don’t affect the live environment.</p>
+<p>The <strong>Draft environment</strong> contains all your in-progress work in the Actions, Preview, and Publish pages. Use the <strong>Draft environment</strong> tab to build out your assistant and use for internal testing before deployment. Any integrations you use (i.e. channels) for the <strong>Draft environment</strong> are unique to that environment, and changes to draft integrations don’t affect the <strong>Live environment</strong>.</p>
 <h2 id="publish-the-assistant">Publish the assistant<a class="headerlink" href="#publish-the-assistant" title="Permanent link">#</a></h2>
-<p>Each time that you publish, you’re creating a new version of the assistant, for example V1. When you publish your content, you’re creating a snapshot of the draft content, resulting in a version.</p>
+<p>Each time that you publish, you’re creating a new version of the assistant, for example <em>V1</em>. When you publish your content, you’re creating a snapshot of the draft content, resulting in a version.</p>
 <div class="admonition warning">
 <p class="admonition-title">Versions do not contain integration configurations or environment settings</p>
 <p>Published versions contain all of the content from actions, including settings and variables. <strong>However, versions do not contain integration configurations or environment settings.</strong> Integration configurations and environment settings must be configured manually in each environment.</p>
@@ -847,6 +847,10 @@ OpenSearch instance used for conversational search).</p>
 <p>On the Style tab, you’re able to set the Assistant name which will be displayed at the top of the chat window when end-users are interacting with the assistant. For pilots or demos, you may want to personalize this name for the client. Also in the Style tab, you have the ability set the themes and display settings of the chat windows, including the ability to enable the IBM Watermark and enable streaming (recommended).</p>
 <p>On the Home screen tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.</p>
 <p>Explore all the other tabs.</p>
+<div class="admonition important">
+<p class="admonition-title">Customize your Live environment.</p>
+<p>For this lab, toggle <strong>Streaming</strong> on and turn <strong>Suggestions</strong> off on the <strong>Suggestions</strong> tab. You may also want to change the theme to <strong>Dark</strong> to differentiate your Draft and Live environments. </p>
+</div>
 <p><a class="glightbox" href="../_attachments/publish7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish7.png"></a></p>
 </li>
 <li>
@@ -874,7 +878,7 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../_attachments/publish12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish12.png"></a></p>
 </li>
 <li>
-<p>Update the (a) <strong>conversational search</strong> settings, (b) click <strong>Close</strong>, and then (c) click <strong>Save</strong>.</p>
+<p>Update the (a) - (f) <strong>Custom service</strong> settings, (g) click <strong>Save</strong>, and then (h) click <strong>Close</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Feel free to customize the settings.</p>
 <p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher.</p>
@@ -886,7 +890,7 @@ OpenSearch instance used for conversational search).</p>
 <h2 id="deploy-the-assistant">Deploy the assistant<a class="headerlink" href="#deploy-the-assistant" title="Permanent link">#</a></h2>
 <p>After configuring your assistant’s settings and publishing, the final step is to deploy your assistant which can be done across various channels depending on the use case.</p>
 <p>There are several options for deploying your assistant through channels and integrations to satisfy the use cases that you might address. Learn more about all the deployment options <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-deploying-your-ai-assistant" target="_blank">here</a>.</p>
-<p>For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website and there’s a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.</p>
+<p>For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website. There is a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.</p>
 <ol start="14">
 <li>
 <p>Click <strong>Web chat</strong> for the <strong>Live</strong> environment.</p>
@@ -901,7 +905,7 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../_attachments/publish16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish16.png"></a></p>
 </li>
 <li>
-<p>Click the link to download a sample web chat hyper text markup language (<abbr title="Hyper Text Markup Language">HTML</abbr>) page.</p>
+<p>Click the link below to download a sample web chat hyper text markup language (<abbr title="Hyper Text Markup Language">HTML</abbr>) page.</p>
 <p><a href="https://ibm.box.com/s/5fgw9zddqps7h8sxjbuqx0q5wv0fxvl2" target="_blank"><strong>Watson Assistant Chat.html</strong></a></p>
 <p><a class="glightbox" href="../_attachments/publish17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish17.png"></a></p>
 </li>
