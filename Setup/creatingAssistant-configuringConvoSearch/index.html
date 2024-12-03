@@ -912,14 +912,16 @@
 <p><strong>Note</strong>: the <strong>Settings</strong> page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
 <p>The following settings are proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
 <p><strong>a</strong>. Enable <strong>Conversational search</strong>.</p>
-<p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.</p>
+<p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling <strong>multi-turn conversation</strong> (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.</p>
 <p><strong>c</strong>. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).</p>
-<p><strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.</p>
-<p><strong>e</strong>. Select <strong>Verbose</strong> for the generated response length. This setting affects the average response length. Depending on user input, variations from the selected length can occur.</p>
+<p><strong>d</strong>. Select <strong>Lowest</strong> for the <strong>retrieval confidence threshold</strong> setting. This setting checks the confidence of the retrieved citations before a response is generated.</p>
+<p><strong>e</strong>. Select <strong>Verbose</strong> for the <strong>generated response length</strong>. This setting affects the average response length. Depending on user input, variations from the selected length can occur.</p>
+<p><strong>f</strong>. Select <strong>Lowest</strong> for the <strong>response confidence threshold</strong>. This setting checks the confidence of the generated citations after the response is generated.</p>
 <p><a class="glightbox" href="../_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings1.png"></a></p>
-<p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.</p>
-<p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the <a href="../zassist/">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
-<p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.</p>
+<p><strong>g</strong>. Keep the default setting of <strong>All</strong> for the listing of citations.</p>
+<p><strong>h</strong>. Keep the <strong>Default filter</strong> field empty.</p>
+<p><strong>i</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the <a href="../zassist/">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
+<p><strong>j</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.</p>
 <p><a class="glightbox" href="../_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2.png"></a></p>
 </li>
 <li>
@@ -962,7 +964,11 @@
 <p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu7.png"></a></p>
 </li>
 <li>
-<p>Select <strong>End the actions after returning results</strong> and then click <strong>Apply</strong>.</p>
+<p>Click <strong>After generation</strong>.</p>
+<p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu7-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu7-1.png"></a></p>
+</li>
+<li>
+<p>Select <strong>End the action after this step</strong> and then click <strong>Apply</strong>.</p>
 <p><a class="glightbox" href="../_attachments/genAIActionsSetByAssistantMenu8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAIActionsSetByAssistantMenu8.png"></a></p>
 </li>
 <li>

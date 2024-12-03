@@ -1278,14 +1278,16 @@
 <p><strong>Note</strong>: the <strong>Settings</strong> page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.</p>
 <p>The following settings are proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.</p>
 <p><strong>a</strong>. Enable <strong>Conversational search</strong>.</p>
-<p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.</p>
+<p><strong>b</strong>. Select <strong>Single turn</strong>. Enabling <strong>multi-turn conversation</strong> (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.</p>
 <p><strong>c</strong>. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).</p>
-<p><strong>d</strong>. Select <strong>Rarely</strong> for the tendency to say "I don't know" setting.</p>
-<p><strong>e</strong>. Select <strong>Verbose</strong> for the generated response length. This setting affects the average response length. Depending on user input, variations from the selected length can occur.</p>
+<p><strong>d</strong>. Select <strong>Lowest</strong> for the <strong>retrieval confidence threshold</strong> setting. This setting checks the confidence of the retrieved citations before a response is generated.</p>
+<p><strong>e</strong>. Select <strong>Verbose</strong> for the <strong>generated response length</strong>. This setting affects the average response length. Depending on user input, variations from the selected length can occur.</p>
+<p><strong>f</strong>. Select <strong>Lowest</strong> for the <strong>response confidence threshold</strong>. This setting checks the confidence of the generated citations after the response is generated.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings1.png"></a></p>
-<p><strong>f</strong>. Leave the <strong>Default filter</strong> field empty.</p>
-<p><strong>g</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the <a href="#setup-zassist">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
-<p><strong>h</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.</p>
+<p><strong>g</strong>. Keep the default setting of <strong>All</strong> for the listing of citations.</p>
+<p><strong>h</strong>. Keep the <strong>Default filter</strong> field empty.</p>
+<p><strong>i</strong>. The <strong>Metadata</strong> field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the <a href="#setup-zassist">Installing and using zassist to ingest client documents</a>. Leave the field empty for now.</p>
+<p><strong>j</strong>. The <strong>Search display text</strong> options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2.png"></a></p>
 </li>
 <li>
@@ -1328,7 +1330,11 @@
 <p><a class="glightbox" href="../Setup/_attachments/genAIActionsSetByAssistantMenu7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIActionsSetByAssistantMenu7.png"></a></p>
 </li>
 <li>
-<p>Select <strong>End the actions after returning results</strong> and then click <strong>Apply</strong>.</p>
+<p>Click <strong>After generation</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAIActionsSetByAssistantMenu7-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIActionsSetByAssistantMenu7-1.png"></a></p>
+</li>
+<li>
+<p>Select <strong>End the action after this step</strong> and then click <strong>Apply</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/genAIActionsSetByAssistantMenu8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIActionsSetByAssistantMenu8.png"></a></p>
 </li>
 <li>
@@ -2195,6 +2201,7 @@ By default (without any string in the Metadata field), it searches all the defau
 </li>
 <li>
 <p>Select the skills you want to import into your application and then click <strong>Save as draft</strong>.</p>
+<p>For this lab, select the <strong>Z/os ping</strong> and <strong>Z/os gather facts</strong> skills.</p>
 <p><a class="glightbox" href="../Setup/_attachments/addSkills2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/addSkills2.png"></a></p>
 </li>
 <li>
@@ -2249,7 +2256,7 @@ By default (without any string in the Metadata field), it searches all the defau
 <p><a class="glightbox" href="../Setup/_attachments/skillSets7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets7.png"></a></p>
 </li>
 </ol>
-<p>The application should now be connected to the draft version of your assistant.</p>
+<p>The application is now connected to the draft version of your assistant.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillSets8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillSets8.png"></a></p>
 <p>Continue to the next section to create actions for your assistant.</p>
 <!-- Terminology -->
@@ -2292,7 +2299,7 @@ By default (without any string in the Metadata field), it searches all the defau
 </li>
 <li>
 <p>Select the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> tile and click <strong>Next</strong>.</p>
-<p>Note, the date shown in the tile should reflect when you add the skill to your application.</p>
+<p>Note, it may take a minute for the page to display the action tiles. The date shown in the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> tile reflects when you added the skill to your application.</p>
 <p><a class="glightbox" href="../Setup/_attachments/createActions4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions4.png"></a></p>
 </li>
 <li>
@@ -2322,9 +2329,10 @@ By default (without any string in the Metadata field), it searches all the defau
 <li>
 <p>Review the returned results.</p>
 <p><a class="glightbox" href="../Setup/_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions9.png"></a></p>
+<p>In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the <a href="#setup-creatingactions-Troubleshooting">Troubleshooting</a> section below.</p>
 </li>
 </ol>
-<p>In the execution of this skill-based action, the skill executed properly and the output is the job id. Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.</p>
+<p>Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.</p>
 <h1 id="setup-creatingactions-verify-the-job-in-the-ansible-automation-platform-console">Verify the job in the Ansible Automation Platform console<a class="headerlink" href="#setup-creatingactions-verify-the-job-in-the-ansible-automation-platform-console" title="Permanent link">#</a></h1>
 <p>Return to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console and review the job information.</p>
 <ol start="14">
@@ -2334,6 +2342,50 @@ By default (without any string in the Metadata field), it searches all the defau
 </li>
 </ol>
 <p>As seen in the assistant, the actual contents of the output aren’t displayed. The utility skills are used to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
+<h2 id="setup-creatingactions-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingactions-troubleshooting" title="Permanent link">#</a></h2>
+<details class="failure">
+<summary>Skill returns <strong>Sorry, we're having issues generating a response</strong>.</summary>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-1.png"></a></p>
+<p>This error appears to be an intermittent issue when a skill is first added. To resolve, try adding the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:</p>
+<ol>
+<li>
+<p>Expand the main menu and select <strong>Chat</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-2.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skills from the catalog</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-7.png"></a></p>
+</li>
+<li>
+<p>Search for the skill app you created earlier and click the tile for your app.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-8.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill</strong> for all the skills you want to add.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-9.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-10.png"></a></p>
+</li>
+<li>
+<p>Enter the (a) <strong>username</strong> and (b) <strong>password</strong> using the username (admin) and password for your IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr> reservation (<abbr title="Ansible Automation Platform">AAP</abbr> User Password (Use SSH key to login, only use password for <abbr title="User Interface">UI</abbr>)), and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-11.png"></a> </p>
+</li>
+<li>
+<p>Expand the main menu and select <strong>Chat</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-12.png"></a> </p>
+</li>
+<li>
+<p>Try one of the prompts you created for your skill.</p>
+<p>Prompt:
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-creatingactions-__codelineno-3-1"></a>Gather z/OS facts
+</span></code></pre></div>
+<p><a class="glightbox" href="../Setup/_attachments/skill-error-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-13.png"></a> </p>
+</li>
+</ol>
+<p>You should now be able to run the skill through the assistant preview.</p>
+</details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingflows"><div><h1 id="creating-skill-flows">Creating skill flows<a class="headerlink" href="#setup-creatingflows-creating-skill-flows" title="Permanent link">#</a></h1>
 <p>As seen in the previous section, running the Ansible skill to <strong>Gather z/<abbr title="Operating System">OS</abbr> facts</strong>, the skill executed successfully and was verified within the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console by viewing the job output. However, the output wasn’t displayed by the assistant. To enable this scenario, a skill flow is needed. Skills are often more valuable when combined with other skills. You can create a skill flow to use two or more skills together to finish a task (like returning the output of a previous skill). When you create a skill flow, you map the output of one skill as the input for subsequent skills. Learn more about creating skill flows <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows" target="_blank">here</a>.</p>
