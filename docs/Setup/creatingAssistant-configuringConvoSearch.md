@@ -131,21 +131,25 @@ The next step will be to configure **conversational search** for your assistant 
 
     **a**. Enable **Conversational search**.
 
-    **b**. Select **Single turn**. Enabling multi-turn conversation (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.
+    **b**. Select **Single turn**. Enabling **multi-turn conversation** (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.
     
     **c**. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).
 
-    **d**. Select **Rarely** for the tendency to say "I don't know" setting.
+    **d**. Select **Lowest** for the **retrieval confidence threshold** setting. This setting checks the confidence of the retrieved citations before a response is generated.
 
-    **e**. Select **Verbose** for the generated response length. This setting affects the average response length. Depending on user input, variations from the selected length can occur.
+    **e**. Select **Verbose** for the **generated response length**. This setting affects the average response length. Depending on user input, variations from the selected length can occur.
+
+    **f**. Select **Lowest** for the **response confidence threshold**. This setting checks the confidence of the generated citations after the response is generated.
 
     ![](_attachments/genAISettings1.png)
 
-    **f**. Leave the **Default filter** field empty.
+    **g**. Keep the default setting of **All** for the listing of citations.
 
-    **g**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the [Installing and using zassist to ingest client documents](./zassist.md). Leave the field empty for now.
+    **h**. Keep the **Default filter** field empty.
 
-    **h**. The **Search display text** options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.
+    **i**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the [Installing and using zassist to ingest client documents](./zassist.md). Leave the field empty for now.
+
+    **j**. The **Search display text** options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.
 
     ![](_attachments/genAISettings2.png)
 
@@ -189,87 +193,91 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu7.png)
 
-30. Select **End the actions after returning results** and then click **Apply**.
+30. Click **After generation**.
+
+    ![](_attachments/genAIActionsSetByAssistantMenu7-1.png)
+
+31. Select **End the action after this step** and then click **Apply**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu8.png)
 
-31. Click the **Save** (![](_attachments/diskIcon.png)) icon.
+32. Click the **Save** (![](_attachments/diskIcon.png)) icon.
 
     ![](_attachments/genAIActionsSetByAssistantMenu9-b.png)
 
-32. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
+33. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
 
     ![](_attachments/genAIActionsSetByAssistantMenu9.png)
 
-33. Click **Delete** in the confirmation dialog to delete step 2.
+34. Click **Delete** in the confirmation dialog to delete step 2.
 
     ![](_attachments/genAIActionsSetByAssistantMenu10.png)
 
-34. Click the **x** to close the **Editor** window.
+35. Click the **x** to close the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu11.png)
 
-35. Click **Fallback** in the **Actions** table.
+36. Click **Fallback** in the **Actions** table.
 
     ![](_attachments/genAIActionsSetByAssistantMenu12.png)
 
-36. Delete **all** of the **Conversation steps**.
+37. Delete **all** of the **Conversation steps**.
 
     Note: the following image is edited. Only 5 steps are shown, but all 6 need to be deleted. You need to select each step individually, click the delete icon (![](_attachments/deleteIcon.png)), and confirm the deletion.
 
     ![](_attachments/genAIActionsSetByAssistantMenu13.png)
 
-37. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
+38. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu14.png)
 
-38. Click the **global settings** (![](_attachments/globalSettingsIcon.png)).
+39. Click the **global settings** (![](_attachments/globalSettingsIcon.png)).
 
     ![](_attachments/genAIGlobalSettings1.png)
 
-39. Click **No matches** under the **Conversation routing** tab.
+40. Click **No matches** under the **Conversation routing** tab.
 
     ![](_attachments/genAIGlobalSettings2.png)
 
-40. Move the slider to **More often** (or select **More often** in the drop-down).
+41. Move the slider to **More often** (or select **More often** in the drop-down).
 
     The setting helps ensure that actions are triggered less often unless the user’s query specifically matches the action’s input.
 
     ![](_attachments/genAIGlobalSettings3.png)
 
-41. Click **Autocorrection**.
+42. Click **Autocorrection**.
 
     ![](_attachments/genAIGlobalSettings4.png)
 
-42. Click the **autocorrection** toggle to turn the feature **off**.
+43. Click the **autocorrection** toggle to turn the feature **off**.
     
     ![](_attachments/genAIGlobalSettings5.png)
 
-43. Click (a) **Save** and then (b) **Close**.
+44. Click (a) **Save** and then (b) **Close**.
 
     ![](_attachments/genAIGlobalSettings6.png)
 
-44. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Environments**.
+45. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Environments**.
 
     ![](_attachments/genAIEnviroments1.png)
 
-45. Click **Web chat**.
+46. Click **Web chat**.
 
     ![](_attachments/genAIEnviroments2.png)
 
-46. On the **Style** tab, click the **Streaming** toggle to enable streaming.
+47. On the **Style** tab, click the **Streaming** toggle to enable streaming.
 
     ![](_attachments/genAIEnviroments3.png)
 
-47. Click **Suggestions**.
+48. Click **Suggestions**.
 
     ![](_attachments/genAIEnviroments4.png)
 
-48. Click the **Suggestions** toggle to turn this feature **off**.
+49. Click the **Suggestions** toggle to turn this feature **off**.
     
     ![](_attachments/genAIEnviroments5.png)
 
-49. Click **Save and exit**.
+50. Click **Save and exit**.
 
     ![](_attachments/genAIEnviroments6.png)
 

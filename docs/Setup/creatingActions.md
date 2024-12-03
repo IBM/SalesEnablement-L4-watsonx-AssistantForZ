@@ -37,7 +37,7 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
 8. Select the **z/OS Gather Facts** tile and click **Next**.
 
-    Note, the date shown in the tile should reflect when you add the skill to your application.
+    Note, it may take a minute for the page to display the action tiles. The date shown in the **z/OS Gather Facts** tile reflects when you added the skill to your application.
 
     ![](_attachments/createActions4.png)
 
@@ -76,7 +76,9 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     ![](_attachments/createActions9.png)
 
-In the execution of this skill-based action, the skill executed properly and the output is the job id. Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.
+    In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the [Troubleshooting](creatingActions.md#Troubleshooting) section below.
+
+Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.
 
 # Verify the job in the Ansible Automation Platform console
 Return to the Ansible Automation Platform (AAP) console and review the job information.
@@ -89,10 +91,47 @@ As seen in the assistant, the actual contents of the output aren’t displayed. 
 
 ## Troubleshooting
 
-??? Failure "Skill returns ERR_PROV_GENERAL**."
+??? Failure "Skill returns "***Sorry, we're having issues generating a response***"."
 
-    If you encounter the following error:
+    ![](_attachments/skill-error-1.png)
 
-        ```{'status_code': 'ERR_PROV_GENERAL', 'output': 'Unable to execute skill due to internal error', 'error': 'Unable to execute skill due to internal error'}```
+    This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow.
+
+    1. Expand the main menu and select **Chat**.
+   
+        ![](_attachments/skill-error-2.png)
+
+    2. Click **Add skills from the catalog**.
+   
+        ![](_attachments/skill-error-7.png)
+
+    3. Search for the skill app you created earlier and click the tile for your app.
+   
+        ![](_attachments/skill-error-8.png)
     
-    ARJ - WHAT DO WE DO??????
+    4. Click **Add skill** for all the skills you want to add.
+
+        ![](_attachments/skill-error-9.png)
+
+    5. Click **Connect app**.
+   
+           ![](_attachments/skill-error-10.png)
+
+    6. Enter the (a) **username** and (b) **password** using the username (admin) and password for your IBM Technology Zone (ITZ) watsonx Assistant for Z Pilot - AAP & z/OS reservation (AAP User Password (Use SSH key to login, only use password for UI)), and then click **Connect app**.
+
+        ![](_attachments/skill-error-11.png) 
+
+    7. Expand the main menu and select **Chat**.
+
+        ![](_attachments/skill-error-12.png) 
+    
+    8. Try one of the prompts you created for your skill.
+
+        Prompt:
+        ```
+        Gather z/OS facts
+        ```
+
+        ![](_attachments/skill-error-13.png) 
+
+    You should now be able to run the skill through the assistant preview.

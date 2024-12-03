@@ -4,6 +4,7 @@ As seen in the previous section, running the Ansible skill to **Gather z/OS fact
 As mentioned in a previous section, there are some default utility skills that are provided out of the box with the “Z Skills Accelerator” which are leveraged to return the output of a skill. To accomplish this, we will import the Ansible Utility skill called **Retrieve job output**.
 
 # Add the utility skill
+
 1. Open IBM watsonx Orchestrate **Skill studio**.
 
     ![](_attachments/skillFlow0.png)
@@ -145,29 +146,37 @@ Next you must map the output values of the first skill to the input of the secon
 
     ![](_attachments/skillFlow25.png)
 
-30. Optionally, toggle the **Hide this from from the user** setting.
+30. Click the **job** icon.
+
+    ![](_attachments/skillFlow25-a.png)
+
+31. Verify the **job** appears in the **id** field.
+
+    ![](_attachments/skillFlow25-b.png)
+
+32. Optionally, toggle the **Hide this from from the user** setting.
 
     For this lab guide, this option is left disabled. Learn more about this option <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows#hiding-input-and-output-forms" target="_blank">here</a>.
 
     ![](_attachments/skillFlow26.png)
 
-31. Click the **x** to close mapping window.
+33. Click the **x** to close mapping window.
 
     ![](_attachments/skillFlow27.png)
 
-32. Click the pencil (![](_attachments/pencilIcon.png)).
+34. Click the pencil (![](_attachments/pencilIcon.png)).
 
     ![](_attachments/skillFlow28.png)
 
-33. Enter a (a) **Name** and (b) **Description** for your skill flow and then (c) click **Save**.
+35. Enter a (a) **Name** and (b) **Description** for your skill flow and then (c) click **Save**.
 
     ![](_attachments/skillFlow29.png)
 
-34. Expand the **Actions** pull-down list and click **Save as draft**.
+36. Expand the **Actions** pull-down list and click **Save as draft**.
 
     ![](_attachments/skillFlow30.png)
 
-35. Expand the **Actions** pull-down list and click **Enhance**.
+37. Expand the **Actions** pull-down list and click **Enhance**.
 
     ![](_attachments/skillFlow31.png)
 
@@ -215,6 +224,8 @@ On the **Enhancing the skill** pages, you can:
 
 42. Click the skill flow you created earlier and then click **Next**.
 
+    **Note**: it may take a minute for the tiles to appear on the screen.
+
     ![](_attachments/skillFlow38.png)
 
 43. Enter an example prompt for the skill and click **Save**.
@@ -239,7 +250,9 @@ On the **Enhancing the skill** pages, you can:
 
     ![](_attachments/skillFlow42.png)
 
-47. Click **Apply** when the first form is returned.
+47. **Wait 10 seconds** and then click **Apply**.
+
+    **Note**: it is important to wait for the first job to complete before submitting the second job in the flow.
 
     ![](_attachments/skillFlow43.png)
 
@@ -248,6 +261,91 @@ On the **Enhancing the skill** pages, you can:
     Use both scroll bars in the assistant preview to review all of the returned information. 
 
     ![](_attachments/skillFlow44.png)
+
+    ??? Example "foo"
+
+        my foo
+
+    ??? Example "Sample output form the Z/OS gather facts flow".
+
+        content 
+
+        Identity added: /runner/artifacts/16/ssh_key_data (/runner/artifacts/16/ssh_key_data)
+        [1;35m[WARNING]: Collection ibm.ibm_zos_core does not support Ansible version 2.14.2[0m
+        
+        PLAY [Gather z/OS-specific facts.] *********************************************
+        
+        TASK [Gather all facts about z/OS host.] ***************************************
+        [0;32mok: [zos_host][0m
+        
+        TASK [Print gathered facts about the master catalog.] **************************
+        [0;32mok: [zos_host] => {[0m
+        [0;32m    "msg": [[0m
+        [0;32m        "master catalog dsn: CATALOG.VS01.MASTER",[0m
+        [0;32m        "master catalog volser: OPEVS1"[0m
+        [0;32m    ][0m
+        [0;32m}[0m
+        
+        TASK [Print only CPC and IODF info from gathered z/OS facts.] ******************
+        [0;32mok: [zos_host] => {[0m
+        [0;32m    "msg": [[0m
+        [0;32m        "manufacturer: IBM",[0m
+        [0;32m        "model: A00",[0m
+        [0;32m        "plant: C1",[0m
+        [0;32m        "iodf name: PROV.IODF00",[0m
+        [0;32m        "iodf config: DEFAULT"[0m
+        [0;32m    ][0m
+        [0;32m}[0m
+        
+        TASK [Print out all gathered facts about the z/OS host.] ***********************
+        [0;32mok: [zos_host] => {[0m
+        [0;32m    "ansible_facts": {[0m
+        [0;32m        "arch_level": "2",[0m
+        [0;32m        "cpc_nd_manufacturer": "IBM",[0m
+        [0;32m        "cpc_nd_model": "A00",[0m
+        [0;32m        "cpc_nd_plant": "C1",[0m
+        [0;32m        "cpc_nd_seqno": "20D90792EB76",[0m
+        [0;32m        "cpc_nd_type": "008562",[0m
+        [0;32m        "edt": "00",[0m
+        [0;32m        "hw_name": "",[0m
+        [0;32m        "ieasym_card": "(00,K2)",[0m
+        [0;32m        "io_config_id": "00",[0m
+        [0;32m        "iodate": "",[0m
+        [0;32m        "iodesc": "",[0m
+        [0;32m        "iodf_config": "DEFAULT",[0m
+        [0;32m        "iodf_name": "PROV.IODF00",[0m
+        [0;32m        "iodf_unit_addr": "DE28",[0m
+        [0;32m        "ioproc": "",[0m
+        [0;32m        "iotime": "",[0m
+        [0;32m        "ipaloadxx": "K2",[0m
+        [0;32m        "ipl_volume": "D25VS1",[0m
+        [0;32m        "load_param_device_num": "DE28",[0m
+        [0;32m        "load_param_dsn": "SYS0.IPLPARM",[0m
+        [0;32m        "lpar_name": "",[0m
+        [0;32m        "master_catalog_dsn": "CATALOG.VS01.MASTER",[0m
+        [0;32m        "master_catalog_volser": "OPEVS1",[0m
+        [0;32m        "nucleus_id": "1",[0m
+        [0;32m        "operator_prompt_flag": "M",[0m
+        [0;32m        "parmlib_dsn": "K2.PARMLIB",[0m
+        [0;32m        "parmlib_volser": "USRVS1",[0m
+        [0;32m        "primary_jes": "JES2",[0m
+        [0;32m        "product_mod_level": "00",[0m
+        [0;32m        "product_name": "z/OS",[0m
+        [0;32m        "product_owner": "IBM CORP",[0m
+        [0;32m        "product_release": "05",[0m
+        [0;32m        "product_version": "02",[0m
+        [0;32m        "smf_name": "VS01",[0m
+        [0;32m        "sys_name": "VS01",[0m
+        [0;32m        "sysplex_name": "LOCAL",[0m
+        [0;32m        "tsoe_rel": "05",[0m
+        [0;32m        "tsoe_ver": "4",[0m
+        [0;32m        "vm_name": ""[0m
+        [0;32m    }[0m
+        [0;32m}[0m
+
+        PLAY RECAP *********************************************************************
+        [0;32mzos_host[0m                   : [0;        32mok=4                            [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ig      nored=0   
+        
 
 The scenario shown above may or may not be relevant for your client's use case. It is intended to show how you to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to experiment with your own skill flows and prompts using other skills available within the AAP instance.
 
