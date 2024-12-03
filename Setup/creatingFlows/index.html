@@ -1049,23 +1049,25 @@
 <p><a class="glightbox" href="../_attachments/skillFlow44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillFlow44.png"></a></p>
 <p>??? Example "Sample output form the Z/<abbr title="Operating System">OS</abbr> gather facts flow".</p>
 <div class="highlight"><pre><span></span><code>```
-content
-</code></pre></div>
-</li>
-</ol>
-<p>Identity added: /runner/artifacts/16/ssh_key_data (/runner/artifacts/16/ssh_key_data)
-[1;35m[WARNING]: Collection ibm.ibm_zos_core does not support Ansible version 2.14.2[0m</p>
-<p>PLAY [Gather z/<abbr title="Operating System">OS</abbr>-specific facts.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>***</p>
-<p>TASK [Gather all facts about z/<abbr title="Operating System">OS</abbr> host.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>****
-[0;32mok: [zos_host][0m</p>
-<p>TASK [Print gathered facts about the master catalog.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>
+content 
+
+Identity added: /runner/artifacts/16/ssh_key_data (/runner/artifacts/16/ssh_key_data)
+[1;35m[WARNING]: Collection ibm.ibm_zos_core does not support Ansible version 2.14.2[0m
+
+PLAY [Gather z/OS-specific facts.] *********************************************
+
+TASK [Gather all facts about z/OS host.] ***************************************
+[0;32mok: [zos_host][0m
+
+TASK [Print gathered facts about the master catalog.] **************************
 [0;32mok: [zos_host] =&gt; {[0m
 [0;32m    "msg": [[0m
 [0;32m        "master catalog dsn: CATALOG.VS01.MASTER",[0m
 [0;32m        "master catalog volser: OPEVS1"[0m
 [0;32m    ][0m
-[0;32m}[0m</p>
-<p>TASK [Print only CPC and IODF info from gathered z/<abbr title="Operating System">OS</abbr> facts.] <strong><em>*</em></strong><strong><em>*</em></strong>****
+[0;32m}[0m
+
+TASK [Print only CPC and IODF info from gathered z/OS facts.] ******************
 [0;32mok: [zos_host] =&gt; {[0m
 [0;32m    "msg": [[0m
 [0;32m        "manufacturer: IBM",[0m
@@ -1074,8 +1076,9 @@ content
 [0;32m        "iodf name: PROV.IODF00",[0m
 [0;32m        "iodf config: DEFAULT"[0m
 [0;32m    ][0m
-[0;32m}[0m</p>
-<p>TASK [Print out all gathered facts about the z/<abbr title="Operating System">OS</abbr> host.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>**
+[0;32m}[0m
+
+TASK [Print out all gathered facts about the z/OS host.] ***********************
 [0;32mok: [zos_host] =&gt; {[0m
 [0;32m    "ansible_facts": {[0m
 [0;32m        "arch_level": "2",[0m
@@ -1108,7 +1111,7 @@ content
 [0;32m        "parmlib_volser": "USRVS1",[0m
 [0;32m        "primary_jes": "JES2",[0m
 [0;32m        "product_mod_level": "00",[0m
-[0;32m        "product_name": "z/<abbr title="Operating System">OS</abbr>",[0m
+[0;32m        "product_name": "z/OS",[0m
 [0;32m        "product_owner": "IBM CORP",[0m
 [0;32m        "product_release": "05",[0m
 [0;32m        "product_version": "02",[0m
@@ -1119,11 +1122,14 @@ content
 [0;32m        "tsoe_ver": "4",[0m
 [0;32m        "vm_name": ""[0m
 [0;32m    }[0m
-[0;32m}[0m</p>
-<p>PLAY RECAP <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>*
-[0;32mzos_host[0m                   : [0;32mok=4   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </p>
-<div class="highlight"><pre><span></span><code>    ```
+[0;32m}[0m
+
+PLAY RECAP *********************************************************************
+[0;32mzos_host[0m                   : [0;        32mok=4                            [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ig      nored=0   
+```
 </code></pre></div>
+</li>
+</ol>
 <p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show how you to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to experiment with your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance.</p>
 <p>Next, learn about custom-built actions.</p>
 <!-- Terminology -->
