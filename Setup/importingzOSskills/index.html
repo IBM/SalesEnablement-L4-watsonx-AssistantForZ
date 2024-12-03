@@ -800,17 +800,37 @@
 
 <div><h1 id="importing-pre-packaged-zos-skills">Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills<a class="headerlink" href="#importing-pre-packaged-zos-skills" title="Permanent link">#</a></h1>
 <p>Provided with Version 2 of watsonx Assistant for Z is a set of pre-packaged skills which can be used to automate various tasks on z/<abbr title="Operating System">OS</abbr>, such as running different console commands and retrieving logs from batch jobs.</p>
-<p>The list of pre-packaged skills available include:
-- Authorized program list
-- z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information
-- Display zOS parmlib datasets
-- Unix System services options
-- Display zOS subsystems
-- List spool files
-- Retrieve dataset content
-- Retrieve spool file content
-- Retrieve z/<abbr title="Operating System">OS</abbr> Management Facility (<abbr title="IBM z/OS Management Facility">OSMF</abbr>) job status</p>
-<p>IBM watsonx Orchestrate requires that any <abbr title="IBM z/OS Management Facility">OSMF</abbr> environment you connect to for skill execution has certificate authority (CA) signed certificates. In the case of the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; Wazi z/<abbr title="Operating System">OS</abbr> environment provisioned in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>), the z/<abbr title="Operating System">OS</abbr> system is not currently using CA signed certificates and therefore won’t be able to execute the pre-packaged skills on your own z/<abbr title="Operating System">OS</abbr> system. For demo purposes, it is still recommended to import them so that the pre-packaged skills can be shown. </p>
+<p>The list of pre-packaged skills available include:</p>
+<ul>
+<li>
+<p>Authorized program list</p>
+</li>
+<li>
+<p>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</p>
+</li>
+<li>
+<p>Display zOS parmlib datasets</p>
+</li>
+<li>
+<p>Unix System services options</p>
+</li>
+<li>
+<p>Display zOS subsystems</p>
+</li>
+<li>
+<p>List spool files</p>
+</li>
+<li>
+<p>Retrieve dataset content</p>
+</li>
+<li>
+<p>Retrieve spool file content</p>
+</li>
+<li>
+<p>Retrieve z/<abbr title="Operating System">OS</abbr> Management Facility (<abbr title="IBM z/OS Management Facility">OSMF</abbr>) job status</p>
+</li>
+</ul>
+<p>IBM watsonx Orchestrate requires that any <abbr title="IBM z/OS Management Facility">OSMF</abbr> environment you connect to for skill execution has certificate authority (CA) signed certificates. In the case of the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) &amp; Wazi z/<abbr title="Operating System">OS</abbr> environment provisioned in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>), the z/<abbr title="Operating System">OS</abbr> system is not currently using CA signed certificates and therefore cannot execute the pre-packaged skills on your own z/<abbr title="Operating System">OS</abbr> system. For demo purposes, it is still recommended to import them so that the pre-packaged skills can be shown. </p>
 <p>Work is in progress to modify the <abbr title="IBM Technology Zone">ITZ</abbr> environments so that they are enabled for skill execution using these pre-packaged skills. In the meantime, the underlying automation for these pre-packaged skills can still be demonstrated using the Ansible skill ‘z/<abbr title="Operating System">OS</abbr> Operator Command’ which is available to import. This works because the pre-packaged skills are executing console commands directly using <abbr title="IBM z/OS Management Facility">OSMF</abbr> <abbr title="Application Programming Interfaces">APIs</abbr> which can also be run using the Ansible template skill ‘z/<abbr title="Operating System">OS</abbr> Operator command’. For example, here are the console commands being used in some of the pre-packaged skills:</p>
 <ul>
 <li>Authorized Program list – <code>operator command -&gt; d prog,lnklist</code></li>
