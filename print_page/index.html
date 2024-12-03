@@ -2636,8 +2636,83 @@ By default (without any string in the Metadata field), it searches all the defau
 <p>Review the results from the skill flow.</p>
 <p>Use both scroll bars in the assistant preview to review all of the returned information. </p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow44.png"></a></p>
+<p>??? Example "Sample output form the Z/<abbr title="Operating System">OS</abbr> gather facts flow".</p>
+<div class="highlight"><pre><span></span><code>```
+content
+</code></pre></div>
 </li>
 </ol>
+<p>Identity added: /runner/artifacts/16/ssh_key_data (/runner/artifacts/16/ssh_key_data)
+[1;35m[WARNING]: Collection ibm.ibm_zos_core does not support Ansible version 2.14.2[0m</p>
+<p>PLAY [Gather z/<abbr title="Operating System">OS</abbr>-specific facts.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>***</p>
+<p>TASK [Gather all facts about z/<abbr title="Operating System">OS</abbr> host.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>****
+[0;32mok: [zos_host][0m</p>
+<p>TASK [Print gathered facts about the master catalog.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>
+[0;32mok: [zos_host] =&gt; {[0m
+[0;32m    "msg": [[0m
+[0;32m        "master catalog dsn: CATALOG.VS01.MASTER",[0m
+[0;32m        "master catalog volser: OPEVS1"[0m
+[0;32m    ][0m
+[0;32m}[0m</p>
+<p>TASK [Print only CPC and IODF info from gathered z/<abbr title="Operating System">OS</abbr> facts.] <strong><em>*</em></strong><strong><em>*</em></strong>****
+[0;32mok: [zos_host] =&gt; {[0m
+[0;32m    "msg": [[0m
+[0;32m        "manufacturer: IBM",[0m
+[0;32m        "model: A00",[0m
+[0;32m        "plant: C1",[0m
+[0;32m        "iodf name: PROV.IODF00",[0m
+[0;32m        "iodf config: DEFAULT"[0m
+[0;32m    ][0m
+[0;32m}[0m</p>
+<p>TASK [Print out all gathered facts about the z/<abbr title="Operating System">OS</abbr> host.] <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>**
+[0;32mok: [zos_host] =&gt; {[0m
+[0;32m    "ansible_facts": {[0m
+[0;32m        "arch_level": "2",[0m
+[0;32m        "cpc_nd_manufacturer": "IBM",[0m
+[0;32m        "cpc_nd_model": "A00",[0m
+[0;32m        "cpc_nd_plant": "C1",[0m
+[0;32m        "cpc_nd_seqno": "20D90792EB76",[0m
+[0;32m        "cpc_nd_type": "008562",[0m
+[0;32m        "edt": "00",[0m
+[0;32m        "hw_name": "",[0m
+[0;32m        "ieasym_card": "(00,K2)",[0m
+[0;32m        "io_config_id": "00",[0m
+[0;32m        "iodate": "",[0m
+[0;32m        "iodesc": "",[0m
+[0;32m        "iodf_config": "DEFAULT",[0m
+[0;32m        "iodf_name": "PROV.IODF00",[0m
+[0;32m        "iodf_unit_addr": "DE28",[0m
+[0;32m        "ioproc": "",[0m
+[0;32m        "iotime": "",[0m
+[0;32m        "ipaloadxx": "K2",[0m
+[0;32m        "ipl_volume": "D25VS1",[0m
+[0;32m        "load_param_device_num": "DE28",[0m
+[0;32m        "load_param_dsn": "SYS0.IPLPARM",[0m
+[0;32m        "lpar_name": "",[0m
+[0;32m        "master_catalog_dsn": "CATALOG.VS01.MASTER",[0m
+[0;32m        "master_catalog_volser": "OPEVS1",[0m
+[0;32m        "nucleus_id": "1",[0m
+[0;32m        "operator_prompt_flag": "M",[0m
+[0;32m        "parmlib_dsn": "K2.PARMLIB",[0m
+[0;32m        "parmlib_volser": "USRVS1",[0m
+[0;32m        "primary_jes": "JES2",[0m
+[0;32m        "product_mod_level": "00",[0m
+[0;32m        "product_name": "z/<abbr title="Operating System">OS</abbr>",[0m
+[0;32m        "product_owner": "IBM CORP",[0m
+[0;32m        "product_release": "05",[0m
+[0;32m        "product_version": "02",[0m
+[0;32m        "smf_name": "VS01",[0m
+[0;32m        "sys_name": "VS01",[0m
+[0;32m        "sysplex_name": "LOCAL",[0m
+[0;32m        "tsoe_rel": "05",[0m
+[0;32m        "tsoe_ver": "4",[0m
+[0;32m        "vm_name": ""[0m
+[0;32m    }[0m
+[0;32m}[0m</p>
+<p>PLAY RECAP <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>*
+[0;32mzos_host[0m                   : [0;32mok=4   [0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   </p>
+<div class="highlight"><pre><span></span><code>    ```
+</code></pre></div>
 <p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show how you to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to experiment with your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance.</p>
 <p>Next, learn about custom-built actions.</p>
 <!-- Terminology -->
