@@ -2346,7 +2346,7 @@ By default (without any string in the Metadata field), it searches all the defau
 <details class="failure">
 <summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>".</summary>
 <p><a class="glightbox" href="../Setup/_attachments/skill-error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-1.png"></a></p>
-<p>This error appears to be an intermittent issue when a skill is first added. To resolve, try adding the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:</p>
+<p>This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow.</p>
 <ol>
 <li>
 <p>Expand the main menu and select <strong>Chat</strong>.</p>
@@ -2531,6 +2531,14 @@ By default (without any string in the Metadata field), it searches all the defau
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow25.png"></a></p>
 </li>
 <li>
+<p>Click the <strong>job</strong> icon.</p>
+<p><a class="glightbox" href="../Setup/creatingFlows/_attachments/skillFlow25-a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/creatingFlows/_attachments/skillFlow25-a.png"></a></p>
+</li>
+<li>
+<p>Verify the <strong>job</strong> appears in the <strong>id</strong> field.</p>
+<p><a class="glightbox" href="../Setup/_attachments/skillFlow25-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow25-b.png"></a></p>
+</li>
+<li>
 <p>Optionally, toggle the <strong>Hide this from from the user</strong> setting.</p>
 <p>For this lab guide, this option is left disabled. Learn more about this option <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows#hiding-input-and-output-forms" target="_blank">here</a>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow26.png"></a></p>
@@ -2597,6 +2605,7 @@ By default (without any string in the Metadata field), it searches all the defau
 </li>
 <li>
 <p>Click the skill flow you created earlier and then click <strong>Next</strong>.</p>
+<p><strong>Note</strong>: it may take a minute for the tiles to appear on the screen.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow38.png"></a></p>
 </li>
 <li>
@@ -2619,7 +2628,8 @@ By default (without any string in the Metadata field), it searches all the defau
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow42.png"></a></p>
 </li>
 <li>
-<p>Click <strong>Apply</strong> when the first form is returned.</p>
+<p><strong>Wait 10 seconds</strong> and then click <strong>Apply</strong>.</p>
+<p><strong>Note</strong>: it is important to wait for the first job to complete before submitting the second job in the flow.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow43.png"></a></p>
 </li>
 <li>
@@ -2632,12 +2642,22 @@ By default (without any string in the Metadata field), it searches all the defau
 <p>Next, learn about custom-built actions.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingcustomactions"><div><h1 id="creating-custom-built-actions">Creating custom-built actions<a class="headerlink" href="#setup-creatingcustomactions-creating-custom-built-actions" title="Permanent link">#</a></h1>
-<p>To this point, you have learned how to:
-- import skills into watsonx Orchestrate
-- add applications with those skills to your assistant
-- create skill-based actions for your assistant
-- combine skills in a skill flow</p>
-<p>There is also the ability to create <strong>custom-built</strong> actions. Creating custom-built actions allows you to create a new action with different steps to take in the conversation, forming a sequence of prompts that define the conversation experience. The steps can be defined with or without conditions, which help you control the customer responses. Steps within the custom action can end with routing to conversational search, triggering another existing sub-action, and other actions. This is a powerful way of customizing the end-user’s experience.</p>
+<p>To this point, you have learned how to:</p>
+<ul>
+<li>
+<p>import skills into watsonx Orchestrate</p>
+</li>
+<li>
+<p>add applications with those skills to your assistant</p>
+</li>
+<li>
+<p>create skill-based actions for your assistant</p>
+</li>
+<li>
+<p>combine skills in a skill flow</p>
+</li>
+</ul>
+<p>There is also the ability to create <strong>custom-built</strong> actions. Creating custom-built actions allow you to create a new action with different steps to take in the conversation and form a sequence of prompts that define the conversation experience. The steps can be defined with or without conditions, which help control the custom responses. Steps within the custom action can end with routing to conversational search, triggering another existing sub-action, and other actions. This is a powerful way of customizing the end-user’s experience.</p>
 <p>Learn more about creating custom-built actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions#build-actions-from-scratch" target="_blank">here</a>.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-importingzosskills"><div><h1 id="importing-pre-packaged-zos-skills">Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills<a class="headerlink" href="#setup-importingzosskills-importing-pre-packaged-zos-skills" title="Permanent link">#</a></h1>
