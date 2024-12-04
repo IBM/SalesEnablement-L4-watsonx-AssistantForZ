@@ -1654,7 +1654,7 @@ Sample output:
 <p>The preceding command returns a message that states the <strong>ibm-cert-manager-catalog</strong> was created.</p>
 </li>
 <li>
-<p>In the OpenShift web console, click <strong>Operators</strong> and select <strong>OperatorHub</strong>.</p>
+<p>In the OpenShift web console, click <strong>Operators</strong> and then select <strong>OperatorHub</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/SNOOCPOperator0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPOperator0.png"></a></p>
 </li>
 <li>
@@ -1692,20 +1692,23 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>Create or obtain your IBM Container Software <strong>production entitlement key</strong>.</p>
-<p>A <strong>production entitlement key</strong> is required to pull the container images that get deployed by the operator.</p>
+<p>Create or obtain your IBM Container Software production entitlement key.</p>
+<p>A production entitlement key is required to pull the container images that get deployed by the operator.</p>
 <p>To create or retrieve your existing entitlement key, follow the instructions <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">here</a>. </p>
 <p>After locating your existing key or creating a new key, continue to the next step.</p>
 </li>
 <li>
-<p>Copy the <strong>production entitlement key</strong>.</p>
+<p>Click <strong>copy</strong> and record your entitlement key for future use in a secure location.</p>
 <p><a class="glightbox" href="../Setup/_attachments/copyEntitlementKey.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/copyEntitlementKey.png"></a></p>
 </li>
 <li>
-<p>Using the following command in your command prompt or terminal window, set an environment variable with your <strong>production entitlement key</strong> and then create a pull secret for the Container Registry.</p>
-<p>Substitute your <strong>production entitlement key</strong> for the <strong>&lt;entitlement key&gt;</strong> string.</p>
+<p>Using the following command in your command prompt or terminal window, set an environment variable with your production entitlement key.</p>
+<p>Substitute your <strong>production entitlement key</strong> for the <code>&lt;entitlement key\&gt;</code> string.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-documentingestion-__codelineno-7-1"></a>export IBM_CS_ENT_KEY=&lt;entitlement key&gt;
 </span></code></pre></div>
+</li>
+<li>
+<p>Create a pull secret for the <strong>Container Registry</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#setup-documentingestion-__codelineno-8-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createPullSecret.png"></a></p>
