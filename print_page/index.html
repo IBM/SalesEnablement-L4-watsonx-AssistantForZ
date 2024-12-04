@@ -2421,7 +2421,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingflows"><div><h1 id="creating-skill-flows">Creating skill flows<a class="headerlink" href="#setup-creatingflows-creating-skill-flows" title="Permanent link">#</a></h1>
 <p>As seen in the previous section, running the Ansible skill to <strong>Gather z/<abbr title="Operating System">OS</abbr> facts</strong>, the skill executed successfully and was verified within the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console by viewing the job output. However, the output wasn’t displayed by the assistant. To enable this scenario, a skill flow is needed. Skills are often more valuable when combined with other skills. You can create a skill flow to use two or more skills together to finish a task (like returning the output of a previous skill). When you create a skill flow, you map the output of one skill as the input for subsequent skills. Learn more about creating skill flows <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows" target="_blank">here</a>.</p>
 <p>As mentioned in a previous section, there are some default utility skills that are provided out of the box with the “Z Skills Accelerator” which are leveraged to return the output of a skill. To accomplish this, we will import the Ansible Utility skill called <strong>Retrieve job output</strong>.</p>
-<h1 id="setup-creatingflows-add-the-utility-skill">Add the utility skill<a class="headerlink" href="#setup-creatingflows-add-the-utility-skill" title="Permanent link">#</a></h1>
+<h2 id="setup-creatingflows-add-the-utility-skill">Add the utility skill<a class="headerlink" href="#setup-creatingflows-add-the-utility-skill" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>Open IBM watsonx Orchestrate <strong>Skill studio</strong>.</p>
@@ -2520,10 +2520,8 @@ You are now ready to configure your assistant with the route to your <abbr title
 <li>
 <p>Click the <strong>+</strong> icon.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow17.png"></a></p>
-</li>
-</ol>
 <p>Next, you need to add the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill and the <strong>Retrieve job output</strong> skill to the skill flow. Use the <strong>Search apps</strong> function to locate the skills.</p>
-<ol start="4">
+</li>
 <li>
 <p>Search for the application name you specified earlier and click it's tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow18.png"></a></p>
@@ -2544,10 +2542,8 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>Repeat steps 5 and 6 for the <strong>Retrieve job output</strong> skill. </p>
 <p>After adding the <strong>Retrieve job output</strong> skill, your skill flow should like like:</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow22.png"></a></p>
-</li>
-</ol>
 <p>Next you must map the output values of the first skill to the input of the second skill. In this case, pass the “job id” output from <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> as an input for <strong>Retrieve job output</strong>. </p>
-<ol start="9">
+</li>
 <li>
 <p>Click the <strong>Retrieve job output</strong> tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow23.png"></a></p>
@@ -2592,12 +2588,16 @@ You are now ready to configure your assistant with the route to your <abbr title
 <li>
 <p>Expand the <strong>Actions</strong> pull-down list and click <strong>Enhance</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow31.png"></a></p>
+<p>On the <strong>Enhancing the skill</strong> pages, you can:</p>
+<ul>
+<li>
+<p>modify the skill name, description, and version</p>
 </li>
-</ol>
-<p>On the <strong>Enhancing the skill</strong> pages, you can:
-- modify the skill name, description, and version
-- add phrases (prompts) that will be recognized by the assistant to call the skill flow</p>
-<ol start="20">
+<li>
+<p>add phrases (prompts) that will be recognized by the assistant to call the skill flow</p>
+</li>
+</ul>
+</li>
 <li>
 <p>Click the <strong>Phrases</strong> tab.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow32.png"></a></p>
@@ -2657,7 +2657,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p><strong>Wait 10 seconds</strong> and then click <strong>Apply</strong>.</p>
-<p><strong>Note</strong>: it is important to wait for the first job to complete before submitting the second job in the flow.</p>
+<p><strong>Note</strong>: It is important to wait for the first job to complete before submitting the second job in the flow.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow43.png"></a></p>
 </li>
 <li>
