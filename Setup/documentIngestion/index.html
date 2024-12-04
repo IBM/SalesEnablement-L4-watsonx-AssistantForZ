@@ -819,7 +819,7 @@
 </li>
 <li>
 <p>Click the <strong><abbr title="OpenShift Container Platform">OCP</abbr> Console</strong> link.</p>
-<p>Note, <abbr title="OpenShift Container Platform">OCP</abbr> stands for OpenShift Container Platform.</p>
+<p><strong>Note</strong>: <abbr title="OpenShift Container Platform">OCP</abbr> stands for OpenShift Container Platform.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPLink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLink.png"></a></p>
 </li>
 <li>
@@ -827,7 +827,7 @@
 <p><a class="glightbox" href="../_attachments/SNOOCPLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLogin.png"></a></p>
 </li>
 <li>
-<p>Click the help (<a class="glightbox" href="../_attachments/ocpHelpIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpHelpIcon.png"></a>) and then click <strong>Command Line Tools</strong>.</p>
+<p>Click the <strong>Help</strong> (<a class="glightbox" href="../_attachments/ocpHelpIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpHelpIcon.png"></a>) and then click <strong>Command Line Tools</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPHelp.png"></a></p>
 </li>
 <li>
@@ -835,17 +835,17 @@
 <p><a class="glightbox" href="../_attachments/SNOoCPDownload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOoCPDownload.png"></a></p>
 </li>
 </ol>
-<p>Clicking the preceding link automatically downloads either a <strong>.zip</strong> or <strong>.tar</strong> file specific to your operating system. Unzip or untar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. The PATH will can by operating system and individual settings, detailed instructions are not provided. </p>
-<p>After properly installed, verify the installation by running the <strong>oc</strong> command on your local workstation.</p>
+<p>Clicking the preceding link automatically downloads either a <strong>.zip</strong> or <strong>.tar</strong> file specific to your operating system. Unzip or untar the file and place the <strong>oc</strong> binary in a directory that is in your default PATH. The PATH will be operating system and individual settings specific, detailed instructions are not provided. </p>
+<p>After the <abbr title="Command Line Interface">CLI</abbr> utility is properly installed, verify the installation by running the <strong>oc</strong> command on your local workstation.</p>
 <p></p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oc --help
 </span></code></pre></div>
 Sample output:
 <p><a class="glightbox" href="../_attachments/ocHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocHelp.png"></a></p>
 <h2 id="prepare-to-ingest-documents">Prepare to ingest documents<a class="headerlink" href="#prepare-to-ingest-documents" title="Permanent link">#</a></h2>
-<p>Before ingesting documents, a few setup steps must be taken.</p>
+<p>Before ingesting documents, complete the following setup steps.</p>
 <p><a name="Login2OpenShift"></a></p>
 <h3 id="login-to-the-openshift-cluster-from-your-local-terminal">Login to the OpenShift cluster from your local terminal<a class="headerlink" href="#login-to-the-openshift-cluster-from-your-local-terminal" title="Permanent link">#</a></h3>
-<p>Note: if you just installed the <strong>oc</strong> utility, you can skip the next 5 steps.</p>
+<p><strong>Note</strong>: if you just installed the <strong>oc</strong> utility, skip the next 5 steps.</p>
 <ol>
 <li>
 <p>Click the following link to open a browser window to your <abbr title="IBM Technology Zone">ITZ</abbr> reservations.</p>
@@ -877,7 +877,7 @@ Sample output:
 </li>
 <li>
 <p>Select and copy the <strong>Log in with this token</strong> string.</p>
-<p>The steps to select and copy the value may differ by operating system, but for most, you can double-click the value and then right click and select <strong>Copy</strong>.</p>
+<p>For most operating systems, double-click the value, then right click and select <strong>Copy</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPLoginCommand2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPLoginCommand2.png"></a></p>
 </li>
 <li>
@@ -891,7 +891,7 @@ Sample output:
 <h3 id="create-a-working-directory">Create a working directory<a class="headerlink" href="#create-a-working-directory" title="Permanent link">#</a></h3>
 <ol start="11">
 <li>
-<p>Create a directory that will be used to store the configuration files that will be created in the next steps.</p>
+<p>Create a directory to store the configuration files that you will create in the next steps.</p>
 <div class="admonition note">
 <p class="admonition-title">Instructions vary by your local workstation's operating system</p>
 <p>The directions that follow may vary depending on your operating system. The examples provided are based upon MacOS.</p>
@@ -912,7 +912,7 @@ Sample output:
 <p>Create a file that is named <strong>catalogCertManager.yaml</strong> using a text editor and paste the following text into the file.</p>
 <div class="admonition important">
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
-<p>The content of the YAML file must be formatted exactly as shown. Use the copy icon to prevent typographical errors.</p>
+<p>The content of the YAML file must be formatted exactly as shown. Use the <strong>Copy</strong> icon to prevent typographical errors.</p>
 </div>
 <p>File name: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>catalogCertManager.yaml
@@ -968,7 +968,7 @@ Sample output:
 <li>
 <p>Keep the default settings and click <strong>Install</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator5.png"></a></p>
-<p>The installation process takes a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p>The installation process takes a few minutes. Do not continue until you see the following message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator6.png"></a></p>
 </li>
 </ol>
@@ -982,7 +982,7 @@ Sample output:
 <li>
 <p>Create or obtain your IBM Container Software <strong>production entitlement key</strong>.</p>
 <p>A <strong>production entitlement key</strong> is required to pull the container images that get deployed by the operator.</p>
-<p>To create this key, follow the <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">instructions here</a> to create or retrieve your existing entitlement key. </p>
+<p>To create or retrieve your existing entitlement key, follow the instructions <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">here</a>. </p>
 <p>After locating your existing key or creating a new key, continue to the next step.</p>
 </li>
 <li>
@@ -1034,10 +1034,7 @@ Sample output:
 </li>
 <li>
 <p>Enter <strong>ibm watsonx</strong> in the search field and the click the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile.</p>
-<div class="admonition tip">
-<p class="admonition-title">Be patient.</p>
-<p>It may take a minute or two for the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile to appear. </p>
-</div>
+<p><strong>Note</strong>: it may take a minute or two for the <strong>IBM watsonx Assistant for Z Operator Catalog</strong> tile to appear. </p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator1.png"></a></p>
 </li>
 <li>
@@ -1047,7 +1044,7 @@ Sample output:
 <li>
 <p>Select <strong>A specific namespace on the cluster</strong> under <strong>Installation mode</strong> and <strong>wxa4z-byos</strong> for the <strong>Installed Namespace</strong>, then click <strong>Install</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator3.png"></a></p>
-<p>The installation process takes a few minutes. Do not continue until you see the message: <strong>Installed operator: ready for use</strong>.</p>
+<p>The installation process takes a few minutes. Do not continue until you see the following message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator4.png"></a></p>
 </li>
 <li>
@@ -1128,7 +1125,7 @@ Sample output:
 <p class="admonition-title">Remove the trailing <strong>%</strong> from the cluster domain name.</p>
 <p>The value returned for the cluster domain may include a <strong>%</strong> character at the end. Do not include the <strong>%</strong> in the next step!</p>
 </div>
-<p>Note, the output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
+<p><strong>Note</strong>: the output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
 <li>
 <p>Create a file called <strong>byos.yaml</strong> with the following content.</p>
@@ -1231,7 +1228,7 @@ Configure your assistant with the route recorded in the previous step.</p>
 </details>
 <details class="failure">
 <summary>The <strong>wxa4z-client-ingestion</strong> pod does not start</summary>
-<p>Did you include teh <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
+<p>Did you include the <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </details>
