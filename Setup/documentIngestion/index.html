@@ -1070,11 +1070,11 @@ Sample output:
 <p><a class="glightbox" href="../_attachments/installAssistantOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator5.png"></a></p>
 </li>
 <li>
-<p>In the Red Hat OpenShift web console, click <strong>Workloads</strong> and select the <strong>Pods</strong>.</p>
+<p>In the Red Hat OpenShift web console, under <strong>Workloads</strong>, click <strong>Pods</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator6.png"></a></p>
 </li>
 <li>
-<p>Verify the two pods that start with <strong>ibm-wxa4z-operator</strong> have a Status of <strong>Running</strong> and that all pods are <strong>Ready</strong>.</p>
+<p>Verify the two pods that start with <strong>ibm-wxa4z-operator</strong> have a status of <strong>Running</strong> and that all pods are <strong>Ready</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator7.png"></a></p>
 </li>
 <li>
@@ -1138,8 +1138,8 @@ Sample output:
 <div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Remove the trailing <strong>%</strong> from the cluster domain name.</p>
-<p>The value returned for the cluster domain may include a <strong>%</strong> character at the end. Do not include the <strong>%</strong> in the next step!</p>
+<p class="admonition-title">The output from the command does not include a newline.</p>
+<p>The value returned for the cluster domain does not include a newline. When copying the value do not include the character or characters used for your command line prompt. Do not include the your prompt in the next step!</p>
 </div>
 <p><strong>Note</strong>: The output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
@@ -1148,7 +1148,7 @@ Sample output:
 <p>File name: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>byos.yaml
 </span></code></pre></div>
-<p>Substitute the domain name recorded in the previous step for the string <code>&lt;YOUR_CLUSTER_DOMAIN&gt;</code>. Do not include the <strong>%</strong> at the end of the domain name.</p>
+<p>Substitute the domain name recorded in the previous step for the string <code>&lt;YOUR_CLUSTER_DOMAIN&gt;</code>.</p>
 <p>File contents:
 </p><div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
@@ -1206,7 +1206,7 @@ Sample output:
 </span></code></pre></div>
 </li>
 </ol>
-<p><strong>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment begins and can take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</strong></p>
+<p><strong>Important</strong>: The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. </p>
 <h3 id="verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance">Verify all the required pods are running and get the network route to your <abbr title="Bring Your Own Search">BYOS</abbr> instance<a class="headerlink" href="#verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance" title="Permanent link">#</a></h3>
 <ol>
 <li>
@@ -1215,9 +1215,9 @@ Sample output:
 </li>
 </ol>
 <p>When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<ol start="2">
+<ol>
 <li>
-<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click <strong>Networking</strong> and then <strong>Routes</strong>.</p>
+<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, under <strong>Networking</strong>, click <strong>Routes</strong>.</p>
 <p><a class="glightbox" href="../_attachments/ocpNetworkingRoutesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpNetworkingRoutesMenu.png"></a></p>
 </li>
 <li>
@@ -1227,15 +1227,23 @@ Sample output:
 </ol>
 <h3 id="update-your-assistant-with-the-new-byos-instance-route">Update your assistant with the new <abbr title="Bring Your Own Search">BYOS</abbr> instance route<a class="headerlink" href="#update-your-assistant-with-the-new-byos-instance-route" title="Permanent link">#</a></h3>
 <p><a name="BYOS-url"></a>
-Configure your assistant with the route recorded in the previous step.</p>
-<p>Using the network route for your <abbr title="Bring Your Own Search">BYOS</abbr> instance, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
+You are now ready to configure your assistant with the route to your <abbr title="Bring Your Own Search">BYOS</abbr> instance.</p>
+<ol>
+<li>
+<p>Using the network route for your <abbr title="Bring Your Own Search">BYOS</abbr> instance, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. </p>
+<p>The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
 <p><code>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</code></p>
 <p><strong>Note</strong>: The above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. <strong>Use the value of your specific OpenSearch instance that is recorded in the previous step.</strong></p>
-<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can see the steps <a href="../creatingAssistant-configuringConvoSearch/#configureCustomSearchURL">here</a>.</p>
+</li>
+<li>
+<p>Update the your assistan'ts custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can review the steps <a href="../creatingAssistant-configuringConvoSearch/#configureCustomSearchURL">here</a>.</p>
 <details class="tip">
 <summary>How to set the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</summary>
 <p><a class="glightbox" href="../_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changeCustomSearchURL.gif"></a></p>
 </details>
+</li>
+</ol>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the <a href="../../#support">Support</a> section.</p>
 <details class="failure">
