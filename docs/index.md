@@ -9,7 +9,7 @@ Welcome to the {{guide.name}} (lab guide). The lab guide is part of the {{learni
 
 This lab guide covers the setup, configuration, and usage of watsonx Assistant for Z. This lab guide uses the <a href="{{itz.collectionURL}}" target="_blank">{{offering.name}} Velocity collection</a> and the three Velocity Pilot lab environments in IBM Technology Zone (ITZ). 
 
-The lab guide also enables dedicated lab environments for customized client Proof of Experiences (PoX) and demonstrations. If you are preparing for an actual pilot engagement, refer to the <a href="https://ibm.seismic.com/Link/Content/DCCRRWqjGBTVc87VBGCfC2F2VQVV" target="_blank">Pilot Scoping Guide for watsonx Assistant for Z</a> for additional information.
+The lab guide also enables dedicated lab environments for customized client PoXs and demonstrations. If you are preparing for an actual pilot engagement, refer to the <a href="https://ibm.seismic.com/Link/Content/DCCRRWqjGBTVc87VBGCfC2F2VQVV" target="_blank">Pilot Scoping Guide for watsonx Assistant for Z</a> for additional information.
 
 The lab guide provides the following guidance to:
 
@@ -31,11 +31,11 @@ The lab guide provides the following guidance to:
 ## Support
 Think something is down? Check the applicable status pages for any known issues such as a site or service not being available:
 
--  <a href="https://techzone.status.io/" target="_blank">IBM Technology Zone</a>
+-  <a href="https://techzone.status.io/" target="_blank">IBM Technology Zone status</a>
 
 For issues with provisioning the ITZ environment for this lab (for example, a failed reservation request due to insufficient quota capacity), open a ticket with ITZ support:
 
-- Web:  <a href="https://ibmsf.force.com/ibminternalproducts/s/createrecord/NewCase?language=en_US" target="_blank">IBM Technology Zone</a>
+- Web:  <a href="https://ibmsf.force.com/ibminternalproducts/s/createrecord/NewCase?language=en_US" target="_blank">IBM Technology Zone ticket system</a>
 
 - Email: <a href="mailto:techzone.help@ibm.com" target="_blank">techzone.help@ibm.com</a>
 

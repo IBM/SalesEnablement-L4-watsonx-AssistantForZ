@@ -1,5 +1,5 @@
 # Creating an assistant and configuring conversational search
-To create your watsonx Assistant for Z, use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
+You use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
 
 ## Access the ITZ IBM Cloud account for the watsonx Assistant for Z Pilot environment
 1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**, or click the following link.
@@ -26,36 +26,38 @@ To create your watsonx Assistant for Z, use [watsonx Orchestrate](https://www.ib
 
 5. Verify that the current IBM Cloud account is the same as the account name recorded in step 3. If the account is not the same, switch to the proper account.
 
-    Note: the formatting of the name can appear differently than what is shown in the ITZ reservation.
+    **Note**: The formatting of the name can appear differently than what is shown in the ITZ reservation.
 
     ![](_attachments/itzMyReservations4.png)
 
-    If the proper account is not listed, click the account drop down and select the proper account. Note: if your browser window is narrow, the account drop down can be depicted with the Switch Account icon (![](_attachments/itzCloudChangeAccountIcon.png)).
+    If the proper account is not listed, click the account drop down and select the proper account. 
+
+    **Note**: If your browser window is narrow, the account drop down can be depicted with the Switch Account icon (![](_attachments/itzCloudChangeAccountIcon.png)).
 
     ![](_attachments/itzSwitchAccounts0.png)
 
 ## Create your Assistant
-6. Click the **Resources** icon (![](_attachments/cloudResourcesIcon.png)).
+1. Click the **Resources** icon (![](_attachments/cloudResourcesIcon.png)).
 
     ![](_attachments/cloudResourcesMenu.png)
 
-7. Expand the **AI / Machine Learning** section and click the **watsonx Orchestrate** instance listed (the instance name is different than shown in the following image).
+2. Expand the **AI / Machine Learning** section and click the **watsonx Orchestrate** instance listed (the instance name is different than shown in the following image).
 
     ![](_attachments/cloudResourcesAI.png)
 
-8. Click **Launch watsonx Orchestrate**.
+3. Click **Launch watsonx Orchestrate**.
 
     ![](_attachments/cloudWOButton.png)
 
-9. Click the **AI assistant builder** tile to start creating a new assistant.
+4. Click the **AI assistant builder** tile to start creating a new assistant.
 
     ![](_attachments/cloudWOAIAssistantBuilder.png)
 
-10. Enter a name and optional description for your assistant and click **Next**.
+5.  Enter a name and optional description for your assistant and click **Next**.
 
     ![](_attachments/createAssistant1.png)
 
-11. Complete the **Personalize your assistant** form and click **Next**.
+6.  Complete the **Personalize your assistant** form and click **Next**.
 
     Explore the personalization options. In creating an assistant for a client pilot, consider specifying attributes that align with the client's business.
 
@@ -69,44 +71,46 @@ To create your watsonx Assistant for Z, use [watsonx Orchestrate](https://www.ib
 
     ![](_attachments/createAssistant2.png)
 
-12. Complete the **Customize your chat UI** form and click **Next**.
+7.  Complete the **Customize your chat UI** form and click **Next**.
 
     Explore the customization options. When creating an assistant for a client pilot, consider specifying attributes that align with the client (for example, colors and logos).
 
     ![](_attachments/createAssistant3.png)
 
-13. Preview your assistant and then click **Create**.
+8.  Preview your assistant and then click **Create**.
 
     ![](_attachments/createAssistant4.png)
 
-The assistant is now created.
+    The assistant is now created.
 
-![](_attachments/assistantHomePage.png)
+    ![](_attachments/assistantHomePage.png)
+
 <a name="configureCustomSearchURL"></a>
 ## Configure conversational search
-The next step will be to configure **conversational search** for your assistant that uses a hosted instance of OpenSearch.
+In the next steps you will be to configure **conversational search** for your assistant that uses a hosted instance of OpenSearch.
 
-14. Click **Generative AI** menu item (![](_attachments/GenAIIcon.png)) in the left navigation.
+1. Click **Generative AI** menu item (![](_attachments/GenAIIcon.png)) in the left navigation.
 
     ![](_attachments/genAIMenu.png)
 
-15. Review the base large language model (LLM) settings.
+2. Review the base large language model (LLM) settings.
+
 
     Notice the other LLM models available. For most pilots, the **granite-3-8b-instruct** model is appropriate.
 
     ![](_attachments/genAILLMdefaults.png)
 
-16. Click **Set up your Search Integration**.
+3.  Click **Set up your Search Integration**.
 
     By default, conversational search is not enabled when an assistant is created. Conversational search takes priority over general-purpose answering if both are enabled. Learn more about conversational search in watsonx <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-conversational-search" target="_blank">here</a>.
 
     ![](_attachments/genAILLMdefaults2.png)
 
-17. Click **Custom service**.
+4.  Click **Custom service**.
 
     ![](_attachments/genAISetupCS1.png)
 
-18. Complete the **Custom service** form and then (d) click **Next**.
+5.  Complete the **Custom service** (**a-c**) form and then click **Next** (**d**).
 
     **a**. Select **By providing credentials**.
 
@@ -119,13 +123,15 @@ The next step will be to configure **conversational search** for your assistant 
 
     ![](_attachments/genAISetupCS2.png)
 
-19. Enable **conversational search** and then click **Save**.
+6.  Enable **conversational search** and then click **Save**.
 
     ![](_attachments/genAISetupCS3.png)
        
-20. Update the conversational search **custom service** settings based on your requirements.
+7.  Update the conversational search **custom service** settings based on your requirements.
 
-    **Note**: the **Settings** page is divided into two sections in the following images to enhance the visibility of the screen captures. Learn more about these settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.
+    **Note**: The **Settings** page is divided into two sections in the following images to enhance the visibility of the screen captures. 
+    
+    Learn more about these **custom service** settings <a href="https://cloud.ibm.com/docs/watson-assistant/watson-assistant?topic=watson-assistant-conversational-search#tuning-the-generated-response-length-in-conversational-search" target="_blank">here</a>.
 
     The following settings are proven to work well. You can experiment with these settings to see how they affect queries for your client's pilot.
 
@@ -153,139 +159,140 @@ The next step will be to configure **conversational search** for your assistant 
 
     ![](_attachments/genAISettings2.png)
 
-21. Click (a) **Save** and then click (b) **Close**.
+8.  Click **Save** (**a**) and then click **Close** (**b**).
 
     ![](_attachments/genAISettings3.png)
-## More configurations
+
+## Complete the configuration
 After you save and close the **Conversational search** configuration page, a few more configurations are needed to get the best experience from your conversational chat. Details on these settings are available <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=cluster-configuring-your-assistant-use-byos" target="_blank">here</a>.
 
-22. Hover over the **Generative AI** icon (![](_attachments/GenAIIcon.png)) in the left navigation and click **Actions**.
+1.  Hover over the **Generative AI** icon (![](_attachments/GenAIIcon.png)) in the left navigation and click **Actions**.
 
     ![](_attachments/genAIActionsMenu.png)
 
-23. Click **Set by assistant** under the **All items** menu.
+2.  Click **Set by assistant** under the **All items** menu.
 
     ![](_attachments/genAIActionsSetByAssistantMenu.png)
 
-24. Click **No matches**.
+3.  Click **No matches**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu2.png)
 
-25. Click **Step 1** under **Conversation steps**.
+4.  Click **Step 1** under **Conversation steps**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu3.png)
 
-26. Select (**a**) **without conditions** in the **Is taken** drop-down menu and then click (**b**) **Clear conditions**.
+5.  Select **without conditions**  (**a**) in the **Is taken** drop-down menu and then click **Clear conditions** (**b**).
 
-    Note, the **Is taken** value does not change from **with conditions** after selecting **without conditions**.
+    **Note**: the **Is taken** value does not change from **with conditions** after selecting **without conditions**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu4.png)
 
-27. Delete the default text in the **Assistant says** entry field.
+6.  Delete the default text in the **Assistant says** entry field.
 
     ![](_attachments/genAIActionsSetByAssistantMenu5.png)
 
-28. Expand the **And then** drop-down menu and select **Search for the answer**.
+7.  Expand the **And then** drop-down menu and select **Search for the answer**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu6.png)
 
-29. Click **Edit settings**.
+8.  Click **Edit settings**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu7.png)
 
-30. Click **After generation**.
+9.  Click **After generation**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu7-1.png)
 
-31. Select **End the action after this step** and then click **Apply**.
+10. Select **End the action after this step** and then click **Apply**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu8.png)
 
-32. Click the **Save** (![](_attachments/diskIcon.png)) icon.
+11. Click **Save** (![](_attachments/diskIcon.png)).
 
     ![](_attachments/genAIActionsSetByAssistantMenu9-b.png)
 
-33. Select **Step 2** (**No matches count**) under **Conversation steps** and click the delete icon (![](_attachments/deleteIcon.png)).
+12. Select **Step 2** (**No matches count**) under **Conversation steps** and click **delete** (![](_attachments/deleteIcon.png)).
 
     ![](_attachments/genAIActionsSetByAssistantMenu9.png)
 
-34. Click **Delete** in the confirmation dialog to delete step 2.
+13. Click **Delete** in the confirmation dialog to delete **Conversation step 2**.
 
     ![](_attachments/genAIActionsSetByAssistantMenu10.png)
 
-35. Click the **x** to close the **Editor** window.
+14. Click **Close** (the **x** icon) the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu11.png)
 
-36. Click **Fallback** in the **Actions** table.
+15. Click **Fallback** in the **Actions** table.
 
     ![](_attachments/genAIActionsSetByAssistantMenu12.png)
 
-37. Delete **all** of the **Conversation steps**.
+16. Delete **all** of the **Conversation steps**.
 
-    Note: the following image is edited. Only 5 steps are shown, but all 6 need to be deleted. You need to select each step individually, click the delete icon (![](_attachments/deleteIcon.png)), and confirm the deletion.
+    **Note**: The following image is edited. Only five steps are shown, but all six need to be deleted. You need to select each step individually. Click **delete** (![](_attachments/deleteIcon.png)) and confirm the deletion.
 
     ![](_attachments/genAIActionsSetByAssistantMenu13.png)
 
-38. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
+17. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
 
     ![](_attachments/genAIActionsSetByAssistantMenu14.png)
 
-39. Click the **global settings** (![](_attachments/globalSettingsIcon.png)).
+18. Click the **Global settings** (![](_attachments/globalSettingsIcon.png)).
 
     ![](_attachments/genAIGlobalSettings1.png)
 
-40. Click **No matches** under the **Conversation routing** tab.
+19. Click **No matches** under the **Conversation routing** tab.
 
     ![](_attachments/genAIGlobalSettings2.png)
 
-41. Move the slider to **More often** (or select **More often** in the drop-down).
+20. Move the slider to **More often** (or select **More often** in the drop-down).
 
     The setting helps ensure that actions are triggered less often unless the user’s query specifically matches the action’s input.
 
     ![](_attachments/genAIGlobalSettings3.png)
 
-42. Click **Autocorrection**.
+21. Click **Autocorrection**.
 
     ![](_attachments/genAIGlobalSettings4.png)
 
-43. Click the **autocorrection** toggle to turn the feature **off**.
+22. Click the autocorrection toggle to turn the feature **Off**.
     
     ![](_attachments/genAIGlobalSettings5.png)
 
-44. Click (a) **Save** and then (b) **Close**.
+23. Click **Save** (**a**) and then **Close** (**b**).
 
     ![](_attachments/genAIGlobalSettings6.png)
 
-45. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Environments**.
+24. Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Environments**.
 
     ![](_attachments/genAIEnviroments1.png)
 
-46. Click **Web chat**.
+25. Click **Web chat**.
 
     ![](_attachments/genAIEnviroments2.png)
 
-47. On the **Style** tab, click the **Streaming** toggle to enable streaming.
+26. On the **Style** tab, click the **Streaming** toggle to enable streaming.
 
     ![](_attachments/genAIEnviroments3.png)
 
-48. Click **Suggestions**.
+27. Click **Suggestions**.
 
     ![](_attachments/genAIEnviroments4.png)
 
-49. Click the **Suggestions** toggle to turn this feature **off**.
+28. Click the **Suggestions** toggle to turn this feature **Off**.
     
     ![](_attachments/genAIEnviroments5.png)
 
-50. Click **Save and exit**.
+29. Click **Save and exit**.
 
     ![](_attachments/genAIEnviroments6.png)
 
 ## Configure the base large language model
-After the preceding steps are completed, there are enhancements that can be made to configure how the large language model (LLM) responds to your queries. Including adding prompt instructions and configuring the LLM’s answer behavior.
+After the preceding steps are completed, there are enhancements you can make to configure how the large language model (LLM) responds to your queries including adding prompt instructions and configuring the LLM’s answer behavior.
 These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.
 
-1.  Hover over the **home** (![](_attachments/homeIcon.png)) and click **Generative AI**.
+1.  Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Generative AI**.
     
     ![](_attachments/genAIGenAI1.png)
 
@@ -295,9 +302,9 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 
 3.  Enter a **prompt instruction**.
 
-    This option instructs the LLM in your assistant to give refined responses by adding prompt instructions. The instructions help the LLM guide the conversations with clarify and specifically to achieve the end-goal of an action.
+    This option instructs the LLM in your assistant to give refined responses by adding prompt instructions. The instructions help the LLM guide the conversations by clarifying how to achieve the end-goal of an action.
 
-    Enter the prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. 
+    Enter prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. 
         
     The following is an example prompt instruction that works well. Experiment with different prompt instructions.
 
@@ -305,34 +312,36 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
     You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Keep all answers short and concise, unless requested to provide details.
     ```
 
-    **Note: When the instructions are typed in, they are automatically saved and the LLM is immediately trained on them.**
+    **Note**: When the instructions are typed in, they are automatically saved and the LLM is immediately trained on them.
 
     ![](_attachments/genAIGenAI3.png)
 
-4.  Toggle **General-purpose answering** to **off**.
+4.  Toggle **General-purpose answering** to **Off**.
 
     The ability exists to configure the answering behavior of your assistant to provide responses that are based on the preinstalled content or general content.
 
     On the **Generative AI** page (under **Prompt Instructions**), you see the **Answer behavior** section. After you configure **Conversational search**, you see that it is enabled (toggled on) with the search integration added.
 
-    If you enable both General-purpose answering as well as Conversational search, the Conversational search answering takes precedence over General-purpose answering. 
+    If you enable both general-purpose answering as well as conversational search, the conversational search answering takes precedence over General-purpose answering. 
     
-    **For purposes of retrieving Z-specific answers and responses, it is recommended that you turn off General-purpose answering and leave only Conversational search turned on.**
+    **Recommendation**: For purposes of retrieving Z-specific answers and responses, it is recommended that you turn off general-purpose answering and leave only conversational search turned on.
 
     ![](_attachments/genAIGenAI4.png)
 
 ## Testing conversational search
-Now, you can begin issuing queries to test the assistant's responses.
+Now you can begin issuing queries to test the assistant's responses.
 
-It is important to keep in mind that many of the settings configured earlier can be iteratively modified based on your assessment of the quality of responses. The settings can be reviewed and changed at any time. For example, adding extra prompt instructions, changing the verbosity of the responses, and modifying the indexes used for OpenSearch.
+**Important**: Many of the settings configured earlier can be iteratively modified based on your assessment of the quality of responses. The settings can be reviewed and changed at any time. For example, adding extra prompt instructions, changing the verbosity of the responses, and modifying the indexes used for OpenSearch.
 
-53. Hover over the **home** (![](_attachments/homeIcon.png)) and click **Preview**.
+1. Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Preview**.
 
     ![](_attachments/preview0.png)
 
-54. Experiment with different prompts and validate the answers are reasonable and related to IBM Z.
+2.  Experiment with different prompts and validate that the answers are reasonable and related to IBM Z.
 
-    Other prompts and responses follow. Note: the responses that you receive can vary from the ones shown.
+    Other prompts and responses follow. 
+    
+    **Note**: The responses that you receive can vary from the ones shown.
 
     **Prompt**: 
 
@@ -368,7 +377,7 @@ It is important to keep in mind that many of the settings configured earlier can
 
 You now have a working assistant that uses {{offering.name}}. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.
 
-Continue to the [Creating a stand-alone OpenSearch instance for document ingestion](documentIngestion.md) learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the RAG model.
+Continue to the [Creating a stand-alone OpenSearch instance for document ingestion](documentIngestion.md) to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the RAG model.
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.

@@ -34,13 +34,13 @@ Follow the instructions in to create new reservation requests, extend the reserv
 
     **Be sure to follow these steps to create a reservation in ITZ for all three environments.**
 
-2. Click **Reserve now**.
+2. Select **Reserve now**.
 
     The **Reserve now** option creates a reservation for immediate use. Optionally, schedule the reservation for a later date, for example, when you are at your client's office to start a pilot.
 
     ![](_attachments/itzRSVPReserveNow.png)
 
-3. Complete the reservation request and click **Submit**.
+3. Complete the reservation request form and then click **Submit**.
 
     The first two reservations are similar to the first image and have fields **a**-**e** that need to be completed.
 
@@ -48,9 +48,8 @@ Follow the instructions in to create new reservation requests, extend the reserv
 
     **b**. Purpose: select the **Education** purpose tile.
 
-    !!! Tip "For actual client pilots..."
-
-    For client pilots, set the **Purpose** field in the reservation to **Pilot** and provide an opportunity number to receive a longer reservation.
+    !!! Tip "For client pilots..."
+        For client pilots, set the **Purpose** field in the reservation to **Pilot** and provide an opportunity number to receive a longer reservation.
 
     **c**. Purpose description: enter a description, for example: Level 4 education.
 
@@ -91,50 +90,50 @@ In rare cases, the provisioning process may fail. If you receive an email statin
 ## Extend the reservation
 When the reservations are in the **Ready** state, you can extend each reservation to a total of six days. 
 
-4. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**.
+1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**.
 
     ![](_attachments/itzMyReservations.png)
 
-5. Click the **overflow icon** (![](_attachments/overflowIcon.png)) on the reservation tile and select **Extend**.
+2. Click the **overflow icon** (![](_attachments/overflowIcon.png)) on the reservation tile and select **Extend**.
 
     ![](_attachments/itzExtendMenu.png)
 <div style="page-break-after: always;"></div>
 
-6. Click the **Select a date** option, (a) specify the date to extend to, and then (b) click **Extend**.
+3. Click the **Select a date** option, (a) specify the date to extend to, and then (b) click **Extend**.
 
     ![](_attachments/itzExtendRsvp.png)
 
 If you anticipate needing more time, repeat Steps 5-6 to extend the reservation to the maximum of six days. Repeat these steps for the other two reservations.
 <div style="page-break-after: always;"></div>
 
-## Join the ITZ IBM Cloud accounts
-Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansible Automation Platform (AAP) & z/OS** environments add you to an IBM Cloud account while your reservation is active. During the provisioning process of these ITZ environments, you receive two emails from IBM Cloud. To access the environment, you must first accept the invitations to join both of the IBM Cloud accounts. 
+## Join the ITZ IBM Cloud account
+Both the **watsonx Assistant for Z lab – watsonx Orchestrate** and the **Ansible Automation Platform (AAP) & z/OS** environments add you to an IBM Cloud account while your reservation is active. During the provisioning process of these ITZ environments, you receive two emails from IBM Cloud. 
 
-7. Open the emails from **IBM Cloud** and click the **Join now** links.
+You only need to accept the invitation to the **watsonx Assistant for Z lab – watsonx Orchestrate** environment.
+
+1. Open the email from **IBM Cloud** and click the **Join now** links.
 
     ![](_attachments/itzJoinCloudEmail.png)
 
-8. In the **Join IBM Cloud** browser window that opens, select the **I accept the product Terms and Conditions** of the registration form, and then click **Join Account**.
+2. In the **Join IBM Cloud** browser window that opens, select the **I accept the product Terms and Conditions** of the registration form, and then click **Join Account**.
 
     ![](_attachments/itzJoinCloud.png)
 
-**Repeat Steps 7-8 for the second invitation.**
+After joining the account, verify that the account appears in your available account list in the IBM Cloud portal.
 
-After joining both accounts, verify that both accounts appear in your available account list in the IBM Cloud portal.
-
-9. Click the following link to open a browser to the IBM Cloud portal.
+3. Click the following link to open a browser to the IBM Cloud portal.
 
     <a href="cloud.ibm.com" target="_blank">**IBM Cloud portal**</a>
 
-10. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps vary depending on any two-factor authentication methods enabled. 
+4. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps vary depending on any two-factor authentication methods enabled. 
 
     ![](_attachments/itzCloudLogin.png)
 
-11. Click the **account** menu and verify access to the two IBM Cloud accounts listed in your ITZ reservations.
+5. Click the **account** menu and verify access to the IBM Cloud account listed in your ITZ reservation.
 
-    !!! Important "These accounts may change within ITZ."
+    !!! Important "The account may change within ITZ."
 
-        Over time, the accounts may change for the environments. The accounts names should align with the accounts named in the invitation emails you received. 
+        Over time, the account may change for the environments. The account names should align with the account named in the invitation email you received. 
 
     ![](_attachments/itzCloudAccountsVerify.png)
 

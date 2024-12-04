@@ -30,7 +30,7 @@ A version of zassist is available for download for IBMers and Business Partners 
 ## Ingest client documentation using **zassist**
 With the **zassist** command installed, you are now able to begin ingesting data. 
 
-Step-by-step guidance for ingesting documents using zassist are provided in the IBM watsonx Assistant for Z documentation. In the directions, when running the log in command in step 7, use the **CLIENT_INGESTION_AUTHKEY** you created in the [previous section](documentIngestion.md/#AuthKey).
+Step-by-step guidance for ingesting documents using zassist is provided in the IBM watsonx Assistant for Z documentation. In the directions, when running the log in command in step 7, use the **CLIENT_INGESTION_AUTHKEY** you created in the [previous section](documentIngestion.md/#AuthKey).
 
 6. Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.
 
@@ -47,12 +47,12 @@ Step-by-step guidance for ingesting documents using zassist are provided in the 
 ## Verify the document that is ingested is now returned as a source file for a query.
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
 
-7. Hover over the home (![](_attachments/homeIcon.png)) icon and click **Preview**.
+7. Hover over the **Home** (![](_attachments/homeIcon.png)) icon and click **Preview**.
 8. Click the **Restart conversation** (![](_attachments/reloadAssistantIcon.png)) icon.
 
     ![](_attachments/reloadAssistant.png)
 
-9.  Enter the following prompt in your assistant.
+9. Enter the following prompt in your assistant.
 
     ```
     What is z/OS continuous delivery?
@@ -60,7 +60,7 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     ![](_attachments/verifyIngest0.png)
 
-10. Expand the sources section by clicking the (![](_attachments/downArrowIcon.png)).
+10. Clicking the **Down arrow** (![](_attachments/downArrowIcon.png)).
    
     ![](_attachments/verifyIngest1.png)
 
@@ -84,6 +84,7 @@ Do you recall the **Metadata** field when you configured your assistant?
 ![](_attachments/genAISettings2b.png)
 
 The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.
+
 By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:
 
 ```
@@ -91,7 +92,7 @@ By default (without any string in the Metadata field), it searches all the defau
 “customer_indices”:“customer_*”}
 ```
 
-Replacing the wildcard string with an explicit list of indices allows personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. Out of the box there are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.
+Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.
 
 You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:
 
@@ -162,4 +163,4 @@ If you or your client have other documents to ingest, you can do so by repeating
     zassist ingest . -s 50
     ```
 
-After ingesting all the your additional documents, proceed to the next section to learn about adding skills to your assistant.
+After ingesting all your additional documents, proceed to the next section to learn about adding skills to your assistant.
