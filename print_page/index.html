@@ -1443,7 +1443,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p><a class="glightbox" href="../Setup/_attachments/genAIGenAI3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIGenAI3.png"></a></p>
 </li>
 <li>
-<p>Toggle <strong>General-purpose answering</strong> to <strong>Off</strong>.</p>
+<p>Toggle <strong>General-purpose answering</strong> to <strong>Off</strong> and then click <strong>Save</strong> (<a class="glightbox" href="../Setup/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/diskIcon.png"></a>).</p>
 <p>The ability exists to configure the answering behavior of your assistant to provide responses that are based on the preinstalled content or general content.</p>
 <p>On the <strong>Generative <abbr title="Artificial intelligence">AI</abbr></strong> page (under <strong>Prompt Instructions</strong>), you see the <strong>Answer behavior</strong> section. After you configure <strong>Conversational search</strong>, you see that it is enabled (toggled on) with the search integration added.</p>
 <p>If you enable both general-purpose answering as well as conversational search, the conversational search answering takes precedence over General-purpose answering. </p>
@@ -2361,13 +2361,12 @@ You are now ready to configure your assistant with the route to your <abbr title
 <li>
 <p>Review the returned results.</p>
 <p><a class="glightbox" href="../Setup/_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions9.png"></a></p>
-<p>In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the <a href="#setup-creatingactions-Troubleshooting">Troubleshooting</a> section below.</p>
+<p>In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the Troubleshooting section below.</p>
 </li>
 </ol>
-<p>Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.</p>
 <h1 id="setup-creatingactions-verify-the-job-in-the-ansible-automation-platform-console">Verify the job in the Ansible Automation Platform console<a class="headerlink" href="#setup-creatingactions-verify-the-job-in-the-ansible-automation-platform-console" title="Permanent link">#</a></h1>
 <p>Return to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console and review the job information.</p>
-<ol start="14">
+<ol>
 <li>
 <p>Click <strong>Jobs</strong> and expand the <strong>## - z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> job.</p>
 <p><a class="glightbox" href="../Setup/_attachments/createActions10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions10.png"></a></p>
@@ -2378,7 +2377,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <details class="failure">
 <summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>".</summary>
 <p><a class="glightbox" href="../Setup/_attachments/skill-error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-1.png"></a></p>
-<p>This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow.</p>
+<p>This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:</p>
 <ol>
 <li>
 <p>Expand the main menu and select <strong>Chat</strong>.</p>
@@ -2489,7 +2488,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ol>
 <h2 id="setup-creatingflows-add-the-skills-to-your-personal-skills">Add the skills to your Personal skills<a class="headerlink" href="#setup-creatingflows-add-the-skills-to-your-personal-skills" title="Permanent link">#</a></h2>
-<ol start="15">
+<ol>
 <li>
 <p>Click <strong>Skill catalog</strong> in the main menu.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow11.png"></a></p>
@@ -2509,7 +2508,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ol>
 <h2 id="setup-creatingflows-create-the-skill-flow">Create the skill flow<a class="headerlink" href="#setup-creatingflows-create-the-skill-flow" title="Permanent link">#</a></h2>
-<ol start="19">
+<ol>
 <li>
 <p>Click <strong>Skill studio</strong> in the main menu.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow15.png"></a></p>
@@ -2524,7 +2523,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ol>
 <p>Next, you need to add the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill and the <strong>Retrieve job output</strong> skill to the skill flow. Use the <strong>Search apps</strong> function to locate the skills.</p>
-<ol start="22">
+<ol start="4">
 <li>
 <p>Search for the application name you specified earlier and click it's tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow18.png"></a></p>
@@ -2542,14 +2541,13 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow21.png"></a></p>
 </li>
 <li>
-<p>Repeat steps 22 and 23 for the <strong>Retrieve job output</strong> skill. </p>
+<p>Repeat steps 5 and 6 for the <strong>Retrieve job output</strong> skill. </p>
 <p>After adding the <strong>Retrieve job output</strong> skill, your skill flow should like like:</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow22.png"></a></p>
 </li>
 </ol>
-<h2 id="setup-creatingflows-map-the-outputs-and-inputs-of-the-skills">Map the outputs and inputs of the skills<a class="headerlink" href="#setup-creatingflows-map-the-outputs-and-inputs-of-the-skills" title="Permanent link">#</a></h2>
 <p>Next you must map the output values of the first skill to the input of the second skill. In this case, pass the “job id” output from <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> as an input for <strong>Retrieve job output</strong>. </p>
-<ol start="27">
+<ol start="9">
 <li>
 <p>Click the <strong>Retrieve job output</strong> tile.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow23.png"></a></p>
@@ -2596,12 +2594,10 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow31.png"></a></p>
 </li>
 </ol>
-<h2 id="setup-creatingflows-enhancing-the-skill-flow">Enhancing the skill flow<a class="headerlink" href="#setup-creatingflows-enhancing-the-skill-flow" title="Permanent link">#</a></h2>
 <p>On the <strong>Enhancing the skill</strong> pages, you can:
 - modify the skill name, description, and version
-- add phrases (prompts) that will be recognized by the assistant to call the skill flow
-- </p>
-<ol start="36">
+- add phrases (prompts) that will be recognized by the assistant to call the skill flow</p>
+<ol start="20">
 <li>
 <p>Click the <strong>Phrases</strong> tab.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow32.png"></a></p>
@@ -2618,7 +2614,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ol>
 <h2 id="setup-creatingflows-enable-the-skill-flow-in-your-assistant">Enable the skill flow in your assistant<a class="headerlink" href="#setup-creatingflows-enable-the-skill-flow-in-your-assistant" title="Permanent link">#</a></h2>
-<ol start="38">
+<ol>
 <li>
 <p>Click <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in the main menu.</p>
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow34.png"></a></p>
