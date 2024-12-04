@@ -846,7 +846,7 @@
 <summary>Don't see the video in the <abbr title="Portable Document Format">PDF</abbr> version of the lab guide?</summary>
 <p>If you are viewing the <a href="_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Level%204%20Lab%20Guide.pdf" target="_blank"><abbr title="Portable Document Format">PDF</abbr></a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.</p>
 </details>
-<h2 id="verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document that is ingested is now returned as a source file for a query.<a class="headerlink" href="#verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
+<h2 id="verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document that is ingested is now returned as a source file for a query<a class="headerlink" href="#verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
 <p>Use the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder to verify your document ingestion.</p>
 <ol>
 <li>Hover over the <strong>Home</strong> (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) icon and click <strong>Preview</strong>.</li>
@@ -882,7 +882,7 @@
 <p>Do you recall the <strong>Metadata</strong> field when you configured your assistant?</p>
 <p><a class="glightbox" href="../_attachments/genAISettings2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISettings2b.png"></a></p>
 <p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.</p>
-<p>By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:</p>
+<p>If you leave this field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>“customer_indices”:“customer_*”}
 </span></code></pre></div>
@@ -903,8 +903,8 @@
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
 </span></code></pre></div>
 <p>In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.</p>
-<p>After you have configured all the settings for Conversational Search on the page, click “Save” in the upper-right of the page.</p>
-<p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <href target="_blank">here.</href></p>
+<p>After you have configured all the settings for Conversational Search on the page, be sure to click <strong>Save</strong> in the upper-right of the page.</p>
+<p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.</p>
 <p>You are encouraged to experiment with the metadata field!</p>
 <p><strong>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</strong></p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>{"doc_weight":
