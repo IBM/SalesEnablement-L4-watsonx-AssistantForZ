@@ -76,14 +76,12 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     ![](_attachments/createActions9.png)
 
-    In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the [Troubleshooting](creatingActions.md#Troubleshooting) section below.
-
-Learn more about building actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions" target="_blank">here</a>.
+    In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the Troubleshooting section below.
 
 # Verify the job in the Ansible Automation Platform console
 Return to the Ansible Automation Platform (AAP) console and review the job information.
 
-14. Click **Jobs** and expand the **## - z/OS Gather Facts** job.
+1. Click **Jobs** and expand the **## - z/OS Gather Facts** job.
 
     ![](_attachments/createActions10.png)
 
@@ -95,7 +93,7 @@ As seen in the assistant, the actual contents of the output aren’t displayed. 
 
     ![](_attachments/skill-error-1.png)
 
-    This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow.
+    This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:
 
     1. Expand the main menu and select **Chat**.
    

@@ -22,7 +22,7 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
 
-    **a**: Connection Type: **ansible**
+    **a**: Connection Type: `ansible`
 
     **b**: Application Name: <enter a meaningful name for the skills that you will import\> - *be sure to remember this name, you will need in the next section*
 
@@ -32,7 +32,7 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     **e**: Password: <enter the AAP User Password\>
 
-    **f**: Search Pattern: **\***
+    **f**: Search Pattern: `*`
 
     ![](_attachments/skillsForm.png)
 

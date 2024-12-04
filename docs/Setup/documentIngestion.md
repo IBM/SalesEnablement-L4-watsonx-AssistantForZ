@@ -201,7 +201,9 @@ Before ingesting documents, complete the following setup steps.
 
     A production entitlement key is required to pull the container images that get deployed by the operator.
 
-    To create or retrieve your existing entitlement key, follow the instructions <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">here</a>. 
+    To create or retrieve your existing entitlement key, follow the instructions <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
+
+    If additional assistance is needed, refer to this <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">site</a>. 
 
     After locating your existing key or creating a new key, continue to the next step.
 

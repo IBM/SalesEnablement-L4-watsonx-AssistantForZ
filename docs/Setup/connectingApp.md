@@ -30,7 +30,7 @@ Once you have a subset of skills published, the application you created can be c
 
     ![](_attachments/skillSets6.png)
 
-8. Enter the (a) **username** and (b) **password** using the username (**admin**) and password for your IBM Technology Zone (ITZ) *watsonx Assistant for Z Pilot - AAP & z/OS* reservation (**AAP User Password (Use SSH key to login, only use password for UI)**), and then click **Connect app**.
+8. Enter the (a) **username** and (b) **password** using the username (`admin`) and password for your IBM Technology Zone (ITZ) *watsonx Assistant for Z Pilot - AAP & z/OS* reservation (**AAP User Password (Use SSH key to login, only use password for UI)**), and then click **Connect app**.
 
     ![](_attachments/skillSets7.png)
 

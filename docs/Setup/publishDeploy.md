@@ -1,10 +1,8 @@
 # Publishing and deploying your assistant
 
-
-
 To this point, acting as an Assistant Builder, you have built out the assistant, configured conversational search, and added skills and automations. While doing so, you have been testing your assistant using the **preview** capability of AI Assistant Builder. The **preview** capability is a closed environment for experimenting with prompts.
 
-Once your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two **environments**:
+After your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two **environments**:
 *draft* and *live*. You have been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.
 
 The **Environments** page in the AI assistant builder has tabs for managing both the **Draft environment** and the **Live environment**:
@@ -34,31 +32,31 @@ Follow these steps to publish the first version of your assistant using Assistan
 
     ![](_attachments/publish1.png)
 
-3. Enter a (a) description of the changes, set the (b) environment to **Live**, and then (c) click **Publish**.
+3. Enter a description of the changes (**a**), set the environment to **Live** (**b**), and then click **Publish** (**c**).
 
     ![](_attachments/publish3.png)
 
-## Configure the **Live** environment
-When the live environment is created, the environment settings from the draft environment are not carried over (for example the configuration of the
-OpenSearch instance used for conversational search).
+## Configure the live environment
 
-4. Hover over the **Home** icon (![](_attachments/homeIcon.png)) and click **Environments**.
+**Important**: When the live environment is created, the environment settings from the draft environment are not carried over (for example the configuration of the OpenSearch instance used for conversational search).
+
+1. Hover over the **Home** icon (![](_attachments/homeIcon.png)) and click **Environments**.
 
     ![](_attachments/publish4.png)
 
-5. Click **Live**.
+2. Click **Live**.
 
     ![](_attachments/publish5.png)
 
-6. Click **Web chat**.
+3. Click **Web chat**.
 
     ![](_attachments/publish6.png)
 
-7. Customize the **Live** assistant as you see fit.
+4. Customize the live assistant as you see fit.
 
-    On the Style tab, you’re able to set the Assistant name which will be displayed at the top of the chat window when end-users are interacting with the assistant. For pilots or demos, you may want to personalize this name for the client. Also in the Style tab, you have the ability set the themes and display settings of the chat windows, including the ability to enable the IBM Watermark and enable streaming (recommended).
+    On the **Style** tab, you’re able to set the Assistant name which will be displayed at the top of the chat window when end-users are interacting with the assistant. For pilots or demos, you may want to personalize this name for the client. Also in the **Style** tab, you have the ability set the themes and display settings of the chat windows, including the ability to enable the IBM Watermark and enable streaming (recommended).
 
-    On the Home screen tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.
+    On the **Home** tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.
     
     Explore all the other tabs.
 
@@ -68,19 +66,19 @@ OpenSearch instance used for conversational search).
 
     ![](_attachments/publish7.png)
 
-8. Click **Save and exit**.
+5. Click **Save and exit**.
 
     ![](_attachments/publish8.png)
 
-9. Click **Add** in the **Search** tile.
+6. Click **Add** in the **Search** tile.
 
     ![](_attachments/publish9.png)
 
-10. Click **Custom service**.
+7.  Click **Custom service**.
 
     ![](_attachments/publish10.png)
 
-11. Enter the (a) URL for your bring-your-own-search (BYOS) engine, (b) select **None** for the **authentication type**, and (c) click **Next**.
+8.  Enter the URL for your bring-your-own-search (BYOS) engine (**a**), select **None** for the **authentication type** (**b**), and then click **Next** (**c**).
 
     !!! Warning "Use the correct URL!"
 
@@ -88,11 +86,11 @@ OpenSearch instance used for conversational search).
 
     ![](_attachments/publish11.png)
 
-12. Verify **conversational search** is enabled and click **Save**.
+9.  Verify **conversational search** is enabled and click **Save**.
 
     ![](_attachments/publish12.png)
 
-13. Update the (a) - (f) **Custom service** settings, (g) click **Save**, and then (h) click **Close**.
+10. Update the **Custom service** settings (**a-f**), click **Save** (**g**), and then click **Close** (**h**).
 
     !!! Tip "Feel free to customize the settings."
 
@@ -109,33 +107,33 @@ There are several options for deploying your assistant through channels and inte
 
 For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website. There is a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.
 
-14. Click **Web chat** for the **Live** environment.
+1. Click **Web chat** for the **Live** environment.
 
     ![](_attachments/publish14.png)
 
-15. Click the **Embed** tab.
+2.  Click the **Embed** tab.
 
     ![](_attachments/publish15.png)
 
-16. Copy and record the **integrationID**, **region**, and **serviceInstanceID** values.
+3.  Copy and record the `integrationID`, `region`, and `serviceInstanceID` values.
 
     ![](_attachments/publish16.png)
 
-17. Click the link below to download a sample web chat hyper text markup language (HTML) page.
+4.  Click the link below to download a sample web chat hyper text markup language (HTML) page.
 
     <a href="https://ibm.box.com/s/5fgw9zddqps7h8sxjbuqx0q5wv0fxvl2" target="_blank">**Watson Assistant Chat.html**</a>
 
     ![](_attachments/publish17.png)
 
-18. Edit the **Watson Assistant Chat.html** file and insert the values for your assistant you copied in step 16.
+5.  Edit the **Watson Assistant Chat.html** file and insert the values for your assistant you copied in step 16.
 
     ![](_attachments/publish18.png)
 
-19. Save the changes to the **Watson Assistant Chat.html** file.
+6.  Save the changes to the **Watson Assistant Chat.html** file.
 
     ![](_attachments/publish19.png)
 
-20. Open the **Watson Assistant Chat.html** file in a web browser.
+7.  Open the **Watson Assistant Chat.html** file in a web browser.
 
     ![](_attachments/publish20.png)
 
@@ -157,6 +155,3 @@ Show me z/OS facts
 ```
 Gather and display z/OS facts
 ```
-
-
-

@@ -316,7 +316,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 
     ![](_attachments/genAIGenAI3.png)
 
-4.  Toggle **General-purpose answering** to **Off**.
+4.  Toggle **General-purpose answering** to **Off** and then click **Save** (![](_attachments/diskIcon.png)).
 
     The ability exists to configure the answering behavior of your assistant to provide responses that are based on the preinstalled content or general content.
 

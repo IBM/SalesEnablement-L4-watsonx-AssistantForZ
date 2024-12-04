@@ -3,7 +3,7 @@ As seen in the previous section, running the Ansible skill to **Gather z/OS fact
 
 As mentioned in a previous section, there are some default utility skills that are provided out of the box with the “Z Skills Accelerator” which are leveraged to return the output of a skill. To accomplish this, we will import the Ansible Utility skill called **Retrieve job output**.
 
-# Add the utility skill
+## Add the utility skill
 
 1. Open IBM watsonx Orchestrate **Skill studio**.
 
@@ -21,9 +21,9 @@ As mentioned in a previous section, there are some default utility skills that a
 
     Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
 
-    **a**: Connection Type: **ansible**
+    **a**: Connection Type: `ansible`
 
-    **b**: Application Name: <use the same application name as in previous section\> - *
+    **b**: Application Name: <use the same application name as in previous section\>
 
     **c**: Connection URL: <enter the URL for your AAP UI\>
 
@@ -31,7 +31,7 @@ As mentioned in a previous section, there are some default utility skills that a
 
     **e**: Password: <enter the AAP User Password\>
 
-    **f**: Search Pattern: **\***
+    **f**: Search Pattern: `*`
 
     ![](_attachments/skillsForm.png)
 
@@ -71,126 +71,125 @@ As mentioned in a previous section, there are some default utility skills that a
 
     ![](_attachments/skillFlow9.png)
 
-14. Verify the application is (a) **Connected** and then (b) click the **x** to close the dialog.
+14. Verify the application is **Connected** (**a**) and then click **Close** (**b**).
 
     ![](_attachments/skillFlow10.png)
 
 ## Add the skills to your Personal skills
-15. Click **Skill catalog** in the main menu.
+1. Click **Skill catalog** in the main menu.
 
     ![](_attachments/skillFlow11.png)
 
-16. Search for the application name you specified earlier.
+2.  Search for the application name you specified earlier.
 
     ![](_attachments/skillFlow12.png)
 
-17. Click the tile for your application.
+3.  Click the tile for your application.
 
     Note, the tile name is proceeded by **Ansible Controller Skills**.
 
     ![](_attachments/skillFlow13.png)
 
-18. Click **Add skill** for each of the skills you want to add to the flow.
+4.  Click **Add skill** for each of the skills you want to add to the flow.
 
     ![](_attachments/skillFlow14.png)
 
 ## Create the skill flow
-19. Click **Skill studio** in the main menu.
+1. Click **Skill studio** in the main menu.
 
     ![](_attachments/skillFlow15.png)
 
-20. Expand the **Create** drop-down menu and click on **Skill flow**.
+2.  Expand the **Create** drop-down menu and click on **Skill flow**.
 
     ![](_attachments/skillFlow16.png)
 
-21. Click the **+** icon.
+3.  Click the **+** icon.
 
     ![](_attachments/skillFlow17.png)
 
-Next, you need to add the **z/OS Gather Facts** skill and the **Retrieve job output** skill to the skill flow. Use the **Search apps** function to locate the skills.
+    Next, you need to add the **z/OS Gather Facts** skill and the **Retrieve job output** skill to the skill flow. Use the **Search apps** function to locate the skills.
 
-22. Search for the application name you specified earlier and click it's tile.
+4. Search for the application name you specified earlier and click it's tile.
 
     ![](_attachments/skillFlow18.png)
 
-23. Click **Add Skill** in the **z/OS Gather Facts** tile.
+5.  Click **Add Skill** in the **z/OS Gather Facts** tile.
 
     ![](_attachments/skillFlow19.png)
 
-24. Verify the **z/OS Gather Facts** skill is added to the skill flow.
+6.  Verify the **z/OS Gather Facts** skill is added to the skill flow.
 
     ![](_attachments/skillFlow20.png)
 
-25. Click the **+** icon **after** the **z/OS Gather Facts** tile.
+7.  Click the **+** icon **after** the **z/OS Gather Facts** tile.
 
     ![](_attachments/skillFlow21.png)
 
-26. Repeat steps 22 and 23 for the **Retrieve job output** skill. 
+8.  Repeat steps 5 and 6 for the **Retrieve job output** skill. 
 
     After adding the **Retrieve job output** skill, your skill flow should like like:
 
     ![](_attachments/skillFlow22.png)
 
-## Map the outputs and inputs of the skills
-Next you must map the output values of the first skill to the input of the second skill. In this case, pass the “job id” output from **z/OS Gather Facts** as an input for **Retrieve job output**. 
+    Next you must map the output values of the first skill to the input of the second skill. In this case, pass the “job id” output from **z/OS Gather Facts** as an input for **Retrieve job output**. 
 
-27. Click the **Retrieve job output** tile.
+9. Click the **Retrieve job output** tile.
 
     ![](_attachments/skillFlow23.png)
 
-28. Select the **Input** tab and click in the **id** field.
+10. Select the **Input** tab and click in the **id** field.
 
     ![](_attachments/skillFlow24.png)
 
-29. Click the **z/OS Gather Facts** skill in the **Mapping data for "id"** section.
+11. Click the **z/OS Gather Facts** skill in the **Mapping data for "id"** section.
 
     ![](_attachments/skillFlow25.png)
 
-30. Click the **job** icon.
+12. Click the **job** icon.
 
     ![](_attachments/skillFlow25-a.png)
 
-31. Verify the **job** appears in the **id** field.
+13. Verify the **job** appears in the **id** field.
 
     ![](_attachments/skillFlow25-b.png)
 
-32. Optionally, toggle the **Hide this from from the user** setting.
+14. Optionally, toggle the **Hide this from from the user** setting.
 
     For this lab guide, this option is left disabled. Learn more about this option <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows#hiding-input-and-output-forms" target="_blank">here</a>.
 
     ![](_attachments/skillFlow26.png)
 
-33. Click the **x** to close mapping window.
+15. Click the **x** to close mapping window.
 
     ![](_attachments/skillFlow27.png)
 
-34. Click the pencil (![](_attachments/pencilIcon.png)).
+16. Click the pencil (![](_attachments/pencilIcon.png)).
 
     ![](_attachments/skillFlow28.png)
 
-35. Enter a (a) **Name** and (b) **Description** for your skill flow and then (c) click **Save**.
+17. Enter a (a) **Name** and (b) **Description** for your skill flow and then (c) click **Save**.
 
     ![](_attachments/skillFlow29.png)
 
-36. Expand the **Actions** pull-down list and click **Save as draft**.
+18. Expand the **Actions** pull-down list and click **Save as draft**.
 
     ![](_attachments/skillFlow30.png)
 
-37. Expand the **Actions** pull-down list and click **Enhance**.
+19. Expand the **Actions** pull-down list and click **Enhance**.
 
     ![](_attachments/skillFlow31.png)
 
-## Enhancing the skill flow
-On the **Enhancing the skill** pages, you can:
-- modify the skill name, description, and version
-- add phrases (prompts) that will be recognized by the assistant to call the skill flow
-- 
+    On the **Enhancing the skill** pages, you can:
 
-36. Click the **Phrases** tab.
+    - modify the skill name, description, and version
+  
+    - add phrases (prompts) that will be recognized by the assistant to call the skill flow
+
+20.  Click the **Phrases** tab.
 
     ![](_attachments/skillFlow32.png)
 
-37. Enter new **phrases** (prompts) for your skill flow and then click **Publish**.
+21. Enter new **phrases** (prompts) for your skill flow and then click **Publish**.
 
     Notice the default prompts are either not very intuitive (the skill flow name) or a bit verbose. Add a couple of other prompts that you anticipate users will enter.
 
@@ -206,29 +205,29 @@ On the **Enhancing the skill** pages, you can:
 
 ## Enable the skill flow in your assistant
 
-38. Click **AI assistant builder** in the main menu.
+1. Click **AI assistant builder** in the main menu.
 
     ![](_attachments/skillFlow34.png)
 
-39. Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Actions**.
+2.  Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Actions**.
 
     ![](_attachments/skillFlow35.png)
 
-40. Click **New action**.
+3.  Click **New action**.
 
     ![](_attachments/skillFlow36.png)
 
-41. Click the **Skill-based action** tile.
+4.  Click the **Skill-based action** tile.
 
     ![](_attachments/skillFlow37.png)
 
-42. Click the skill flow you created earlier and then click **Next**.
+5.  Click the skill flow you created earlier and then click **Next**.
 
     **Note**: it may take a minute for the tiles to appear on the screen.
 
     ![](_attachments/skillFlow38.png)
 
-43. Enter an example prompt for the skill and click **Save**.
+6.  Enter an example prompt for the skill and click **Save**.
 
     You can use one of the prompts you used earlier for the skill flow.
 
@@ -238,25 +237,39 @@ On the **Enhancing the skill** pages, you can:
 
     ![](_attachments/skillFlow39.png)
 
-44. Enter any additional phrases (prompts) and then click the **save** (![](_attachments/diskIcon.png)).
+7.  Enter any additional phrases (prompts) and then click the **save** (![](_attachments/diskIcon.png)).
 
     ![](_attachments/skillFlow40.png)
 
-45. Click **Preview**.
+8. Click close (**x**).
 
     ![](_attachments/skillFlow41.png)
 
-46. Enter one of the prompts you specified into the assistant preview.
+9. Select the original skill you created (**a**) (not the new flow skill), click the ellipses (**b**), and then click **Delete** (**c**).
+
+    ![](_attachments/skillFlow41-a.png)
+
+10. Wait for system training to complete.
+
+    **Note**: The message will change to "System is trained" and then disappear.
+
+    ![](_attachments/skillFlow41-b.png)
+
+11. Click **Preview**.
+
+    ![](_attachments/skillFlow41-c.png)
+
+12.  Enter one of the prompts you specified into the assistant preview.
 
     ![](_attachments/skillFlow42.png)
 
-47. **Wait 10 seconds** and then click **Apply**.
+3.  **Wait 10 seconds** and then click **Apply**.
 
-    **Note**: it is important to wait for the first job to complete before submitting the second job in the flow.
+    **Note**: It is important to wait for the first job to complete before submitting the second job in the flow.
 
     ![](_attachments/skillFlow43.png)
 
-48. Review the results from the skill flow.
+4.  Review the results from the skill flow.
 
     Use both scroll bars in the assistant preview to review all of the returned information. 
 

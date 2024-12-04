@@ -54,7 +54,7 @@ These steps are not repeated in this lab guide. The following video illustrates 
 
     If you are viewing the <a href="{{guide.pdf}}" target="_blank">PDF</a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
 
-## Verify the document that is ingested is now returned as a source file for a query.
+## Verify the document that is ingested is now returned as a source file for a query
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
 
 1. Hover over the **Home** (![](_attachments/homeIcon.png)) icon and click **Preview**.
@@ -95,7 +95,7 @@ Do you recall the **Metadata** field when you configured your assistant?
 
 The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.
 
-By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:
+If you leave this field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:
 
 ```
 {“ibm_indices”:“*_ibm_docs_slate”,
@@ -131,13 +131,13 @@ For example:
 
 In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.
 
-After you have configured all the settings for Conversational Search on the page, click “Save” in the upper-right of the page.
+After you have configured all the settings for Conversational Search on the page, be sure to click **Save** in the upper-right of the page.
 
-For more information on customizing the metadata field for conversational search, refer to this supplemental video found <href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
+For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
 
 You are encouraged to experiment with the metadata field!
 
-**Try setting the metadata field to the following, which weights ingested docs higher than the product docs:**
+Try setting the metadata field to the following, which weights ingested docs higher than the product docs:
 
 ```
 {"doc_weight":
@@ -148,7 +148,7 @@ You are encouraged to experiment with the metadata field!
 }
 ```
 
-**Now, repeat steps 6 through 8 (make sure you restart the assistant preview (![](_attachments/reloadAssistantIcon.png))). Notice that the ingested Red Piece document is now the first sited reference!**
+Repeat the earlier steps to restart the assistant preview (![](_attachments/reloadAssistantIcon.png)) and reissue your queries. Notice that the ingested Red Piece document is now the first sited reference!
 
 ![](_attachments/verifyIngest5.png)
 
