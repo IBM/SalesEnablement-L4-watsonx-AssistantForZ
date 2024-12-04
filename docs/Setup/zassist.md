@@ -4,9 +4,11 @@ With bring-your-own-search (BYOS) installed and configured in your assistant, yo
 To prepare for document ingestion, you can also reference the setup instructions that are located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.
 
 ## Install the zassist utility
-The **zassist** utility is an executable program that automates the ingestion of client documentation into the RAG for watsonx Assistant for Z. The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.
+The **zassist** utility is an executable program that automates the ingestion of client documentation into the RAG for watsonx Assistant for Z. A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps below to download and install **zassist**.
 
-A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps that follow to download and install **zassist**.
+!!! Info "How do clients get the zassist utility?"
+
+    The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.
 
 1. Click the following link and download the **zassist.zip** file.
    
@@ -19,40 +21,48 @@ A version of zassist is available for download for IBMers and Business Partners 
 
     ![](_attachments/zasstZIPFile.png)
 
-4. Either copy the appropriate **zassist** file to a directory in your PATH, or copy it to a directory and add that directory to your PATH environment variable.
+4. Either copy the appropriate **zassist** file to a directory in your PATH, or add the appropriate directory to your PATH environment variable.
 
     Additional information for running the preceding tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.
 
-5. Verify that the **zassist** utility is working.
+5. Run the **zassist** command to verify it is working.
+
+    ```
+    zassist
+    ```
 
     ![](_attachments/zassistRunning.png)
 
-## Ingest client documentation using **zassist**
+    ??? Tip "Mac/OS users may need to adjust security settings."
+
+        The **zassist** binary may cause a security exception. Adjust the security settings by opening the **System Settings** utility and clicking **Privacy & Security**. Under **Security** locate the message about the **zassist** binary and click **Allow Anyway**. Return to the terminal window and try running teh command again.
+
+## Ingest client documentation using zassist
 With the **zassist** command installed, you are now able to begin ingesting data. 
 
-Step-by-step guidance for ingesting documents using zassist is provided in the IBM watsonx Assistant for Z documentation. In the directions, when running the log in command in step 7, use the **CLIENT_INGESTION_AUTHKEY** you created in the [previous section](documentIngestion.md/#AuthKey).
+Step-by-step guidance for ingesting documents using zassist is provided in the IBM watsonx Assistant for Z documentation.
 
-6. Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.
+Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.
 
-    These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. This video has no audio.
+These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
 
-    ![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
+**Note**: The video has no audio.
 
-    ??? Info "Don't see the video in the PDF version of the lab guide?"
+![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
 
-        If you are viewing the PDF of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+??? Info "Don't see the video in the PDF version of the lab guide?"
 
-    The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
+    If you are viewing the <a href="{{guide.pdf}}" target="_blank">PDF</a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
 
 ## Verify the document that is ingested is now returned as a source file for a query.
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
 
-7. Hover over the **Home** (![](_attachments/homeIcon.png)) icon and click **Preview**.
-8. Click the **Restart conversation** (![](_attachments/reloadAssistantIcon.png)) icon.
+1. Hover over the **Home** (![](_attachments/homeIcon.png)) icon and click **Preview**.
+2. Click the **Restart conversation** (![](_attachments/reloadAssistantIcon.png)) icon.
 
     ![](_attachments/reloadAssistant.png)
 
-9. Enter the following prompt in your assistant.
+3. Enter the following prompt in your assistant.
 
     ```
     What is z/OS continuous delivery?
@@ -60,19 +70,19 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     ![](_attachments/verifyIngest0.png)
 
-10. Clicking the **Down arrow** (![](_attachments/downArrowIcon.png)).
+4.  Clicking the **Down arrow** (![](_attachments/downArrowIcon.png)).
    
     ![](_attachments/verifyIngest1.png)
 
-11. Click through the list of resources and find the reference to the Red Piece document you ingested.
+5.  Click through the list of resources and find the reference to the Red Piece document you ingested.
 
     ![](_attachments/verifyIngest2.png)
 
-12. Click the ingested document reference.
+6.  Click the ingested document reference.
 
     ![](_attachments/verifyIngest3.png)
 
-13. Accept the security risk to view the source document.
+7.  Accept the security risk to view the source document.
 
     The steps to accept the security risk for the document are not shown. The risk occurs because the certificate for the connection to the SNO instance is not secure. Notice that the URL contains the path to your SNO instance route.
 

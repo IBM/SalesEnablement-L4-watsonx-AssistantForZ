@@ -298,11 +298,11 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/installAssistantOperator5.png)
 
-13. In the Red Hat OpenShift web console, click **Workloads** and select the **Pods**.
+13. In the Red Hat OpenShift web console, under **Workloads**, click **Pods**.
 
     ![](_attachments/installAssistantOperator6.png)
 
-14. Verify the two pods that start with **ibm-wxa4z-operator** have a Status of **Running** and that all pods are **Ready**.
+14. Verify the two pods that start with **ibm-wxa4z-operator** have a status of **Running** and that all pods are **Ready**.
 
     ![](_attachments/installAssistantOperator7.png)
 
@@ -378,9 +378,9 @@ Before ingesting documents, complete the following setup steps.
     oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
     ```
 
-    !!! Warning "Remove the trailing **%** from the cluster domain name."
+    !!! Warning "The output from the command does not include a newline."
 
-        The value returned for the cluster domain may include a **%** character at the end. Do not include the **%** in the next step!
+        The value returned for the cluster domain does not include a newline. When copying the value do not include the character or characters used for your command line prompt. Do not include the your prompt in the next step!
 
     **Note**: The output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com**
 
@@ -391,7 +391,7 @@ Before ingesting documents, complete the following setup steps.
     byos.yaml
     ```
 
-    Substitute the domain name recorded in the previous step for the string `<YOUR_CLUSTER_DOMAIN>`. Do not include the **%** at the end of the domain name.
+    Substitute the domain name recorded in the previous step for the string `<YOUR_CLUSTER_DOMAIN>`.
 
     File contents:
     ```yaml
@@ -451,7 +451,7 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f byos.yaml
     ```
 
-**The BYOS deployment begins and can take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the OCP console.**
+**Important**: The BYOS deployment can take 20 minutes or more to complete. 
 
 ### Verify all the required pods are running and get the network route to your BYOS instance
 1. Verify that all pods have the status of **Running** or **Completed**.
@@ -460,29 +460,33 @@ Before ingesting documents, complete the following setup steps.
 
 When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your BYOS endpoint URL.
 
-2.  In the OCP console, click **Networking** and then **Routes**.
+1.  In the OCP console, under **Networking**, click **Routes**.
 
     ![](_attachments/ocpNetworkingRoutesMenu.png)
 
-3.  Copy and record the location for the **wxa4z-opensearch-wrapper** route.
+2.  Copy and record the location for the **wxa4z-opensearch-wrapper** route.
 
     ![](_attachments/ocpRouteToWrapper.png)
 
 ### Update your assistant with the new BYOS instance route
 <a name="BYOS-url"></a>
-Configure your assistant with the route recorded in the previous step.
+You are now ready to configure your assistant with the route to your BYOS instance.
 
-Using the network route for your BYOS instance, append the string **/v1/query** to complete the URL endpoint. The URL should look similar to:
+1. Using the network route for your BYOS instance, append the string **/v1/query** to complete the URL endpoint. 
 
-`https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query`
+    The URL should look similar to:
 
-**Note**: The above URL will not work for you. **Use the value of your specific OpenSearch instance that is recorded in the previous step.**
+    `https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query`
 
-Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can see the steps [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL).
+    **Important**: The above URL will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.
 
-??? Tip "How to set the custom search integration URL."
+2. Update your assistant's custom search integration URL.
+   
+    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can review the steps to accomplish this [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL) (be sure to use your BYOS URL and not the shared URL specified in the lab guide).
 
-    ![](_attachments/changeCustomSearchURL.gif)
+    ??? Tip "How to set the custom search integration URL."
+
+        ![](_attachments/changeCustomSearchURL.gif)
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.
