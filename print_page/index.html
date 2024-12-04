@@ -1939,11 +1939,11 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>Using the network route for your <abbr title="Bring Your Own Search">BYOS</abbr> instance, append the string <strong>/v1/query</strong> to complete the <abbr title="Uniform Resource Locator">URL</abbr> endpoint. </p>
 <p>The <abbr title="Uniform Resource Locator">URL</abbr> should look similar to:</p>
 <p><code>https://wxa4z-opensearch-wrapper-wxa4z-byos.apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com/v1/query</code></p>
-<p><strong>Note</strong>: The above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. <strong>Use the value of your specific OpenSearch instance that is recorded in the previous step.</strong></p>
+<p><strong>Important</strong>: The above <abbr title="Uniform Resource Locator">URL</abbr> will not work for you. Use the value of your specific OpenSearch instance that is recorded in the previous step.</p>
 </li>
 <li>
-<p>Update the your assistan'ts custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can review the steps <a href="#setup-creatingassistant-configuringconvosearch-configureCustomSearchURL">here</a>.</p>
+<p>Update your assistant's custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>Next, you need to return to your assistant in the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder and update the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>. The steps to update the <abbr title="Uniform Resource Locator">URL</abbr> are illustrated in the animated gif that follows. You can review the steps to accomplish this <a href="#setup-creatingassistant-configuringconvosearch-configureCustomSearchURL">here</a> (be sure to use your <abbr title="Bring Your Own Search">BYOS</abbr> <abbr title="Uniform Resource Locator">URL</abbr> and not the shared <abbr title="Uniform Resource Locator">URL</abbr> specified in the lab guide).</p>
 <details class="tip">
 <summary>How to set the custom search integration <abbr title="Uniform Resource Locator">URL</abbr>.</summary>
 <p><a class="glightbox" href="../Setup/_attachments/changeCustomSearchURL.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/changeCustomSearchURL.gif"></a></p>
@@ -1967,8 +1967,11 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>With bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr>, and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion. </p>
 <p>To prepare for document ingestion, you can also reference the setup instructions that are located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.</p>
 <h2 id="setup-zassist-install-the-zassist-utility">Install the zassist utility<a class="headerlink" href="#setup-zassist-install-the-zassist-utility" title="Permanent link">#</a></h2>
-<p>The <strong>zassist</strong> utility is an executable program that automates the ingestion of client documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> for watsonx Assistant for Z. The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.</p>
-<p>A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps that follow to download and install <strong>zassist</strong>.</p>
+<p>The <strong>zassist</strong> utility is an executable program that automates the ingestion of client documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> for watsonx Assistant for Z. A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps below to download and install <strong>zassist</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">How do clients get the zassist utility?</p>
+<p>The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.</p>
+</div>
 <ol>
 <li>
 <p>Click the following link and download the <strong>zassist.zip</strong> file.</p>
@@ -1987,8 +1990,14 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>Additional information for running the preceding tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.</p>
 </li>
 <li>
-<p>Verify that the <strong>zassist</strong> utility is working.</p>
+<p>Run the <strong>zassist</strong> command to verify it is working.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-zassist-__codelineno-0-1"></a>zassist
+</span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/zassistRunning.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/zassistRunning.png"></a></p>
+<details class="tip">
+<summary>Mac/<abbr title="Operating System">OS</abbr> users may need to adjust security settings.</summary>
+<p>The <strong>zassist</strong> binary may cause a security exception. Adjust the security settings by opening the <strong>System Settings</strong> utility and clicking <strong>Privacy &amp; Security</strong>. Under <strong>Security</strong> locate the message about the <strong>xassist</strong> binary and click <strong>Allow Anyway</strong>. Return to the terminal window and try running teh command again.</p>
+</details>
 </li>
 </ol>
 <h2 id="setup-zassist-ingest-client-documentation-using-zassist">Ingest client documentation using <strong>zassist</strong><a class="headerlink" href="#setup-zassist-ingest-client-documentation-using-zassist" title="Permanent link">#</a></h2>
@@ -2016,7 +2025,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p>Enter the following prompt in your assistant.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-zassist-__codelineno-0-1"></a>What is z/OS continuous delivery?
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>What is z/OS continuous delivery?
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest0.png"></a></p>
 </li>
@@ -2043,36 +2052,36 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/genAISettings2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2b.png"></a></p>
 <p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.</p>
 <p>By default (without any string in the Metadata field), it searches all the default IBM provided documentation and all ingested customer documentation using the following value:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#setup-zassist-__codelineno-1-2"></a>“customer_indices”:“customer_*”}
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-zassist-__codelineno-2-1"></a>{“ibm_indices”:“*_ibm_docs_slate”,
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#setup-zassist-__codelineno-2-2"></a>“customer_indices”:“customer_*”}
 </span></code></pre></div>
 <p>Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
 <p>You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-zassist-__codelineno-2-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-zassist-__codelineno-3-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
 </span></code></pre></div>
 <p>For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/<abbr title="Operating System">OS</abbr>” and no ingested client documentation, you can enter the following into the metadata field:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-zassist-__codelineno-3-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-zassist-__codelineno-4-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
 </span></code></pre></div>
 <p>If you have a mix of IBM Documentation and client documentation ingested, then there’s an optional search string that you can use to set the “weights” used for each. </p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-zassist-__codelineno-4-1"></a>{"doc_weight":
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-zassist-__codelineno-4-2"></a>{"product_docs":0.5,
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-zassist-__codelineno-4-3"></a> "customer_docs":0.5},
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-zassist-__codelineno-4-4"></a>"ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-zassist-__codelineno-4-5"></a>"customer_indicies":"customer_*"
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-zassist-__codelineno-4-6"></a>}
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#setup-zassist-__codelineno-5-2"></a>{"product_docs":0.5,
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#setup-zassist-__codelineno-5-3"></a> "customer_docs":0.5},
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#setup-zassist-__codelineno-5-4"></a>"ibm_indicies":"*_ibm_docs_slate",
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#setup-zassist-__codelineno-5-5"></a>"customer_indicies":"customer_*"
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#setup-zassist-__codelineno-5-6"></a>}
 </span></code></pre></div>
 <p>In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.</p>
 <p>After you have configured all the settings for Conversational Search on the page, click “Save” in the upper-right of the page.</p>
 <p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <href target="_blank">here.</href></p>
 <p>You are encouraged to experiment with the metadata field!</p>
 <p><strong>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</strong></p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#setup-zassist-__codelineno-5-2"></a>{"product_docs":0.2,
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#setup-zassist-__codelineno-5-3"></a> "customer_docs":0.8},
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#setup-zassist-__codelineno-5-4"></a>"ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#setup-zassist-__codelineno-5-5"></a>"customer_indicies":"customer_*"
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#setup-zassist-__codelineno-5-6"></a>}
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>{"doc_weight":
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#setup-zassist-__codelineno-6-2"></a>{"product_docs":0.2,
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#setup-zassist-__codelineno-6-3"></a> "customer_docs":0.8},
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#setup-zassist-__codelineno-6-4"></a>"ibm_indicies":"*_ibm_docs_slate",
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#setup-zassist-__codelineno-6-5"></a>"customer_indicies":"customer_*"
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#setup-zassist-__codelineno-6-6"></a>}
 </span></code></pre></div>
 <p><strong>Now, repeat steps 6 through 8 (make sure you restart the assistant preview (<a class="glightbox" href="../Setup/_attachments/reloadAssistantIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/reloadAssistantIcon.png"></a>)). Notice that the ingested Red Piece document is now the first sited reference!</strong></p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
@@ -2099,7 +2108,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p>If you receive a <strong>batch time error</strong>, set the batch size to a lower number for that command. For example:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>zassist ingest . -s 50
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-zassist-__codelineno-7-1"></a>zassist ingest . -s 50
 </span></code></pre></div>
 </li>
 </ul>
