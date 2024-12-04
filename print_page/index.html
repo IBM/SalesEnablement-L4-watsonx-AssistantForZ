@@ -2071,7 +2071,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>After you have configured all the settings for Conversational Search on the page, be sure to click <strong>Save</strong> in the upper-right of the page.</p>
 <p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.</p>
 <p>You are encouraged to experiment with the metadata field!</p>
-<p><strong>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</strong></p>
+<p>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>{"doc_weight":
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#setup-zassist-__codelineno-6-2"></a>{"product_docs":0.2,
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#setup-zassist-__codelineno-6-3"></a> "customer_docs":0.8},
@@ -2079,7 +2079,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#setup-zassist-__codelineno-6-5"></a>"customer_indicies":"customer_*"
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#setup-zassist-__codelineno-6-6"></a>}
 </span></code></pre></div>
-<p><strong>Now, repeat steps 6 through 8 (make sure you restart the assistant preview (<a class="glightbox" href="../Setup/_attachments/reloadAssistantIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/reloadAssistantIcon.png"></a>)). Notice that the ingested Red Piece document is now the first sited reference!</strong></p>
+<p>Repeat the earlier steps to restart the assistant preview (<a class="glightbox" href="../Setup/_attachments/reloadAssistantIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/reloadAssistantIcon.png"></a>) and reissue your queries. Notice that the ingested Red Piece document is now the first sited reference!</p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
 <h2 id="setup-zassist-guidance-for-the-pilot-environment">Guidance for the pilot environment<a class="headerlink" href="#setup-zassist-guidance-for-the-pilot-environment" title="Permanent link">#</a></h2>
 <p>If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot <abbr title="IBM Technology Zone">ITZ</abbr> environment is limited in compute and storage capacity. The following limits should be adhered to:</p>
@@ -2808,7 +2808,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Adding skills to the assistant</h1><section class="print-page" id="setup-publishdeploy"><div><h1 id="publishing-and-deploying-your-assistant">Publishing and deploying your assistant<a class="headerlink" href="#setup-publishdeploy-publishing-and-deploying-your-assistant" title="Permanent link">#</a></h1>
 <p>To this point, acting as an Assistant Builder, you have built out the assistant, configured conversational search, and added skills and automations. While doing so, you have been testing your assistant using the <strong>preview</strong> capability of <abbr title="Artificial intelligence">AI</abbr> Assistant Builder. The <strong>preview</strong> capability is a closed environment for experimenting with prompts.</p>
-<p>Once your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two <strong>environments</strong>:
+<p>After your assistant is finalized, you can publish it to make it available to end-users. Each assistant you create comes with two <strong>environments</strong>:
 <em>draft</em> and <em>live</em>. You have been configuring your assistant in the draft environment. Each environment has its own set of IDs, URLs, and service credentials that can be referenced by external services.</p>
 <p>The <strong>Environments</strong> page in the <abbr title="Artificial intelligence">AI</abbr> assistant builder has tabs for managing both the <strong>Draft environment</strong> and the <strong>Live environment</strong>:</p>
 <p><a class="glightbox" href="../Setup/_attachments/draftView0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/draftView0.png"></a></p>
@@ -2832,14 +2832,13 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/publish1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish1.png"></a></p>
 </li>
 <li>
-<p>Enter a (a) description of the changes, set the (b) environment to <strong>Live</strong>, and then (c) click <strong>Publish</strong>.</p>
+<p>Enter a description of the changes (<strong>a</strong>), set the environment to <strong>Live</strong> (<strong>b</strong>), and then click <strong>Publish</strong> (<strong>c</strong>).</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish3.png"></a></p>
 </li>
 </ol>
-<h2 id="setup-publishdeploy-configure-the-live-environment">Configure the <strong>Live</strong> environment<a class="headerlink" href="#setup-publishdeploy-configure-the-live-environment" title="Permanent link">#</a></h2>
-<p>When the live environment is created, the environment settings from the draft environment are not carried over (for example the configuration of the
-OpenSearch instance used for conversational search).</p>
-<ol start="4">
+<h2 id="setup-publishdeploy-configure-the-live-environment">Configure the live environment<a class="headerlink" href="#setup-publishdeploy-configure-the-live-environment" title="Permanent link">#</a></h2>
+<p><strong>Important</strong>: When the live environment is created, the environment settings from the draft environment are not carried over (for example the configuration of the OpenSearch instance used for conversational search).</p>
+<ol>
 <li>
 <p>Hover over the <strong>Home</strong> icon (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) and click <strong>Environments</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish4.png"></a></p>
@@ -2853,9 +2852,9 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish6.png"></a></p>
 </li>
 <li>
-<p>Customize the <strong>Live</strong> assistant as you see fit.</p>
-<p>On the Style tab, you’re able to set the Assistant name which will be displayed at the top of the chat window when end-users are interacting with the assistant. For pilots or demos, you may want to personalize this name for the client. Also in the Style tab, you have the ability set the themes and display settings of the chat windows, including the ability to enable the IBM Watermark and enable streaming (recommended).</p>
-<p>On the Home screen tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.</p>
+<p>Customize the live assistant as you see fit.</p>
+<p>On the <strong>Style</strong> tab, you’re able to set the Assistant name which will be displayed at the top of the chat window when end-users are interacting with the assistant. For pilots or demos, you may want to personalize this name for the client. Also in the <strong>Style</strong> tab, you have the ability set the themes and display settings of the chat windows, including the ability to enable the IBM Watermark and enable streaming (recommended).</p>
+<p>On the <strong>Home</strong> tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.</p>
 <p>Explore all the other tabs.</p>
 <div class="admonition important">
 <p class="admonition-title">Customize your Live environment.</p>
@@ -2876,7 +2875,7 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish10.png"></a></p>
 </li>
 <li>
-<p>Enter the (a) <abbr title="Uniform Resource Locator">URL</abbr> for your bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) engine, (b) select <strong>None</strong> for the <strong>authentication type</strong>, and (c) click <strong>Next</strong>.</p>
+<p>Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) engine (<strong>a</strong>), select <strong>None</strong> for the <strong>authentication type</strong> (<strong>b</strong>), and then click <strong>Next</strong> (<strong>c</strong>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Use the correct <abbr title="Uniform Resource Locator">URL</abbr>!</p>
 <p>Be sure to use the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Bring Your Own Search">BYOS</abbr> OpenSearch engine created earlier <a href="#setup-documentingestion-BYOS-url">here</a>.</p>
@@ -2888,7 +2887,7 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish12.png"></a></p>
 </li>
 <li>
-<p>Update the (a) - (f) <strong>Custom service</strong> settings, (g) click <strong>Save</strong>, and then (h) click <strong>Close</strong>.</p>
+<p>Update the <strong>Custom service</strong> settings (<strong>a-f</strong>), click <strong>Save</strong> (<strong>g</strong>), and then click <strong>Close</strong> (<strong>h</strong>).</p>
 <div class="admonition tip">
 <p class="admonition-title">Feel free to customize the settings.</p>
 <p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher.</p>
@@ -2901,7 +2900,7 @@ OpenSearch instance used for conversational search).</p>
 <p>After configuring your assistant’s settings and publishing, the final step is to deploy your assistant which can be done across various channels depending on the use case.</p>
 <p>There are several options for deploying your assistant through channels and integrations to satisfy the use cases that you might address. Learn more about all the deployment options <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-deploying-your-ai-assistant" target="_blank">here</a>.</p>
 <p>For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website. There is a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.</p>
-<ol start="14">
+<ol>
 <li>
 <p>Click <strong>Web chat</strong> for the <strong>Live</strong> environment.</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish14.png"></a></p>
@@ -2911,7 +2910,7 @@ OpenSearch instance used for conversational search).</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish15.png"></a></p>
 </li>
 <li>
-<p>Copy and record the <strong>integrationID</strong>, <strong>region</strong>, and <strong>serviceInstanceID</strong> values.</p>
+<p>Copy and record the <code>integrationID</code>, <code>region</code>, and <code>serviceInstanceID</code> values.</p>
 <p><a class="glightbox" href="../Setup/_attachments/publish16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish16.png"></a></p>
 </li>
 <li>
