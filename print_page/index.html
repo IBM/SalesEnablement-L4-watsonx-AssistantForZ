@@ -2752,7 +2752,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </details>
 </li>
 </ol>
-<p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show how you to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to experiment with your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance.</p>
+<p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show you how to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to create your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance.</p>
 <p>Next, learn about custom-built actions.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingcustomactions"><div><h1 id="creating-custom-built-actions">Creating custom-built actions<a class="headerlink" href="#setup-creatingcustomactions-creating-custom-built-actions" title="Permanent link">#</a></h1>
@@ -2772,7 +2772,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ul>
 <p>There is also the ability to create <strong>custom-built</strong> actions. Custom-built actions allow you to create new actions with different steps to take in conversations and form sequences of prompts that define the conversation experience. The steps can be defined with or without conditions, which help control the custom responses. Steps within the custom action can end with routing to conversational search, triggering another existing sub-action, and other actions. This is a powerful way of customizing the end-user’s experience.</p>
-<p>Learn more about creating custom-built actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=assistants-building-your-ai-assistant-actions#build-actions-from-scratch" target="_blank">here</a>.</p>
+<p>Learn more about creating custom-built actions <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=builder-building-your-ai-assistant-actions#build-action-from-skill" target="_blank">here</a>.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-importingzosskills"><div><h1 id="importing-pre-packaged-zos-skills">Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills<a class="headerlink" href="#setup-importingzosskills-importing-pre-packaged-zos-skills" title="Permanent link">#</a></h1>
 <p>Provided with Version 2 of watsonx Assistant for Z is a set of pre-packaged skills which can be used to automate various tasks on z/<abbr title="Operating System">OS</abbr>, such as running different console commands and retrieving logs from batch jobs.</p>
@@ -2867,8 +2867,8 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>On the <strong>Home</strong> tab, you enable and customize a default greeting message from the assistant when the user accesses the assistant chat. You’re also able to set Conversation starters that will be displayed in the chat window. When selected by the end-user, the text of these conversation starters are sent as prompts, so it is important that your assistant is trained and tested to answer appropriately. It is highly recommended to remove these default conversation starters and to consider creating your own as long as they’re able to be executed as actions and provide value to the end-user. At the bottom of the Home screen tab, you will also see the ability to add a Background style for the assistant chat window.</p>
 <p>Explore all the other tabs.</p>
 <div class="admonition important">
-<p class="admonition-title">Customize your Live environment.</p>
-<p>For this lab, toggle <strong>Streaming</strong> on and turn <strong>Suggestions</strong> off on the <strong>Suggestions</strong> tab. You may also want to change the theme to <strong>Dark</strong> to differentiate your Draft and Live environments. </p>
+<p class="admonition-title">Customize your live environment.</p>
+<p>For this lab, toggle <strong>Streaming</strong> on and turn <strong>Suggestions</strong> off on the <strong>Suggestions</strong> tab. You may also want to change the theme to <strong>Dark</strong> to differentiate your draft and live environments. </p>
 </div>
 <p><a class="glightbox" href="../Setup/_attachments/publish7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish7.png"></a></p>
 </li>
@@ -2900,7 +2900,14 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>Update the <strong>Custom service</strong> settings (<strong>a-f</strong>), click <strong>Save</strong> (<strong>g</strong>), and then click <strong>Close</strong> (<strong>h</strong>).</p>
 <div class="admonition tip">
 <p class="admonition-title">Feel free to customize the settings.</p>
-<p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher.</p>
+<p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher using: </p>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-publishdeploy-__codelineno-0-1"></a>{"doc_weight":
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#setup-publishdeploy-__codelineno-0-2"></a>{"product_docs":0.2,
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#setup-publishdeploy-__codelineno-0-3"></a> "customer_docs":0.8},
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#setup-publishdeploy-__codelineno-0-4"></a> "ibm_indicies":"*_ibm_docs_slate",
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#setup-publishdeploy-__codelineno-0-5"></a> "customer_indicies":"customer_*"
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#setup-publishdeploy-__codelineno-0-6"></a>}
+</span></code></pre></div>
 </div>
 <p><a class="glightbox" href="../Setup/_attachments/publish13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish13.png"></a></p>
 </li>
@@ -2943,13 +2950,13 @@ You are now ready to configure your assistant with the route to your <abbr title
 </ol>
 <p>Your assistant is now live. Explore some of the earlier prompts to verify the assistant is accessing the ingested documents and your skills and skill flows are active.</p>
 <p>Prompts to try:
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-publishdeploy-__codelineno-0-1"></a>What is z/OS continuous delivery?
+</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-publishdeploy-__codelineno-1-1"></a>What is z/OS continuous delivery?
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-publishdeploy-__codelineno-1-1"></a>Get z/OS facts
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-publishdeploy-__codelineno-2-1"></a>Get z/OS facts
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-publishdeploy-__codelineno-2-1"></a>Show me z/OS facts
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-publishdeploy-__codelineno-3-1"></a>Show me z/OS facts
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-publishdeploy-__codelineno-3-1"></a>Gather and display z/OS facts
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-publishdeploy-__codelineno-4-1"></a>Gather and display z/OS facts
 </span></code></pre></div>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-otherintegrations"><div><h1 id="adding-other-integrations">Adding other integrations<a class="headerlink" href="#setup-otherintegrations-adding-other-integrations" title="Permanent link">#</a></h1>
