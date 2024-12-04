@@ -1549,7 +1549,7 @@ Sample output:
 <a class="glightbox" href="../Setup/_attachments/ocHelp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocHelp.png"></a>
 <details class="tip">
 <summary>Mac/<abbr title="Operating System">OS</abbr> users may need to adjust security settings.</summary>
-<p>The <strong>oc</strong> binary may cause a security exception. Adjust the security settings by opening the System Settings utility and clicking <strong>Privacy &amp; Security</strong>. Under <strong>Security</strong> locate the message about the <strong>oc</strong> binary and click <strong>Allow Anyway</strong>. Return to the terminal window and try the <code>oc --help</code> command again and click <strong>Allow Anyway</strong> when prompted.</p>
+<p>The <strong>oc</strong> binary may cause a security exception. Adjust the security settings by opening the <strong>System Settings</strong> utility and clicking <strong>Privacy &amp; Security</strong>. Under <strong>Security</strong> locate the message about the <strong>oc</strong> binary and click <strong>Allow Anyway</strong>. Return to the terminal window and try the <code>oc --help</code> command again and click <strong>Allow Anyway</strong> when prompted.</p>
 </details>
 </li>
 </ol>
@@ -1589,7 +1589,7 @@ Sample output:
 </li>
 <li>
 <p>Select and copy the <strong>Log in with this token</strong> string.</p>
-<p>For most operating systems, double-click the value, then right click and select <strong>Copy</strong>.</p>
+<p>For most operating systems, double-click the value, then right-click and select <strong>Copy</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/SNOOCPLoginCommand2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/SNOOCPLoginCommand2.png"></a></p>
 </li>
 <li>
@@ -1601,7 +1601,7 @@ Sample output:
 </li>
 </ol>
 <h3 id="setup-documentingestion-create-a-working-directory">Create a working directory<a class="headerlink" href="#setup-documentingestion-create-a-working-directory" title="Permanent link">#</a></h3>
-<ol start="11">
+<ol>
 <li>
 <p>Create a directory to store the configuration files that you will create in the next steps.</p>
 <div class="admonition note">
@@ -1619,9 +1619,9 @@ Sample output:
 </li>
 </ol>
 <h3 id="setup-documentingestion-install-ibm-certificate-manager-on-red-hat-openshift">Install IBM Certificate Manager on Red Hat OpenShift<a class="headerlink" href="#setup-documentingestion-install-ibm-certificate-manager-on-red-hat-openshift" title="Permanent link">#</a></h3>
-<ol start="13">
+<ol>
 <li>
-<p>Create a file that is named <strong>catalogCertManager.yaml</strong> using a text editor and paste the following text into the file.</p>
+<p>In a text editor, create a file named <strong>catalogCertManager.yaml</strong> and paste the following text in the file.</p>
 <div class="admonition important">
 <p class="admonition-title">Formatting of the yaml file is critical!</p>
 <p>The content of the YAML file must be formatted exactly as shown. Use the <strong>Copy</strong> icon to prevent typographical errors.</p>
@@ -1630,21 +1630,21 @@ Sample output:
 </p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-documentingestion-__codelineno-3-1"></a>catalogCertManager.yaml
 </span></code></pre></div>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-documentingestion-__codelineno-4-1"></a>apiVersion: operators.coreos.com/v1alpha1 
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-documentingestion-__codelineno-4-2"></a>kind: CatalogSource 
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-documentingestion-__codelineno-4-3"></a>metadata: 
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-documentingestion-__codelineno-4-4"></a>  name: ibm-cert-manager-catalog 
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-documentingestion-__codelineno-4-5"></a>  namespace: openshift-marketplace 
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-documentingestion-__codelineno-4-6"></a>spec: 
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#setup-documentingestion-__codelineno-4-7"></a>  displayName: ibm-cert-manager-4.2.7 
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#setup-documentingestion-__codelineno-4-8"></a>  grpcPodConfig: 
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#setup-documentingestion-__codelineno-4-9"></a>    securityContextConfig: restricted 
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#setup-documentingestion-__codelineno-4-10"></a>  image: icr.io/cpopen/ibm-cert-manager-operator-catalog@sha256:4dcf4ace4b5f166f83b31063f7e6404dbf78d8e98a9d4fcf52fedf576a55ca6c 
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#setup-documentingestion-__codelineno-4-11"></a>  publisher: IBM 
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#setup-documentingestion-__codelineno-4-12"></a>  sourceType: grpc 
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#setup-documentingestion-__codelineno-4-13"></a>  updateStrategy: 
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#setup-documentingestion-__codelineno-4-14"></a>    registryPoll: 
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#setup-documentingestion-__codelineno-4-15"></a>      interval: 30m0s
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-documentingestion-__codelineno-4-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">operators.coreos.com/v1alpha1</span><span class="w"> </span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-documentingestion-__codelineno-4-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CatalogSource</span><span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-documentingestion-__codelineno-4-3"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-documentingestion-__codelineno-4-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm-cert-manager-catalog</span><span class="w"> </span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-documentingestion-__codelineno-4-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openshift-marketplace</span><span class="w"> </span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-documentingestion-__codelineno-4-6"></a><span class="nt">spec</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#setup-documentingestion-__codelineno-4-7"></a><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ibm-cert-manager-4.2.7</span><span class="w"> </span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#setup-documentingestion-__codelineno-4-8"></a><span class="w">  </span><span class="nt">grpcPodConfig</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#setup-documentingestion-__codelineno-4-9"></a><span class="w">    </span><span class="nt">securityContextConfig</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restricted</span><span class="w"> </span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#setup-documentingestion-__codelineno-4-10"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-cert-manager-operator-catalog@sha256:4dcf4ace4b5f166f83b31063f7e6404dbf78d8e98a9d4fcf52fedf576a55ca6c</span><span class="w"> </span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#setup-documentingestion-__codelineno-4-11"></a><span class="w">  </span><span class="nt">publisher</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IBM</span><span class="w"> </span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#setup-documentingestion-__codelineno-4-12"></a><span class="w">  </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc</span><span class="w"> </span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#setup-documentingestion-__codelineno-4-13"></a><span class="w">  </span><span class="nt">updateStrategy</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#setup-documentingestion-__codelineno-4-14"></a><span class="w">    </span><span class="nt">registryPoll</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#setup-documentingestion-__codelineno-4-15"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30m0s</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -1685,7 +1685,7 @@ Sample output:
 </li>
 </ol>
 <h3 id="setup-documentingestion-install-the-watsonx-assistant-for-z-operator-for-opensearch">Install the watsonx Assistant for Z Operator (for OpenSearch)<a class="headerlink" href="#setup-documentingestion-install-the-watsonx-assistant-for-z-operator-for-opensearch" title="Permanent link">#</a></h3>
-<ol start="21">
+<ol>
 <li>
 <p>In your command prompt or terminal window, create a new namespace called <strong>wxa4z-byos</strong> in the Red Hat OpenShift cluster.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-documentingestion-__codelineno-6-1"></a>oc create namespace wxa4z-byos 
@@ -1783,7 +1783,7 @@ Sample output:
 </li>
 </ol>
 <h3 id="setup-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resource<a class="headerlink" href="#setup-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource" title="Permanent link">#</a></h3>
-<ol start="35">
+<ol>
 <li>
 <p>Create a file called <strong>os-secret.yaml</strong> with the following content.</p>
 <p>File name: 
@@ -1803,10 +1803,12 @@ Sample output:
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<p></p><div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc apply -f os-secret.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#setup-documentingestion-__codelineno-17-1"></a>oc apply -f os-secret.yaml
 </span></code></pre></div>
-<a name="AuthKey"></a>
 </li>
+</ol>
+<p><a name="AuthKey"></a></p>
+<ol start="3">
 <li>
 <p>Create a file called <strong>client-ingestion-secret.yaml</strong> with the following content.</p>
 <p>File name: 
@@ -1904,14 +1906,14 @@ Sample output:
 </ol>
 <p><strong>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment begins and might take up to 20 minutes or more for the images to download and the deployment to complete. You can check the status by looking at the Pods view in the <abbr title="OpenShift Container Platform">OCP</abbr> console.</strong></p>
 <h3 id="setup-documentingestion-verify-all-the-required-pods-are-running">Verify all the required pods are running<a class="headerlink" href="#setup-documentingestion-verify-all-the-required-pods-are-running" title="Permanent link">#</a></h3>
-<ol start="42">
+<ol>
 <li>
 <p>Verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocpWorkloadsPodsStatus.png"></a></p>
 </li>
 </ol>
 <p>When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<ol start="43">
+<ol start="2">
 <li>
 <p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, click <strong>Networking</strong> and then <strong>Routes</strong>.</p>
 <p><a class="glightbox" href="../Setup/_attachments/ocpNetworkingRoutesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/ocpNetworkingRoutesMenu.png"></a></p>
