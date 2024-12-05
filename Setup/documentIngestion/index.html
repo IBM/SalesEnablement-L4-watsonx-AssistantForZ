@@ -1091,7 +1091,7 @@ Sample output:
 <p><a class="glightbox" href="../_attachments/installAssistantOperator8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator8.png"></a></p>
 </li>
 </ol>
-<h3 id="deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resource<a class="headerlink" href="#deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resource" title="Permanent link">#</a></h3>
+<h3 id="deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources<a class="headerlink" href="#deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>In a text editor, create a file named <code>os-secret.yaml</code> and paste the following text in the file.</p>
@@ -1217,11 +1217,10 @@ Sample output:
 <ol>
 <li>
 <p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
-<p><a class="glightbox" href="../_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpWorkloadsPodsStatus.png"></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Do not continue until...</p>
-<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<p><a class="glightbox" href="../_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator4.png"></a></p>
+<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. Do not continue until all the pods have a status of “Ready”, “Running”, or "Completed". The next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p><a class="glightbox" href="../_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpWorkloadsPodsStatus.png"></a></p>
 </div>
 </li>
 <li>
