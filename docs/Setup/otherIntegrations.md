@@ -1,18 +1,31 @@
 # Adding other integrations
 
-Other integrations can be added to your assistant to allow you to publish your assistant to the channels where your end-users are likely be interact with the assistant. 
+{{offering.name}} can integrate with other delivery channels beyond a web page. Other channels include Slack, Microsoft teams, WhatsApp, and many others. Integrating with these and other channels are not covered in the lab guide. However, follow the steps after this to find the current channels that are supported and where to get more information.
 
-To do so, channel integrations must be added. By default, a web chat integration is created, allowing an assistant to be embedded in a website. Other channel integrations are available in the Integrations catalog inside the AI assistant builder interface. Learn more about adding integrations <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-deploy-integration-add" target="_blank">here</a>.
+1. Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Integrations**.
 
-Within AI assistant builder, click on the Integrations page:
+    ![](_attachments/integrations-0.png)
 
-![](_attachments/INTEGRATIONIMAGENEEDED)
+2. Explore the **Essential channels** and **Channels** sections.
 
-Scroll down to **Channels** to view the integration deployment options for your assistant. 
+    ![](_attachments/integrations-1.png)
 
-![](_attachments/INTEGRATIONIMAGENEEDED)
+3. Click **Add** on the **Slack** tile.
 
-Clicking on any of the available channels will provide guidance on how to configure the integration.
+    ![](_attachments/integrations-2.png)
 
-![](_attachments/INTEGRATIONIMAGENEEDED)
+4. Click **Add**.
+
+    ![](_attachments/integrations-3.png)
+
+5. Review the step-by-step instructions and additional information available for adding a Slack integration.
+
+    **Note**: Most users will not have permissions to integrate with your enterprise slack deployment as doing so requires administrative rights.
+
+    ![](_attachments/integrations-4.png)
+
+Take time to further explore the next steps for adding a Slack integration channel and the other supported integration channels.
+
+Learn more about adding integrations <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-deploy-integration-add" target="_blank">here</a>.
+
 

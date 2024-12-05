@@ -125,7 +125,7 @@ Follow these steps to publish the first version of your assistant using Assistan
 
     ![](_attachments/verifyLiveConnection-4.png)
 
-5. Click the ellipses (![](_attachments/ellipsesIcon.png) for your app and then click **Connect app**.
+5. Click the ellipses (![](_attachments/ellipsesIcon.png)) for your app and then click **Connect app**.
 
     ![](_attachments/verifyLiveConnection-5.png)
 
@@ -137,7 +137,7 @@ Follow these steps to publish the first version of your assistant using Assistan
 
     ![](_attachments/verifyLiveConnection-7.png)
 
-Learn more about publishing your assistant and creating live environments <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-previewing-publishing-your-ai-assistant" target="_blank">here</a>.
+    Learn more about publishing your assistant and creating live environments <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-previewing-publishing-your-ai-assistant" target="_blank">here</a>.
 
 ## Deploy the assistant
 After configuring your assistant’s settings and publishing, the final step is to deploy your assistant which can be done across various channels depending on the use case.
@@ -179,6 +179,8 @@ For this lab, you will deploy the assistant using the web chat integration. The 
     ![](_attachments/publish20.png)
 
 Your assistant is now live. Explore some of the earlier prompts to verify the assistant is accessing the ingested documents and your skills and skill flows are active.
+
+!!! Warning "Wait 5-10 seconds before clicking apply on skill actions."
 
 Prompts to try:
 ```

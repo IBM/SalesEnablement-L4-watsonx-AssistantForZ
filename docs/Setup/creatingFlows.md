@@ -189,19 +189,23 @@ As mentioned in a previous section, there are some default utility skills that a
 
     ![](_attachments/skillFlow32.png)
 
-21. Enter new **phrases** (prompts) for your skill flow and then click **Publish**.
+21. Replace the existing **phrases** (prompts) and then click **Publish**.
 
-    Notice the default prompts are either not very intuitive (the skill flow name) or a bit verbose. Add a couple of other prompts that you anticipate users will enter.
+    Notice the default prompts are either not very intuitive (the skill flow name) or a bit verbose. Replace the existing phrases with phrases that you anticipate users will enter.
+
+    !!! Bug "Be careful with the sample phrases you specify."
+
+        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team.
 
     Example prompts:
     ```
-    Show me z/OS facts
+    Show me zOS facts
     ```
     ```
-    Gather and display z/OS facts
+    Gather and display zOS facts
     ```
 
-    ![](_attachments/skillFlow33.png)
+    ![](_attachments/skillFlow33-b.png)
 
 ## Enable the skill flow in your assistant
 
@@ -232,20 +236,20 @@ As mentioned in a previous section, there are some default utility skills that a
     You can use one of the prompts you used earlier for the skill flow.
 
     ```
-    Show me z/OS facts
+    Show me zOS facts
     ```
 
-    ![](_attachments/skillFlow39.png)
+    ![](_attachments/skillFlow39-b.png)
 
 7.  Enter any additional phrases (prompts) and then click the **save** (![](_attachments/diskIcon.png)).
 
-    ![](_attachments/skillFlow40.png)
+    ![](_attachments/skillFlow40-b.png)
 
 8. Click close (**x**).
 
-    ![](_attachments/skillFlow41.png)
+    ![](_attachments/skillFlow41-0.png)
 
-9. Select the original skill you created (**a**) (not the new flow skill), click the ellipses (**b**), and then click **Delete** (**c**).
+9. Select the original skill you created (**a**) (not the skill flow you just created), click the ellipses (**b**), and then click **Delete** (**c**).
 
     ![](_attachments/skillFlow41-a.png)
 
@@ -261,17 +265,21 @@ As mentioned in a previous section, there are some default utility skills that a
 
 12.  Enter one of the prompts you specified into the assistant preview.
 
-    ![](_attachments/skillFlow42.png)
+    ```
+    Show me zOS facts
+    ```
 
-3.  **Wait 10 seconds** and then click **Apply**.
+    ![](_attachments/skillFlow42-b.png)
+
+13. **Wait 10 seconds** and then click **Apply**.
 
     **Note**: It is important to wait for the first job to complete before submitting the second job in the flow.
 
-    ![](_attachments/skillFlow43.png)
+    ![](_attachments/skillFlow43-b.png)
 
-4.  Review the results from the skill flow.
+14. Review the results from the skill flow.
 
-    Use both scroll bars in the assistant preview to review all of the returned information. 
+    Use both scroll bars in the assistant preview to review all of the returned information. The output should be similar to what was seen in the AAP web console. The character strings like `[0;32m` are special characters that are not properly displayed in the assistant preview interface.
 
     ![](_attachments/skillFlow44.png)
 

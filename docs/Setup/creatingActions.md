@@ -43,14 +43,18 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
 6. On the **New action** dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click **Save**.
 
+    !!! Bug "Be careful with the sample phrases you specify."
+
+        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team.
+
     Sample prompts:
 
     ```
-    Get z/OS facts
+    Get zOS facts
     ```
 
     ```
-    Gather z/OS facts
+    Gather zOS facts
     ```
 
     ![](_attachments/createActions5.png)
@@ -67,25 +71,33 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     Prompt:
     ```
-    Get z/OS facts
+    Get zOS facts
     ```
 
     ![](_attachments/createActions8.png)
 
-10. Review the returned results.
+10. Review the returned results and record the **job** number.
+
+    In the execution of this skill-based action, the skill executed properly and the output is the job id. 
+    
+    !!! Warning "If an error is generated, review the Troubleshooting section below."       
 
     ![](_attachments/createActions9.png)
-
-    In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the Troubleshooting section below.
 
 # Verify the job in the Ansible Automation Platform console
 Return to the Ansible Automation Platform (AAP) console and review the job information.
 
-1. Click **Jobs** and expand the **## - z/OS Gather Facts** job.
+1. Click **Jobs** and then click the **job** number recorded in the previous step for the **z/OS Gather Facts** skill.
 
     ![](_attachments/createActions10.png)
 
-As seen in the assistant, the actual contents of the output aren’t displayed. The utility skills are used to retrieve the job output. It is also possible to create a skill flow that executes the **z/OS Gather Facts** skill followed by the **Retrieve job output** utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.
+2. Review both the **Details** and **Output** for the **z/OS Gather Facts** job.
+
+    Recall, that in the assistant, the contents shown in the **Output** of the Ansible job were not displayed. 
+
+    ![](_attachments/createActions10-b.png)
+ 
+IBM watsonx Assistant for Z provides utility skills to retrieve the job output. It is also possible to create a skill flow that executes the **z/OS Gather Facts** skill followed by the **Retrieve job output** utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.
 
 ## Troubleshooting
 
@@ -127,7 +139,7 @@ As seen in the assistant, the actual contents of the output aren’t displayed. 
 
         Prompt:
         ```
-        Gather z/OS facts
+        Gather zOS facts
         ```
 
         ![](_attachments/skill-error-13.png) 
