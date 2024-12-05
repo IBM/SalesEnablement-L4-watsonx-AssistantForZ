@@ -2972,9 +2972,9 @@ You are now ready to configure your assistant with the route to your <abbr title
 <li>
 <p>Enter the <strong>username</strong> (<strong>a</strong>) and <strong>password</strong> (<strong>b</strong>) using the username (<code>admin</code>) and password for your IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) <em>watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr></em> reservation, and then click <strong>Connect app</strong> (<strong>c</strong>).</p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyLiveConnection-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyLiveConnection-7.png"></a></p>
+<p>Learn more about publishing your assistant and creating live environments <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-previewing-publishing-your-ai-assistant" target="_blank">here</a>.</p>
 </li>
 </ol>
-<p>Learn more about publishing your assistant and creating live environments <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-previewing-publishing-your-ai-assistant" target="_blank">here</a>.</p>
 <h2 id="setup-publishdeploy-deploy-the-assistant">Deploy the assistant<a class="headerlink" href="#setup-publishdeploy-deploy-the-assistant" title="Permanent link">#</a></h2>
 <p>After configuring your assistant’s settings and publishing, the final step is to deploy your assistant which can be done across various channels depending on the use case.</p>
 <p>There are several options for deploying your assistant through channels and integrations to satisfy the use cases that you might address. Learn more about all the deployment options <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-deploying-your-ai-assistant" target="_blank">here</a>.</p>
@@ -3014,6 +3014,9 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 </ol>
 <p>Your assistant is now live. Explore some of the earlier prompts to verify the assistant is accessing the ingested documents and your skills and skill flows are active.</p>
+<div class="admonition warning">
+<p class="admonition-title">Wait 5-10 seconds before clicking apply on skill actions.</p>
+</div>
 <p>Prompts to try:
 </p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-publishdeploy-__codelineno-1-1"></a>What is z/OS continuous delivery?
 </span></code></pre></div>
@@ -3025,22 +3028,39 @@ You are now ready to configure your assistant with the route to your <abbr title
 </span></code></pre></div>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-otherintegrations"><div><h1 id="adding-other-integrations">Adding other integrations<a class="headerlink" href="#setup-otherintegrations-adding-other-integrations" title="Permanent link">#</a></h1>
-<p>Other integrations can be added to your assistant to allow you to publish your assistant to the channels where your end-users are likely be interact with the assistant. </p>
-<p>To do so, channel integrations must be added. By default, a web chat integration is created, allowing an assistant to be embedded in a website. Other channel integrations are available in the Integrations catalog inside the <abbr title="Artificial intelligence">AI</abbr> assistant builder interface. Learn more about adding integrations <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-deploy-integration-add" target="_blank">here</a>.</p>
-<p>Within <abbr title="Artificial intelligence">AI</abbr> assistant builder, click on the Integrations page:</p>
-<p><a class="glightbox" href="#setup-otherintegrations-_attachments-integrationimageneeded" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/otherIntegrations/_attachments/INTEGRATIONIMAGENEEDED"></a></p>
-<p>Scroll down to <strong>Channels</strong> to view the integration deployment options for your assistant. </p>
-<p><a class="glightbox" href="#setup-otherintegrations-_attachments-integrationimageneeded" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/otherIntegrations/_attachments/INTEGRATIONIMAGENEEDED"></a></p>
-<p>Clicking on any of the available channels will provide guidance on how to configure the integration.</p>
-<p><a class="glightbox" href="#setup-otherintegrations-_attachments-integrationimageneeded" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/otherIntegrations/_attachments/INTEGRATIONIMAGENEEDED"></a></p>
+<p>IBM watsonx Assistant for Z can integrate with other delivery channels beyond a web page. Other channels include Slack, Microsoft teams, WhatsApp, and many others. Integrating with these and other channels are not covered in the lab guide. However, follow the steps after this to find the current channels that are supported and where to get more information.</p>
+<ol>
+<li>
+<p>Hover over the <strong>Home</strong> (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) and click <strong>Integrations</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/integrations-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/integrations-0.png"></a></p>
+</li>
+<li>
+<p>Explore the <strong>Essential channels</strong> and <strong>Channels</strong> sections.</p>
+<p><a class="glightbox" href="../Setup/_attachments/integrations-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/integrations-1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add</strong> on the <strong>Slack</strong> tile.</p>
+<p><a class="glightbox" href="../Setup/_attachments/integrations-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/integrations-2.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/integrations-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/integrations-3.png"></a></p>
+</li>
+<li>
+<p>Review the step-by-step instructions and additional information available for adding a Slack integration.</p>
+<p><strong>Note</strong>: Most users will not have permissions to integrate with your enterprise slack deployment as doing so requires administrative rights.</p>
+<p><a class="glightbox" href="../Setup/_attachments/integrations-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/integrations-4.png"></a></p>
+</li>
+</ol>
+<p>Take time to further explore the next steps for adding a Slack integration channel and the other supported integration channels.</p>
+<p>Learn more about adding integrations <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-deploy-integration-add" target="_blank">here</a>.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><h1 class='nav-section-title-end'>Ended: Pilot setup</h1><section class="print-page" id="nextsteps"><div><h1 id="next-steps">Next steps<a class="headerlink" href="#nextsteps-next-steps" title="Permanent link">#</a></h1>
-<p>This IBM watsonx Assistant for Z for Technical Sales Level 4 demonstrated several of the IBM watsonx Assistant for Z capabilities. However, there is still more to learn about IBM watsonx Assistant for Z. Be sure to check out the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
-<p>Also, the focus of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide was the <em>end-user</em> use of IBM watsonx Assistant for Z. To learn more about deploying, configuring, and customizing IBM watsonx Assistant for Z explore the other capabilities that are included in the <abbr title="IBM Technology Zone">ITZ</abbr> collection <a href="https://techzone.ibm.com/collection/6633e75d979046001eea2b77" target="_blank">here</a>. Included are guidance for running client pilots and the ability to manage an IBM watsonx Assistant for Z deployment. In the Velocity Pilot environment, you can explore all the capabilities of the offering like creating an assistant, importing documents, and adding automation skills.</p>
+<p>This lab guide covered many of the IBM watsonx Assistant for Z capabilities and provides a good base for conducting basic client pilots. However, there is still more to learn about IBM watsonx Assistant for Z. Updates and new releases of the offering and the underlying offerings like watsonx Orchestrate rollout on a regular basis. Be sure to stay informed by bookmarking and regularly reviewing the <a href="https://www.ibm.com/products/watsonx-assistant-for-z?mhsrc=ibmsearch_a&amp;mhq=Watsonx%20assistant%20for%20z" target="_blank">offering landing page</a> and the <a href="https://www.ibm.com/docs/en/watsonx/waz/2.0" target="_blank">product documentation</a>. </p>
 <h2 id="nextsteps-earn-the-badge">Earn the badge<a class="headerlink" href="#nextsteps-earn-the-badge" title="Permanent link">#</a></h2>
-<p>Finally, remember to complete the IBM watsonx Assistant for Z for Technical Sales Level 4 learning plan to earn the IBM watsonx Assistant for Z Technical Sales Advanced badge.</p>
-<p><strong>IBM technical sellers</strong> must complete a Stand and Deliver exercise to validate their ability to demonstrate IBM watsonx Assistant for Z to potential clients. Refer to the evaluation checklist in the <a href="#nextsteps" target="_blank">Your Learning learning plan</a> for the Stand and Deliver.</p>
-<p><strong>Business Partners</strong> must pass the IBM watsonx Assistant for Z for Technical Sales Level 4 quiz that is located in the <a href="#nextsteps" target="_blank">IBM Training learning plan</a>. The Business Partner quiz verifies use of the demonstration environments, rather than one's general knowledge of the offering.</p>
+<p>Finally, remember to earn the {{ no such element: super_collections.SuperDict object['cname'] }} you must complete the IBM watsonx Assistant for Z for Technical Sales Level 4 learning plan.</p>
+<p><strong>IBM technical sellers</strong>: <a href="#nextsteps" target="_blank">Your Learning learning plan</a></p>
+<p><strong>Business Partners</strong> <a href="#nextsteps" target="_blank">IBM Training learning plan</a></p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section></div>
 
