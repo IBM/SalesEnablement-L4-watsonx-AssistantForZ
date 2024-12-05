@@ -869,20 +869,25 @@
 <p><a class="glightbox" href="../_attachments/createActions8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions8.png"></a></p>
 </li>
 <li>
-<p>Review the returned results.</p>
-<p><a class="glightbox" href="../_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions9.png"></a></p>
+<p>Review the returned results and record the <strong>job</strong> number.</p>
 <p>In the execution of this skill-based action, the skill executed properly and the output is the job id. If an error is generated, review the Troubleshooting section below.</p>
+<p><a class="glightbox" href="../_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions9.png"></a></p>
 </li>
 </ol>
 <h1 id="verify-the-job-in-the-ansible-automation-platform-console">Verify the job in the Ansible Automation Platform console<a class="headerlink" href="#verify-the-job-in-the-ansible-automation-platform-console" title="Permanent link">#</a></h1>
 <p>Return to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) console and review the job information.</p>
 <ol>
 <li>
-<p>Click <strong>Jobs</strong> and expand the <strong>## - z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> job.</p>
+<p>Click <strong>Jobs</strong> and then click the <strong>job</strong> number recorded in the previous step for the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill.</p>
 <p><a class="glightbox" href="../_attachments/createActions10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions10.png"></a></p>
 </li>
+<li>
+<p>Review both the <strong>Details</strong> and <strong>Output</strong> for the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> job.</p>
+<p>Recall, that in the assistant, the contents shown in the <strong>Output</strong> of the Ansible job were not displayed. </p>
+<p><a class="glightbox" href="../_attachments/createActions10-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions10-b.png"></a></p>
+</li>
 </ol>
-<p>As seen in the assistant, the actual contents of the output aren’t displayed. The utility skills are used to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
+<p>IBM watsonx Assistant for Z provides utility skills to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <details class="failure">
 <summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>".</summary>
