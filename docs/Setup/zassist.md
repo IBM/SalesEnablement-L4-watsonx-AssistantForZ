@@ -152,25 +152,26 @@ Repeat the earlier steps to restart the assistant preview (![](_attachments/relo
 
 ![](_attachments/verifyIngest5.png)
 
-## Guidance for the pilot environment
-If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot ITZ environment is limited in compute and storage capacity. The following limits should be adhered to:
+!!! Tip "For client pilots"
 
-- Greater than 15,000 documents is not supported.
+    If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot ITZ environment is limited in compute and storage capacity. The following limits should be adhered to:
 
-- Individual documents should be less than 10 megabytes (MB).
+    - Greater than 15,000 documents is not supported.
 
-- Larger documents greater than 50 MB should work if the document contains mostly images.
+    - Individual documents should be less than 10 megabytes (MB).
 
-- Loading documents can take a long time, especially with > 100 MB of text.
+    - Larger documents greater than 50 MB should work if the document contains mostly images.
 
-- It is recommended to run large loads late at night.
+    - Loading documents can take a long time, especially with > 100 MB of text.
 
-- When loading, ensure your workstations does not sleep during the process.
+    - It is recommended to run large loads late at night.
 
-- If you receive a **batch time error**, set the batch size to a lower number for that command. For example:
+    - When loading, ensure your workstations does not sleep during the process.
+
+    - If you receive a **batch time error**, set the batch size to a lower number for that command. For example:
   
-    ```
-    zassist ingest . -s 50
-    ```
+        ```
+        zassist ingest . -s 50
+        ```
 
 After ingesting all your additional documents, proceed to the next section to learn about adding skills to your assistant.

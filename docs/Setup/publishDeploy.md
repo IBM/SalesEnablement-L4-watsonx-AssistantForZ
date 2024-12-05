@@ -60,9 +60,9 @@ Follow these steps to publish the first version of your assistant using Assistan
     
     Explore all the other tabs.
 
-    !!! Important "Customize your Live environment."
+    !!! Important "Customize your live environment."
     
-        For this lab, toggle **Streaming** on and turn **Suggestions** off on the **Suggestions** tab. You may also want to change the theme to **Dark** to differentiate your Draft and Live environments. 
+        For this lab, toggle **Streaming** on and turn **Suggestions** off on the **Suggestions** tab. You may also want to change the theme to **Dark** to differentiate your draft and live environments. 
 
     ![](_attachments/publish7.png)
 
@@ -94,9 +94,48 @@ Follow these steps to publish the first version of your assistant using Assistan
 
     !!! Tip "Feel free to customize the settings."
 
-        This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the **Metadata** field to weigh ingested client documents higher.
+        This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the **Metadata** field to weigh ingested client documents higher using: 
+
+        ```
+        {"doc_weight":
+        {"product_docs":0.2,
+         "customer_docs":0.8},
+         "ibm_indicies":"*_ibm_docs_slate",
+         "customer_indicies":"customer_*"
+        }
+        ```
 
     ![](_attachments/publish13.png)
+
+## Connect the skills to the live environment
+
+1. Click **Skill sets** in the main menu.
+
+    ![](_attachments/verifyLiveConnection-1.png)
+
+2. Select your assistant's live instance in the **Skill sets** list.
+
+    ![](_attachments/verifyLiveConnection-2.png)
+
+3. Click **Connections**.
+
+    ![](_attachments/verifyLiveConnection-3.png)
+
+4. Search for the application name you specified earlier.
+
+    ![](_attachments/verifyLiveConnection-4.png)
+
+5. Click the ellipses (![](_attachments/ellipsesIcon.png) for your app and then click **Connect app**.
+
+    ![](_attachments/verifyLiveConnection-5.png)
+
+6. Click **Connect app**.
+
+    ![](_attachments/verifyLiveConnection-6.png)
+
+7. Enter the **username** (**a**) and **password** (**b**) using the username (`admin`) and password for your IBM Technology Zone (ITZ) *watsonx Assistant for Z Pilot - AAP & z/OS* reservation, and then click **Connect app** (**c**).
+
+    ![](_attachments/verifyLiveConnection-7.png)
 
 Learn more about publishing your assistant and creating live environments <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-previewing-publishing-your-ai-assistant" target="_blank">here</a>.
 
@@ -107,33 +146,35 @@ There are several options for deploying your assistant through channels and inte
 
 For this lab, you will deploy the assistant using the web chat integration. The web chat integration provides an assistant interface that can integrate with your website. There is a lot of flexibility with how you may want to integrate it. Learn more about the web chat integration <a href="https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-web-chat-overview" target="_blank">here</a>.
 
-1. Click **Web chat** for the **Live** environment.
+1. Open the **Environments** page in **AI assistant builder**.
+
+2. Click **Web chat** for the **Live** environment.
 
     ![](_attachments/publish14.png)
 
-2.  Click the **Embed** tab.
+3.  Click the **Embed** tab.
 
     ![](_attachments/publish15.png)
 
-3.  Copy and record the `integrationID`, `region`, and `serviceInstanceID` values.
+4.  Copy and record the `integrationID`, `region`, and `serviceInstanceID` values.
 
     ![](_attachments/publish16.png)
 
-4.  Click the link below to download a sample web chat hyper text markup language (HTML) page.
+5.  Click the link below to download a sample web chat hyper text markup language (HTML) page.
 
     <a href="https://ibm.box.com/s/5fgw9zddqps7h8sxjbuqx0q5wv0fxvl2" target="_blank">**Watson Assistant Chat.html**</a>
 
     ![](_attachments/publish17.png)
 
-5.  Edit the **Watson Assistant Chat.html** file and insert the values for your assistant you copied in step 16.
+6.  In a text editor, open the `Watson Assistant Chat.html` file and insert the values for your assistant you copied in step 3.
 
     ![](_attachments/publish18.png)
 
-6.  Save the changes to the **Watson Assistant Chat.html** file.
+7.  Save the changes to the `Watson Assistant Chat.html` file.
 
     ![](_attachments/publish19.png)
 
-7.  Open the **Watson Assistant Chat.html** file in a web browser.
+8.  Open the `Watson Assistant Chat.html` file in a web browser.
 
     ![](_attachments/publish20.png)
 

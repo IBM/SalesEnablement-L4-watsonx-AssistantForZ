@@ -55,6 +55,7 @@ The Red Hat OpenShift command-line interface (CLI) utility, which is known as **
 Before ingesting documents, complete the following setup steps.
 
 <a name="Login2OpenShift"></a>
+
 ### Log in to the OpenShift cluster from your local terminal
 **Note**: If you just installed the **oc** utility, skip the next 5 steps.
 
@@ -186,9 +187,11 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/SNOOCPOperator5.png)
 
-    The installation process takes a few minutes. Do not continue until you see the following message: **Installed operator: ready for use**.
+    !!! Warning "Do not continue until..."
+    
+        The installation process takes a few minutes. Do not continue until you see the following message: **Installed operator: ready for use**.
 
-    ![](_attachments/SNOOCPOperator6.png)
+        ![](_attachments/SNOOCPOperator6.png)
 
 ### Install the watsonx Assistant for Z Operator (for OpenSearch)
 1. In your command prompt or terminal window, create a new namespace called `wxa4z-byos` in the Red Hat OpenShift cluster.
@@ -284,9 +287,11 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/installAssistantOperator3.png)
 
-    The installation process takes a few minutes. Do not continue until you see the following message: **Installed operator: ready for use**.
+    !!! Warning "Do not continue until..."
+    
+        The installation process takes a few minutes. Do not continue until you see the following message: **Installed operator: ready for use**.
 
-    ![](_attachments/installAssistantOperator4.png)
+        ![](_attachments/installAssistantOperator4.png)
 
 12. In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.
 
@@ -316,7 +321,7 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/installAssistantOperator8.png)
 
-### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resource
+### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
 
 1. In a text editor, create a file named `os-secret.yaml` and paste the following text in the file.
 
@@ -453,20 +458,20 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f byos.yaml
     ```
 
-**Important**: The BYOS deployment can take 20 minutes or more to complete. 
-
 ### Verify all the required pods are running and get the network route to your BYOS instance
-1. Verify that all pods have the status of **Running** or **Completed**.
+1. In the OCP console, verify that all pods have the status of **Running** or **Completed**.
 
-    ![](_attachments/ocpWorkloadsPodsStatus.png)
+    !!! Warning "Do not continue until..."
+    
+        The BYOS deployment can take 20 minutes or more to complete. Do not continue until all the pods have a status of “Running” or "Completed". The next step is to retrieve your BYOS endpoint URL.
 
-When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your BYOS endpoint URL.
+        ![](_attachments/ocpWorkloadsPodsStatus.png)
 
-1.  In the OCP console, under **Networking**, click **Routes**.
+2.  Under **Networking**, click **Routes**.
 
     ![](_attachments/ocpNetworkingRoutesMenu.png)
 
-2.  Copy and record the location for the **wxa4z-opensearch-wrapper** route.
+3.  Copy and record the location for the **wxa4z-opensearch-wrapper** route.
 
     ![](_attachments/ocpRouteToWrapper.png)
 

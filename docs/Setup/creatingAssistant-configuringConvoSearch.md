@@ -343,6 +343,16 @@ Now you can begin issuing queries to test the assistant's responses.
     
     **Note**: The responses that you receive can vary from the ones shown.
 
+    **Prompt**:
+
+    ```
+    What is z/OS continuous delivery?
+    ```
+
+    Example output:
+
+    ![](_attachments/preview0a.png)
+
     **Prompt**: 
 
     ```

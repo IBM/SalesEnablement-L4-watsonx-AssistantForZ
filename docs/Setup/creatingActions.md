@@ -19,29 +19,29 @@ Before configuring actions, it’s important to modify a setting within watsonx 
     ![](_attachments/skillsConfig2.png)
 
 ## Create actions
-4. Click the main menu and select **AI assistant builder**.
+1. Click the main menu and select **AI assistant builder**.
 
     ![](_attachments/createActions0.png)
 
-5. Hover over the **Home** icon (![](_attachments/homeIcon.png)) and click **Actions**.
+2. Hover over the **Home** icon (![](_attachments/homeIcon.png)) and click **Actions**.
 
     ![](_attachments/createActions1.png)
 
-6. Click **Create action**.
+3. Click **Create action**.
 
     ![](_attachments/createActions2.png)
 
-7. Click the **Skill-based action** tile.
+4. Click the **Skill-based action** tile.
 
     ![](_attachments/createActions3.png)
 
-8. Select the **z/OS Gather Facts** tile and click **Next**.
+5. Select the **z/OS Gather Facts** tile and click **Next**.
 
     Note, it may take a minute for the page to display the action tiles. The date shown in the **z/OS Gather Facts** tile reflects when you added the skill to your application.
 
     ![](_attachments/createActions4.png)
 
-9. On the **New action** dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click **Save**.
+6. On the **New action** dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click **Save**.
 
     Sample prompts:
 
@@ -55,15 +55,15 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     ![](_attachments/createActions5.png)
 
-10. Add any (a) additional prompts and then (b) click the save (![](_attachments/diskIcon.png)).
+7.  Add any (a) additional prompts and then (b) click the save (![](_attachments/diskIcon.png)).
 
     ![](_attachments/createActions6.png)
 
-11. Click **Preview**.
+8.  Click **Preview**.
 
     ![](_attachments/createActions7.png)
 
-12. Enter one of the prompts you specified in step 9 or 10.
+9.  Enter one of the prompts you specified in step 9 or 10.
 
     Prompt:
     ```
@@ -72,7 +72,7 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     ![](_attachments/createActions8.png)
 
-13. Review the returned results.
+10. Review the returned results.
 
     ![](_attachments/createActions9.png)
 
