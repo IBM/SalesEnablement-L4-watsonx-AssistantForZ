@@ -975,8 +975,11 @@ Sample output:
 <li>
 <p>Keep the default settings and click <strong>Install</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator5.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Do not continue until...</p>
 <p>The installation process takes a few minutes. Do not continue until you see the following message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/SNOOCPOperator6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/SNOOCPOperator6.png"></a></p>
+</div>
 </li>
 </ol>
 <h3 id="install-the-watsonx-assistant-for-z-operator-for-opensearch">Install the watsonx Assistant for Z Operator (for OpenSearch)<a class="headerlink" href="#install-the-watsonx-assistant-for-z-operator-for-opensearch" title="Permanent link">#</a></h3>
@@ -1059,8 +1062,11 @@ Sample output:
 <li>
 <p>Select <strong>A specific namespace on the cluster</strong> (<strong>a</strong>) under <strong>Installation mode</strong> and <strong>wxa4z-byos</strong> (<strong>b</strong>) for the <strong>Installed Namespace</strong>, then click <strong>Install</strong> (<strong>c</strong>).</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator3.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Do not continue until...</p>
 <p>The installation process takes a few minutes. Do not continue until you see the following message: <strong>Installed operator: ready for use</strong>.</p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator4.png"></a></p>
+</div>
 </li>
 <li>
 <p>In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.</p>
@@ -1207,18 +1213,19 @@ Sample output:
 </span></code></pre></div>
 </li>
 </ol>
-<p><strong>Important</strong>: The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. </p>
 <h3 id="verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance">Verify all the required pods are running and get the network route to your <abbr title="Bring Your Own Search">BYOS</abbr> instance<a class="headerlink" href="#verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
+<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong>.</p>
 <p><a class="glightbox" href="../_attachments/ocpWorkloadsPodsStatus.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpWorkloadsPodsStatus.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Do not continue until...</p>
+<p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p><a class="glightbox" href="../_attachments/installAssistantOperator4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator4.png"></a></p>
+</div>
 </li>
-</ol>
-<p>When deployment completes and all the pods have a status of “Ready”, “Running”, or "Completed", the next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-<ol>
 <li>
-<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, under <strong>Networking</strong>, click <strong>Routes</strong>.</p>
+<p>Under <strong>Networking</strong>, click <strong>Routes</strong>.</p>
 <p><a class="glightbox" href="../_attachments/ocpNetworkingRoutesMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/ocpNetworkingRoutesMenu.png"></a></p>
 </li>
 <li>
