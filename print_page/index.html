@@ -2628,14 +2628,18 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/skillFlow32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow32.png"></a></p>
 </li>
 <li>
-<p>Enter new <strong>phrases</strong> (prompts) for your skill flow and then click <strong>Publish</strong>.</p>
-<p>Notice the default prompts are either not very intuitive (the skill flow name) or a bit verbose. Add a couple of other prompts that you anticipate users will enter.</p>
+<p>Replace the existing <strong>phrases</strong> (prompts) and then click <strong>Publish</strong>.</p>
+<p>Notice the default prompts are either not very intuitive (the skill flow name) or a bit verbose. Replace the existing phrases with phrases that you anticipate users will enter.</p>
+<div class="admonition bug">
+<p class="admonition-title">Be careful with the sample phrases you specify.</p>
+<p>During the development of the lab guide, it was discovered that some sample phrases with a <code>/</code> character can cause issues with the actions. Avoid using <strong>z/<abbr title="Operating System">OS</abbr></strong> in the your sample phrases. This issue has been reported to the offering team.</p>
+</div>
 <p>Example prompts:
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingflows-__codelineno-0-1"></a>Show me z/OS facts
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingflows-__codelineno-0-1"></a>Show me zOS facts
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-creatingflows-__codelineno-1-1"></a>Gather and display z/OS facts
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-creatingflows-__codelineno-1-1"></a>Gather and display zOS facts
 </span></code></pre></div>
-<p><a class="glightbox" href="../Setup/_attachments/skillFlow33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow33.png"></a></p>
+<p><a class="glightbox" href="../Setup/_attachments/skillFlow33-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skillFlow33-b.png"></a></p>
 </li>
 </ol>
 <h2 id="setup-creatingflows-enable-the-skill-flow-in-your-assistant">Enable the skill flow in your assistant<a class="headerlink" href="#setup-creatingflows-enable-the-skill-flow-in-your-assistant" title="Permanent link">#</a></h2>
