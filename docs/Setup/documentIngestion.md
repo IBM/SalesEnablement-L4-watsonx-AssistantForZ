@@ -179,7 +179,7 @@ Before ingesting documents, complete the following setup steps.
 
         It may take a minute or two for the **IBM Cert Manager** tile to appear. 
 
-    **Note**: The current version of the operator may differ than the one shown in the image below.
+    **Note**: The current version of the operator may differ than the one shown in the image below. Select the most current version.
 
     ![](_attachments/SNOOCPOperator3.png)
 
@@ -284,6 +284,8 @@ Before ingesting documents, complete the following setup steps.
     ![](_attachments/installAssistantOperator1.png)
 
 10. Click **Install**.
+
+    **Note**: The current version of the operator may differ than the one shown in the image below. Select the most current version.
 
     ![](_attachments/installAssistantOperator2.png)
 
