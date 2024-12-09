@@ -1,5 +1,5 @@
 # IBM Technology Zone environment
-To enable sellers to learn how to deliver client pilots of {{offering.name}}, multiple environments are available in IBM Technology Zone (ITZ). The following environments are used for the watsonx Assistant for Z Velocity lab environment and can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection:
+To enable sellers to learn how to deliver client pilots of {{offering.name}}, three environments are available in IBM Technology Zone (ITZ). The environments are part of the watsonx Assistant for Z Velocity lab collection and can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection.
 
 - **Watsonx Assistant for Z lab – watsonx Orchestrate**: a dedicated environment with watsonx Orchestrate on IBM Cloud that is used for creating and configuring the assistant, configuring conversational search, importing skills, and configuring actions.
 
@@ -13,9 +13,7 @@ To enable sellers to learn how to deliver client pilots of {{offering.name}}, mu
 
     While all three environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the {{badge.name}} badge, you must provision all three ITZ environments and complete all sections in the lab guide. **Any statements in the ITZ collection regarding optional environments or tasks should be ignored.**
 
- <!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
-
-Follow the instructions in to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
+Follow the instructions to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
 
 ## Create a reservation request
 1. Click each of the links that follow to open a browser to the reservation pages of the **{{itz.collectionName}}** ITZ environments.

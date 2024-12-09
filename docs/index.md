@@ -21,7 +21,8 @@ The lab guide provides the following guidance to:
 - Importing skills for z/OS automations
 - Connecting apps to assistants
 - Creating assistant actions
-- Creating skill flows and custom-built actions
+- Creating skill flows 
+- Creating custom-built actions
 - Importing pre-packaged z/OS skills
 - Publishing and deploying your assistant
 
@@ -50,7 +51,9 @@ For issues related to specific steps found in the demonstration guide after the 
 - Email: <a href="mailto:{{supportEmailMailTo}}" target="_blank">{{supportEmail}}</a>
 
 Business Partners, use the IBM Training live Chat Support service or other support methods that are found on the IBM Training portal <a href="https://ibmcpsprod.service-now.com/its?id=sc_category&sys_id=6568bfafdb2f13008ea7d6fa4b961990" target="_blank">here</a>.
+
 <div style="page-break-after: always;"></div>
+
 ## Using the demonstration guide
 Use these helpful tips to take full advantage of the {{guide.name}}.
 

@@ -1,6 +1,10 @@
 # Creating an assistant and configuring conversational search
 You use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
 
+Below is a high-level, logical architecture of the environment you will deploy in this section.
+
+![](_attachments/LabArchitecture-Lab%201.png)
+
 ## Access the ITZ IBM Cloud account for the watsonx Assistant for Z Pilot environment
 1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**, or click the following link.
 

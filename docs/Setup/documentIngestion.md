@@ -1,6 +1,10 @@
 # Creating a stand-alone OpenSearch instance for document ingestion
 Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. The first step is to deploy a dedicated [OpenSearch](https://opensearch.org/) instance. The dedicated search instance is referred to as bring-your-own-search (BYOS).
 
+Below is a high-level, logical architecture of the environment you will deploy in this section.
+
+![](_attachments/LabArchitecture-Lab%202%20-%20a.png)
+
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 

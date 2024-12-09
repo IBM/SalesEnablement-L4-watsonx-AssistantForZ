@@ -3,6 +3,10 @@ Watsonx Assistant for Z can import skills to automate a range of IBM Z related t
 
 IBM watsonx Assistant for Z provides an extension within watsonx Orchestrate to build new skills from Ansible Automation platform or z/OS Management Facility (z/OSMF). The Z Skills Accelerator extension connects Ansible and z/OS application programming interfaces (APIs) and can import automation as Ansible Playbooks, JCL, or REXX as skills. Learn more importing and building skills <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=building-skills-from-ansible-controller-zos" target="_blank">here</a>.
 
+Below is a high-level, logical architecture of the environment you will deploy in this section.
+
+![](_attachments/LabArchitecture-Lab%203.png)
+
 ## Environments
 ### Watsonx Orchestrate
 The Z Skills Accelerator extension is already configured in your watsonx Orchestrate IBM Technology Zone (ITZ) environment. You can use this component to import new skills.

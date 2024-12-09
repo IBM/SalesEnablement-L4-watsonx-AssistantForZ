@@ -1,5 +1,9 @@
 # Installing and using zassist to ingest client documents
-With bring-your-own-search (BYOS) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only PDF, HTML, and DOCX file formats are supported for ingestion. 
+With bring-your-own-search (BYOS) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only PDF, HTML, and DOCX file formats are supported for ingestion.
+
+Below is a high-level, logical architecture of the environment you will deploy in this section.
+
+![](_attachments/LabArchitecture-Lab%202%20-%20b.png)
 
 To prepare for document ingestion, you can also reference the setup instructions that are located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.
 
