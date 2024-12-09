@@ -923,7 +923,8 @@
 <li>Importing skills for z/<abbr title="Operating System">OS</abbr> automations</li>
 <li>Connecting apps to assistants</li>
 <li>Creating assistant actions</li>
-<li>Creating skill flows and custom-built actions</li>
+<li>Creating skill flows </li>
+<li>Creating custom-built actions</li>
 <li>Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills</li>
 <li>Publishing and deploying your assistant</li>
 </ul>
@@ -961,6 +962,7 @@
 </ul>
 <p>Business Partners, use the IBM Training live Chat Support service or other support methods that are found on the IBM Training portal <a href="https://ibmcpsprod.service-now.com/its?id=sc_category&amp;sys_id=6568bfafdb2f13008ea7d6fa4b961990" target="_blank">here</a>.</p>
 <div style="page-break-after: always;"></div>
+
 <h2 id="index-using-the-demonstration-guide">Using the demonstration guide<a class="headerlink" href="#index-using-the-demonstration-guide" title="Permanent link">#</a></h2>
 <p>Use these helpful tips to take full advantage of the IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide.</p>
 <details class="tip">
@@ -1015,7 +1017,7 @@
 <p>Continue to the <a href="#techzoneenvironment">Reserve the IBM Technology Zone environments</a> section to begin the journey to obtain the IBM watsonx Assistant for Z Technical Sales Advanced badge.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="techzoneenvironment"><div><h1 id="ibm-technology-zone-environment">IBM Technology Zone environment<a class="headerlink" href="#techzoneenvironment-ibm-technology-zone-environment" title="Permanent link">#</a></h1>
-<p>To enable sellers to learn how to deliver client pilots of IBM watsonx Assistant for Z, multiple environments are available in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). The following environments are used for the watsonx Assistant for Z Velocity lab environment and can be found in the <a href="https://techzone.ibm.com/collection/ibm-watsonx-assistant-z" target="_blank">IBM watsonx Assistant for Z</a> collection:</p>
+<p>To enable sellers to learn how to deliver client pilots of IBM watsonx Assistant for Z, three environments are available in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>). The environments are part of the watsonx Assistant for Z Velocity lab collection and can be found in the <a href="https://techzone.ibm.com/collection/ibm-watsonx-assistant-z" target="_blank">IBM watsonx Assistant for Z</a> collection.</p>
 <ul>
 <li>
 <p><strong>Watsonx Assistant for Z lab – watsonx Orchestrate</strong>: a dedicated environment with watsonx Orchestrate on IBM Cloud that is used for creating and configuring the assistant, configuring conversational search, importing skills, and configuring actions.</p>
@@ -1033,9 +1035,7 @@
 <p class="admonition-title">All activities in this lab guide are required.</p>
 <p>While all three environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the IBM watsonx Assistant for Z Technical Sales Advanced badge, you must provision all three <abbr title="IBM Technology Zone">ITZ</abbr> environments and complete all sections in the lab guide. <strong>Any statements in the <abbr title="IBM Technology Zone">ITZ</abbr> collection regarding optional environments or tasks should be ignored.</strong></p>
 </div>
-<!-- ITZ currently restricts individual users to a maximum of two concurrent environment reservations for the purpose of education or training. To overcome this limitation, an IBM Sales Cloud opportunity number has been created: #######. You will use this number when creating your reservations. This opportunity number should only be used for the purpose of completing this training. -->
-
-<p>Follow the instructions in to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments. Provisioning the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> environment in <abbr title="IBM Technology Zone">ITZ</abbr> can take several hours, while the other two environments typically provisioning in under 30 minutes.</p>
+<p>Follow the instructions to create new reservation requests, extend the reservations, and access the <abbr title="IBM Technology Zone">ITZ</abbr> demonstration environments. Provisioning the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> environment in <abbr title="IBM Technology Zone">ITZ</abbr> can take several hours, while the other two environments typically provisioning in under 30 minutes.</p>
 <h2 id="techzoneenvironment-create-a-reservation-request">Create a reservation request<a class="headerlink" href="#techzoneenvironment-create-a-reservation-request" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -1164,6 +1164,8 @@
                         </h1>
                         <section class="print-page" id="setup-creatingassistant-configuringconvosearch"><div><h1 id="creating-an-assistant-and-configuring-conversational-search">Creating an assistant and configuring conversational search<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-creating-an-assistant-and-configuring-conversational-search" title="Permanent link">#</a></h1>
 <p>You use <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>). The large language model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
+<p>Below is a high-level, logical architecture of the environment you will deploy in this section.</p>
+<p><a class="glightbox" href="../Setup/_attachments/LabArchitecture-Lab%201.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/LabArchitecture-Lab%201.png"></a></p>
 <h2 id="setup-creatingassistant-configuringconvosearch-access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment">Access the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud account for the watsonx Assistant for Z Pilot environment<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -1511,6 +1513,8 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
                         </h2>
                         <section class="print-page" id="setup-documentingestion"><div><h1 id="creating-a-stand-alone-opensearch-instance-for-document-ingestion">Creating a stand-alone OpenSearch instance for document ingestion<a class="headerlink" href="#setup-documentingestion-creating-a-stand-alone-opensearch-instance-for-document-ingestion" title="Permanent link">#</a></h1>
 <p>Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>) used by IBM watsonx Assistant for Z. The first step is to deploy a dedicated <a href="https://opensearch.org/">OpenSearch</a> instance. The dedicated search instance is referred to as bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>).</p>
+<p>Below is a high-level, logical architecture of the environment you will deploy in this section.</p>
+<p><a class="glightbox" href="../Setup/_attachments/LabArchitecture-Lab%202%20-%20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/LabArchitecture-Lab%202%20-%20a.png"></a></p>
 <p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="#techzoneenvironment">IBM Technology Zone environment</a> section to complete the reservation.</p>
 <h2 id="setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command-line interface utility<a class="headerlink" href="#setup-documentingestion-install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
@@ -1976,7 +1980,9 @@ You are now ready to configure your assistant with the route to your <abbr title
 </details>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-zassist"><div><h1 id="installing-and-using-zassist-to-ingest-client-documents">Installing and using zassist to ingest client documents<a class="headerlink" href="#setup-zassist-installing-and-using-zassist-to-ingest-client-documents" title="Permanent link">#</a></h1>
-<p>With bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr>, and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion. </p>
+<p>With bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) installed and configured in your assistant, you can now prepare for document ingestion. Currently, only <abbr title="Portable Document Format">PDF</abbr>, <abbr title="Hyper Text Markup Language">HTML</abbr>, and <abbr title="Microsoft Word Document Format">DOCX</abbr> file formats are supported for ingestion.</p>
+<p>Below is a high-level, logical architecture of the environment you will deploy in this section.</p>
+<p><a class="glightbox" href="../Setup/_attachments/LabArchitecture-Lab%202%20-%20b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/LabArchitecture-Lab%202%20-%20b.png"></a></p>
 <p>To prepare for document ingestion, you can also reference the setup instructions that are located <a href="https://ibmdocs-test.dcs.ibm.com/docs/en/watsonx/waz/2.0?topic=install-zassist-ingest-data" target="_blank">here</a>.</p>
 <h2 id="setup-zassist-install-the-zassist-utility">Install the zassist utility<a class="headerlink" href="#setup-zassist-install-the-zassist-utility" title="Permanent link">#</a></h2>
 <p>The <strong>zassist</strong> utility is an executable program that automates the ingestion of client documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> for watsonx Assistant for Z. A version of zassist is available for download for IBMers and Business Partners for conducting pilots. Follow the steps below to download and install <strong>zassist</strong>.</p>
@@ -2131,6 +2137,8 @@ You are now ready to configure your assistant with the route to your <abbr title
                         <section class="print-page" id="setup-gettingstartedskills"><div><h1 id="getting-started-with-skills-and-actions">Getting started with skills and actions<a class="headerlink" href="#setup-gettingstartedskills-getting-started-with-skills-and-actions" title="Permanent link">#</a></h1>
 <p>Watsonx Assistant for Z can import skills to automate a range of IBM Z related tasks through assistant interactions. Each skill is a pre-defined automation that runs tasks to accomplish some unit or units of work. For example, you can use a skill to view z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> information, or work with z/<abbr title="Operating System">OS</abbr> datasets.</p>
 <p>IBM watsonx Assistant for Z provides an extension within watsonx Orchestrate to build new skills from Ansible Automation platform or z/<abbr title="Operating System">OS</abbr> Management Facility (z/<abbr title="IBM z/OS Management Facility">OSMF</abbr>). The Z Skills Accelerator extension connects Ansible and z/<abbr title="Operating System">OS</abbr> application programming interfaces (<abbr title="Application Programming Interfaces">APIs</abbr>) and can import automation as Ansible Playbooks, <abbr title="Job Control Language">JCL</abbr>, or <abbr title="Restructured Extended Executor">REXX</abbr> as skills. Learn more importing and building skills <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=building-skills-from-ansible-controller-zos" target="_blank">here</a>.</p>
+<p>Below is a high-level, logical architecture of the environment you will deploy in this section.</p>
+<p><a class="glightbox" href="../Setup/_attachments/LabArchitecture-Lab%203.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/LabArchitecture-Lab%203.png"></a></p>
 <h2 id="setup-gettingstartedskills-environments">Environments<a class="headerlink" href="#setup-gettingstartedskills-environments" title="Permanent link">#</a></h2>
 <h3 id="setup-gettingstartedskills-watsonx-orchestrate">Watsonx Orchestrate<a class="headerlink" href="#setup-gettingstartedskills-watsonx-orchestrate" title="Permanent link">#</a></h3>
 <p>The Z Skills Accelerator extension is already configured in your watsonx Orchestrate IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environment. You can use this component to import new skills.</p>
