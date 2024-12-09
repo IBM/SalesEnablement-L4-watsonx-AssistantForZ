@@ -86,7 +86,7 @@ During the provisioning process, multiple emails are sent to you from ITZ as the
 In rare cases, the provisioning process may fail. If you receive an email stating the reservation failed, try again by repeating Steps 1-3 for the environment that failed to provision. In addition, review the [Troubleshooting](#troubleshooting) section that follows. If issues continue, open an ITZ support ticket by using the methods that are mentioned in the [Support](index.md#support) section.
 
 ## Extend the reservation
-When the reservations are in the **Ready** state, you can extend each reservation to a total of six days. 
+When the reservations are in the **Ready** state, you can extend each reservation beyond its original end date. The duration of the extension will vary by reservation. 
 
 1. In the IBM Technology Zone portal, expand **My TechZone** and select **My Reservations**.
 
@@ -101,7 +101,7 @@ When the reservations are in the **Ready** state, you can extend each reservatio
 
     ![](_attachments/itzExtendRsvp.png)
 
-If you anticipate needing more time, repeat Steps 5-6 to extend the reservation to the maximum of six days. Repeat these steps for the other two reservations.
+If you anticipate needing more time, repeat Steps 5-6 to extend the reservation to the maximum allowed. Repeat these steps for the other two reservations.
 <div style="page-break-after: always;"></div>
 
 ## Join the ITZ IBM Cloud account
