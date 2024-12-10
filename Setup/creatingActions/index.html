@@ -872,7 +872,7 @@
 <p>Review the returned results and record the <strong>job</strong> number.</p>
 <p>In the execution of this skill-based action, the skill executed properly and the output is the job id. </p>
 <div class="admonition warning">
-<p class="admonition-title">If an error is generated, review the Troubleshooting section below.</p>
+<p class="admonition-title">If an error is generated or the action is not performed and only search results are returned, review the Troubleshooting section below.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createActions9.png"></a></p>
 </li>
@@ -893,7 +893,7 @@
 <p>IBM watsonx Assistant for Z provides utility skills to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <details class="failure">
-<summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>".</summary>
+<summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>" or the action is not performed and only search results are returned.</summary>
 <p><a class="glightbox" href="../_attachments/skill-error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skill-error-1.png"></a></p>
 <p>This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:</p>
 <ol>

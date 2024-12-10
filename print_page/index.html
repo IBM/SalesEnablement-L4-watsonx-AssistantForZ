@@ -2022,14 +2022,18 @@ You are now ready to configure your assistant with the route to your <abbr title
 <h2 id="setup-zassist-ingest-client-documentation-using-zassist">Ingest client documentation using zassist<a class="headerlink" href="#setup-zassist-ingest-client-documentation-using-zassist" title="Permanent link">#</a></h2>
 <p>With the <strong>zassist</strong> command installed, you are now able to begin ingesting data. </p>
 <p>Step-by-step guidance for ingesting documents using zassist is provided in the IBM watsonx Assistant for Z documentation.</p>
-<p>Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.</p>
-<p>These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. The document that is ingested in the video is a compressed <abbr title="Portable Document Format">PDF</abbr> of the <strong>IBM z/<abbr title="Operating System">OS</abbr> Continuous Delivery</strong> Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.</p>
+<ol>
+<li>
+<p>Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist. </p>
+<p>The steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. The document that is ingested in the video is a compressed <abbr title="Portable Document Format">PDF</abbr> of the <strong>IBM z/<abbr title="Operating System">OS</abbr> Continuous Delivery</strong> Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.</p>
 <p><strong>Note</strong>: The video has no audio.</p>
 <p><div class="video-container"><iframe src="../_videos/zassitIngest-final.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video" class="print-site-plugin-ignore"></iframe></div></p>
 <details class="info">
 <summary>Don't see the video in the <abbr title="Portable Document Format">PDF</abbr> version of the lab guide?</summary>
 <p>If you are viewing the <a href="../Setup/zassist/_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Level%204%20Lab%20Guide.pdf" target="_blank"><abbr title="Portable Document Format">PDF</abbr></a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.</p>
 </details>
+</li>
+</ol>
 <h2 id="setup-zassist-verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document that is ingested is now returned as a source file for a query<a class="headerlink" href="#setup-zassist-verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
 <p>Use the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder to verify your document ingestion.</p>
 <ol>
@@ -2388,7 +2392,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>Review the returned results and record the <strong>job</strong> number.</p>
 <p>In the execution of this skill-based action, the skill executed properly and the output is the job id. </p>
 <div class="admonition warning">
-<p class="admonition-title">If an error is generated, review the Troubleshooting section below.</p>
+<p class="admonition-title">If an error is generated or the action is not performed and only search results are returned, review the Troubleshooting section below.</p>
 </div>
 <p><a class="glightbox" href="../Setup/_attachments/createActions9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/createActions9.png"></a></p>
 </li>
@@ -2409,7 +2413,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p>IBM watsonx Assistant for Z provides utility skills to retrieve the job output. It is also possible to create a skill flow that executes the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill followed by the <strong>Retrieve job output</strong> utility skill in sequence; passing the job id from the first skill to the second, in order to view the output within the assistant. Creating a skill flow is covered in the next section.</p>
 <h2 id="setup-creatingactions-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingactions-troubleshooting" title="Permanent link">#</a></h2>
 <details class="failure">
-<summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>".</summary>
+<summary>Skill returns "<strong><em>Sorry, we're having issues generating a response</em></strong>" or the action is not performed and only search results are returned.</summary>
 <p><a class="glightbox" href="../Setup/_attachments/skill-error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/skill-error-1.png"></a></p>
 <p>This error appears to be an intermittent issue when a skill is first added. To resolve, add the skill to your personal skills catalog using the steps that follow. If you encounter the issue, try the steps that follow:</p>
 <ol>
