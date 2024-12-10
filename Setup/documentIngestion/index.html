@@ -1145,27 +1145,22 @@ Sample output:
 </li>
 <li>
 <p>In a text editor, create a file named <code>wrapper-creds.yaml</code> and paste the following text in the file.</p>
-</li>
-</ol>
 <p>File name: 
-    </p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>wrapper-creds.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>wrapper-creds.yaml
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code>Substitute a secure password credential of your choosing for the string `&lt;WRAPPER_PASSWORD&gt;`. The password can be a random password. Use this password in the following steps when you configure your BYOS connection in your assistant to connect to the network route.
-
-File contents:
-```yaml
-apiVersion: v1
-stringData:
-  username: admin
-  password: &lt;WRAPPER_PASSWORD&gt;
-kind: Secret
-metadata:
-  name: wrapper-creds
-  namespace: wxa4z-byos
-type: Opaque
-```
-</code></pre></div>
-<ol start="6">
+<p>Substitute a secure password credential of your choosing for the string <code>&lt;WRAPPER_PASSWORD&gt;</code>. The password can be a random password. Use this password in the following steps when you configure your <abbr title="Bring Your Own Search">BYOS</abbr> connection in your assistant to connect to the network route.</p>
+<p>File contents:
+</p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nt">stringData</span><span class="p">:</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;WRAPPER_PASSWORD&gt;</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wrapper-creds</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+</span></code></pre></div>
+</li>
 <li>
 <p>Create the secret by running the following command.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>oc apply -f wrapper-creds.yaml
