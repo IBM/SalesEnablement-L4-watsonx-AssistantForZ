@@ -1759,7 +1759,7 @@ Sample output:
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#setup-documentingestion-__codelineno-10-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#setup-documentingestion-__codelineno-10-6"></a><span class="nt">spec</span><span class="p">:</span><span class="w"> </span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#setup-documentingestion-__codelineno-10-7"></a><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">"IBM</span><span class="nv"> </span><span class="s">watsonx</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Z</span><span class="nv"> </span><span class="s">Operator</span><span class="nv"> </span><span class="s">Catalog"</span><span class="w"> </span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#setup-documentingestion-__codelineno-10-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog:2.0.2@sha256:d457aa24af07c23d7b36727a9cff95995ca1c4ed49fb980ef4f386fda09a29b4</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#setup-documentingestion-__codelineno-10-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog:v2.1.0@sha256:a085d360b6aa0e40cf86a632eb5cd190a0407d1c54ec1b2d1d2fb5507f39a524</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#setup-documentingestion-__codelineno-10-9"></a><span class="w">  </span><span class="nt">publisher</span><span class="p">:</span><span class="w"> </span><span class="s">'IBM'</span><span class="w"> </span>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#setup-documentingestion-__codelineno-10-10"></a><span class="w">  </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc</span><span class="w"> </span>
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#setup-documentingestion-__codelineno-10-11"></a><span class="w">  </span><span class="nt">secrets</span><span class="p">:</span><span class="w"> </span>
@@ -1872,8 +1872,31 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
+<p>In a text editor, create a file named <code>wrapper-creds.yaml</code> and paste the following text in the file.</p>
+</li>
+</ol>
+<p>File name: 
+    </p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#setup-documentingestion-__codelineno-21-1"></a>wrapper-creds.yaml
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>Substitute a secure password credential of your choosing for the string `&lt;WRAPPER_PASSWORD&gt;`. The password can be a random password. Use this password in the following steps when you configure your BYOS connection in your assistant to connect to the network route.
+
+File contents:
+```yaml
+apiVersion: v1
+stringData:
+  username: admin
+  password: &lt;WRAPPER_PASSWORD&gt;
+kind: Secret
+metadata:
+  name: wrapper-creds
+  namespace: wxa4z-byos
+type: Opaque
+```
+</code></pre></div>
+<ol start="6">
+<li>
 <p>Obtain and record your cluster domain that is used for routes by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#setup-documentingestion-__codelineno-21-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
+<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#setup-documentingestion-__codelineno-23-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">The output from the command does not include a newline.</p>
@@ -1884,63 +1907,63 @@ Sample output:
 <li>
 <p>In a text editor, create a file named <code>byos.yaml</code> and paste the following text in the file.</p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#setup-documentingestion-__codelineno-22-1"></a>byos.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#setup-documentingestion-__codelineno-24-1"></a>byos.yaml
 </span></code></pre></div>
 <p>Substitute the domain name recorded in the previous step for the string <code>&lt;YOUR_CLUSTER_DOMAIN&gt;</code>.</p>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#setup-documentingestion-__codelineno-23-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#setup-documentingestion-__codelineno-23-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#setup-documentingestion-__codelineno-23-3"></a><span class="nt">metadata</span><span class="p">:</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#setup-documentingestion-__codelineno-23-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">byosearch</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#setup-documentingestion-__codelineno-23-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#setup-documentingestion-__codelineno-23-6"></a><span class="nt">spec</span><span class="p">:</span>
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#setup-documentingestion-__codelineno-23-7"></a><span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#setup-documentingestion-__codelineno-23-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr-pull-secret</span>
-</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#setup-documentingestion-__codelineno-23-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#setup-documentingestion-__codelineno-23-10"></a><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos-cluster</span>
-</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#setup-documentingestion-__codelineno-23-11"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
-</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#setup-documentingestion-__codelineno-23-12"></a>
-</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#setup-documentingestion-__codelineno-23-13"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
-</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#setup-documentingestion-__codelineno-23-14"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
-</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#setup-documentingestion-__codelineno-23-15"></a>
-</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#setup-documentingestion-__codelineno-23-16"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
-</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#setup-documentingestion-__codelineno-23-17"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#setup-documentingestion-__codelineno-23-18"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
-</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#setup-documentingestion-__codelineno-23-19"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
-</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#setup-documentingestion-__codelineno-23-20"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
-</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#setup-documentingestion-__codelineno-23-21"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
-</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#setup-documentingestion-__codelineno-23-22"></a>
-</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#setup-documentingestion-__codelineno-23-23"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
-</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#setup-documentingestion-__codelineno-23-24"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#setup-documentingestion-__codelineno-23-25"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
-</span><span id="__span-23-26"><a id="__codelineno-23-26" name="__codelineno-23-26" href="#setup-documentingestion-__codelineno-23-26"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
-</span><span id="__span-23-27"><a id="__codelineno-23-27" name="__codelineno-23-27" href="#setup-documentingestion-__codelineno-23-27"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-</span><span id="__span-23-28"><a id="__codelineno-23-28" name="__codelineno-23-28" href="#setup-documentingestion-__codelineno-23-28"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"500Mi"</span>
-</span><span id="__span-23-29"><a id="__codelineno-23-29" name="__codelineno-23-29" href="#setup-documentingestion-__codelineno-23-29"></a><span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
-</span><span id="__span-23-30"><a id="__codelineno-23-30" name="__codelineno-23-30" href="#setup-documentingestion-__codelineno-23-30"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-</span><span id="__span-23-31"><a id="__codelineno-23-31" name="__codelineno-23-31" href="#setup-documentingestion-__codelineno-23-31"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
-</span><span id="__span-23-32"><a id="__codelineno-23-32" name="__codelineno-23-32" href="#setup-documentingestion-__codelineno-23-32"></a>
-</span><span id="__span-23-33"><a id="__codelineno-23-33" name="__codelineno-23-33" href="#setup-documentingestion-__codelineno-23-33"></a><span class="w">  </span><span class="nt">clientIngestion</span><span class="p">:</span>
-</span><span id="__span-23-34"><a id="__codelineno-23-34" name="__codelineno-23-34" href="#setup-documentingestion-__codelineno-23-34"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span>
-</span><span id="__span-23-35"><a id="__codelineno-23-35" name="__codelineno-23-35" href="#setup-documentingestion-__codelineno-23-35"></a>
-</span><span id="__span-23-36"><a id="__codelineno-23-36" name="__codelineno-23-36" href="#setup-documentingestion-__codelineno-23-36"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
-</span><span id="__span-23-37"><a id="__codelineno-23-37" name="__codelineno-23-37" href="#setup-documentingestion-__codelineno-23-37"></a><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
-</span><span id="__span-23-38"><a id="__codelineno-23-38" name="__codelineno-23-38" href="#setup-documentingestion-__codelineno-23-38"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
-</span><span id="__span-23-39"><a id="__codelineno-23-39" name="__codelineno-23-39" href="#setup-documentingestion-__codelineno-23-39"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
-</span><span id="__span-23-40"><a id="__codelineno-23-40" name="__codelineno-23-40" href="#setup-documentingestion-__codelineno-23-40"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
-</span><span id="__span-23-41"><a id="__codelineno-23-41" name="__codelineno-23-41" href="#setup-documentingestion-__codelineno-23-41"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
-</span><span id="__span-23-42"><a id="__codelineno-23-42" name="__codelineno-23-42" href="#setup-documentingestion-__codelineno-23-42"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
-</span><span id="__span-23-43"><a id="__codelineno-23-43" name="__codelineno-23-43" href="#setup-documentingestion-__codelineno-23-43"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
-</span><span id="__span-23-44"><a id="__codelineno-23-44" name="__codelineno-23-44" href="#setup-documentingestion-__codelineno-23-44"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
-</span><span id="__span-23-45"><a id="__codelineno-23-45" name="__codelineno-23-45" href="#setup-documentingestion-__codelineno-23-45"></a><span class="w">    </span><span class="nt">pvc</span><span class="p">:</span>
-</span><span id="__span-23-46"><a id="__codelineno-23-46" name="__codelineno-23-46" href="#setup-documentingestion-__codelineno-23-46"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
-</span><span id="__span-23-47"><a id="__codelineno-23-47" name="__codelineno-23-47" href="#setup-documentingestion-__codelineno-23-47"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-23-48"><a id="__codelineno-23-48" name="__codelineno-23-48" href="#setup-documentingestion-__codelineno-23-48"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
+</p><div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#setup-documentingestion-__codelineno-25-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#setup-documentingestion-__codelineno-25-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#setup-documentingestion-__codelineno-25-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#setup-documentingestion-__codelineno-25-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">byosearch</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#setup-documentingestion-__codelineno-25-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#setup-documentingestion-__codelineno-25-6"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#setup-documentingestion-__codelineno-25-7"></a><span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#setup-documentingestion-__codelineno-25-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr-pull-secret</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#setup-documentingestion-__codelineno-25-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#setup-documentingestion-__codelineno-25-10"></a><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos-cluster</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#setup-documentingestion-__codelineno-25-11"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#setup-documentingestion-__codelineno-25-12"></a>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#setup-documentingestion-__codelineno-25-13"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#setup-documentingestion-__codelineno-25-14"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#setup-documentingestion-__codelineno-25-15"></a>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#setup-documentingestion-__codelineno-25-16"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#setup-documentingestion-__codelineno-25-17"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#setup-documentingestion-__codelineno-25-18"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#setup-documentingestion-__codelineno-25-19"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#setup-documentingestion-__codelineno-25-20"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#setup-documentingestion-__codelineno-25-21"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#setup-documentingestion-__codelineno-25-22"></a>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#setup-documentingestion-__codelineno-25-23"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#setup-documentingestion-__codelineno-25-24"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#setup-documentingestion-__codelineno-25-25"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#setup-documentingestion-__codelineno-25-26"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#setup-documentingestion-__codelineno-25-27"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#setup-documentingestion-__codelineno-25-28"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"500Mi"</span>
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#setup-documentingestion-__codelineno-25-29"></a><span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
+</span><span id="__span-25-30"><a id="__codelineno-25-30" name="__codelineno-25-30" href="#setup-documentingestion-__codelineno-25-30"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</span><span id="__span-25-31"><a id="__codelineno-25-31" name="__codelineno-25-31" href="#setup-documentingestion-__codelineno-25-31"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
+</span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#setup-documentingestion-__codelineno-25-32"></a>
+</span><span id="__span-25-33"><a id="__codelineno-25-33" name="__codelineno-25-33" href="#setup-documentingestion-__codelineno-25-33"></a><span class="w">  </span><span class="nt">clientIngestion</span><span class="p">:</span>
+</span><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34" href="#setup-documentingestion-__codelineno-25-34"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span>
+</span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35" href="#setup-documentingestion-__codelineno-25-35"></a>
+</span><span id="__span-25-36"><a id="__codelineno-25-36" name="__codelineno-25-36" href="#setup-documentingestion-__codelineno-25-36"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+</span><span id="__span-25-37"><a id="__codelineno-25-37" name="__codelineno-25-37" href="#setup-documentingestion-__codelineno-25-37"></a><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
+</span><span id="__span-25-38"><a id="__codelineno-25-38" name="__codelineno-25-38" href="#setup-documentingestion-__codelineno-25-38"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+</span><span id="__span-25-39"><a id="__codelineno-25-39" name="__codelineno-25-39" href="#setup-documentingestion-__codelineno-25-39"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
+</span><span id="__span-25-40"><a id="__codelineno-25-40" name="__codelineno-25-40" href="#setup-documentingestion-__codelineno-25-40"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
+</span><span id="__span-25-41"><a id="__codelineno-25-41" name="__codelineno-25-41" href="#setup-documentingestion-__codelineno-25-41"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+</span><span id="__span-25-42"><a id="__codelineno-25-42" name="__codelineno-25-42" href="#setup-documentingestion-__codelineno-25-42"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+</span><span id="__span-25-43"><a id="__codelineno-25-43" name="__codelineno-25-43" href="#setup-documentingestion-__codelineno-25-43"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+</span><span id="__span-25-44"><a id="__codelineno-25-44" name="__codelineno-25-44" href="#setup-documentingestion-__codelineno-25-44"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
+</span><span id="__span-25-45"><a id="__codelineno-25-45" name="__codelineno-25-45" href="#setup-documentingestion-__codelineno-25-45"></a><span class="w">    </span><span class="nt">pvc</span><span class="p">:</span>
+</span><span id="__span-25-46"><a id="__codelineno-25-46" name="__codelineno-25-46" href="#setup-documentingestion-__codelineno-25-46"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
+</span><span id="__span-25-47"><a id="__codelineno-25-47" name="__codelineno-25-47" href="#setup-documentingestion-__codelineno-25-47"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-25-48"><a id="__codelineno-25-48" name="__codelineno-25-48" href="#setup-documentingestion-__codelineno-25-48"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#setup-documentingestion-__codelineno-24-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#setup-documentingestion-__codelineno-26-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </li>
 </ol>
@@ -1991,7 +2014,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <details class="failure">
 <summary>The <strong>wxa4z-client-ingestion</strong> pod does not start</summary>
 <p>Did you include the <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#setup-documentingestion-__codelineno-25-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#setup-documentingestion-__codelineno-27-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </details>
 <!-- Terminology -->
