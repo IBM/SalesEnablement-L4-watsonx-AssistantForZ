@@ -254,7 +254,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-byos 
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog:2.0.2@sha256:d457aa24af07c23d7b36727a9cff95995ca1c4ed49fb980ef4f386fda09a29b4
+      image: icr.io/cpopen/ibm-wxa4z-catalog:v2.1.0@sha256:a085d360b6aa0e40cf86a632eb5cd190a0407d1c54ec1b2d1d2fb5507f39a524
       publisher: 'IBM' 
       sourceType: grpc 
       secrets: 
@@ -385,7 +385,35 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f client-ingestion-secret.yaml
     ```
 
-5.  Obtain and record your cluster domain that is used for routes by running the following command.
+5. In a text editor, create a file named `wrapper-creds.yaml` and paste the following text in the file.
+
+    File name: 
+    ```
+    wrapper-creds.yaml
+    ```
+
+    Substitute a secure password credential of your choosing for the string `<WRAPPER_PASSWORD>`. The password can be a random password. Use this password in the following steps when you configure your BYOS connection in your assistant to connect to the network route.
+    
+    File contents:
+    ```yaml
+    apiVersion: v1
+    stringData:
+      username: admin
+      password: <WRAPPER_PASSWORD>
+    kind: Secret
+    metadata:
+      name: wrapper-creds
+      namespace: wxa4z-byos
+    type: Opaque
+    ```
+
+6. Create the secret by running the following command.
+
+    ```
+    oc apply -f wrapper-creds.yaml
+    ```
+
+7.  Obtain and record your cluster domain that is used for routes by running the following command.
 
     ```
     oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
@@ -397,7 +425,7 @@ Before ingesting documents, complete the following setup steps.
 
     **Note**: The output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com**
 
-6.  In a text editor, create a file named `byos.yaml` and paste the following text in the file.
+8.  In a text editor, create a file named `byos.yaml` and paste the following text in the file.
 
     File name: 
     ```
@@ -434,10 +462,10 @@ Before ingesting documents, complete the following setup steps.
         createRoute: true
         resources:
           requests:
-            cpu: 4
+            cpu: 2
             memory: "500Mi"
         limits:
-            cpu: 4
+            cpu: 2
             memory: "1Gi"
   
       clientIngestion:
@@ -458,7 +486,7 @@ Before ingesting documents, complete the following setup steps.
           size: 24Gi
     ```
 
-7.  Run the following command to deploy BYOS on your cluster.
+9.  Run the following command to deploy BYOS on your cluster.
 
     ```
     oc apply -f byos.yaml
@@ -495,7 +523,9 @@ You are now ready to configure your assistant with the route to your BYOS instan
 
 2. Update your assistant's custom search integration URL.
    
-    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. The steps to update the URL are illustrated in the animated gif that follows. You can review the steps to accomplish this [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL) (be sure to use your BYOS URL and not the shared URL specified in the lab guide).
+    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. This time, instead of setting the authentication type to **None**, you need to set it to **Basic authentication**. Use **admin** for the **Username** and the **Password** will be the password you specified in the ```wrapper-creds.yaml``` file.
+    
+    The steps to update the URL are illustrated in the animated gif that follows. You can review the steps to accomplish this [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL) (be sure to use your BYOS URL and not the shared URL specified in the lab guide).
 
     ??? Tip "How to set the custom search integration URL."
 

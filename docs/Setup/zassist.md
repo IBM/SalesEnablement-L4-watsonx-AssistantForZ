@@ -46,17 +46,17 @@ With the **zassist** command installed, you are now able to begin ingesting data
 
 Step-by-step guidance for ingesting documents using zassist is provided in the IBM watsonx Assistant for Z documentation.
 
-Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist.
+1. Follow the directions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-ingesting" target="_blank">here</a> to ingest documents using zassist. 
 
-These steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
+    The steps are not repeated in this lab guide. The following video illustrates the steps to ingest a single document. The document that is ingested in the video is a compressed PDF of the **IBM z/OS Continuous Delivery** Red Piece. You can download a copy of this document <a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/blob/main/docs/Setup/_sampleDocs/redp5340-compressed.pdf" target="_blank">here</a>.
 
-**Note**: The video has no audio.
+    **Note**: The video has no audio.
 
-![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
+    ![type:video](_videos/zassitIngest-final.mp4){: .print-site-plugin-ignore }
 
-??? Info "Don't see the video in the PDF version of the lab guide?"
+    ??? Info "Don't see the video in the PDF version of the lab guide?"
 
-    If you are viewing the <a href="{{guide.pdf}}" target="_blank">PDF</a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
+        If you are viewing the <a href="{{guide.pdf}}" target="_blank">PDF</a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
 
 ## Verify the document that is ingested is now returned as a source file for a query
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.

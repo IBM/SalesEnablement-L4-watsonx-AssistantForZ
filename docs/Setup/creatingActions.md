@@ -80,7 +80,7 @@ Before configuring actions, it’s important to modify a setting within watsonx 
 
     In the execution of this skill-based action, the skill executed properly and the output is the job id. 
     
-    !!! Warning "If an error is generated, review the Troubleshooting section below."       
+    !!! Warning "If an error is generated or the action is not performed and only search results are returned, review the Troubleshooting section below."       
 
     ![](_attachments/createActions9.png)
 
@@ -101,7 +101,7 @@ IBM watsonx Assistant for Z provides utility skills to retrieve the job output. 
 
 ## Troubleshooting
 
-??? Failure "Skill returns "***Sorry, we're having issues generating a response***"."
+??? Failure "Skill returns "***Sorry, we're having issues generating a response***" or the action is not performed and only search results are returned."
 
     ![](_attachments/skill-error-1.png)
 

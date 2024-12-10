@@ -387,7 +387,27 @@ Now you can begin issuing queries to test the assistant's responses.
 
     ![](_attachments/preview3.png)
 
-<!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
+    !!! info "Experiment with multi-turn (entire conversation) contextual awareness."
+
+        In the December 2024 release of {{offering.name}} support for multi-turn contextual awareness was added. This capability enables the assistant to use an entire session history for retrieving search results and generating answers. This handles context-dependent questions well but may over-rely on past topics, even if the user has moved on.
+
+        Experiment with this setting by changing your custom service contextual awareness setting from **Single turn** to **Entire conversation**.
+
+        ![](_attachments/multiturn-0.png)
+
+        Once enabled, try sequential prompts like:
+
+        ```
+        What are some features of z/OS?
+        ```
+
+        ```
+        Give me an itemized list?
+        ```
+
+        ```
+        Tell me more about item 3.
+        ```
 
 You now have a working assistant that uses {{offering.name}}. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.
 
