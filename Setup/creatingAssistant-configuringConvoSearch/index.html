@@ -1121,8 +1121,19 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p><a class="glightbox" href="../_attachments/preview3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/preview3.png"></a></p>
 </li>
 </ol>
-<!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
-
+<div class="admonition info">
+<p class="admonition-title">Experiment with multi-turn (entire conversation) contextual awareness.</p>
+<p>In the December 2024 release of IBM watsonx Assistant for Z support for multi-turn contextual awareness was added. This capability enables the assistant to use an entire session history for retrieving search results and generating answers. This handles context-dependent questions well but may over-rely on past topics, even if the user has moved on.</p>
+<p>Experiment with this setting by changing your custom service contextual awareness setting from <strong>Single turn</strong> to <strong>Entire conversation</strong>.</p>
+<p><a class="glightbox" href="../_attachments/multiturn-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/multiturn-0.png"></a></p>
+<p>Once enabled, try sequential prompts like:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>What are some features of z/OS?
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Give me an itemized list?
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Tell me more about item 3.
+</span></code></pre></div>
+</div>
 <p>You now have a working assistant that uses IBM watsonx Assistant for Z. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.</p>
 <p>Continue to the <a href="../documentIngestion/">Creating a stand-alone OpenSearch instance for document ingestion</a> to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>

@@ -924,10 +924,14 @@
 <li>Connecting apps to assistants</li>
 <li>Creating assistant actions</li>
 <li>Creating skill flows </li>
-<li>Creating custom-built actions</li>
-<li>Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills</li>
+<li>Learn about custom-built actions</li>
+<li>Learn about Importing pre-packaged z/<abbr title="Operating System">OS</abbr> skills</li>
 <li>Publishing and deploying your assistant</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Not all capabilities of the offering are covered in the lab guide.</p>
+<p>There are many features and capabilities in IBM watsonx Assistant for Z. Many are covered in this lab guide, but not all. Some of the capabilities not covered may be available in the <abbr title="IBM Technology Zone">ITZ</abbr> environments, but some may not (for example using skills for OMEGAMON).</p>
+</div>
 <div style="page-break-after: always;"></div>
 
 <p><a id="support"></a></p>
@@ -1487,8 +1491,19 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p><a class="glightbox" href="../Setup/_attachments/preview3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/preview3.png"></a></p>
 </li>
 </ol>
-<!-- Should we add a query that will eventually fire a skill off and show that id doesn't do that right now? -->
-
+<div class="admonition info">
+<p class="admonition-title">Experiment with multi-turn (entire conversation) contextual awareness.</p>
+<p>In the December 2024 release of IBM watsonx Assistant for Z support for multi-turn contextual awareness was added. This capability enables the assistant to use an entire session history for retrieving search results and generating answers. This handles context-dependent questions well but may over-rely on past topics, even if the user has moved on.</p>
+<p>Experiment with this setting by changing your custom service contextual awareness setting from <strong>Single turn</strong> to <strong>Entire conversation</strong>.</p>
+<p><a class="glightbox" href="../Setup/_attachments/multiturn-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/multiturn-0.png"></a></p>
+<p>Once enabled, try sequential prompts like:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-6-1"></a>What are some features of z/OS?
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-7-1"></a>Give me an itemized list?
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-8-1"></a>Tell me more about item 3.
+</span></code></pre></div>
+</div>
 <p>You now have a working assistant that uses IBM watsonx Assistant for Z. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.</p>
 <p>Continue to the <a href="#setup-documentingestion">Creating a stand-alone OpenSearch instance for document ingestion</a> to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
 <h2 id="setup-creatingassistant-configuringconvosearch-troubleshooting">Troubleshooting<a class="headerlink" href="#setup-creatingassistant-configuringconvosearch-troubleshooting" title="Permanent link">#</a></h2>
@@ -2796,7 +2811,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </details>
 </li>
 </ol>
-<p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show you how to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to create your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance.</p>
+<p>The scenario shown above may or may not be relevant for your client's use case. It is intended to show you how to sequence skills together in a skill flow to create an action that your assistant triggers based on prompts using the pre-configured Ansible automation templates. You are encouraged to create your own skill flows and prompts using other skills available within the <abbr title="Ansible Automation Platform">AAP</abbr> instance. As an example, create a skill flow for the <strong>z/<abbr title="Operating System">OS</abbr> Ping</strong> skill. Be sure to add the <strong>Retrieve job output</strong> skill to view the results.</p>
 <p>Next, learn about custom-built actions.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="setup-creatingcustomactions"><div><h1 id="creating-custom-built-actions">Creating custom-built actions<a class="headerlink" href="#setup-creatingcustomactions-creating-custom-built-actions" title="Permanent link">#</a></h1>
