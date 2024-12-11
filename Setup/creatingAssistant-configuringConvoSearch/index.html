@@ -797,7 +797,7 @@
 
 
 <div><h1 id="creating-an-assistant-and-configuring-conversational-search">Creating an assistant and configuring conversational search<a class="headerlink" href="#creating-an-assistant-and-configuring-conversational-search" title="Permanent link">#</a></h1>
-<p>You use <a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">watsonx Orchestrate</a> to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) has over 220 knowledge sources and supports Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>). The large language model (<abbr title="Large language model">LLM</abbr>) providing the conversational <abbr title="Artificial intelligence">AI</abbr> augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.</p>
+<p><a href="https://www.ibm.com/products/watsonx-orchestrate?p1=Search&amp;p4=43700077722754881&amp;p5=e&amp;p9=58700008198244496&amp;gad_source=1&amp;gclsrc=ds">Watsonx Orchestrate</a> enables you to create and configure an assistant with conversational search capabilities. Configure your assistant to use conversational search by leveraging a hosted <a href="https://opensearch.org/">OpenSearch</a> instance. The pre-configured instance of watsonx Orchestrate in IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) boasts over 220 knowledge sources and supports Retrieval Augmented Generation (<abbr title="Retrieval augmented generation">RAG</abbr>). The large language model (<abbr title="Large language model">LLM</abbr>) providing conversational <abbr title="Artificial intelligence">AI</abbr> augments this knowledge based on IBM Z documentation, generating IBM Z context-aware responses to queries with content-grounded knowledge.</p>
 <p>Below is a high-level, logical architecture of the environment you will deploy in this section.</p>
 <p><a class="glightbox" href="../_attachments/LabArchitecture-Lab%201.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/LabArchitecture-Lab%201.png"></a></p>
 <h2 id="access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment">Access the <abbr title="IBM Technology Zone">ITZ</abbr> IBM Cloud account for the watsonx Assistant for Z Pilot environment<a class="headerlink" href="#access-the-itz-ibm-cloud-account-for-the-watsonx-assistant-for-z-pilot-environment" title="Permanent link">#</a></h2>
@@ -1070,7 +1070,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 </li>
 <li>
 <p>Enter a <strong>prompt instruction</strong>.</p>
-<p>This option instructs the <abbr title="Large language model">LLM</abbr> in your assistant to give refined responses by adding prompt instructions. The instructions help the <abbr title="Large language model">LLM</abbr> guide the conversations by clarifying how to achieve the end-goal of an action.</p>
+<p>Your assistant's <abbr title="Large language model">LLM</abbr> gives refined responses by following the prompt's instructions, which clarify how to achieve the end-goal of an action.</p>
 <p>Enter prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. </p>
 <p>The following is an example prompt instruction that works well. Experiment with different prompt instructions.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Keep all answers short and concise, unless requested to provide details.
@@ -1089,7 +1089,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 </ol>
 <h2 id="testing-conversational-search">Testing conversational search<a class="headerlink" href="#testing-conversational-search" title="Permanent link">#</a></h2>
 <p>Now you can begin issuing queries to test the assistant's responses.</p>
-<p><strong>Important</strong>: Many of the settings configured earlier can be iteratively modified based on your assessment of the quality of responses. The settings can be reviewed and changed at any time. For example, adding extra prompt instructions, changing the verbosity of the responses, and modifying the indexes used for OpenSearch.</p>
+<p><strong>Important</strong>: Modify settings iteratively based on your assessment of response quality. Review and change them at any time. For example, add extra prompt instructions, change response verbosity, and modify OpenSearch indexes.</p>
 <ol>
 <li>
 <p>Hover over the <strong>Home</strong> (<a class="glightbox" href="../_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/homeIcon.png"></a>) and click <strong>Preview</strong>.</p>
@@ -1134,7 +1134,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 </div>
 </li>
 </ol>
-<p>You now have a working assistant that uses IBM watsonx Assistant for Z. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.</p>
+<p>You have a working assistant that uses IBM Watson Assistant for Z. Explore different prompt instructions and settings. If you encounter issues, refer to the Troubleshooting section that follows for resolution.</p>
 <p>Continue to the <a href="../documentIngestion/">Creating a stand-alone OpenSearch instance for document ingestion</a> to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the <abbr title="Retrieval augmented generation">RAG</abbr> model.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <p>The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the <a href="../../#support">Support</a> section.</p>
