@@ -114,7 +114,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     ![](_attachments/genAISetupCS1.png)
 
-5.  Complete the **Custom service** (**a-c**) form and then click **Next** (**d**).
+5.  Complete the **Custom service** (**a-e**) form and then click **Next** (**f**).
 
     **a**. Select **By providing credentials**.
 
@@ -123,9 +123,13 @@ In the next steps you will be to configure **conversational search** for your as
     {{itz.hostedOpenSearchInstance}}
     ```
 
-    **c**. Select **None** in the **Choose an authentication type** drop-down list.
+    **c**. Select **Basic authentication** in the **Choose an authentication type** drop-down list.
 
-    ![](_attachments/genAISetupCS2.png)
+    **d**. Enter **{{hostedOpenSearchID}}** in the **Username** field.
+
+    **e**. Enter **{{hostedOpenSearchPW}}** in the **Password field.
+
+    ![](_attachments/genAISetupCS2-new.png)
 
 6.  Enable **conversational search** and then click **Save**.
 
