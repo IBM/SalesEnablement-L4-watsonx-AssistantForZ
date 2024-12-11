@@ -867,8 +867,8 @@
 <li>
 <p>Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) engine (<strong>a</strong>), select <strong>Basic authentication</strong> for the <strong>authentication type</strong> (<strong>b</strong>), enter <strong>admin</strong> for the <strong>Username</strong> (<strong>c</strong>), enter the password you specified in the <code>wrapper-creds.yaml</code> file for the <strong>Password</strong> (<strong>d</strong>), and then click <strong>Next</strong> (<strong>e</strong>).</p>
 <div class="admonition warning">
-<p class="admonition-title">Use the correct <abbr title="Uniform Resource Locator">URL</abbr>!</p>
-<p>Be sure to use the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Bring Your Own Search">BYOS</abbr> OpenSearch engine created earlier <a href="../documentIngestion/#BYOS-url">here</a>.</p>
+<p class="admonition-title">Use the correct <abbr title="Uniform Resource Locator">URL</abbr> and authentication type!</p>
+<p>Use the <abbr title="Uniform Resource Locator">URL</abbr> and credentials for your <abbr title="Bring Your Own Search">BYOS</abbr> OpenSearch engine created earlier <a href="../documentIngestion/#BYOS-url">here</a>.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/publish11-new.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish11-new.png"></a></p>
 </li>
@@ -883,10 +883,11 @@
 <p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher using: </p>
 <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{"doc_weight":
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{"product_docs":0.2,
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> "customer_docs":0.8},
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> "ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> "customer_indicies":"customer_*"
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>}
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>"customer_docs":0.8},
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>"standardize":true,
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>"customer_indices":"customer_*"
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>}
 </span></code></pre></div>
 </div>
 <p><a class="glightbox" href="../_attachments/publish13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/publish13.png"></a></p>

@@ -1266,13 +1266,15 @@
 <p><a class="glightbox" href="../Setup/_attachments/genAISetupCS1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS1.png"></a></p>
 </li>
 <li>
-<p>Complete the <strong>Custom service</strong> (<strong>a-c</strong>) form and then click <strong>Next</strong> (<strong>d</strong>).</p>
+<p>Complete the <strong>Custom service</strong> (<strong>a-e</strong>) form and then click <strong>Next</strong> (<strong>f</strong>).</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
 <p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors). This is the <abbr title="Uniform Resource Locator">URL</abbr> for the a shared <a href="https://opensearch.org/">OpenSearch</a> instance. In later sections you will created and customize a dedicated instance.
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
-<p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
-<p><a class="glightbox" href="../Setup/_attachments/genAISetupCS2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS2.png"></a></p>
+<p><strong>c</strong>. Select <strong>Basic authentication</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
+<p><strong>d</strong>. Enter <strong>{{ hostedOpenSearchID }}</strong> in the <strong>Username</strong> field.</p>
+<p><strong>e</strong>. Enter <strong>{{ hostedOpenSearchPW }}</strong> in the **Password field.</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISetupCS2-new.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISetupCS2-new.png"></a></p>
 </li>
 <li>
 <p>Enable <strong>conversational search</strong> and then click <strong>Save</strong>.</p>
@@ -1515,7 +1517,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p>Wait a few minutes and try again. It may be the service was in the process of restarting.</p>
 </li>
 <li>
-<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
+<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
 </li>
 </ul>
 </details>
@@ -2978,8 +2980,8 @@ In this case, “product_docs” is the weight that is assigned to “ibm_indice
 <li>
 <p>Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your bring-your-own-search (<abbr title="Bring Your Own Search">BYOS</abbr>) engine (<strong>a</strong>), select <strong>Basic authentication</strong> for the <strong>authentication type</strong> (<strong>b</strong>), enter <strong>admin</strong> for the <strong>Username</strong> (<strong>c</strong>), enter the password you specified in the <code>wrapper-creds.yaml</code> file for the <strong>Password</strong> (<strong>d</strong>), and then click <strong>Next</strong> (<strong>e</strong>).</p>
 <div class="admonition warning">
-<p class="admonition-title">Use the correct <abbr title="Uniform Resource Locator">URL</abbr>!</p>
-<p>Be sure to use the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Bring Your Own Search">BYOS</abbr> OpenSearch engine created earlier <a href="#setup-documentingestion-BYOS-url">here</a>.</p>
+<p class="admonition-title">Use the correct <abbr title="Uniform Resource Locator">URL</abbr> and authentication type!</p>
+<p>Use the <abbr title="Uniform Resource Locator">URL</abbr> and credentials for your <abbr title="Bring Your Own Search">BYOS</abbr> OpenSearch engine created earlier <a href="#setup-documentingestion-BYOS-url">here</a>.</p>
 </div>
 <p><a class="glightbox" href="../Setup/_attachments/publish11-new.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish11-new.png"></a></p>
 </li>
@@ -2994,10 +2996,11 @@ In this case, “product_docs” is the weight that is assigned to “ibm_indice
 <p>This is your assistant. Feel free to customize the settings. The settings shown below reflect the changes made earlier in the lab guide to the draft version of the assistant. This includes the <strong>Metadata</strong> field to weigh ingested client documents higher using: </p>
 <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-publishdeploy-__codelineno-0-1"></a>{"doc_weight":
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#setup-publishdeploy-__codelineno-0-2"></a>{"product_docs":0.2,
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#setup-publishdeploy-__codelineno-0-3"></a> "customer_docs":0.8},
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#setup-publishdeploy-__codelineno-0-4"></a> "ibm_indicies":"*_ibm_docs_slate",
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#setup-publishdeploy-__codelineno-0-5"></a> "customer_indicies":"customer_*"
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#setup-publishdeploy-__codelineno-0-6"></a>}
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#setup-publishdeploy-__codelineno-0-3"></a>"customer_docs":0.8},
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#setup-publishdeploy-__codelineno-0-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#setup-publishdeploy-__codelineno-0-5"></a>"standardize":true,
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#setup-publishdeploy-__codelineno-0-6"></a>"customer_indices":"customer_*"
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#setup-publishdeploy-__codelineno-0-7"></a>}
 </span></code></pre></div>
 </div>
 <p><a class="glightbox" href="../Setup/_attachments/publish13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/publish13.png"></a></p>

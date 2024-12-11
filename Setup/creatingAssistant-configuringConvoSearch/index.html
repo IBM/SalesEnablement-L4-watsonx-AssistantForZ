@@ -898,13 +898,15 @@
 <p><a class="glightbox" href="../_attachments/genAISetupCS1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISetupCS1.png"></a></p>
 </li>
 <li>
-<p>Complete the <strong>Custom service</strong> (<strong>a-c</strong>) form and then click <strong>Next</strong> (<strong>d</strong>).</p>
+<p>Complete the <strong>Custom service</strong> (<strong>a-e</strong>) form and then click <strong>Next</strong> (<strong>f</strong>).</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
 <p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors). This is the <abbr title="Uniform Resource Locator">URL</abbr> for the a shared <a href="https://opensearch.org/">OpenSearch</a> instance. In later sections you will created and customize a dedicated instance.
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
-<p><strong>c</strong>. Select <strong>None</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
-<p><a class="glightbox" href="../_attachments/genAISetupCS2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISetupCS2.png"></a></p>
+<p><strong>c</strong>. Select <strong>Basic authentication</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
+<p><strong>d</strong>. Enter <strong>{{ hostedOpenSearchID }}</strong> in the <strong>Username</strong> field.</p>
+<p><strong>e</strong>. Enter <strong>{{ hostedOpenSearchPW }}</strong> in the **Password field.</p>
+<p><a class="glightbox" href="../_attachments/genAISetupCS2-new.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/genAISetupCS2-new.png"></a></p>
 </li>
 <li>
 <p>Enable <strong>conversational search</strong> and then click <strong>Save</strong>.</p>
@@ -1147,7 +1149,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 <p>Wait a few minutes and try again. It may be the service was in the process of restarting.</p>
 </li>
 <li>
-<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
+<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
 </li>
 </ul>
 </details>
