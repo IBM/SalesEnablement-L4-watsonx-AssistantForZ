@@ -28,7 +28,7 @@ The lab guide provides the following guidance to:
 
 !!! Note "Not all capabilities of the offering are covered in the lab guide."
 
-    There are many features and capabilities in {{offering.name}}. Many are covered in this lab guide, but not all. Some of the capabilities not covered may be available in the ITZ environments, but some may not (for example using skills for OMEGAMON).
+    This lab guide covers many features and capabilities of IBM Watson Assistant for Z, but not all. Some uncovered capabilities may be available in ITZ environments, while others may not, such as using skills for OMEGAMON.
 
 <div style="page-break-after: always;"></div>
 

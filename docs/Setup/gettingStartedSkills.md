@@ -1,7 +1,7 @@
 # Getting started with skills and actions
-Watsonx Assistant for Z can import skills to automate a range of IBM Z related tasks through assistant interactions. Each skill is a pre-defined automation that runs tasks to accomplish some unit or units of work. For example, you can use a skill to view z/OS IPL information, or work with z/OS datasets.
+Watsonx Assistant for Z automates a range of IBM Z related tasks through assistant interactions by importing skills. Each skill is a pre-defined automation that accomplishes some unit or units of work by running tasks. For example, skills can view z/OS IPL information or work with z/OS datasets.
 
-IBM watsonx Assistant for Z provides an extension within watsonx Orchestrate to build new skills from Ansible Automation platform or z/OS Management Facility (z/OSMF). The Z Skills Accelerator extension connects Ansible and z/OS application programming interfaces (APIs) and can import automation as Ansible Playbooks, JCL, or REXX as skills. Learn more importing and building skills <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=building-skills-from-ansible-controller-zos" target="_blank">here</a>.
+Watsonx Assistant for Z extends watsonx Orchestrate, allowing users to build new skills from Ansible Automation platform or z/OS Management Facility (z/OSMF) through the Z Skills Accelerator extension. This extension connects Ansible and z/OS application programming interfaces (APIs) and imports automation as Ansible Playbooks, JCL, or REXX as skills.Learn more importing and building skills <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=building-skills-from-ansible-controller-zos" target="_blank">here</a>.
 
 Below is a high-level, logical architecture of the environment you will deploy in this section.
 

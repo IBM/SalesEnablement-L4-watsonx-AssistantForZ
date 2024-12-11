@@ -1,17 +1,15 @@
 # IBM Technology Zone environment
 To enable sellers to learn how to deliver client pilots of {{offering.name}}, three environments are available in IBM Technology Zone (ITZ). The environments are part of the watsonx Assistant for Z Velocity lab collection and can be found in the <a href="{{itz.collectionURL}}" target="_blank">{{itz.collectionName}}</a> collection.
 
-- **Watsonx Assistant for Z lab – watsonx Orchestrate**: a dedicated environment with watsonx Orchestrate on IBM Cloud that is used for creating and configuring the assistant, configuring conversational search, importing skills, and configuring actions.
+- **Watsonx Assistant for Z lab – watsonx Orchestrate**: provides a dedicated environment on IBM Cloud where you can create and configure the assistant, set up conversational search, import skills, and configure actions.
 
-- **Ansible Automation Platform (AAP) & z/OS**: a pre-configured instance of AAP and Wazi z/OS. The environment includes preinstalled Ansible playbooks that can be imported as skills within watsonx Orchestrate and connected to your assistant. The environment provides preinstalled templates for various use cases that are covered in a later section. Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
+- **Ansible Automation Platform (AAP) & z/OS**: provides a pre-configured instance of AAP and Wazi z/OS. This environment includes Ansible playbooks, which you can import as skills within WatsonX Orchestrate and connect to your assistant. Preinstalled templates for various use cases are also available (covered in later sections). Learn more about AAP <a href="https://www.redhat.com/en/technologies/management/ansible" target="_blank">here</a>. Learn more about Wazi, <a href="https://www.ibm.com/cloud/wazi-as-a-service" target="_blank">here</a>.
 
-- **Single Node OpenShift with NFS storage**: used to provision a single-node Red Hat OpenShift cluster (SNO) on IBM Cloud. The cluster is used to install a dedicated instance of [OpenSearch](https://opensearch.org/) for watsonx Assistant for Z. This environment enables ingestion of client-supplied documents.
-
-<!-- Add architecture info here -->
+- **Single Node OpenShift with NFS storage**: provisions a single-node Red Hat OpenShift cluster (SNO) on IBM Cloud. This cluster installs a dedicated instance of [OpenSearch](https://opensearch.org/) for Watson Assistant for Z, enabling ingestion of client-supplied documents.- 
 
 !!! Warning "All activities in this lab guide are required."
 
-    While all three environments may not be required for every client pilot, to complete the Level 4 learning plan and earn the {{badge.name}} badge, you must provision all three ITZ environments and complete all sections in the lab guide. **Any statements in the ITZ collection regarding optional environments or tasks should be ignored.**
+    To earn the IBM Watsonx Assistant for Z Technical Sales Advanced badge and complete the Level 4 learning plan, you must provision all three ITZ environments and finish every section in the lab guide. Disregard any statements in the ITZ collection that suggest optional environments or tasks.
 
 Follow the instructions to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
 
@@ -30,7 +28,7 @@ Follow the instructions to create new reservation requests, extend the reservati
 
 !!! Important "The next two steps are for one of the three environments. Repeat for all three environments."
 
-    **Be sure to follow these steps to create a reservation in ITZ for all three environments.**
+    **Follow the steps to create a reservation in ITZ for all three environments.**
 
 2. Select **Reserve now**.
 

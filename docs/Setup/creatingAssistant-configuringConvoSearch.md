@@ -1,5 +1,5 @@
 # Creating an assistant and configuring conversational search
-You use [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) to create the assistant and configure conversational search. You can configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance in IBM Technology Zone (ITZ) has over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing the conversational AI augments this knowledge based on IBM Z documentation. All of these elements create IBM Z context-aware responses to queries with its content-grounded knowledge.
+[Watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) enables you to create and configure an assistant with conversational search capabilities. Configure your assistant to use conversational search by leveraging a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance of watsonx Orchestrate in IBM Technology Zone (ITZ) boasts over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing conversational AI augments this knowledge based on IBM Z documentation, generating IBM Z context-aware responses to queries with content-grounded knowledge.
 
 Below is a high-level, logical architecture of the environment you will deploy in this section.
 
@@ -306,7 +306,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 
 3.  Enter a **prompt instruction**.
 
-    This option instructs the LLM in your assistant to give refined responses by adding prompt instructions. The instructions help the LLM guide the conversations by clarifying how to achieve the end-goal of an action.
+    Your assistant's LLM gives refined responses by following the prompt's instructions, which clarify how to achieve the end-goal of an action.
 
     Enter prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. 
         
@@ -335,7 +335,7 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 ## Testing conversational search
 Now you can begin issuing queries to test the assistant's responses.
 
-**Important**: Many of the settings configured earlier can be iteratively modified based on your assessment of the quality of responses. The settings can be reviewed and changed at any time. For example, adding extra prompt instructions, changing the verbosity of the responses, and modifying the indexes used for OpenSearch.
+**Important**: Modify settings iteratively based on your assessment of response quality. Review and change them at any time. For example, add extra prompt instructions, change response verbosity, and modify OpenSearch indexes.
 
 1. Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Preview**.
 
@@ -409,7 +409,7 @@ Now you can begin issuing queries to test the assistant's responses.
         Tell me more about item 3.
         ```
 
-You now have a working assistant that uses {{offering.name}}. Take time to explore different prompt instructions and settings. If you encounter any issues, the Troubleshooting section that follows can help resolve them.
+You have a working assistant that uses IBM Watson Assistant for Z. Explore different prompt instructions and settings. If you encounter issues, refer to the Troubleshooting section that follows for resolution.
 
 Continue to the [Creating a stand-alone OpenSearch instance for document ingestion](documentIngestion.md) to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the RAG model.
 

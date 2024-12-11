@@ -1,5 +1,5 @@
 # Creating a stand-alone OpenSearch instance for document ingestion
-Next, learn to enable a client to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by {{offering.name}}. The first step is to deploy a dedicated [OpenSearch](https://opensearch.org/) instance. The dedicated search instance is referred to as bring-your-own-search (BYOS).
+In this section, learn to enable clients to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by IBM Watson Assistant for Z by deploying a dedicated [OpenSearch](https://opensearch.org/) instance, referred to as bring-your-own-search (BYOS).
 
 Below is a high-level, logical architecture of the environment you will deploy in this section.
 
