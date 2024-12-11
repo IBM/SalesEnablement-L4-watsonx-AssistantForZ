@@ -125,9 +125,9 @@ In the next steps you will be to configure **conversational search** for your as
 
     **c**. Select **Basic authentication** in the **Choose an authentication type** drop-down list.
 
-    **d**. Enter **{{hostedOpenSearchID}}** in the **Username** field.
+    **d**. Enter **{{itz.hostedOpenSearchID}}** in the **Username** field.
 
-    **e**. Enter **{{hostedOpenSearchPW}}** in the **Password field.
+    **e**. Enter **{{itz.hostedOpenSearchPW}}** in the **Password** field.
 
     ![](_attachments/genAISetupCS2-new.png)
 
