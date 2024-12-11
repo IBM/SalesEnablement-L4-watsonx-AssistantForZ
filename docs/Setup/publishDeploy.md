@@ -78,13 +78,13 @@ Follow these steps to publish the first version of your assistant using Assistan
 
     ![](_attachments/publish10.png)
 
-8.  Enter the URL for your bring-your-own-search (BYOS) engine (**a**), select **None** for the **authentication type** (**b**), and then click **Next** (**c**).
+8.  Enter the URL for your bring-your-own-search (BYOS) engine (**a**), select **Basic authentication** for the **authentication type** (**b**), enter **admin** for the **Username** (**c**), enter the password you specified in the `wrapper-creds.yaml` file for the **Password** (**d**), and then click **Next** (**e**).
 
-    !!! Warning "Use the correct URL!"
+    !!! Warning "Use the correct URL and authentication type!"
 
-        Be sure to use the URL for your BYOS OpenSearch engine created earlier [here](documentIngestion.md/#BYOS-url).
+        Use the URL and credentials for your BYOS OpenSearch engine created earlier [here](documentIngestion.md/#BYOS-url).
 
-    ![](_attachments/publish11.png)
+    ![](_attachments/publish11-new.png)
 
 9.  Verify **conversational search** is enabled and click **Save**.
 
