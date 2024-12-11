@@ -58,8 +58,65 @@ Step-by-step guidance for ingesting documents using zassist is provided in the I
 
         If you are viewing the <a href="{{guide.pdf}}" target="_blank">PDF</a> of the lab guide, you can access the video <a href="https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_videos/zassitIngest-final.mp4" target="_blank">here</a>.
 
+## Adjusting the search behavior
+Do you recall the **Metadata** field when you configured your assistant?
+
+![](_attachments/genAISettings2b.png)
+
+The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well but may not use the ingested documents as part of the search results.
+
+If you leave the Metadata field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:
+
+```
+{"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+“customer_indices”:“customer_*”}
+```
+
+Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.
+
+You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:
+
+```
+{“ibm_indices”:“<comma separated index values>”,“customer_indices”:“customer_*”}
+```
+
+For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/OS” and no ingested client documentation, you can enter the following into the metadata field:
+
+```
+{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
+```
+
+If you have a mix of IBM Documentation and client documentation ingested, then there’s an optional search string that you can use to set the “weights” used for each. 
+
+For example:
+
+```
+{"doc_weight":
+{"product_docs":0.5,
+"customer_docs":0.5},
+"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+"standardize":true,
+"customer_indices":"customer_*"
+}
+```
+In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”. For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
+
 ## Verify the document that is ingested is now returned as a source file for a query
 Use the watsonx Orchestrate AI assistant builder to verify your document ingestion.
+
+!!! Warning "You may not receive the same results as shown below."
+
+    In the 4Q 2024 release of {{offering.name}}, additional IBM documents were added to the RAG including many IBM RedBooks. The new data changes the results returned when using the sample IBM Red Piece ingested earlier. To reproduce the results shown, you can modify the Metadata field for your assistant to remove the IBM Redbooks from the IBM indicies:
+
+    ```
+    {"doc_weight":
+    {"product_docs":0.5,
+    "customer_docs":0.5},
+    "ibm_indices":"*_ibm_docs_slate",
+    "standardize":true,
+    "customer_indices":"customer_*"
+    }
+    ```
 
 1. Hover over the **Home** (![](_attachments/homeIcon.png)) icon and click **Preview**.
 2. Click the **Restart conversation** (![](_attachments/reloadAssistantIcon.png)) icon.
@@ -92,69 +149,19 @@ Use the watsonx Orchestrate AI assistant builder to verify your document ingesti
 
     ![](_attachments/verifyIngest4.png)
  
-## Adjusting the search behavior
-Do you recall the **Metadata** field when you configured your assistant?
-
-![](_attachments/genAISettings2b.png)
-
-The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.
-
-If you leave this field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:
-
-```
-{“ibm_indices”:“*_ibm_docs_slate”,
-“customer_indices”:“customer_*”}
-```
-
-Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.
-
-You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:
-
-```
-{“ibm_indices”:“<comma separated index values>”,“customer_indices”:“customer_*”}
-```
-
-For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/OS” and no ingested client documentation, you can enter the following into the metadata field:
-
-```
-{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
-```
-
-If you have a mix of IBM Documentation and client documentation ingested, then there’s an optional search string that you can use to set the “weights” used for each. 
-
-For example:
-
-```
-{"doc_weight":
-{"product_docs":0.5,
- "customer_docs":0.5},
-"ibm_indicies":"*_ibm_docs_slate",
-"customer_indicies":"customer_*"
-}
-```
-
-In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.
-
-After you have configured all the settings for Conversational Search on the page, be sure to click **Save** in the upper-right of the page.
-
-For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
-
-You are encouraged to experiment with the metadata field!
-
-Try setting the metadata field to the following, which weights ingested docs higher than the product docs:
+You are encouraged to experiment with the metadata field! Try setting the metadata field to the following, which weights ingested docs higher than the product docs. Note, if the sample metadata below includes the IBM Redbooks:
 
 ```
 {"doc_weight":
 {"product_docs":0.2,
- "customer_docs":0.8},
-"ibm_indicies":"*_ibm_docs_slate",
-"customer_indicies":"customer_*"
+"customer_docs":0.8},
+"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+"standardize":true,
+"customer_indices":"customer_*"
 }
 ```
 
-Repeat the earlier steps to restart the assistant preview (![](_attachments/reloadAssistantIcon.png)) and reissue your queries. Notice that the ingested Red Piece document is now the first sited reference!
-
-![](_attachments/verifyIngest5.png)
+After you have configured all the settings for Conversational Search on the page, be sure to click **Save** in the upper-right of the page.
 
 !!! Tip "For client pilots"
 
