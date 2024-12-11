@@ -2071,8 +2071,46 @@ You are now ready to configure your assistant with the route to your <abbr title
 </details>
 </li>
 </ol>
+<h2 id="setup-zassist-adjusting-the-search-behavior">Adjusting the search behavior<a class="headerlink" href="#setup-zassist-adjusting-the-search-behavior" title="Permanent link">#</a></h2>
+<p>Do you recall the <strong>Metadata</strong> field when you configured your assistant?</p>
+<p><a class="glightbox" href="../Setup/_attachments/genAISettings2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2b.png"></a></p>
+<p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well but may not use the ingested documents as part of the search results.</p>
+<p>If you leave the Metadata field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>{"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#setup-zassist-__codelineno-1-2"></a>“customer_indices”:“customer_*”}
+</span></code></pre></div>
+<p>Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
+<p>You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-zassist-__codelineno-2-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
+</span></code></pre></div>
+<p>For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/<abbr title="Operating System">OS</abbr>” and no ingested client documentation, you can enter the following into the metadata field:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-zassist-__codelineno-3-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
+</span></code></pre></div>
+<p>If you have a mix of IBM Documentation and client documentation ingested, then there’s an optional search string that you can use to set the “weights” used for each. </p>
+<p>For example:</p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-zassist-__codelineno-4-1"></a>{"doc_weight":
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#setup-zassist-__codelineno-4-2"></a>{"product_docs":0.5,
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#setup-zassist-__codelineno-4-3"></a>"customer_docs":0.5},
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#setup-zassist-__codelineno-4-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#setup-zassist-__codelineno-4-5"></a>"standardize":true,
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#setup-zassist-__codelineno-4-6"></a>"customer_indices":"customer_*"
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#setup-zassist-__codelineno-4-7"></a>}
+</span></code></pre></div>
+In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”. For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.
 <h2 id="setup-zassist-verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query">Verify the document that is ingested is now returned as a source file for a query<a class="headerlink" href="#setup-zassist-verify-the-document-that-is-ingested-is-now-returned-as-a-source-file-for-a-query" title="Permanent link">#</a></h2>
 <p>Use the watsonx Orchestrate <abbr title="Artificial intelligence">AI</abbr> assistant builder to verify your document ingestion.</p>
+<div class="admonition warning">
+<p class="admonition-title">You may not receive the same results as shown below.</p>
+<p>In the 4Q 2024 release of IBM watsonx Assistant for Z, additional IBM documents were added to the <abbr title="Retrieval augmented generation">RAG</abbr> including many IBM RedBooks. The new data changes the results returned when using the sample IBM Red Piece ingested earlier. To reproduce the results shown, you can modify the Metadata field for your assistant to remove the IBM Redbooks from the IBM indicies:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#setup-zassist-__codelineno-5-2"></a>{"product_docs":0.5,
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#setup-zassist-__codelineno-5-3"></a>"customer_docs":0.5},
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#setup-zassist-__codelineno-5-4"></a>"ibm_indices":"*_ibm_docs_slate",
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#setup-zassist-__codelineno-5-5"></a>"standardize":true,
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#setup-zassist-__codelineno-5-6"></a>"customer_indices":"customer_*"
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#setup-zassist-__codelineno-5-7"></a>}
+</span></code></pre></div>
+</div>
 <ol>
 <li>Hover over the <strong>Home</strong> (<a class="glightbox" href="../Setup/_attachments/homeIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/homeIcon.png"></a>) icon and click <strong>Preview</strong>.</li>
 <li>
@@ -2081,7 +2119,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p>Enter the following prompt in your assistant.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#setup-zassist-__codelineno-1-1"></a>What is z/OS continuous delivery?
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>What is z/OS continuous delivery?
 </span></code></pre></div>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest0.png"></a></p>
 </li>
@@ -2103,45 +2141,16 @@ You are now ready to configure your assistant with the route to your <abbr title
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest4.png"></a></p>
 </li>
 </ol>
-<h2 id="setup-zassist-adjusting-the-search-behavior">Adjusting the search behavior<a class="headerlink" href="#setup-zassist-adjusting-the-search-behavior" title="Permanent link">#</a></h2>
-<p>Do you recall the <strong>Metadata</strong> field when you configured your assistant?</p>
-<p><a class="glightbox" href="../Setup/_attachments/genAISettings2b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAISettings2b.png"></a></p>
-<p>The Metadata field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. Now that you have your own docs that are ingested for conversational search, you can set the metadata field for your assistant to use those documents in its content-grounded search. If you leave the metadata field empty, then it defaults to settings found to perform well. This replaces having to paste a complicated search string.</p>
-<p>If you leave this field empty, OpenSearch will rely on the default settings, which means OpenSearch will search all of the default IBM-provided documentation and all of the ingested customer documentation using the following value:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-zassist-__codelineno-2-1"></a>{"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#setup-zassist-__codelineno-2-2"></a>“customer_indices”:“customer_*”}
+<p>You are encouraged to experiment with the metadata field! Try setting the metadata field to the following, which weights ingested docs higher than the product docs. Note, if the sample metadata below includes the IBM Redbooks:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-zassist-__codelineno-7-1"></a>{"doc_weight":
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#setup-zassist-__codelineno-7-2"></a>{"product_docs":0.2,
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#setup-zassist-__codelineno-7-3"></a>"customer_docs":0.8},
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#setup-zassist-__codelineno-7-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#setup-zassist-__codelineno-7-5"></a>"standardize":true,
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#setup-zassist-__codelineno-7-6"></a>"customer_indices":"customer_*"
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#setup-zassist-__codelineno-7-7"></a>}
 </span></code></pre></div>
-<p>Replacing the wildcard string with an explicit list of indices allows for personalization. The metadata setting is where you can input specific indices (pointing to the underlying documentation) that you want your assistant to use for the content-grounded search. There are over 220 products and topics that the OpenSearch instance has IBM Documentation for. You can find those indices and products <a href="https://ibm.box.com/s/anioal2xuwbsck8v3l4r48juzh9tbcqn" target="_blank">here</a>.</p>
-<p>You can input a subset of indices into the “Metadata” field in cases where you only want your assistant to gather context for specific IBM products or topics. The specific indices can be listed out in this format:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#setup-zassist-__codelineno-3-1"></a>{“ibm_indices”:“&lt;comma separated index values&gt;”,“customer_indices”:“customer_*”}
-</span></code></pre></div>
-<p>For example, if you only want your assistant to reference documentation for “Db2 Analytics Accelerator for z/<abbr title="Operating System">OS</abbr>” and no ingested client documentation, you can enter the following into the metadata field:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#setup-zassist-__codelineno-4-1"></a>{“ibm_indices”:“ss4lq8_ibm_docs_slate”}
-</span></code></pre></div>
-<p>If you have a mix of IBM Documentation and client documentation ingested, then there’s an optional search string that you can use to set the “weights” used for each. </p>
-<p>For example:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#setup-zassist-__codelineno-5-1"></a>{"doc_weight":
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#setup-zassist-__codelineno-5-2"></a>{"product_docs":0.5,
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#setup-zassist-__codelineno-5-3"></a>"customer_docs":0.5},
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#setup-zassist-__codelineno-5-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#setup-zassist-__codelineno-5-5"></a>"standardize":true,
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#setup-zassist-__codelineno-5-6"></a>"customer_indices":"customer_*"
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#setup-zassist-__codelineno-5-7"></a>}
-</span></code></pre></div>
-<p>In this case, “product_docs” is the weight that is assigned to “ibm_indices” and “customer_docs” is the weight that is assigned to “customer_indices”.</p>
 <p>After you have configured all the settings for Conversational Search on the page, be sure to click <strong>Save</strong> in the upper-right of the page.</p>
-<p>For more information on customizing the metadata field for conversational search, refer to this supplemental video found <a href="https://ibm.ent.box.com/s/2quy4drqp3bolgd6flqm0l1c549fz64x/file/1661645917984" target="_blank">here</a>.</p>
-<p>You are encouraged to experiment with the metadata field!</p>
-<p>Try setting the metadata field to the following, which weights ingested docs higher than the product docs:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#setup-zassist-__codelineno-6-1"></a>{"doc_weight":
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#setup-zassist-__codelineno-6-2"></a>{"product_docs":0.2,
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#setup-zassist-__codelineno-6-3"></a>"customer_docs":0.8},
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#setup-zassist-__codelineno-6-4"></a>"ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#setup-zassist-__codelineno-6-5"></a>"standardize":true,
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#setup-zassist-__codelineno-6-6"></a>"customer_indices":"customer_*"
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#setup-zassist-__codelineno-6-7"></a>}
-</span></code></pre></div>
-<p>Repeat the earlier steps to restart the assistant preview (<a class="glightbox" href="../Setup/_attachments/reloadAssistantIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/reloadAssistantIcon.png"></a>) and reissue your queries. Notice that the ingested Red Piece document is now the first sited reference! Try other weight settings.</p>
 <p><a class="glightbox" href="../Setup/_attachments/verifyIngest5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/verifyIngest5.png"></a></p>
 <div class="admonition tip">
 <p class="admonition-title">For client pilots</p>
@@ -2167,7 +2176,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p>If you receive a <strong>batch time error</strong>, set the batch size to a lower number for that command. For example:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#setup-zassist-__codelineno-7-1"></a>zassist ingest . -s 50
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#setup-zassist-__codelineno-8-1"></a>zassist ingest . -s 50
 </span></code></pre></div>
 </li>
 </ul>
