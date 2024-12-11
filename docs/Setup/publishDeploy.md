@@ -99,9 +99,10 @@ Follow these steps to publish the first version of your assistant using Assistan
         ```
         {"doc_weight":
         {"product_docs":0.2,
-         "customer_docs":0.8},
-         "ibm_indicies":"*_ibm_docs_slate",
-         "customer_indicies":"customer_*"
+        "customer_docs":0.8},
+        "ibm_indices":"*_ibm_docs_slate,*_ibm_redbooks_slate",
+        "standardize":true,
+        "customer_indices":"customer_*"
         }
         ```
 
