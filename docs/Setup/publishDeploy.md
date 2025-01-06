@@ -161,21 +161,81 @@ For this lab, you will deploy the assistant using the web chat integration. The 
 
     ![](_attachments/publish16.png)
 
-5.  Click the link below to download a sample web chat hyper text markup language (HTML) page.
+<!-- 5.  Click the link below to download a sample web chat hyper text markup language (HTML) page.
 
     <a href="https://ibm.box.com/s/5fgw9zddqps7h8sxjbuqx0q5wv0fxvl2" target="_blank">**Watson Assistant Chat.html**</a>
 
-    ![](_attachments/publish17.png)
+    ![](_attachments/publish17.png) -->
 
-6.  In a text editor, open the `Watson Assistant Chat.html` file and insert the values for your assistant you copied in step 3.
+5. In a text editor, create a file named `Watson Assistant Chat.html` and paste the following text in the file.
 
+    File name:
+    ```
+    Watson Assistant Chat.html
+    ```
+
+    File contents:
+    ```html
+    <html lang="en">
+    <head>
+    <title>Watson Assistant Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .WebChatContainer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    </style>
+    </head>
+    <body>
+
+    <div class="WebChatContainer"/>
+
+    <script>
+    const element = document.querySelector('.WebChatContainer');
+
+    window.watsonAssistantChatOptions = {
+        integrationID: "<YOUR INTEGRATION ID>", // The ID of this integration.
+        region: "<YOUR REGION>", // The region your integration is hosted in.
+        serviceInstanceID: "<YOUR SERVICE INSTANCE ID>", // The ID of your service instance.
+        element,
+
+        openChatByDefault: true,
+        hideCloseButton: true,
+
+        layout: {
+          showFrame: false,
+          hasContentMaxWidth: true,
+        },
+
+        onLoad: async (instance) => {
+          window.WACInstance = instance;
+          await instance.render();
+        }
+    };
+
+    setTimeout(function() {
+        const t = document.createElement('script');
+        t.src = 'https://web-chat.global.assistant.test.watson.appdomain.cloud/versions/' + (window.watsonAssistantChatOptions.clientVersion || 'latest') + '/WatsonAssistantChatEntry.js';
+        document.head.appendChild(t);
+    });
+    </script>
+
+    </body>
+    </html>
+    ```
+
+    Before modification:
     ![](_attachments/publish18.png)
 
-7.  Save the changes to the `Watson Assistant Chat.html` file.
-
+    After modification:
     ![](_attachments/publish19.png)
 
-8.  Open the `Watson Assistant Chat.html` file in a web browser.
+6.  Open the `Watson Assistant Chat.html` file in a web browser.
 
     ![](_attachments/publish20.png)
 
