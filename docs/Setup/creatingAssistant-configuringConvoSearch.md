@@ -145,7 +145,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     **a**. Enable **Conversational search**.
 
-    **b**. Select **Single turn**. Enabling **multi-turn conversation** (by selecting Entire conversation) is not yet supported for the solution on-premises. Be mindful in using this option and help ensure that the client understands what is supported in the solution.
+    **b**. Select **Single turn**. **Multi-turn conversation** (by selecting Entire conversation) is supported has not been included in the lab guide at this time. See the callout in the [Testing conversational search](creatingAssistant-configuringConvoSearch.md#testing-conversational-search) section below.
     
     **c**. Specify the text that appears to instruct the user to expand the list of citations in the assistant (except web chat client).
 
