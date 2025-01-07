@@ -305,8 +305,16 @@ Before ingesting documents, complete the following setup steps.
     oc project wxa4z-byos
     ```
 
+    For MacOS users:
+
     ```
     oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
+    ```
+
+    For Microsoft Windows users:
+
+    ```
+    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p "{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}"
     ```
 
     ![](_attachments/installAssistantOperator5.png)
