@@ -1252,8 +1252,11 @@
 <p><a class="glightbox" href="../Setup/_attachments/genAIMenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAIMenu.png"></a></p>
 </li>
 <li>
-<p>Review the base large language model (<abbr title="Large language model">LLM</abbr>) settings.</p>
-<p>Notice the other <abbr title="Large language model">LLM</abbr> models available. For most pilots, the <strong>granite-3-8b-instruct</strong> model is appropriate.</p>
+<p>Select the base large language model (<abbr title="Large language model">LLM</abbr>) settings.</p>
+<div class="admonition important">
+<p class="admonition-title">If available, set the <abbr title="Large language model">LLM</abbr> model to <strong>granite-13b-chat-v2</strong>.</p>
+<p>Notice their are several <abbr title="Large language model">LLM</abbr> models available. <strong>The current recommendation is for pilots, to use the </strong>granite-13b-chat-v2<strong> model as it provides the best results in recent testing.</strong> However, this model has been deprecated as of 2024-11-04 and will may not be available after 2025-01-19. This recommendation will be updated to reflect any changes in recommended models.  <strong>Note</strong>: screen captures that follow show the <strong>granite-3-8b-instruct</strong> <abbr title="Large language model">LLM</abbr> as being selected.</p>
+</div>
 <p><a class="glightbox" href="../Setup/_attachments/genAILLMdefaults.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../Setup/_attachments/genAILLMdefaults.png"></a></p>
 </li>
 <li>
@@ -2161,15 +2164,6 @@ In this case, “product_docs” is the weight that is assigned to “ibm_indice
 <p class="admonition-title">For client pilots</p>
 <p>If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot <abbr title="IBM Technology Zone">ITZ</abbr> environment is limited in compute and storage capacity. The following limits should be adhered to:</p>
 <ul>
-<li>
-<p>Greater than 15,000 documents is not supported.</p>
-</li>
-<li>
-<p>Individual documents should be less than 10 megabytes (MB).</p>
-</li>
-<li>
-<p>Larger documents greater than 50 MB should work if the document contains mostly images.</p>
-</li>
 <li>
 <p>Loading documents can take a long time, especially with &gt; 100 MB of text.</p>
 </li>
