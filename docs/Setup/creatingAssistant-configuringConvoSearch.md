@@ -101,7 +101,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     !!! Important "If available, set the LLM model to **granite-13b-chat-v2**."
 
-        Notice their are several LLM models available. **The current recommendation is for pilots, to use the **granite-13b-chat-v2** model as it provides the best results in recent testing.** However, this model has been deprecated as of 2024-11-04 and will may not be available after 2025-01-19. This recommendation will be updated to reflect any changes in recommended models.  **Note**: screen captures that follow show the **granite-3-8b-instruct** LLM as being selected.
+        Notice their are several LLM models available. **The current recommendation is for pilots, to use the *granite-13b-chat-v2* model as it provides the best results in recent testing.** However, this model has been deprecated as of 2024-11-04 and will may not be available after 2025-01-19. **Note**: screen captures that follow show the **granite-3-8b-instruct** LLM as being selected.
 
     ![](_attachments/genAILLMdefaults.png)
 
