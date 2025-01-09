@@ -167,12 +167,6 @@ After you have configured all the settings for Conversational Search on the page
 
     If you or your client have other documents to ingest, you can do so by repeating the steps using zassist. The Velocity Pilot ITZ environment is limited in compute and storage capacity. The following limits should be adhered to:
 
-    - Greater than 15,000 documents is not supported.
-
-    - Individual documents should be less than 10 megabytes (MB).
-
-    - Larger documents greater than 50 MB should work if the document contains mostly images.
-
     - Loading documents can take a long time, especially with > 100 MB of text.
 
     - It is recommended to run large loads late at night.
