@@ -11,20 +11,20 @@ This lab guide covers the setup, configuration, and usage of watsonx Assistant f
 
 The lab guide also enables dedicated lab environments for customized client PoXs and demonstrations. If you are preparing for an actual pilot engagement, refer to the <a href="https://ibm.seismic.com/Link/Content/DCCRRWqjGBTVc87VBGCfC2F2VQVV" target="_blank">Pilot Scoping Guide for watsonx Assistant for Z</a> for additional information.
 
-The lab guide provides the following guidance to:
+Using the lab guide, you will:
 
-- Provisioning the lab environments
-- Creating an assistant and configuring conversational search
-- Configuring assistant settings
-- Testing conversational search
-- Deploying a dedicated instance of OpenSearch for client document ingestion (Optional)
-- Importing skills for z/OS automations
-- Connecting apps to assistants
-- Creating assistant actions
-- Creating skill flows 
-- Learn about custom-built actions
-- Learn about Importing pre-packaged z/OS skills
-- Publishing and deploying your assistant
+- Provision the lab environments
+- Create an assistant and configuring conversational search
+- Configure assistant settings
+- Test conversational search
+- Deploy a dedicated instance of OpenSearch for client document ingestion (Optional)
+- Import skills for z/OS automations
+- Connect apps to assistants
+- Create assistant actions
+- Create skill flows 
+- Create custom-built actions
+- Import pre-packaged z/OS skills
+- Publish and deploy an assistant
 
 !!! Note "Not all capabilities of the offering are covered in the lab guide."
 
@@ -68,6 +68,55 @@ Use these helpful tips to take full advantage of the {{guide.name}}.
         The {{guide.name}} changes regularly to match the {{offering.name}} offering and associated ITZ environment. Printed or saved copies of the demonstration guide can become out-of-date quickly and result in failed steps. 
 
     A ready-to-print PDF version of the {{guide.name}} is <a href="{{guide.pdf}}" target="_blank">here</a>. 
+
+<a id="cheatsheet"></a>
+??? tip "Create a reference card for storing user IDs, passwords, and links for your ITZ environments."
+
+    You will be creating and using multiple user IDs, passwords, links, and other content throughout the lab. To save time, it is strongly suggested you create a simple text file to store this data so it is readily available and you can easily cut and paste the data when needed.  Here is a template to get you started.
+
+    ```
+    watsonx Assistant for Z - Level 4 shortcuts:
+
+    watsonx Orchestrate
+
+        IBM Cloud account: 
+        IBM Cloud resources: https://cloud.ibm.com/resources
+        watsonx Orchestrate URL: 
+
+        Assistant name: 
+        Assistant description: 
+        Assistant icon: https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/Setup/_attachments/Zeeves75x75.png
+
+    OpenShift
+
+        Cluster Admin Username: kubeadmin
+        Cluster Admin Password: 
+        OCP Console: 
+
+        IBM Cloud container entitlement key: 
+
+        OS-secret password: 
+        Client ingestion AuthKey: 
+        Wrapper password: 
+        Cluster domain for routes: 
+        Ingestion route (append /v1/query): 
+
+    Ansible
+
+        Ansible Automation Platform URL: 
+        AAP User Name: admin
+        AAP password:
+
+        Wazi User: IBMUSER
+        Wazi Password:
+        Wazi URL: 
+
+    Live Embed
+
+        inetegrationID:
+        region:
+        serviceInstanceID:
+    ```
 
 ??? tip "Viewing images"
 

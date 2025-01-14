@@ -1,7 +1,7 @@
 # Creating an assistant and configuring conversational search
-[Watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) enables you to create and configure an assistant with conversational search capabilities. Configure your assistant to use conversational search by leveraging a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance of watsonx Orchestrate in IBM Technology Zone (ITZ) boasts over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing conversational AI augments this knowledge based on IBM Z documentation, generating IBM Z context-aware responses to queries with content-grounded knowledge.
+[Watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate?p1=Search&p4=43700077722754881&p5=e&p9=58700008198244496&gad_source=1&gclsrc=ds) allows you to create and configure an assistant with conversational search capabilities. Configure your assistant to use conversational search by using a hosted [OpenSearch](https://opensearch.org/) instance. The pre-configured instance of watsonx Orchestrate in IBM Technology Zone (ITZ) boasts over 220 knowledge sources and supports Retrieval Augmented Generation (RAG). The large language model (LLM) providing conversational AI augments this knowledge based on IBM Z documentation, generating IBM Z context-aware responses to queries with content-grounded knowledge.
 
-Below is a high-level, logical architecture of the environment you will deploy in this section.
+A high-level, logical architecture of the environment is illustrated in the following diagram.
 
 ![](_attachments/LabArchitecture-Lab%201.png)
 
@@ -18,6 +18,8 @@ Below is a high-level, logical architecture of the environment you will deploy i
 
 3. Record the ITZ IBM Cloud account name associated with the reservation.
 
+    **Did you read the tip on the welcome page about creating a reference card? Check it out [here](../index.md#cheatsheet).**
+       
     ![](_attachments/itzMyReservations2.png)
 
 4. Click the **IBM Cloud Login** link.
@@ -119,7 +121,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     **a**. Select **By providing credentials**.
 
-    **b**. Enter the following value in the **URL** field (use the copy icon to avoid typographical errors). This is the URL for the a shared [OpenSearch](https://opensearch.org/) instance. In later sections you will created and customize a dedicated instance.
+    **b**. Enter the following value in the **URL** field (use the copy icon to avoid typographical errors). This is the URL for the shared [OpenSearch](https://opensearch.org/) instance. In later sections, you create and customize a dedicated instance.
     ```
     {{itz.hostedOpenSearchInstance}}
     ```
@@ -129,6 +131,10 @@ In the next steps you will be to configure **conversational search** for your as
     **d**. Enter `{{itz.hostedOpenSearchID}}` in the **Username** field.
 
     **e**. Enter `{{itz.hostedOpenSearchPW}}` in the **Password** field.
+
+    ```
+    {{itz.hostedOpenSearchPW}}
+    ```
 
     ![](_attachments/genAISetupCS2-new.png)
 
@@ -162,7 +168,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     **h**. Keep the **Default filter** field empty.
 
-    **i**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the [Installing and using zassist to ingest client documents](./zassist.md). Leave the field empty for now.
+    **i**. The **Metadata** field provides a way to adjust your assistant’s behavior during conversational search for your OpenSearch instance. This option is explored in detail in the [Installing and using zassist to ingest client documents](../byosd/zassist.md). Leave the field empty for now.
 
     **j**. The **Search display text** options specify the default text displayed when no results are found or when connectivity issues to the backend search service occur. You can keep the defaults or customize the service.
 
@@ -191,7 +197,7 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu3.png)
 
-5.  Select **without conditions**  (**a**) in the **Is taken** drop-down menu and then click **Clear conditions** (**b**).
+5.  Select **without conditions** (**a**) in the **Is taken** drop-down menu and then click **Clear conditions** (**b**).
 
     **Note**: the **Is taken** value does not change from **with conditions** after selecting **without conditions**.
 
@@ -285,21 +291,29 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIEnviroments3.png)
 
-27. Click **Suggestions**.
+27. Click the **Home screen** tab.
+
+    ![](_attachments/genAIEnviroments3a.png)
+
+28. Customize the **Home screen** by setting a custom **Greeting message** and deleting the default **Conversation starters**. Optionally, adjust the **Background style**.
+
+    ![](_attachments/genAIEnviroments3b.png)
+
+29. Click **Suggestions**.
 
     ![](_attachments/genAIEnviroments4.png)
 
-28. Click the **Suggestions** toggle to turn this feature **Off**.
+30. Click the **Suggestions** toggle to turn this feature **Off**.
     
     ![](_attachments/genAIEnviroments5.png)
 
-29. Click **Save and exit**.
+31. Click (**a**) **Save and exit** and then click (**b**) **Close**.
 
     ![](_attachments/genAIEnviroments6.png)
 
 ## Configure the base large language model
-After the preceding steps are completed, there are enhancements you can make to configure how the large language model (LLM) responds to your queries including adding prompt instructions and configuring the LLM’s answer behavior.
-These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.
+There are enhancements that you can make to configure how the large language model (LLM) responds to your queries, including adding prompt instructions and configuring the LLM’s answer behavior.
+The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.
 
 1.  Hover over the **Home** (![](_attachments/homeIcon.png)) and click **Generative AI**.
     
@@ -331,14 +345,14 @@ These options can be summarized <a href="https://www.ibm.com/docs/en/watsonx/waz
 
     On the **Generative AI** page (under **Prompt Instructions**), you see the **Answer behavior** section. After you configure **Conversational search**, you see that it is enabled (toggled on) with the search integration added.
 
-    If you enable both general-purpose answering as well as conversational search, the conversational search answering takes precedence over General-purpose answering. 
+    If you enable both general-purpose answering and conversational search, conversational search answering takes precedence over General-purpose answering. 
     
     **Recommendation**: For purposes of retrieving Z-specific answers and responses, it is recommended that you turn off general-purpose answering and leave only conversational search turned on.
 
     ![](_attachments/genAIGenAI4.png)
 
 ## Testing conversational search
-Now you can begin issuing queries to test the assistant's responses.
+Now, you can begin issuing queries to test the assistant's responses. For more detailed responses, try appending "Please provide a detailed response." to the end of your question.
 
 **Important**: Modify settings iteratively based on your assessment of response quality. Review and change them at any time. For example, add extra prompt instructions, change response verbosity, and modify OpenSearch indexes.
 
@@ -416,7 +430,7 @@ Now you can begin issuing queries to test the assistant's responses.
 
 You have a working assistant that uses IBM Watson Assistant for Z. Explore different prompt instructions and settings. If you encounter issues, refer to the Troubleshooting section that follows for resolution.
 
-Continue to the [Creating a stand-alone OpenSearch instance for document ingestion](documentIngestion.md) to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the RAG model.
+Continue to the [Creating a stand-alone OpenSearch instance for document ingestion](../byosd/documentIngestion.md) to learn how to configure a dedicated OpenSearch instance for ingesting client-specific documentation into the RAG model.
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.

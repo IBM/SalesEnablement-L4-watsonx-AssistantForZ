@@ -1,15 +1,19 @@
 # Creating a stand-alone OpenSearch instance for document ingestion
-In this section, learn to enable clients to ingest their own documentation into the Retrieval Augmented Generation (RAG) used by IBM Watson Assistant for Z by deploying a dedicated [OpenSearch](https://opensearch.org/) instance, referred to as bring-your-own-search (BYOS).
+Now that you created and deployed your own assistant with conversational search capabilities, your client can understand how watsonx Assistant for Z provides its content-grounded responses to any Z-related questions. In the previous section, you configured your assistant to use a pre-configured Z RAG that has over 220 knowledge sources, and uses this knowledge to provide AI-generated responses. 
 
-Below is a high-level, logical architecture of the environment you will deploy in this section.
+Next, learn to enable clients to personalize the assistant with an internal knowledge base that contains documentation they add to the Retrieval Augmented Generation (RAG). This helps provide a level of context-awareness for their own environment when environment-specific questions are asked to the assistant.
+
+Now, install and configure a “Z RAG” on Red Hat OpenShift enabling the bring-your-own-search (BYOS) and bring-your-own-documentation (BYOD) capability to ingest other documentation. In doing so, you deploy a dedicated [OpenSearch](https://opensearch.org/) instance (BYOS). Then, connect your assistant to the new RAG database to provide responses based on the ingested documentation (BYOD). 
+
+Below is a high-level, logical architecture of the environment deployed in this section.
 
 ![](_attachments/LabArchitecture-Lab%202%20-%20a.png)
 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Install the Red Hat OpenShift command-line interface utility 
-The Red Hat OpenShift command-line interface (CLI) utility, which is known as **oc**, must be installed on your local workstation. If you already installed the **oc** utility, you can proceed to [log in to the SNO cluster](#Login2OpenShift).
+## Install the Red Hat OpenShift command line interface utility 
+The Red Hat OpenShift command line interface (CLI) utility, which is known as **oc**, must be installed on your local workstation. If you already installed the **oc** utility, you can proceed to [log in to the SNO cluster](#Login2OpenShift).
 
 1. Click the following link to open a browser window to your ITZ reservations.
 
@@ -41,7 +45,7 @@ The Red Hat OpenShift command-line interface (CLI) utility, which is known as **
 
     ![](_attachments/SNOoCPDownload.png)
 
-    Clicking the preceding link automatically downloads either a **.zip** or **.tar** file specific to your operating system. Unzip or untar the file. Place the **oc** binary for your operating system (OS) in a directory that is in your default PATH, or set the PATH environment variable to include the location of the **oc** binary.
+    Clicking the preceding link automatically downloads either a **.zip** or **.tar** file specific to your operating system. Extract the file's content. Place the **oc** binary for your operating system (OS) in a directory that is in your default PATH, or set the PATH environment variable to include the location of the **oc** binary.
 
 8. Verify the installation by running the **oc** command on your local workstation.
 
@@ -123,7 +127,7 @@ Before ingesting documents, complete the following setup steps.
     ![](_attachments/SNOOCPLoginCommand4.png)
 
 ### Install IBM Certificate Manager on Red Hat OpenShift
-1. In a text editor, create a file named `catalogCertManager.yaml` and paste the following text in the file.
+1. In a text editor, create a file that is named `catalogCertManager.yaml` and paste the following text in the file.
 
     !!! Important "Formatting of the yaml file is critical!"
 
@@ -179,7 +183,7 @@ Before ingesting documents, complete the following setup steps.
 
         It may take a minute or two for the **IBM Cert Manager** tile to appear. 
 
-    **Note**: The current version of the operator may differ than the one shown in the image below. Select the most current version.
+    **Note**: The current version of the operator may differ than shown in the image below. Select the most current version.
 
     ![](_attachments/SNOOCPOperator3.png)
 
@@ -210,9 +214,9 @@ Before ingesting documents, complete the following setup steps.
 
     To create or retrieve your existing entitlement key, follow the instructions <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
-    If additional assistance is needed, refer to this <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">site</a>. 
+    If extra assistance is needed, refer to this <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">site</a>. 
 
-    After locating your existing key or creating a new key, continue to the next step.
+    Locate your existing key or create a new one and continue to the next step.
 
 3.  Click **copy** and record your entitlement key for future use in a secure location.
 
@@ -222,19 +226,31 @@ Before ingesting documents, complete the following setup steps.
 
     Substitute your production entitlement key copied in the last step for `<entitlement key>`.
 
+    Mac OS:
     ```
     export IBM_CS_ENT_KEY=<entitlement key>
     ```
 
+    Microsoft Windows:
+    ```
+    set IBM_CS_ENT_KEY=<entitlement key>
+    ```
+
 5.  Enter the following command to create a pull secret for the **Container Registry**.
 
+    Mac OS:
     ```
     oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
     ```
 
+    Microsoft Windows:
+    ```
+    oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=%IBM_CS_ENT_KEY%
+    ```
+
     ![](_attachments/createPullSecret.png)
 
-6.  In a text editor, create a file named `catalogSource.yaml` and paste the following text in the file.
+6.  In a text editor, create a file that is named `catalogSource.yaml` and paste the following text in the file.
 
     !!! Important "Formatting of the yaml file is critical!"
 
@@ -279,13 +295,13 @@ Before ingesting documents, complete the following setup steps.
 
         It may take a minute or two for the **IBM watsonx Assistant for Z Operator Catalog** tile to appear. 
 
-    **Note**: The current version of the operator may differ than the one shown in the image below.
+    **Note**: The current version of the operator may differ than that shown in the image below.
 
     ![](_attachments/installAssistantOperator1.png)
 
 10. Click **Install**.
 
-    **Note**: The current version of the operator may differ than the one shown in the image below. Select the most current version.
+    **Note**: The current version of the operator may differ than the one shown in the image after this. Select the most current version.
 
     ![](_attachments/installAssistantOperator2.png)
 
@@ -301,18 +317,17 @@ Before ingesting documents, complete the following setup steps.
 
 12. In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.
 
+    Mac OS and Microsoft Windows:
     ```
     oc project wxa4z-byos
     ```
 
-    For MacOS users:
-
+    Mac OS:
     ```
     oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
     ```
 
-    For Microsoft Windows users:
-
+    Microsoft Windows:
     ```
     oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p "{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}"
     ```
@@ -337,7 +352,7 @@ Before ingesting documents, complete the following setup steps.
 
 ### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
 
-1. In a text editor, create a file named `os-secret.yaml` and paste the following text in the file.
+1. In a text editor, create a file that is named `os-secret.yaml` and paste the following text in the file.
 
     File name: 
     ```
@@ -366,7 +381,7 @@ Before ingesting documents, complete the following setup steps.
 
 <a name="AuthKey"></a>
 
-3.  In a text editor, create a file named `client-ingestion-secret.yaml` and paste the following text in the file.
+3.  In a text editor, create a file that is named `client-ingestion-secret.yaml` and paste the following text in the file.
 
     File name: 
     ```
@@ -393,7 +408,7 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f client-ingestion-secret.yaml
     ```
 
-5. In a text editor, create a file named `wrapper-creds.yaml` and paste the following text in the file.
+5. In a text editor, create a file that is named `wrapper-creds.yaml` and paste the following text in the file.
 
     File name: 
     ```
@@ -433,7 +448,7 @@ Before ingesting documents, complete the following setup steps.
 
     **Note**: The output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com**
 
-8.  In a text editor, create a file named `byos.yaml` and paste the following text in the file.
+8.  In a text editor, create a file that is named `byos.yaml` and paste the following text in the file.
 
     File name: 
     ```
@@ -531,13 +546,15 @@ You are now ready to configure your assistant with the route to your BYOS instan
 
 2. Update your assistant's custom search integration URL.
    
-    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. This time, instead of setting the authentication type to **None**, you need to set it to **Basic authentication**. Use **admin** for the **Username** and the **Password** will be the password you specified in the ```wrapper-creds.yaml``` file.
+    Next, you need to return to your assistant in the watsonx Orchestrate AI assistant builder and update the custom search integration URL. Use the URL form the network route (with **/v1/query**) appended. Use **admin** for the **Username** and the **Password** will be the password that you specified in the ```wrapper-creds.yaml``` file. 
     
-    The steps to update the URL are illustrated in the animated gif that follows. You can review the steps to accomplish this [here](creatingAssistant-configuringConvoSearch.md#configureCustomSearchURL) (be sure to use your BYOS URL and not the shared URL specified in the lab guide).
+    !!! tip "Don't recall how to set the customer search URL?"
 
-    ??? Tip "How to set the custom search integration URL."
+        Refer back to [Creating an assistant and configuring conversational search](../Setup/creatingAssistant-configuringConvoSearch.md#configure-conversational-search) if you don't remember how to specify the customer search URL.
 
-        ![](_attachments/changeCustomSearchURL.gif)
+3. Test your assistant and verify that it is still answering questions that are related to IBM Z.
+
+    Experiment with different prompts and validate that the answers provided are reasonable, and that you can view the documentation that was sourced. If responses are not received as expected, verify that the URL is formatted correctly and you specified the ```wrapper-creds.yaml`` password as the **admin** password.
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.
