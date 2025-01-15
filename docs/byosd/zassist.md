@@ -94,14 +94,19 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
 
 6. Retrieve the server URL for the client ingestion server.
 
+    Mac OS:
+
     ```
     echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
     ```
-    The output of this command is your unique URL for your client ingestion server. 
 
-    ??? Failure "If the command doesn’t work for you..."
+    The output of this command is your unique URL for your client ingestion server. 
     
-        You can retrieve the URL in your OCP Web console by navigating to Networking Routes and then copy the URL for the wxa4z-client-ingestion route.
+    Windows OS (this method can also be used by Mac OS users):
+    
+    You can retrieve the URL in your OCP Web console by navigating to Networking Routes and then copy the URL for the wxa4z-client-ingestion route.
+
+
 
 7. Retrieve the `client-ingestion-authkey`.
 

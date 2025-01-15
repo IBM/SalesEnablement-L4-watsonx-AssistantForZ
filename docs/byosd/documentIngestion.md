@@ -352,14 +352,14 @@ Before ingesting documents, complete the following setup steps.
 
 ### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
 
-1. In a text editor, create a file that is named `os-secret.yaml` and paste the following text in the file.
+1. In a text editor, create a file that is named `os-secret.yaml`, paste the following text in the file, and then modify the default password.
 
     File name: 
     ```
     os-secret.yaml
     ```
 
-    Substitute a secure password of your choosing for the string `<OPENSEARCH_PASSWORD>`.
+    **Substitute a secure password of your choosing for the string `<OPENSEARCH_PASSWORD>`. Record this value for later use.**
     
     File contents:
     ```yaml
@@ -381,14 +381,14 @@ Before ingesting documents, complete the following setup steps.
 
 <a name="AuthKey"></a>
 
-3.  In a text editor, create a file that is named `client-ingestion-secret.yaml` and paste the following text in the file.
+3.  In a text editor, create a file that is named `client-ingestion-secret.yaml`, paste the following text in the file, and then modify the default password.
 
     File name: 
     ```
     client-ingestion-secret.yaml
     ```
 
-    Substitute a secure authentication key of your choosing for the string `<CLIENT_INGESTION_AUTHKEY>`. The authentication key can be a random password.
+    **Substitute a secure authentication key of your choosing for the string `<CLIENT_INGESTION_AUTHKEY>`. The authentication key can be a random password.  Record this value for later use.**
     
     File contents:
     ```yaml
@@ -408,14 +408,14 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f client-ingestion-secret.yaml
     ```
 
-5. In a text editor, create a file that is named `wrapper-creds.yaml` and paste the following text in the file.
+5. In a text editor, create a file that is named `wrapper-creds.yaml`, paste the following text in the file, and then modify the default password. 
 
     File name: 
     ```
     wrapper-creds.yaml
     ```
 
-    Substitute a secure password credential of your choosing for the string `<WRAPPER_PASSWORD>`. The password can be a random password. Use this password in the following steps when you configure your BYOS connection in your assistant to connect to the network route.
+    **Substitute a secure password credential of your choosing for the string `<WRAPPER_PASSWORD>`. The password can be a random password.  Record this value for later use. Use this password in the following steps when you configure your BYOS connection in your assistant to connect to the network route.** 
     
     File contents:
     ```yaml
