@@ -779,6 +779,10 @@
 <li>
 <p>Either copy the appropriate <strong>zassist</strong> file to a directory in your PATH, or add the appropriate directory to your PATH environment variable.</p>
 <p>Additional information for running the preceding tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Windows users may need to rename the file zassist file!</p>
+<p>If the <strong>zassist</strong> file does not execute properly, rename the file to <strong>zassist.exe</strong>.</p>
+</div>
 </li>
 <li>
 <p>Run the <strong>zassist</strong> command to verify that it is working.</p>
@@ -842,7 +846,8 @@
 </span></code></pre></div>
 <p>The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. </p>
 <p>Windows <abbr title="Operating System">OS</abbr> (this method can also be used by Mac <abbr title="Operating System">OS</abbr> users):</p>
-<p>You can retrieve the <abbr title="Uniform Resource Locator">URL</abbr> in your <abbr title="OpenShift Container Platform">OCP</abbr> Web console by navigating to Networking Routes and then copy the <abbr title="Uniform Resource Locator">URL</abbr> for the wxa4z-client-ingestion route.</p>
+<p>You can retrieve the <abbr title="Uniform Resource Locator">URL</abbr> in your <abbr title="OpenShift Container Platform">OCP</abbr> Web console by navigating to Networking Routes and then copy the <abbr title="Uniform Resource Locator">URL</abbr> for the <strong>wxa4z-client-ingestion</strong> route.</p>
+<p><a class="glightbox" href="../_attachments/GetIngestRoute.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/GetIngestRoute.png"></a></p>
 </li>
 <li>
 <p>Retrieve the <code>client-ingestion-authkey</code>.</p>
