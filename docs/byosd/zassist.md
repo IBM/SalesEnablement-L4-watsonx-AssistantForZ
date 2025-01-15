@@ -35,6 +35,10 @@ The **zassist** utility is an executable program that automates the ingestion of
 
     Additional information for running the preceding tasks can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=data-installing-zassist#tasktask_w13_lhf_4bc__steps__1" target="_blank">here</a>.
 
+    !!! tip "Windows users may need to rename the file zassist file!"
+
+        If the **zassist** file does not execute properly, rename the file to **zassist.exe**.
+
 5. Run the **zassist** command to verify that it is working.
 
     ```
@@ -104,9 +108,9 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     
     Windows OS (this method can also be used by Mac OS users):
     
-    You can retrieve the URL in your OCP Web console by navigating to Networking Routes and then copy the URL for the wxa4z-client-ingestion route.
+    You can retrieve the URL in your OCP Web console by navigating to Networking Routes and then copy the URL for the **wxa4z-client-ingestion** route.
 
-
+    ![](_attachments/GetIngestRoute.png)
 
 7. Retrieve the `client-ingestion-authkey`.
 
