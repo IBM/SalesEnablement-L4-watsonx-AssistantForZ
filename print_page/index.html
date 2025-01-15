@@ -1956,11 +1956,11 @@ Sample output:
 <h3 id="byosd-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources<a class="headerlink" href="#byosd-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>In a text editor, create a file that is named <code>os-secret.yaml</code> and paste the following text in the file.</p>
+<p>In a text editor, create a file that is named <code>os-secret.yaml</code>, paste the following text in the file, and then modify the default password.</p>
 <p>File name: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#byosd-documentingestion-__codelineno-18-1"></a>os-secret.yaml
 </span></code></pre></div>
-<p>Substitute a secure password of your choosing for the string <code>&lt;OPENSEARCH_PASSWORD&gt;</code>.</p>
+<p><strong>Substitute a secure password of your choosing for the string <code>&lt;OPENSEARCH_PASSWORD&gt;</code>. Record this value for later use.</strong></p>
 <p>File contents:
 </p><div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#byosd-documentingestion-__codelineno-19-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#byosd-documentingestion-__codelineno-19-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
@@ -1981,11 +1981,11 @@ Sample output:
 <p><a name="AuthKey"></a></p>
 <ol start="3">
 <li>
-<p>In a text editor, create a file that is named <code>client-ingestion-secret.yaml</code> and paste the following text in the file.</p>
+<p>In a text editor, create a file that is named <code>client-ingestion-secret.yaml</code>, paste the following text in the file, and then modify the default password.</p>
 <p>File name: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#byosd-documentingestion-__codelineno-21-1"></a>client-ingestion-secret.yaml
 </span></code></pre></div>
-<p>Substitute a secure authentication key of your choosing for the string <code>&lt;CLIENT_INGESTION_AUTHKEY&gt;</code>. The authentication key can be a random password.</p>
+<p><strong>Substitute a secure authentication key of your choosing for the string <code>&lt;CLIENT_INGESTION_AUTHKEY&gt;</code>. The authentication key can be a random password.  Record this value for later use.</strong></p>
 <p>File contents:
 </p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#byosd-documentingestion-__codelineno-22-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#byosd-documentingestion-__codelineno-22-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
@@ -2003,11 +2003,11 @@ Sample output:
 </span></code></pre></div>
 </li>
 <li>
-<p>In a text editor, create a file that is named <code>wrapper-creds.yaml</code> and paste the following text in the file.</p>
+<p>In a text editor, create a file that is named <code>wrapper-creds.yaml</code>, paste the following text in the file, and then modify the default password. </p>
 <p>File name: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#byosd-documentingestion-__codelineno-24-1"></a>wrapper-creds.yaml
 </span></code></pre></div>
-<p>Substitute a secure password credential of your choosing for the string <code>&lt;WRAPPER_PASSWORD&gt;</code>. The password can be a random password. Use this password in the following steps when you configure your <abbr title="Bring Your Own Search">BYOS</abbr> connection in your assistant to connect to the network route.</p>
+<p><strong>Substitute a secure password credential of your choosing for the string <code>&lt;WRAPPER_PASSWORD&gt;</code>. The password can be a random password.  Record this value for later use. Use this password in the following steps when you configure your <abbr title="Bring Your Own Search">BYOS</abbr> connection in your assistant to connect to the network route.</strong> </p>
 <p>File contents:
 </p><div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#byosd-documentingestion-__codelineno-25-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#byosd-documentingestion-__codelineno-25-2"></a><span class="nt">stringData</span><span class="p">:</span>
@@ -2241,13 +2241,12 @@ You are now ready to configure your assistant with the route to your <abbr title
 </li>
 <li>
 <p>Retrieve the server <abbr title="Uniform Resource Locator">URL</abbr> for the client ingestion server.</p>
-<p></p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#byosd-zassist-__codelineno-4-1"></a>echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
+<p>Mac <abbr title="Operating System">OS</abbr>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#byosd-zassist-__codelineno-4-1"></a>echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
 </span></code></pre></div>
-The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. 
-<details class="failure">
-<summary>If the command doesn’t work for you...</summary>
+<p>The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. </p>
+<p>Windows <abbr title="Operating System">OS</abbr> (this method can also be used by Mac <abbr title="Operating System">OS</abbr> users):</p>
 <p>You can retrieve the <abbr title="Uniform Resource Locator">URL</abbr> in your <abbr title="OpenShift Container Platform">OCP</abbr> Web console by navigating to Networking Routes and then copy the <abbr title="Uniform Resource Locator">URL</abbr> for the wxa4z-client-ingestion route.</p>
-</details>
 </li>
 <li>
 <p>Retrieve the <code>client-ingestion-authkey</code>.</p>

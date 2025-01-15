@@ -837,13 +837,12 @@
 </li>
 <li>
 <p>Retrieve the server <abbr title="Uniform Resource Locator">URL</abbr> for the client ingestion server.</p>
-<p></p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
+<p>Mac <abbr title="Operating System">OS</abbr>:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
 </span></code></pre></div>
-The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. 
-<details class="failure">
-<summary>If the command doesn’t work for you...</summary>
+<p>The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. </p>
+<p>Windows <abbr title="Operating System">OS</abbr> (this method can also be used by Mac <abbr title="Operating System">OS</abbr> users):</p>
 <p>You can retrieve the <abbr title="Uniform Resource Locator">URL</abbr> in your <abbr title="OpenShift Container Platform">OCP</abbr> Web console by navigating to Networking Routes and then copy the <abbr title="Uniform Resource Locator">URL</abbr> for the wxa4z-client-ingestion route.</p>
-</details>
 </li>
 <li>
 <p>Retrieve the <code>client-ingestion-authkey</code>.</p>
