@@ -554,7 +554,7 @@ You are now ready to configure your assistant with the route to your BYOS instan
 
 3. Test your assistant and verify that it is still answering questions that are related to IBM Z.
 
-    Experiment with different prompts and validate that the answers provided are reasonable, and that you can view the documentation that was sourced. If responses are not received as expected, verify that the URL is formatted correctly and you specified the ```wrapper-creds.yaml`` password as the **admin** password.
+    Experiment with different prompts and validate that the answers provided are reasonable, and that you can view the documentation that was sourced. If responses are not received as expected, verify that the URL is formatted correctly and you specified the `wrapper-creds.yaml` password as the **admin** password.
 
 ## Troubleshooting
 The following are issues that you may encounter. If the provided resolutions do not work, contact support by using the methods that are mentioned in the [Support](../index.md#support) section.
