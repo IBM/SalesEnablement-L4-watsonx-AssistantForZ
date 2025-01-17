@@ -925,10 +925,26 @@ steps of setting a new passphrase for your user and verifying access.</p>
 </li>
 <li>
 <p>Verify the job is <strong>Successful</strong> by locating the message <code>"failed": false</code> in the job output.</p>
+<p><a class="glightbox" href="../_attachments/tsoCommand3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/tsoCommand3.png"></a></p>
 </li>
-<li>Verify you can log in to z/<abbr title="IBM z/OS Management Facility">OSMF</abbr> by opening your WaaS <abbr title="Uniform Resource Locator">URL</abbr> in a new browser tab.</li>
-<li>Enter <code>IBMUSER</code> for the <strong>z/<abbr title="Operating System">OS</abbr> USER ID</strong> and the password you specified in step 4 for the <strong>z/<abbr title="Operating System">OS</abbr> PASSWORD</strong> and click <strong>LOG IN</strong>.</li>
-<li>Close the new browser tab after verifying a screen similar to the image that follows is displayed.</li>
+<li>
+<p>Verify you can log in to z/<abbr title="IBM z/OS Management Facility">OSMF</abbr> in a new browser tab.</p>
+</li>
+</ol>
+<p>Use your WaaZ <abbr title="Uniform Resource Locator">URL</abbr> created earlier and append <code>/zosmf</code> to the string. Your <abbr title="Uniform Resource Locator">URL</abbr> will be similar to: <code>https://itzvsi-zos-pwgabob.techzone.ibm.com:10443/zosmf</code>.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/waaz-open.png)
+
+!!! Warning "Accept any *connection not private* messages to open the page."
+</code></pre></div>
+<ol start="8">
+<li>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> for the <strong>z/<abbr title="Operating System">OS</abbr> USER ID</strong>, the (<strong>b</strong>) password you specified in step 4 for the <strong>z/<abbr title="Operating System">OS</abbr> PASSWORD</strong>, and then (<strong>c</strong>) click <strong>LOG IN</strong>.</p>
+<p><a class="glightbox" href="../_attachments/zosmfLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zosmfLogin.png"></a></p>
+</li>
+<li>
+<p>Close the new browser tab after verifying a screen similar to the image that follows is displayed.</p>
+<p><a class="glightbox" href="../_attachments/zosmfDesktop.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zosmfDesktop.png"></a></p>
+</li>
 </ol>
 <h2 id="import-and-publish-the-pre-packaged-skills-as-an-openapi-file">Import and publish the pre-packaged skills as an OpenAPI file<a class="headerlink" href="#import-and-publish-the-pre-packaged-skills-as-an-openapi-file" title="Permanent link">#</a></h2>
 <ol>
