@@ -901,20 +901,18 @@ steps of setting a new passphrase for your user and verifying access.</p>
 </li>
 <li>
 <p>Click <strong>Templates</strong> under the <strong>Resources</strong> section.</p>
-</li>
-</ol>
 <p><a class="glightbox" href="../../_attachments/aapTemplates.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/aapTemplates.png"></a></p>
-<ol start="3">
-<li>Click the launch icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Time Sharing Option">TSO</abbr> Command(s)</strong> template.</li>
-</ol>
+</li>
+<li>
+<p>Click the launch icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Time Sharing Option">TSO</abbr> Command(s)</strong> template.</p>
 <p><a class="glightbox" href="../_attachments/launchTSO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/launchTSO.png"></a></p>
-<ol start="4">
+</li>
 <li>
 <p>Replace the default command with the text that follows and substituting a password of your choosing for the string <code>YOUR PASSWORD PHRASE</code> and then click <strong>Next</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME
 </span></code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">To save typographical errors later, keep the password simple for now.</p>
+<p class="admonition-title">Avoid typographical errors later... keep the password simple.</p>
 </div>
 <p>If you type the command yourself, be sure to include the single quotes before and after the password. <strong>Record the password as it will be needed later.</strong> We will refer to this as your <strong>WaaS password</strong>."</p>
 <p><a class="glightbox" href="../_attachments/tsoCommand1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/tsoCommand1.png"></a></p>
@@ -936,7 +934,7 @@ steps of setting a new passphrase for your user and verifying access.</p>
 </div>
 </li>
 <li>
-<p>Enter (<strong>a</strong>) <code>IBMUSER</code> for the <strong>z/<abbr title="Operating System">OS</abbr> USER ID</strong>, the (<strong>b</strong>) password you specified in step 4 for the <strong>z/<abbr title="Operating System">OS</abbr> PASSWORD</strong>, and then (<strong>c</strong>) click <strong>LOG IN</strong>.</p>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> for the <strong>z/<abbr title="Operating System">OS</abbr> USER ID</strong>, (<strong>b</strong>) the password you specified in step 4 for the <strong>z/<abbr title="Operating System">OS</abbr> PASSWORD</strong>, and then (<strong>c</strong>) click <strong>LOG IN</strong>.</p>
 <p><a class="glightbox" href="../_attachments/zosmfLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zosmfLogin.png"></a></p>
 </li>
 <li>
@@ -946,54 +944,93 @@ steps of setting a new passphrase for your user and verifying access.</p>
 </ol>
 <h2 id="import-and-publish-the-pre-packaged-skills-as-an-openapi-file">Import and publish the pre-packaged skills as an OpenAPI file<a class="headerlink" href="#import-and-publish-the-pre-packaged-skills-as-an-openapi-file" title="Permanent link">#</a></h2>
 <ol>
-<li>Open <strong>Skills studio</strong> in watsonx Orchestrate.</li>
-<li>Click <strong>Create</strong> and then click <strong>Import API</strong>.</li>
-<li>Click <strong>From a file</strong>.</li>
-<li>Click <strong>Select/open/upload</strong> in the <strong>Import a skill file</strong> window.</li>
-<li>Select your the json file you modified earlier and click <strong>Upload</strong>.</li>
 <li>
-<p>Verify you receive the message <strong>The Open file or skill package is good to go!</strong>.</p>
+<p>Open <strong>Skills studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/openSkillsStudio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/openSkillsStudio.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>From a file</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio2a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Drag and drop files here or click to upload</strong> in the <strong>Import a skill file</strong> window.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio3a.png"></a></p>
+</li>
+<li>
+<p>Locate and select your the json file you modified earlier and then click <strong>Upload</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio4a.png"></a></p>
+</li>
+<li>
+<p>Verify you receive the message <strong>The Open file or skill package is good to go!</strong> and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio5a.png"></a></p>
 <div class="admonition failure">
 <p class="admonition-title">Not good to go?</p>
-<p>If the file does not load properly you will need to verify not formatting or errors were made in your json file. Return to the previous section to verify the file contents and changes you made.</p>
+<p>If the file does not load properly you will need to verify not formatting or errors were made in your json file. Return to the previous section to verify the file contents and then reload the JSON file.</p>
 </div>
 </li>
 <li>
-<p>Select the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill.</p>
+<p>Select the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill and then click <strong>Add</strong>.</p>
 <p><strong>Note</strong>: Only the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill is required for this use case, but you can add as many skills as you like for testing purposes.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio6a.png"></a></p>
 </li>
 <li>
-<p>Click <strong>Add</strong>.</p>
+<p>Click the ellipses icon (~<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill and then click <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio7a.png"></a></p>
 </li>
-<li>Click the ellipses icon (~<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) and then click <strong>Enhance this skill</strong>.</li>
-<li>Review the skill enhancements options and then click <strong>Publish</strong>.</li>
-<li>Repeat steps the previous 2 steps for each skill you added.</li>
+<li>
+<p>Review the skill enhancements options and then click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio8a.png"></a></p>
+</li>
+<li>
+<p>If you added other skills in step 7 repeat steps the previous 2 steps for each skill you added.</p>
+</li>
 </ol>
 <h2 id="configure-your-appurl-to-connect-to-the-waas-server">Configure your appURL to connect to the WaaS server<a class="headerlink" href="#configure-your-appurl-to-connect-to-the-waas-server" title="Permanent link">#</a></h2>
 <ol>
-<li>In <strong>Skill studio</strong> click the <strong>Apps</strong> tab.</li>
-<li>Enter the name of your application (<strong>z/<abbr title="Operating System">OS</abbr> operations</strong>) in the search field.</li>
-<li>Click the ellipses icon (~<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) and then click <strong>Edit</strong>.</li>
-<li>Click the <strong>Configuration</strong> tab.</li>
+<li>
+<p>In <strong>Skill studio</strong> click the <strong>Apps</strong> tab.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio9a.png"></a></p>
+</li>
+<li>
+<p>In the search field, enter the name of the application in the search field. Unless you modified the <code>info</code> section of the JSON file, the default name is <strong>z/<abbr title="Operating System">OS</abbr> operations</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio10a.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses icon (~<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Operations</strong> and then click <strong>Edit</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio11a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Configuration</strong> tab.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio12a.png"></a></p>
+</li>
 <li>
 <p>Click <strong>Test connection</strong>.</p>
-<p><strong>Note</strong>: the <strong>Server <abbr title="Uniform Resource Locator">URL</abbr></strong> field should match the <abbr title="Uniform Resource Locator">URL</abbr> you created for your WaaS server.</p>
+<p><strong>Note</strong>: the <strong>Server <abbr title="Uniform Resource Locator">URL</abbr></strong> field should match the <abbr title="Uniform Resource Locator">URL</abbr> you created for your WaaS server. It should be similar to: <code>https://itzvsi-zos-pwgabob.techzone.ibm.com:10443</code>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio13a.png"></a>   </p>
 </li>
 <li>
-<p>Enter <code>IBMUSER</code> in the <strong>username</strong> field and your <strong>WaaS password</strong> you created earlier in the <strong>password</strong> field.</p>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> in the <strong>username</strong> field, (<strong>b</strong>) your <strong>WaaS password</strong> created earlier in the <strong>password</strong> field, and then (<strong>c</strong>) click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio14a.png"></a>   </p>
 </li>
-<li>Click *<em>Connect app</em>.</li>
-<li>Verify the connection is successful and then click <strong>Save</strong>.</li>
-<li>Repeat step 2 above to verify the <strong>Configuration status</strong> is <strong>Configured</strong>.</li>
+<li>
+<p>Verify the connection is successful and then click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio15a.png"></a> </p>
+</li>
+<li>
+<p>Repeat step 2 above to verify the <strong>Configuration status</strong> is <strong>Configured</strong>.</p>
+<p><a class="glightbox" href="../_attachments/skillsStudio16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillsStudio16a.png"></a> </p>
+</li>
 </ol>
 <h2 id="test-the-skill">Test the skill<a class="headerlink" href="#test-the-skill" title="Permanent link">#</a></h2>
 <ol>
 <li>Open <strong>Chat</strong> in watsonx Orchestrate.</li>
 <li>Click **Add skills </li>
 </ol>
-<p>Page 114 step f
-or 
-skip to page 117 step e</p>
+<p>Page 112 step </p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
