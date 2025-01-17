@@ -877,13 +877,12 @@
 <p>Substitute the string <code>&lt;your z/OSMV URL&gt;</code> with your Wazi as a Service (WaaS) instance <abbr title="Uniform Resource Locator">URL</abbr>. Your WaaS <abbr title="Uniform Resource Locator">URL</abbr> is based on your <abbr title="IBM Technology Zone">ITZ</abbr> <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> which can be obtained from your <abbr title="IBM Technology Zone">ITZ</abbr> watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr> reservation.</p>
 <p>The <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> will be similar to:</p>
 <p><code>https://itzvsi-aap-ppxbcno.techzone.ibm.com</code></p>
-<p>Change the <code>aap</code> porition to <code>zos</code> and append <code>:10443</code> to the <abbr title="Uniform Resource Locator">URL</abbr> value. Your new <abbr title="Uniform Resource Locator">URL</abbr> will be similar to:</p>
+<p>Change the <code>aap</code> porition to <code>zos</code> and append <code>:10443</code> to the <abbr title="Uniform Resource Locator">URL</abbr> value. <strong>Record this value for later use!</strong> Your new <abbr title="Uniform Resource Locator">URL</abbr> will be similar to:</p>
 <p><code>https://itzvsi-zis-ppxbcno.techzone.ibm.com:10443</code></p>
 <p>Before:</p>
 <p><a class="glightbox" href="../_attachments/iplJSON-before.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/iplJSON-before.png"></a></p>
 <p>After:</p>
 <p><a class="glightbox" href="../_attachments/iplJSON-after.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/iplJSON-after.png"></a></p>
-<p>!!! tip "Record the <abbr title="Uniform Resource Locator">URL</abbr>. It will be needed later!"</p>
 <p>!!! Warning "In watsonx Orchestrate, each app is associated with a single <abbr title="Uniform Resource Locator">URL</abbr>."</p>
 <div class="highlight"><pre><span></span><code>  If you have not imported previous skills into an app called `z/OS operations`, the default values in the **info** section are fine. If you already have a app named "z/OS operations", modify the **info** section to meet your needs.
 
