@@ -662,6 +662,111 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Use Cases
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usecases/ipl/iplPH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrieve IPL information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usecases/cert/certPH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSL certificate renewal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usecases/racf/racfPH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RACF Administration support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../publishDeploy/" class="md-nav__link">
         
@@ -816,6 +921,10 @@ To both run the action and display the results, a skill flow is needed. Skills a
 </li>
 <li>
 <p>Verify that the application is <strong>Connected</strong> (<strong>a</strong>) and then click <strong>Close</strong> (<strong>b</strong>).</p>
+<div class="admonition note">
+<p class="admonition-title">Connect the application if it is not connected.</p>
+<p>Use the <abbr title="Ansible Automation Platform">AAP</abbr> user name (admin) and the <abbr title="Ansible Automation Platform">AAP</abbr> password for your <abbr title="IBM Technology Zone">ITZ</abbr> reservation.</p>
+</div>
 <p><a class="glightbox" href="../_attachments/skillFlow10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillFlow10.png"></a></p>
 </li>
 </ol>
@@ -937,14 +1046,13 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <li>
 <p>Replace the existing <strong>phrases</strong> (prompts) and then click <strong>Publish</strong>.</p>
 <p>Notice that the default prompts are either not intuitive (the skill flow name) or a bit verbose. Replace the existing phrases with phrases that you anticipate users will use.</p>
-<div class="admonition bug">
-<p class="admonition-title">Be careful with the sample phrases that you specify.</p>
-<p>During the development of the lab guide, it was discovered that some sample phrases with a <code>/</code> character can cause issues with the actions. Avoid using <strong>z/<abbr title="Operating System">OS</abbr></strong> in the your sample phrases. This issue has been reported to the offering team.</p>
-</div>
+<p>&lt;!-- !!! Bug "Be careful with the sample phrases that you specify."</p>
+<div class="highlight"><pre><span></span><code>During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team. --&gt;
+</code></pre></div>
 <p>Example prompts:
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Show me zOS facts
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Show me z/OS facts
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Gather and display zOS facts
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Gather and display z/OS facts
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/skillFlow33-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillFlow33-b.png"></a></p>
 </li>
@@ -975,7 +1083,7 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <li>
 <p>Enter an example prompt for the skill and click <strong>Save</strong>.</p>
 <p>You can use one of the prompts you used earlier for the skill flow.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Show me zOS facts
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Show me z/OS facts
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/skillFlow39-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillFlow39-b.png"></a></p>
 </li>
@@ -1002,7 +1110,7 @@ To both run the action and display the results, a skill flow is needed. Skills a
 </li>
 <li>
 <p>Enter one of the prompts you specified into the assistant preview.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Show me zOS facts
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Show me z/OS facts
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/skillFlow42-b.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/skillFlow42-b.png"></a></p>
 </li>
