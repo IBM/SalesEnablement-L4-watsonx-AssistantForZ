@@ -120,6 +120,10 @@ markdown_extensions:
       relative_path: '' # default ''
       absolute: false # default: false
       tags: 'a script img link object embed'
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      
 # add custom style sheet to make the prompt code blocks display nicer without a vertical scroll bar.
 extra_css:
   - style.css

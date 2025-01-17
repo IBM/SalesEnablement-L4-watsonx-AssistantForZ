@@ -43,18 +43,18 @@ Before configuring actions, it is important to modify a setting within watsonx O
 
 6. On the **New action** dialog, (a) enter a prompt a user of the assistant might use to initiate the action and then (b) click **Save**.
 
-    !!! Bug "Be careful with the sample phrases that you specify."
+    <!-- !!! Bug "Be careful with the sample phrases that you specify."
 
-        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team.
+        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team. -->
 
     Sample prompts:
 
     ```
-    Get zOS facts
+    Get z/OS facts
     ```
 
     ```
-    Gather zOS facts
+    Gather z/OS facts
     ```
 
     ![](_attachments/createActions5.png)
@@ -71,7 +71,7 @@ Before configuring actions, it is important to modify a setting within watsonx O
 
     Prompt:
     ```
-    Get zOS facts
+    Get z/OS facts
     ```
 
     ![](_attachments/createActions8.png)
@@ -137,7 +137,7 @@ IBM watsonx Assistant for Z provides utility skills to retrieve the job output. 
 
         Prompt:
         ```
-        Gather zOS facts
+        Gather z/OS facts
         ```
 
         ![](_attachments/skill-error-13.png) 

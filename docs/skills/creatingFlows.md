@@ -74,6 +74,10 @@ As mentioned in a previous section, default utility skills that are provided wit
 
 14. Verify that the application is **Connected** (**a**) and then click **Close** (**b**).
 
+    !!! Note "Connect the application if it is not connected."
+
+        Use the AAP user name (admin) and the AAP password for your ITZ reservation.
+
     ![](_attachments/skillFlow10.png)
 
 ## Add the skills to your Personal skills
@@ -194,16 +198,16 @@ As mentioned in a previous section, default utility skills that are provided wit
 
     Notice that the default prompts are either not intuitive (the skill flow name) or a bit verbose. Replace the existing phrases with phrases that you anticipate users will use.
 
-    !!! Bug "Be careful with the sample phrases that you specify."
+    <!-- !!! Bug "Be careful with the sample phrases that you specify."
 
-        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team.
+        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team. -->
 
     Example prompts:
     ```
-    Show me zOS facts
+    Show me z/OS facts
     ```
     ```
-    Gather and display zOS facts
+    Gather and display z/OS facts
     ```
 
     ![](_attachments/skillFlow33-b.png)
@@ -237,7 +241,7 @@ As mentioned in a previous section, default utility skills that are provided wit
     You can use one of the prompts you used earlier for the skill flow.
 
     ```
-    Show me zOS facts
+    Show me z/OS facts
     ```
 
     ![](_attachments/skillFlow39-b.png)
@@ -267,7 +271,7 @@ As mentioned in a previous section, default utility skills that are provided wit
 12.  Enter one of the prompts you specified into the assistant preview.
 
     ```
-    Show me zOS facts
+    Show me z/OS facts
     ```
 
     ![](_attachments/skillFlow42-b.png)

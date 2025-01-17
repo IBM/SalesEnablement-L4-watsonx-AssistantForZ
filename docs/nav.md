@@ -13,6 +13,10 @@
     * [Create skill flows for the assistant](skills/creatingFlows.md)
     * [Create custom-built actions](skills/creatingCustomActions.md)
     * [Import pre-packaged z/OS skills](skills/importingzOSskills.md)
+* Use Cases
+    * [Retrieve IPL information](usecases/ipl/iplPH.md)
+    * [SSL certificate renewal](usecases/cert/certPH.md)
+    * [RACF Administration support](usescases/racf/racfPH.md)
 * [Publish and deploy your assistant](publishDeploy.md)
 * [Other integrations](otherIntegrations.md)
 * [Next steps](NextSteps.md)

@@ -293,7 +293,7 @@ Before ingesting documents, complete the following setup steps.
 
     !!! tip "Be patient."
 
-        It may take a minute or two for the **IBM watsonx Assistant for Z Operator Catalog** tile to appear. 
+        It may take a minute or two for the **IBM watsonx Assistant for Z Operator Catalog** tile to appear. Reload the browser page if the operator is not listed.
 
     **Note**: The current version of the operator may differ than that shown in the image below.
 
