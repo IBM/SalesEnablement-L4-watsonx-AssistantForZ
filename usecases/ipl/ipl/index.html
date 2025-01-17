@@ -839,12 +839,10 @@
 
 
 <div><h1 id="use-case-retrieve-ipl-information">Use case: Retrieve <abbr title="Initial Program Load">IPL</abbr> information<a class="headerlink" href="#use-case-retrieve-ipl-information" title="Permanent link">#</a></h1>
-<p>Next, explore a use case to improve productivity for early-tenure system programmers (SysProg) who are preparing for an upcoming initial program load (<abbr title="Initial Program Load">IPL</abbr>) scheduled for an logical partition (<abbr title="Logical Partition">LPAR</abbr>).</p>
-<p>To prepare for the <abbr title="Initial Program Load">IPL</abbr>, the SysProgs need to familiarize themselves with the process. Rather than spending time reading through the wide array of documentation available online, they would like to leverage the content-grounded capabilities provided by watsonx Assistant for Z to help them get accurate responses to their questions quickly, along with leveraging existing automations.</p>
-<p>As part of the pilot, they have already explored with prompting the assistant with questions. One example prompt they’ve asked the assistant is <em>“What information is needed to perform an <abbr title="Initial Program Load">IPL</abbr> on a z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>?”</em> </p>
-<p>In the response, the SysProg realizes there is information they must understand about their system in preparation for the <abbr title="Initial Program Load">IPL</abbr>, for example the <abbr title="Initial Program Load">IPL</abbr> Volume and the <abbr title="Initial Program Load">IPL</abbr> LOAD PARM.</p>
-<p>For this use case, you will show how a simple automation for retrieving this type of information can be infused in a natural conversation with watsonx Assistant for Z by leveraging the pre-packaged skills to automate various tasks on z/<abbr title="Operating System">OS</abbr>.</p>
-<p>To demonstrate this use case, leveraging the pre-packaged skills included in watsonx Assistant for Z to automate tasks on z/<abbr title="Operating System">OS</abbr>. The pre-packaged skills ship as an OpenAPI JSON file. Learn more about OpenAPI <a href="https://www.openapis.org/" target="_blank">here</a>. The file includes skill definitions that can be uploaded to the Skill Studio within watsonx Orchestrate to import the pre-packaged skills. However, the file must first be customized for your z/<abbr title="Operating System">OS</abbr> server before using the skills.</p>
+<p>Next, explore a use case to improve productivity for early-tenure system programmers (SysProg) who are preparing for an upcoming initial program load (<abbr title="Initial Program Load">IPL</abbr>) for a logical partition (<abbr title="Logical Partition">LPAR</abbr>).</p>
+<p>To prepare for the <abbr title="Initial Program Load">IPL</abbr>, the SysProgs need to familiarize themselves with the process. Rather than spending time reading through the wide array of documentation available online, they would like to leverage the content-grounded capabilities provided by watsonx Assistant for Z to help them get accurate responses to their questions quickly and leverage automations.</p>
+<p>As part of the pilot, they have already explored with prompting the assistant with questions. One example prompt they’ve asked the assistant is <em>“What information is needed to perform an <abbr title="Initial Program Load">IPL</abbr> on a z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>?”</em> In the response, the SysProg realizes there is information they must understand about their system in preparation for the <abbr title="Initial Program Load">IPL</abbr>, for example the <abbr title="Initial Program Load">IPL</abbr> Volume and the <abbr title="Initial Program Load">IPL</abbr> LOAD PARM.</p>
+<p>For this use case, you show how a simple automation for retrieving this type of information can be infused in a natural conversation with watsonx Assistant for Z by leveraging pre-packaged skills to automate various tasks on z/<abbr title="Operating System">OS</abbr>. The pre-packaged skills ship as an OpenAPI JSON file. Learn more about OpenAPI <a href="https://www.openapis.org/" target="_blank">here</a>. The file includes skill definitions that can be uploaded to the Skill Studio within watsonx Orchestrate to import the pre-packaged skills. However, the file must first be customized for your z/<abbr title="Operating System">OS</abbr> server before using the skills.</p>
 <p>The list of pre-packaged skills available include:</p>
 <ul>
 <li>Authorized program list</li>
@@ -859,7 +857,7 @@
 </ul>
 <p>A great value of watsonx Orchestrate is the ability to build skills that anyone can use. You can build your own custom skills by importing an OpenAPI file into watsonx Orchestrate as a JSON or YAML file. For more information on building skills by importing OpenAPI files, refer to the documentation <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=skills-building-by-importing-openapi-files" target="_blank">here</a>.</p>
 <p>Watsonx Orchestrate also makes it possible to build, edit, and generate OpenAPI specifications by using the OpenAPI builder. With the OpenAPI Builder, you can use the <abbr title="Artificial intelligence">AI</abbr> function to simplify the process of generating these specifications. For more information on using the OpenAPI Builder, refer to the documentation <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=skills-using-openapi-builder" target="_blank">here</a>.</p>
-<p>For this use case, you will be importing the skill for retrieving a z/<abbr title="Operating System">OS</abbr> server’s <abbr title="Initial Program Load">IPL</abbr> information. The next steps will walk you through the process of downloading that OpenAPI JSON file and customizing it for your environment.</p>
+<p>For this use case, you will be importing the skill for retrieving a z/<abbr title="Operating System">OS</abbr> server’s <abbr title="Initial Program Load">IPL</abbr> information. The next steps walk you through the process of downloading that OpenAPI JSON file and customizing it for your environment.</p>
 <h2 id="download-and-customize-the-watsonx-assistant-for-z-openap-json-file">Download and customize the watsonx Assistant for Z OpenAP JSON file<a class="headerlink" href="#download-and-customize-the-watsonx-assistant-for-z-openap-json-file" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -871,26 +869,26 @@
 </li>
 <li>
 <p>In a text editor, open the <code>wxa4z-skillpak-prepackaged-skills.json</code>, modify the server's url field as described, and save the file.</p>
+</li>
+</ol>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wxa4z-skillpak-prepackaged-skills.json
+   </p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wxa4z-skillpak-prepackaged-skills.json
 </span></code></pre></div>
 <p>Substitute the string <code>&lt;your z/OSMV URL&gt;</code> with your Wazi as a Service (WaaS) instance <abbr title="Uniform Resource Locator">URL</abbr>. Your WaaS <abbr title="Uniform Resource Locator">URL</abbr> is based on your <abbr title="IBM Technology Zone">ITZ</abbr> <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> which can be obtained from your <abbr title="IBM Technology Zone">ITZ</abbr> watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr> reservation.</p>
 <p>The <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> will be similar to:</p>
 <p><code>https://itzvsi-aap-ppxbcno.techzone.ibm.com</code></p>
 <p>Change the <code>aap</code> porition to <code>zos</code> and append <code>:10443</code> to the <abbr title="Uniform Resource Locator">URL</abbr> value. Your new <abbr title="Uniform Resource Locator">URL</abbr> will be similar to:</p>
 <p><code>https://itzvsi-zis-ppxbcno.techzone.ibm.com:10443</code></p>
-<p>Use your WaaS <abbr title="Uniform Resource Locator">URL</abbr> in place of the string <code>&lt;your z/OSMV URL&gt;</code>. Your file will look similar to the image below:</p>
-<p>NEED IMAGE OF EDITED VALUE before and after!!!</p>
-<div class="admonition tip">
-<p class="admonition-title">Record the <abbr title="Uniform Resource Locator">URL</abbr>. It will be needed later!</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">In watsonx Orchestrate, each app is associated with a single <abbr title="Uniform Resource Locator">URL</abbr>.</p>
-</div>
-<p>If you have not imported previous skills into an app called <code>z/OS operations</code>, the default values in the <strong>info</strong> section are fine. If you already have a app named "z/<abbr title="Operating System">OS</abbr> operations", modify the <strong>info</strong> section to meet your needs.</p>
-<p>For more information on modifying the OpenAPI JSON file, see the instructions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=importing-prepackaged-zos-skills" target="_blank">here</a>.</p>
-</li>
-</ol>
+<p>Before:</p>
+<p><a class="glightbox" href="../_attachments/iplJSON-before.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/iplJSON-before.png"></a></p>
+<p>After:</p>
+<p><a class="glightbox" href="_attachmetns/iplJSON-after.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachmetns/iplJSON-after.png"></a></p>
+<p>!!! tip "Record the <abbr title="Uniform Resource Locator">URL</abbr>. It will be needed later!"</p>
+<p>!!! Warning "In watsonx Orchestrate, each app is associated with a single <abbr title="Uniform Resource Locator">URL</abbr>."</p>
+<div class="highlight"><pre><span></span><code>  If you have not imported previous skills into an app called `z/OS operations`, the default values in the **info** section are fine. If you already have a app named "z/OS operations", modify the **info** section to meet your needs.
+
+  For more information on modifying the OpenAPI JSON file, see the instructions &lt;a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=importing-prepackaged-zos-skills" target="_blank"&gt;here&lt;/a&gt;.
+</code></pre></div>
 <h2 id="set-the-racf-passphrase-for-zosmf-authentication">Set the <abbr title="Resource Access Control Facility">RACF</abbr> passphrase for z/<abbr title="IBM z/OS Management Facility">OSMF</abbr> authentication<a class="headerlink" href="#set-the-racf-passphrase-for-zosmf-authentication" title="Permanent link">#</a></h2>
 <p>For your skills to execute successfully on your WaaS instance, you need to ensure you can authenticate to it from watsonx Orchestrate. To achieve this, you will setup a new <abbr title="Resource Access Control Facility">RACF</abbr> Passphrase for the <code>IBMUSER</code> ID which is a pre-defined user ID on the WaaS server. The following steps will take you through the
 steps of setting a new passphrase for your user and verifying access.</p>
