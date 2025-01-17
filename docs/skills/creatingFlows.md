@@ -198,10 +198,6 @@ As mentioned in a previous section, default utility skills that are provided wit
 
     Notice that the default prompts are either not intuitive (the skill flow name) or a bit verbose. Replace the existing phrases with phrases that you anticipate users will use.
 
-    <!-- !!! Bug "Be careful with the sample phrases that you specify."
-
-        During the development of the lab guide, it was discovered that some sample phrases with a `/` character can cause issues with the actions. Avoid using **z/OS** in the your sample phrases. This issue has been reported to the offering team. -->
-
     Example prompts:
     ```
     Show me z/OS facts

@@ -17,7 +17,7 @@ This lab guide covers the setup, configuration, and usage of watsonx Assistant f
 
 The lab guide also enables dedicated lab environments for customized client PoXs and demonstrations. If you are preparing for an actual pilot engagement, refer to the <a href="https://ibm.seismic.com/Link/Content/DCCRRWqjGBTVc87VBGCfC2F2VQVV" target="_blank">Pilot Scoping Guide for watsonx Assistant for Z</a> for additional information.
 
-Using the lab guide, you will how to:
+Using the lab guide, you will learn how to:
 
 - Provision the lab environments
 - Create an assistant and configuring conversational search
@@ -28,9 +28,13 @@ Using the lab guide, you will how to:
 - Connect apps to assistants
 - Create assistant actions
 - Create skill flows 
-- Create custom-built actions
-- Import pre-packaged z/OS skills
 - Publish and deploy an assistant
+
+In addition, you will import pre-packaged z/OS skills and create custom-built skills to deliver an assistant that handles 3 use cases:
+
+- Retrieving initial program load (IPL) information
+- Managing certificates
+- Resource Access Control Facility (RACF) administration support
 
 !!! Note "Not all capabilities of the offering are covered in the lab guide."
 
