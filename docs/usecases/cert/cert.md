@@ -10,8 +10,8 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
 
 1. Open and log into the Ansible Automation Platform (AAP) web console. 
 
-     !!! tip "Don't remember how?"
-    
+     !!! Tip "Don't remember how?"
+ 
      Refer to the first 5 steps in [Explore Ansible Automation Platform](../../skills/exploreAAP.md).
 
 2. Click **Templates** under the **Resources** section.
@@ -33,7 +33,7 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
      ```
      CERTAUTH
      ```
-
+     
      !!! Note "Leave the default values for all other fields."
     
      ![](_attachments/cert-3a.png)    
@@ -130,7 +130,7 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
      **c**: **Sign with**
      ```
      CERTAUTH
-    ```
+     ```
 
      **d**: **Sign Label**
      ```
@@ -150,27 +150,27 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
 
 4. Verify the job was **Successful** and review the output.
 
-    **Note**: you may need to click the **Reload Output** button after the job completes to view the full output.
+     **Note**: you may need to click the **Reload Output** button after the job completes to view the full output.
 
-    Review the tasks that were run within the automation to renew the certificate. Some of the steps completed include:
+     Review the tasks that were run within the automation to renew the certificate. Some of the steps completed include:
 
-    - Run the RACF_CERTIFICATE_EXPIRATION z/OS Health Check
+     - Run the RACF_CERTIFICATE_EXPIRATION z/OS Health Check
 
-    - Submit JCL to pull a report on the z/OS Health Check
+     - Submit JCL to pull a report on the z/OS Health Check
 
-    - Search the output of the report for the given certificate label
+     - Search the output of the report for the given certificate label
 
-    - Print out the expiring certificate, if it is found. You should see: ‘TESTSITE expiring – True’
+     - Print out the expiring certificate, if it is found. You should see: ‘TESTSITE expiring – True’
 
-    - If the certificate is expiring, kick off a series of RACDCERT commands to do the following:
+     - If the certificate is expiring, kick off a series of RACDCERT commands to do the following:
   
-      - Backup the expiring certificate
-      - Rekey the certificate and give it a new temporary label
-      - Generate a CSR for the new certificate
-      - Sign the new certificate with the local CA
-      - Delete the old certificate
-      - Relabel the new certificate to use the same label as before
-      - Refresh the digital certificate list
+       - Backup the expiring certificate
+       - Rekey the certificate and give it a new temporary label
+       - Generate a CSR for the new certificate
+       - Sign the new certificate with the local CA
+       - Delete the old certificate
+       - Relabel the new certificate to use the same label as before
+       - Refresh the digital certificate list
   
      ![](_attachments/cert-16a.png) 
 
