@@ -1307,7 +1307,74 @@
 <p><a class="glightbox" href="../_attachments/c-sf-26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-26a.png"></a></p>
 </li>
 <li>
+<p>Enter <code>certificate expiration date</code> in the form title and toggle on the <strong>Hide this form from the user</strong> option.</p>
+<p><strong>Form title</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>certificate expiration date
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-sf-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-27a.png"></a></p>
+</li>
 </ol>
+<p>Next, create an output for to return the the transformed data from the input skill.</p>
+<ol start="28">
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Input form</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-28a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-28a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom forms</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-29a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-29a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>Output form</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-30a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-30a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Output form</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-31a.png"></a></p>
+</li>
+<li>
+<p>Click in the <strong>Custom forms</strong> text entry field and enter <code>#</code> (the pound key, also know as the number sign or hash key).</p>
+<p>Typing the <code>#</code> will open a new dialog window.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-32a.png"></a></p>
+</li>
+<li>
+<p>Expand (<strong>a</strong>) <strong>Input form</strong>, select (<strong>b</strong>) <strong>certificate expiration date</strong>, and then click (<strong>c</strong>) <strong>OK</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-33a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-33a.png"></a></p>
+</li>
+<li>
+<p>Enable the <strong>Hide this form from the user</strong> option.</p>
+<div class="admonition question">
+<p class="admonition-title">Why hide some of the forms?</p>
+<p>You may be wondering why hide the input and output forms for the skills in the skill flow. This is done to execute the automation based on user prompts for the inputs of the skills. This is done through natural conversation with the assistant when the skill flow is configured as an assistant ‘action’ (you will do this soon). Although the final output is hidden, it is accessible as a variable in a custom-built action. The value can be displayed exactly at the point it is expected in the conversation.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/c-sf-34a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-34a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>pencil</strong> icon (<a class="glightbox" href="../../../skills/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../skills/_attachments/pencilIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/c-sf-35a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-35a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>Retrieve certificate expiration</code> in the <strong>Name</strong> field and click <strong>Save</strong>.</p>
+<p><strong>Name</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Retrieve certificate expiration
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-sf-36a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-36a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-37a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-37a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-38a.png"></a></p>
+</li>
+<li>
+<p>Review the skill flow settings and click <strong>Publish</strong>.</p>
+</li>
+</ol>
+<p>Congratulations! You’ve just created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the end-user provides. You will see this in action in the following sections.</p>
+<p>In the next section, you will create one more simpler skill flow for the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew skill you previously imported. Once this additional skill flow is created, you will add both skill flows as skill-based actions which can be called in a custom-built action to map inputs to the skill flows through natural conversation.</p>
+<p>Page 164</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
