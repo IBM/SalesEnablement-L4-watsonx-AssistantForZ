@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../usecases/ipl/iplPH/" class="md-nav__link">
+      <a href="../usecases/ipl/ipl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -993,7 +993,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usecases-ipl-iplph" class="md-nav__link">
+  <a href="#usecases-ipl-ipl" class="md-nav__link">
     <span class="md-ellipsis">
       Retrieve IPL information
     </span>
@@ -3526,7 +3526,493 @@ To both run the action and display the results, a skill flow is needed. Skills a
                         <h1 class='nav-section-title' id='section-use-cases'>
                             Use Cases <a class='headerlink' href='#section-use-cases' title='Permanent link'>↵</a>
                         </h1>
-                        <section class="print-page" id="usecases-ipl-iplph"><div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#usecases-ipl-iplph-coming-soon" title="Permanent link">#</a></h1>
+                        <section class="print-page" id="usecases-ipl-ipl"><div><h1 id="use-case-retrieve-ipl-information">Use case: Retrieve <abbr title="Initial Program Load">IPL</abbr> information<a class="headerlink" href="#usecases-ipl-ipl-use-case-retrieve-ipl-information" title="Permanent link">#</a></h1>
+<p>Next, explore a use case to improve productivity for early-tenure system programmers (SysProg) who are preparing for an upcoming initial program load (<abbr title="Initial Program Load">IPL</abbr>) for a logical partition (<abbr title="Logical Partition">LPAR</abbr>).</p>
+<p>To prepare for the <abbr title="Initial Program Load">IPL</abbr>, the SysProgs need to familiarize themselves with the process. Rather than spending time reading through the wide array of documentation available online, they would like to use watsonx Assistant for Z. The content-grounded capabilities that are provided by watsonx Assistant for Z return accurate responses to their questions quickly and uses automations to perform actions.</p>
+<p>As part of the pilot, they already explored prompting the assistant with questions. In one example prompt, they asked the assistant is <em>“What information is needed to perform an <abbr title="Initial Program Load">IPL</abbr> on a z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>?”</em> In reading the response, the SysProg learns they need information about their system in preparation for the <abbr title="Initial Program Load">IPL</abbr>. For example, the <abbr title="Initial Program Load">IPL</abbr> Volume and the <abbr title="Initial Program Load">IPL</abbr> LOAD PARM.</p>
+<p>For this use case, show how a simple automation for retrieving this type of information can be infused in a natural conversation with watsonx Assistant for Z. You use pre-packaged skills to automate various tasks on z/<abbr title="Operating System">OS</abbr>. The pre-packaged skills are provided as an OpenAPI JSON file. Learn more about OpenAPI <a href="https://www.openapis.org/" target="_blank">here</a>. The file includes skill definitions that can be uploaded to the Skill Studio within watsonx Orchestrate to import the pre-packaged skills. First, the file must first be customized for your z/<abbr title="Operating System">OS</abbr> server.</p>
+<p>The list of pre-packaged skills available include:</p>
+<ul>
+<li>Authorized program list</li>
+<li>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</li>
+<li>Display zOS parmlib datasets</li>
+<li>Unix System services options</li>
+<li>Display zOS subsystems</li>
+<li>List spool files</li>
+<li>Retrieve dataset content</li>
+<li>Retrieve spool file content</li>
+<li>Retrieve z/<abbr title="Operating System">OS</abbr> Management facility (z/<abbr title="IBM z/OS Management Facility">OSMF</abbr>) job status</li>
+</ul>
+<p>A great value of watsonx Orchestrate is the ability to build skills that anyone can use. You can build your own custom skills by importing an OpenAPI file into watsonx Orchestrate as a JSON or YAML file. For more information on building skills by importing OpenAPI files, refer to the documentation <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=skills-building-by-importing-openapi-files" target="_blank">here</a>.</p>
+<p>Watsonx Orchestrate also makes it possible to build, edit, and generate OpenAPI specifications by using the OpenAPI builder. With the OpenAPI Builder, you can use the <abbr title="Artificial intelligence">AI</abbr> function to simplify the process of generating these specifications. For more information on using the OpenAPI Builder, refer to the documentation <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=skills-using-openapi-builder" target="_blank">here</a>.</p>
+<p>For this use case, you are importing the skill for retrieving a z/<abbr title="Operating System">OS</abbr> server’s <abbr title="Initial Program Load">IPL</abbr> information. The next steps walk you through the process of downloading that OpenAPI JSON file and customizing it for your environment.</p>
+<h2 id="usecases-ipl-ipl-download-and-customize-the-watsonx-assistant-for-z-openap-json-file">Download and customize the watsonx Assistant for Z OpenAP JSON file<a class="headerlink" href="#usecases-ipl-ipl-download-and-customize-the-watsonx-assistant-for-z-openap-json-file" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Download the watsonx Assistant for Z OpenAP JSON file.</p>
+<p><a href="https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ/raw/refs/heads/main/docs/Setup/_sampleDocs/wxa4z-skillpak-prepackaged-skills.json.zip" target="_blank">wxa4z-skillpak-prepackaged-skills.json.zip</a></p>
+</li>
+<li>
+<p>Extract the file.</p>
+</li>
+<li>
+<p>In a text editor, open the <code>wxa4z-skillpak-prepackaged-skills.json</code>, modify the server's url field as described, and save the file.</p>
+<p><strong>File name</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#usecases-ipl-ipl-__codelineno-0-1"></a>wxa4z-skillpak-prepackaged-skills.json
+</span></code></pre></div>
+<p>Substitute your Wazi as a Service (WaaS) instance <abbr title="Uniform Resource Locator">URL</abbr> for the string <code>&lt;your z/OSMV URL&gt;</code>. Your WaaS <abbr title="Uniform Resource Locator">URL</abbr> is based on your <abbr title="IBM Technology Zone">ITZ</abbr> <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> that can be obtained from your watsonx Assistant for Z Pilot - <abbr title="Ansible Automation Platform">AAP</abbr> &amp; z/<abbr title="Operating System">OS</abbr> <abbr title="IBM Technology Zone">ITZ</abbr> reservation.</p>
+<p>The <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="Uniform Resource Locator">URL</abbr> is similar to:</p>
+<p><code>https://itzvsi-aap-ppxbcno.techzone.ibm.com</code></p>
+<p>Change the <code>aap</code> string to <code>zos</code> and append <code>:10443</code> to the <abbr title="Uniform Resource Locator">URL</abbr> value. <strong>Record this value for later use!</strong> Your new <abbr title="Uniform Resource Locator">URL</abbr> is similar to:</p>
+<p><code>https://itzvsi-zis-ppxbcno.techzone.ibm.com:10443</code></p>
+<p>Before:</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/iplJSON-before.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/iplJSON-before.png"></a></p>
+<p>After:</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/iplJSON-after.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/iplJSON-after.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">In watsonx Orchestrate, each app is associated with a single <abbr title="Uniform Resource Locator">URL</abbr>.</p>
+<p>If you have not imported previous skills into an app called <code>z/OS operations</code>, the default values in the <strong>info</strong> section are fine. If you already have a app named "z/<abbr title="Operating System">OS</abbr> operations", modify the <strong>info</strong> section to meet your needs.</p>
+<p>For more information on modifying the OpenAPI JSON file, see the instructions <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=importing-prepackaged-zos-skills" target="_blank">here</a>.</p>
+</div>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-set-the-racf-passphrase-for-zosmf-authentication">Set the <abbr title="Resource Access Control Facility">RACF</abbr> passphrase for z/<abbr title="IBM z/OS Management Facility">OSMF</abbr> authentication<a class="headerlink" href="#usecases-ipl-ipl-set-the-racf-passphrase-for-zosmf-authentication" title="Permanent link">#</a></h2>
+<p>For your skills to run successfully on your WaaS instance, you need to ensure that you can authenticate to it from watsonx Orchestrate. To achieve successful authentication, setup a new <abbr title="Resource Access Control Facility">RACF</abbr> Passphrase for the <code>IBMUSER</code> ID that is a pre-defined user ID on the WaaS server. The following steps take you through the steps of setting a new passphrase for your user and verifying access.</p>
+<ol>
+<li>
+<p>Open and log in to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) web console. </p>
+<div class="admonition tip">
+<p class="admonition-title">Don't remember how?</p>
+<p>Refer to the first 5 steps in <a href="#skills-exploreaap">Explore Ansible Automation Platform</a>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Templates</strong> under the <strong>Resources</strong> section.</p>
+<p><a class="glightbox" href="../usecases/_attachments/aapTemplates.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/aapTemplates.png"></a></p>
+</li>
+<li>
+<p>Click the launch icon (<a class="glightbox" href="../usecases/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Time Sharing Option">TSO</abbr> Command(s)</strong> template.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/launchTSO.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/launchTSO.png"></a></p>
+</li>
+<li>
+<p>Replace the default command with the text that follows and substituting a password of your choosing for the string <code>YOUR PASSWORD PHRASE</code> and then click <strong>Next</strong>.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#usecases-ipl-ipl-__codelineno-1-1"></a>ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Avoid typographical errors later... keep the password simple.</p>
+</div>
+<p>If you type the command yourself, be sure to include the single quotes before and after the password. <strong>Record the password as it will be needed later.</strong> We will refer to this as your <strong>WaaS password</strong>."</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/tsoCommand1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/tsoCommand1.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/tsoCommand2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/tsoCommand2.png"></a></p>
+</li>
+<li>
+<p>Verify that the job is <strong>Successful</strong> by locating the message <code>"failed": false</code> in the job output.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/tsoCommand3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/tsoCommand3.png"></a></p>
+</li>
+<li>
+<p>Verify that you can log in to z/<abbr title="IBM z/OS Management Facility">OSMF</abbr> in a new browser tab.</p>
+<p>Use the WaaZ <abbr title="Uniform Resource Locator">URL</abbr> created earlier and append <code>/zosmf</code> to the string. The <abbr title="Uniform Resource Locator">URL</abbr> is similar to: <code>https://itzvsi-zos-pwgabob.techzone.ibm.com:10443/zosmf</code>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/waaz-open.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/waaz-open.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Accept any <em>connection not private</em> messages to open the page.</p>
+</div>
+</li>
+<li>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> for the <strong>z/<abbr title="Operating System">OS</abbr> USER ID</strong>, (<strong>b</strong>) the password you specified in step 4 for the <strong>z/<abbr title="Operating System">OS</abbr> PASSWORD</strong>, and then (<strong>c</strong>) click <strong>LOG IN</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/zosmfLogin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/zosmfLogin.png"></a></p>
+</li>
+<li>
+<p>Close the new browser tab after verifying a screen similar to the image that follows is displayed.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/zosmfDesktop.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/zosmfDesktop.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-import-and-publish-the-pre-packaged-skills-as-an-openapi-file">Import and publish the pre-packaged skills as an OpenAPI file<a class="headerlink" href="#usecases-ipl-ipl-import-and-publish-the-pre-packaged-skills-as-an-openapi-file" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skills studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/openSkillsStudio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/openSkillsStudio.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>From a file</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio2a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Drag and drop files here or click to upload</strong> in the <strong>Import a skill file</strong> window.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio3a.png"></a></p>
+</li>
+<li>
+<p>Locate and select the JSON file that you modified earlier and then click <strong>Upload</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio4a.png"></a></p>
+</li>
+<li>
+<p>Verify that you receive the message <strong>The Open file or skill package is good to go!</strong> and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio5a.png"></a></p>
+<div class="admonition failure">
+<p class="admonition-title">Not good to go?</p>
+<p>If the file does not load properly you will need to verify not formatting or errors were made in your json file. Return to the previous section to verify the file contents and then reload the JSON file.</p>
+</div>
+</li>
+<li>
+<p>Select the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill and then click <strong>Add</strong>.</p>
+<p><strong>Note</strong>: Only the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill is required for this use case, but you can add as many skills as you like for testing purposes.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio6a.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses icon (~<a class="glightbox" href="../usecases/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill and then click <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio7a.png"></a></p>
+</li>
+<li>
+<p>Review the skill enhancements options and then click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio8a.png"></a></p>
+</li>
+<li>
+<p>If you added other skills in step 7, repeat the previous 2 steps for each skill added.</p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-configure-your-appurl-to-connect-to-the-waas-server">Configure your appURL to connect to the WaaS server<a class="headerlink" href="#usecases-ipl-ipl-configure-your-appurl-to-connect-to-the-waas-server" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>In <strong>Skill studio</strong>, click the <strong>Apps</strong> tab.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio9a.png"></a></p>
+</li>
+<li>
+<p>In the search field, enter the name of the application in the search field. Unless you modified the <code>info</code> section of the JSON file, the default name is <strong>z/<abbr title="Operating System">OS</abbr> operations</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio10a.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses icon (~<a class="glightbox" href="../usecases/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Operations</strong> and then click <strong>Edit</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio11a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Configuration</strong> tab.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio12a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Test connection</strong>.</p>
+<p><strong>Note</strong>: the <strong>Server <abbr title="Uniform Resource Locator">URL</abbr></strong> field must match the <abbr title="Uniform Resource Locator">URL</abbr> you created for your WaaS server. It is similar to: <code>https://itzvsi-zos-pwgabob.techzone.ibm.com:10443</code>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio13a.png"></a>   </p>
+</li>
+<li>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> in the <strong>username</strong> field, (<strong>b</strong>) your <strong>WaaS password</strong> created earlier in the <strong>password</strong> field, and then (<strong>c</strong>) click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio14a.png"></a>   </p>
+</li>
+<li>
+<p>Verify that the connection is successful and then click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio15a.png"></a> </p>
+</li>
+<li>
+<p>Repeat step 2 above to verify that the <strong>Configuration status</strong> is <strong>Configured</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio16a.png"></a> </p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-test-the-skill">Test the skill<a class="headerlink" href="#usecases-ipl-ipl-test-the-skill" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Chat</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skills from the catalog</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio18a.png"></a></p>
+</li>
+<li>
+<p>In the search apps field, enter the name of the application. Unless you modified the <code>info</code> section of the JSON file, the default name is <strong>z/<abbr title="Operating System">OS</abbr> operations</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio19a.png"></a></p>
+</li>
+<li>
+<p>Locate and click the tile for your app (<strong>z/<abbr title="Operating System">OS</abbr> operations</strong>).</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio20a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> for the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio21a.png"></a></p>
+</li>
+<li>
+<p>Repeat step 5 for any additional skills you added to the app.</p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio22a.png"></a></p>
+</li>
+<li>
+<p>Enter (<strong>a</strong>) <code>IBMUSER</code> in the <strong>username</strong> field, (<strong>b</strong>) your <strong>WaaS password</strong> created earlier in the <strong>password</strong> field, and then (<strong>c</strong>) click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio23a.png"></a></p>
+</li>
+<li>
+<p>Verify that the skill is connected.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio24a.png"></a></p>
+</li>
+<li>
+<p>Open <strong>Chat</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio25a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio26a.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">The name of the tile may be different.</p>
+<p>If you added multiple skills to your app, the tile name may be <strong>z/<abbr title="Operating System">OS</abbr> operations</strong> and the number of skills included will be shown.</p>
+</div>
+</li>
+<li>
+<p>Using the defaults in the form, click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio27a.png"></a></p>
+</li>
+<li>
+<p>Review the returned information.</p>
+<p>The provided output shows information the early-tenure SysProg needs to prepare for an <abbr title="Initial Program Load">IPL</abbr> on their z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>. For example, the date and time the system was last <abbr title="Initial Program Load">IPL</abbr>’ed, the z/<abbr title="Operating System">OS</abbr> release level, the <abbr title="Initial Program Load">IPL</abbr> volume, the <abbr title="Initial Program Load">IPL</abbr> LOAD PARM used during the <abbr title="Initial Program Load">IPL</abbr>, and other details.</p>
+<p>If you loaded other pre-packaged skills, test them now.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio28a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio28a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-connect-the-app-to-your-assistant">Connect the app to your assistant<a class="headerlink" href="#usecases-ipl-ipl-connect-the-app-to-your-assistant" title="Permanent link">#</a></h2>
+<p>Before configuring the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill as an assistant action, the app containing the skill must first be connected to the assistant.</p>
+<ol>
+<li>
+<p>Open <strong>Skill sets</strong> in watsonx orchestrate.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio29a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio29a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Skill sets</strong> drop-down list and select the <strong>Draft</strong> of your assistant.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio30a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio30a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connections</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio31a.png"></a></p>
+</li>
+<li>
+<p>Enter your skill app name (<strong>z/<abbr title="Operating System">OS</abbr> operations</strong>) in the search bar.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio32a.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses icon (~<a class="glightbox" href="../usecases/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> operations</strong> app and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio33a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio33a.png"></a></p>
+</li>
+<li>
+<p>In the dialog, click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio34a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio34a.png"></a></p>
+</li>
+<li>
+<p>Enter (<strong>a</strong>) <strong>IBMUSER</strong> in the username field, (<strong>b</strong>) your <strong>WaaS password</strong> in the password field, and then (<strong>c</strong>) click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio35a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio35a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-create-an-action-for-your-assistant">Create an action for your assistant<a class="headerlink" href="#usecases-ipl-ipl-create-an-action-for-your-assistant" title="Permanent link">#</a></h2>
+<p>Next, create a skill-based action that uses the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong>. Recall, with the <strong>z/<abbr title="Operating System">OS</abbr> Gather Facts</strong> skill flow that was created earlier, adding the skill as a skill-based action allows the skill to run based on user prompts to the assistant.</p>
+<p>Skill-based actions also serve another purpose. After creating the skill-based action, you can then call that action from a custom-built action. This is accomplished through subactions. For this use case, create an action that triggers the <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> skill on z/<abbr title="Operating System">OS</abbr> to display the LPARs <abbr title="Initial Program Load">IPL</abbr> information. That action is integrated into another custom-built action (as a subaction) to provide a customized user experience.</p>
+<ol>
+<li>
+<p>Open <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio36a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio36a.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio37a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio37a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New action +</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio38a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Skill-based action</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio39a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio39a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong> and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio40a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio40a.png"></a></p>
+</li>
+<li>
+<p>Enter a prompt like <strong>Display <abbr title="Initial Program Load">IPL</abbr> information</strong> that starts the skill and then click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p>Prompt:
+   </p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#usecases-ipl-ipl-__codelineno-2-1"></a>Display IPL information
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio41a.png)
+</code></pre></div>
+<ol start="7">
+<li>
+<p>Click the <strong>Save</strong> icon (<a class="glightbox" href="../usecases/ipl/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/diskIcon.png"></a>).</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio42a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio42a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio43a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio43a.png"></a></p>
+</li>
+</ol>
+<p>!!! Warning "Wait for the <strong>Your changes are being added.</strong> message to disappear before proceeding"</p>
+<ol start="9">
+<li>
+<p>Enter the prompt (<strong>Display <abbr title="Initial Program Load">IPL</abbr> information</strong>) to test the skill.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio44a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio44a.png"></a></p>
+</li>
+<li>
+<p>Using the defaults in the form, click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio45a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio45a.png"></a></p>
+</li>
+<li>
+<p>Verify the results.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio46a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio46a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>delete</strong> icon (<a class="glightbox" href="../usecases/ipl/_attachments/deletePhrase.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/deletePhrase.png"></a>) to remove the example phrase (<strong>Display <abbr title="Initial Program Load">IPL</abbr> information</strong>) from the skill.</p>
+<p>Next, you will add this skill-based action as a subaction to a custom-build action. To have the custom-built action started rather than the skill-based action, the existing <em>example phrases</em> need to be removed.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio47a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio47a.png"></a></p>
+</li>
+<li>
+<p>Verify (<strong>a</strong>) all <strong>example phrases</strong> are deleted, (<strong>b</strong>) click the <strong>Save</strong> icon (<a class="glightbox" href="../usecases/ipl/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/diskIcon.png"></a>), and then (<strong>c</strong>) click <strong>x</strong> to close the action.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio48a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio48a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-create-a-custom-built-action">Create a custom-built action<a class="headerlink" href="#usecases-ipl-ipl-create-a-custom-built-action" title="Permanent link">#</a></h2>
+<p>Custom-built actions allow you to define each step of a conversation with your assistant. You can define steps with or without conditions to control the user responses. You can include your skill-based actions as sub-actions. You can pass generated values between the subactions.</p>
+<p>Recall the use case of an early-tenure SysProg who is preparing for an upcoming <abbr title="Initial Program Load">IPL</abbr> on one of their LPARs. After going through documentation, the SysProg found that there is information that is needed about their <abbr title="Logical Partition">LPAR</abbr> before they can begin the <abbr title="Initial Program Load">IPL</abbr> process. To gather that information, the SysProg might ask the assistant “How do you retrieve the information needed to <abbr title="Initial Program Load">IPL</abbr> a z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>? Provide a detailed response”. A response the assistant might return is shown in the following image.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio49a.png)
+</code></pre></div>
+<p>A custom-built action can help the SysProg to take the next steps that are required by adding next-step action suggestions and start skills to gather the needed information.</p>
+<ol>
+<li>
+<p>Click <strong>New action +</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio50a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio50a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom-built action</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio51a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio51a.png"></a></p>
+</li>
+<li>
+<p>Enter an example phrase (<strong>Retrieve <abbr title="Initial Program Load">IPL</abbr> information</strong>) to prompt the assistant to start the custom-built action and click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p>Prompt:
+   </p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#usecases-ipl-ipl-__codelineno-3-1"></a>Retrieve IPL information
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio52a.png)
+</code></pre></div>
+<ol start="4">
+<li>Review the form to create a custom-built action.</li>
+</ol>
+<p>A custom-built action can consist of multiple steps with each step that is taken with or without conditions. Each step specifies the assistant's response and the next step to start.</p>
+<p>!!! Note "For client demonstrations and pilots..."</p>
+<div class="highlight"><pre><span></span><code>   FOr client demonstrations and pilots, it is possible to add a custom search query such that when conversational search is executed in the 1st step, the query being used is hard-coded and isn’t necessarily what the end-user inputted. This can be done by clicking on the Edit settings option under Search for the answer and specifying a custom search query that specifies the exact query to be used.
+</code></pre></div>
+<ol start="5">
+<li>
+<p>Click the <strong>And then</strong> drop-down list and select <strong>Search for the answer</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio53a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio53a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit settings</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio54a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio54a.png"></a></p>
+</li>
+<li>
+<p>Enter a <strong>Custom search query</strong> and click <strong>Apply</strong>.</p>
+</li>
+</ol>
+<p>Custom search query:
+   </p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#usecases-ipl-ipl-__codelineno-4-1"></a>How do you retrieve the information needed to IPL a z/OS LPAR? Provide a detailed response
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio55a.png)
+</code></pre></div>
+<ol start="8">
+<li>Click <strong>Next step +</strong>.</li>
+</ol>
+<p>The new custom-built action only responds with a description of how to retrieve the <abbr title="Initial Program Load">IPL</abbr> information. Now, infuse automation into the conversation and ask the user if they want to perform the action.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio56a.png)
+</code></pre></div>
+<ol start="9">
+<li>In the <strong>Assistant says</strong> field, enter a response asking if the user wants to display the <abbr title="Initial Program Load">IPL</abbr> information.</li>
+</ol>
+<p>Assistant says:
+   </p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#usecases-ipl-ipl-__codelineno-5-1"></a>Would you like to display your LPARs IPL information?
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio57a.png)
+</code></pre></div>
+<ol start="10">
+<li>Click the <strong>Define customer response</strong> drop-down and select <strong>Confirmation</strong>.</li>
+</ol>
+<p>Now, after providing a conversational search-based response to the original question, the assistant asks the user if they want to display the <abbr title="Initial Program Load">IPL</abbr> information and prompts the user to select <strong>Yes</strong> or <strong>No</strong>.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio58a.png)
+</code></pre></div>
+<ol start="11">
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio59a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio59a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> drop-down and select <strong>with conditions</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio60a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio60a.png"></a></p>
+</li>
+<li>
+<p>Review the <strong>Conditions</strong>.</p>
+<p>Notice that the default condition is based on <strong>Step 2</strong> and the user clicking <strong>Yes</strong> when prompted.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio61a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio61a.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>Retrieving your system's <abbr title="Initial Program Load">IPL</abbr> information...</strong> in the <strong>Assistant says</strong>* field.</p>
+<p>Assistant says:
+</p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#usecases-ipl-ipl-__codelineno-6-1"></a>Retrieving your system's IPL information...
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio62a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio62a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio63a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio63a.png"></a></p>
+</li>
+<li>
+<p>Click (<strong>a</strong>) the <strong>Go to</strong> drop-down, (<strong>b</strong>) select your skill-based action (<strong>z/<abbr title="Operating System">OS</abbr> <abbr title="Initial Program Load">IPL</abbr> Information</strong>), and then (<strong>c</strong>) click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio64a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio64a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Save</strong> (<a class="glightbox" href="../usecases/ipl/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/diskIcon.png"></a>) and then click <strong>x</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio65a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio65a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-ipl-ipl-test-the-custom-built-action">Test the custom-built action<a class="headerlink" href="#usecases-ipl-ipl-test-the-custom-built-action" title="Permanent link">#</a></h2>
+<p>You can now practice demonstrating the flow of this use case. Recall the steps that were taken and the scenario of the early-tenure SysProg being tasked with preparing for an upcoming <abbr title="Initial Program Load">IPL</abbr>.</p>
+<ol>
+<li>
+<p>Click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio66a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio66a.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>How do you retrieve the information needed to <abbr title="Initial Program Load">IPL</abbr> a z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>?</strong> in the assistant prompt.</p>
+<p>Prompt:
+</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#usecases-ipl-ipl-__codelineno-7-1"></a>How do you retrieve the information needed to IPL a z/OS LPAR?
+</span></code></pre></div>
+</li>
+</ol>
+<p>!!! Tip "Use the <strong>Change layout</strong> to open a full page view of your assistant."</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/skillsStudio67a.png)
+</code></pre></div>
+<ol start="3">
+<li>
+<p>Review the response.</p>
+<p>By using the conversational search capability of watsonx Assistant for Z, grounded on Z-domain knowledge in the Z <abbr title="Retrieval augmented generation">RAG</abbr>, the user is able to quickly find an answer to their question. The assistant returns a response that shows the exact operator command they might use, and the types of details it provides which is relevant for preparing for an upcoming <abbr title="Initial Program Load">IPL</abbr>. For example, the system’s release level, the LOAD LIB information used for the <abbr title="Initial Program Load">IPL</abbr>, the IODF device, the <abbr title="Initial Program Load">IPL</abbr> device, and other system information.</p>
+<p>You are also able to improve their productivity by infusing automations into the natural conversation that will provide them exactly the information they need to accomplish their task.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio68a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio68a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Yes</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio69a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio69a.png"></a></p>
+</li>
+<li>
+<p>Using the defaults in the form, click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio70a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio70a.png"></a></p>
+</li>
+<li>
+<p>Review the response to the custom-built action.</p>
+<p>The output provides relevant pieces of information the early-tenure SysProg needs to prepare for an <abbr title="Initial Program Load">IPL</abbr> on their z/<abbr title="Operating System">OS</abbr> <abbr title="Logical Partition">LPAR</abbr>. For example, when the system was last IPLed, the z/<abbr title="Operating System">OS</abbr> release they have running (2.5), the <abbr title="Initial Program Load">IPL</abbr> volume (D25VS1), the <abbr title="Initial Program Load">IPL</abbr> LOAD PARM (LOADK2) used during the last <abbr title="Initial Program Load">IPL</abbr>, and other relevant details.</p>
+<p><a class="glightbox" href="../usecases/ipl/_attachments/skillsStudio71a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/ipl/_attachments/skillsStudio71a.png"></a></p>
+</li>
+</ol>
+<p>The ability to infuse skills and automations into the conversation allows the user to issue the operator command on their system directly within the assistant itself. The assistant provides a single interface for retrieving details that are required for the <abbr title="Initial Program Load">IPL</abbr> process to go smoothly and increases the user's efficiency.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-cert-certph"><div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#usecases-cert-certph-coming-soon" title="Permanent link">#</a></h1>
 <!-- Terminology -->
