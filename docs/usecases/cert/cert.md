@@ -6,6 +6,8 @@ Secure Sockets Layer (SSL) certificates, often referred to as digital certificat
 In this scenario, you will leverage the Ansible automation templates provided with your AAP and WAZI z/OS environment to create assistant actions to guide the client through the process of identifying their SSL certificate’s expiration dates, and automating the certificate renewal process for them. This will save them time and improve their productivity.
 
 ## Create an initial Certificate Authority (CA) certificate to sign future SITE certificates
+For this use case, a Certificate Authority (CA) certificate is needed to sign new SITE certificates. 
+
 1. Open and log into the Ansible Automation Platform (AAP) web console. 
 
    !!! tip "Don't remember how to do this?"
@@ -14,91 +16,138 @@ In this scenario, you will leverage the Ansible automation templates provided wi
 
 2. Click **Templates** under the **Resources** section.
 
-3. Click the launch icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
+     ![](_attachments/cert-1a.png)
+     
+3. Click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
-4. On the **Survey** screen, modify the **Certificate Label** and **Type** fields with the values that follow. Leave the default values for all other fields.
+     ![](_attachments/cert-2a.png)
 
-    **a**: **Certificate Label**
-    ```
-    TESTCA
-    ```
+4. On the **Survey** screen, modify the **Certificate Label** and **Type** fields with the values that follow and then click **Next**. 
 
-    **b**: **Type**
-    ```
-    CERTAUTH
-    ```
+     **a**: **Certificate Label**
+     ```
+     TESTCA
+     ```
+
+     **b**: **Type**
+     ```
+     CERTAUTH
+     ```
+
+     !!! Note "Leave the default values for all other fields."
     
-5. Click **Next**.
+     ![](_attachments/cert-3a.png)    
+
 6. Click **Launch**.
-7. Inspect the output of the job.
 
-    In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.
+     ![](_attachments/cert-4a.png)   
 
-8. Below the line **TASK [GENERATE new certificate]**, click the **changed: [zos host]**.
-9. Click **JSON**.
-10. Review the **RACDCERT** command that was run to generate the certificate.
-11. Click **x** to close the window.
+7. Review the output of the job.
+
+     In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.
+
+     ![](_attachments/cert-5a.png)    
+
+8. Locate the line **TASK [GENERATE new certificate]**, click the **changed: [zos host]**.
+
+     ![](_attachments/cert-6a.png)   
+
+9.  Click **JSON**.
+
+     ![](_attachments/cert-7a.png)  
+
+10. Review the **RACDCERT** command that was run to generate the certificate and then click **x** to close the window.
+
+     ![](_attachments/cert-8a.png)  
     
 ## Create an *expiring* certificate
-1. Return to the **Templates** tab and click the launch icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
-2. On the **Survey** screen, modify the fields that follow with the values specified. Leave the default values for all other fields.
+Now create an expiring certificate using the CA certificate you just created.
 
-    **a**: **Type**
-    ```
-    SITE
-    ```
+1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
-    **b**: **Sign with**
-    ```
-    CERTAUTH
-    ```
+     ![](_attachments/cert-9a.png)  
 
-    **c**: **Sign Label**
-    ```
-    TESTCA
-    ```
+2. On the **Survey** screen, modify the fields that follow with the values specified and then click **Next**. 
 
-    **d**: **Common Name**
-    ```
-    company.com
-    ```
+     **a**: **Type**
+     ```
+     SITE
+     ```
 
-    **e**: **Expiration Date**
-    Enter a date that falls within the next 30 days in the format YYYY-MM-DD.
+     **b**: **Sign with**
+     ```
+     CERTAUTH
+     ```
 
-    Unlike the first certificate you created which was *self-signed*, this certificate will be signed by the local certificate authority using the CA you created.
+     **c**: **Sign Label**
+     ```
+     TESTCA
+     ```
 
-3. Click **Next** and then click **Launch**.
-4. Inspect the output of the job.
+     **d**: **Common Name**
+     ```
+     company.com
+     ```
+
+     **e**: **Expiration Date**
+     Enter a date that falls within the next 30 days in the format YYYY-MM-DD.
+
+     !!! Note "Leave the default values for all other fields."
+
+     Unlike the first certificate you created which was *self-signed*, this certificate will be signed by the local certificate authority using the CA you created.
+
+     !!! Note "The image below does not highlight all the fields that need to be modified!"
+
+     ![](_attachments/cert-10a.png)  
+
+3. Click **Launch**.
+
+     ![](_attachments/cert-11a.png)  
+
+4. Verify the job was successful and inspect the output of the job.
+
+     ![](_attachments/cert-12a.png) 
 
 ## Renew the *expiring* certificate
-1. Return to the **Templates** tab and click the launch icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Search and Renew** template.
-2. On the **Survey** screen, modify the fields that follow with the values specified. Leave the default values for all other fields.
+Now that you have a certificate and it is expiring within 30 days, it is time to renew the certificate.
 
-    **a**: **Certificate Label**
-    ```
-    TESTSITE
+1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Search and Renew** template.
+
+     ![](_attachments/cert-13a.png) 
+
+2. On the **Survey** screen, modify the fields that follow with the values specified and then click **Next**.
+
+     **a**: **Certificate Label**
+     ```
+     TESTSITE
+     ```
+
+     **b**: **Type**
+     ```
+     SITE
+     ```
+
+     **c**: **Sign with**
+     ```
+     CERTAUTH
     ```
 
-    **b**: **Type**
-    ```
-    SITE
-    ```
+     **d**: **Sign Label**
+     ```
+     TESTCA
+     ```
 
-    **c**: **Sign with**
-    ```
-    CERTAUTH
-    ```
+     **e**: **Expiration Date**
+     Specify a new expiration date in the format YYYY-MM-DD.
 
-    **d**: **Sign Label**
-    ```
-    TESTCA
-    ```
+     !!! Note "The image below does not highlight all the fields that need to be modified!"
 
-    **e**: **Expiration Date**
-    For now, leave the default date. If you do modify it, in the YYYY-MM-DD format.
+     ![](_attachments/cert-14a.png)  
 
-3. Click **Next** and **Launch**.
+3. Click **Launch**.
+
+     ![](_attachments/cert-15a.png)  
+
 4. Verify the job was **Successful** and review the output.
 
     **Note**: you may need to click the **Reload Output** button after the job completes to view the full output.
@@ -123,42 +172,65 @@ In this scenario, you will leverage the Ansible automation templates provided wi
       - Relabel the new certificate to use the same label as before
       - Refresh the digital certificate list
   
+     ![](_attachments/cert-16a.png) 
+
 ## Create another *expiring* certificate
-1. Return to the **Templates** tab and click the launch icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
-2. On the **Survey** screen, modify the fields that follow with the values specified. Leave the default values for all other fields.
+Create one more expiring certificate to use with the your assistant and new skills you will create.
 
-    **a**: **Certificate Label**
-    ```
-    DEMOCERT
-    ```
+1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
-    **b**: **Type**
-    ```
-    SITE
-    ```
+     ![](_attachments/cert-17a.png) 
 
-    **c**: **Sign with**
-    ```
-    CERTAUTH
-    ```
+2. On the **Survey** screen, modify the fields that follow with the values specified and then click **Next**.
 
-    **d**: **Sign Label**
-    ```
-    TESTCA
-    ```
+     **a**: **Certificate Label**
+     ```
+     DEMOCERT
+     ```
 
-    **e**: **Common Name**
-    ```
-    company.com
-    ```
+     **b**: **Type**
+     ```
+     SITE
+     ```
 
-    **f**: **Expiration Date**
-    Enter a date that falls within the next 30 days in the format YYYY-MM-DD.
+     **c**: **Sign with**
+     ```
+     CERTAUTH
+     ```
 
-3. Click **Next** and then click **Launch**.
+     **d**: **Sign Label**
+     ```
+     TESTCA
+     ```
+
+     **e**: **Common Name**
+     ```
+     company.com
+     ```
+
+     **f**: **Expiration Date**
+     Enter a date that falls within the next 30 days in the format YYYY-MM-DD.
+
+     !!! Note "The image below does not highlight all the fields that need to be modified!"
+
+     ![](_attachments/cert-18a.png) 
+
+3. Click **Launch**.
+
+     ![](_attachments/cert-19a.png) 
+
 4. Verify the **DEMOCERT** was successfully created.
 
-##Import the Ansible automations into watsonx Orchestrate
+     ![](_attachments/cert-20a.png) 
 
+## Import the Ansible automations into watsonx Orchestrate
 
-Page 142
+For this use case, configure the assistant to guide the user through the process of identifying their SSL certificate’s expiration date and automate the certificate renewal process. To do so, import the needed AAP templates into watsonx Orchestrate as skills.
+
+For this use case, the ansible templates you will import are:
+
+- z/OS Certs – List Cert
+- z/OS Certs – Search and Renew
+- Retrieve job output (utility skill)
+
+1. 
