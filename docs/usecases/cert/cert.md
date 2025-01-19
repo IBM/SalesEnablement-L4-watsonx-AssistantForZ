@@ -10,9 +10,9 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
 
 1. Open and log into the Ansible Automation Platform (AAP) web console. 
 
-   !!! tip "Don't remember how to do this?"
-
-      Refer to the first 5 steps in [Explore Ansible Automation Platform](../../skills/exploreAAP.md).
+     !!! tip "Don't remember how?"
+    
+     Refer to the first 5 steps in [Explore Ansible Automation Platform](../../skills/exploreAAP.md).
 
 2. Click **Templates** under the **Resources** section.
 
@@ -38,32 +38,32 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
     
      ![](_attachments/cert-3a.png)    
 
-6. Click **Launch**.
+5. Click **Launch**.
 
      ![](_attachments/cert-4a.png)   
 
-7. Review the output of the job.
+6. Review the output of the job.
 
      In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.
 
      ![](_attachments/cert-5a.png)    
 
-8. Locate the line **TASK [GENERATE new certificate]**, click the **changed: [zos host]**.
+7. Locate the line **TASK [GENERATE new certificate]**, click the **changed: [zos host]**.
 
      ![](_attachments/cert-6a.png)   
 
-9.  Click **JSON**.
+8.  Click **JSON**.
 
      ![](_attachments/cert-7a.png)  
 
-10. Review the **RACDCERT** command that was run to generate the certificate and then click **x** to close the window.
+9.  Review the **RACDCERT** command that was run to generate the certificate and then click **x** to close the window.
 
      ![](_attachments/cert-8a.png)  
     
 ## Create an *expiring* certificate
 Now create an expiring certificate using the CA certificate you just created.
 
-1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
+1. Return to the **Templates** tab and click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
      ![](_attachments/cert-9a.png)  
 
@@ -111,7 +111,7 @@ Now create an expiring certificate using the CA certificate you just created.
 ## Renew the *expiring* certificate
 Now that you have a certificate and it is expiring within 30 days, it is time to renew the certificate.
 
-1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Search and Renew** template.
+1. Return to the **Templates** tab and click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Search and Renew** template.
 
      ![](_attachments/cert-13a.png) 
 
@@ -177,7 +177,7 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
 ## Create another *expiring* certificate
 Create one more expiring certificate to use with the your assistant and new skills you will create.
 
-1. Return to the **Templates** tab and click the **launch** icon (![](_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
+1. Return to the **Templates** tab and click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
      ![](_attachments/cert-17a.png) 
 
