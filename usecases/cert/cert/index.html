@@ -1185,6 +1185,106 @@
 <p>First, create a skill flow to retrieve and display the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</p>
 <ol>
 <li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-1a.png"></a> </p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-2a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-3a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>certs</strong> app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Search on <strong>certs</strong> if you do not see the tile for your app.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/c-sf-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-5a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill and repeat steps 4 and 5 to add the <strong>Retrieve job output</strong> skill.</p>
+</li>
+<li>
+<p>Click the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-6a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>id</strong> field.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-7a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>z/<abbr title="Operating System">OS</abbr> certs - List Cert</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-9a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>job</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-10a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-11a.png"></a></p>
+</li>
+<li>
+<p>On both the <strong>Input</strong> and <strong>Output</strong> tabs for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill, enable the <strong>Hide this form from the user</strong> options.</p>
+<p>To enhance the user experience, hide the input and output forms from the user. This will disable the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-12a.png"></a></p>
+</li>
+<li>
+<p>Repeat step 12 for the <strong>Output</strong> of the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-13a.png"></a></p>
+</li>
+</ol>
+<p>The output of the <strong>List Cert</strong> skill includes a large amount of data. In the assistant, only the <strong>certificate expiration date</strong> is needed. In the next steps, transform the output to only return the <strong>certificate expiration date</strong>.</p>
+<ol start="14">
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-14a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Custom forms</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-15a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> in the <strong>Input form</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-16a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Input form</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add input field +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-18a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Paragraph text</strong> and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-19a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>certificate expiration date</code> in the <strong>Display label</strong> field and click <strong>Apply</strong>.</p>
+<p><strong>Display label</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>certificate expiration date
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-sf-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-20a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>certificate expiration date</strong> entry field.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-21a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Mapping data for "certificate expiration data"</strong> section, click <strong>Retrieve job output</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-22a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>content</strong>.</p>
+<p><a class="glightbox" href="_attachments/c-sf-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/c-sf-23a.png"></a></p>
+</li>
 </ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
