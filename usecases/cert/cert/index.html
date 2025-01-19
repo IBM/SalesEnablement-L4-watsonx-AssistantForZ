@@ -987,16 +987,30 @@
 </li>
 <li>
 <p>If the certificate is expiring, kick off a series of RACDCERT commands to do the following:</p>
-</li>
+<ul>
 <li>
 <p>Backup the expiring certificate</p>
 </li>
-<li>Rekey the certificate and give it a new temporary label</li>
-<li>Generate a CSR for the new certificate</li>
-<li>Sign the new certificate with the local <abbr title="Certificate Authority">CA</abbr></li>
-<li>Delete the old certificate</li>
-<li>Relabel the new certificate to use the same label as before</li>
-<li>Refresh the digital certificate list</li>
+<li>
+<p>Rekey the certificate and give it a new temporary label</p>
+</li>
+<li>
+<p>Generate a CSR for the new certificate</p>
+</li>
+<li>
+<p>Sign the new certificate with the local <abbr title="Certificate Authority">CA</abbr></p>
+</li>
+<li>
+<p>Delete the old certificate</p>
+</li>
+<li>
+<p>Relabel the new certificate to use the same label as before</p>
+</li>
+<li>
+<p>Refresh the digital certificate list</p>
+</li>
+</ul>
+</li>
 </ul>
 <p><a class="glightbox" href="../_attachments/cert-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-16a.png"></a> </p>
 </li>
