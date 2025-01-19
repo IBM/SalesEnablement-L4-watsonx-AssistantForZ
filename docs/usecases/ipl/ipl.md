@@ -314,12 +314,12 @@ Skill-based actions also serve another purpose. After creating the skill-based a
 
 6. Enter a prompt like **Display IPL information** that starts the skill and then click **Save**.
 
-   Prompt:
-   ```
-   Display IPL information
-   ```
+     Prompt:
+     ```
+     Display IPL information
+     ```
 
-    ![](_attachments/skillsStudio41a.png)
+     ![](_attachments/skillsStudio41a.png)
 
 7. Click the **Save** icon (![](_attachments/diskIcon.png)).
 
@@ -329,7 +329,7 @@ Skill-based actions also serve another purpose. After creating the skill-based a
 
     ![](_attachments/skillsStudio43a.png)
 
-   !!! Warning "Wait for the **Your changes are being added.** message to disappear before proceeding"
+    !!! Warning "Wait for the **Your changes are being added.** message to disappear before proceeding."
 
 9. Enter the prompt (**Display IPL information**) to test the skill.
 
@@ -358,7 +358,7 @@ Custom-built actions allow you to define each step of a conversation with your a
 
 Recall the use case of an early-tenure SysProg who is preparing for an upcoming IPL on one of their LPARs. After going through documentation, the SysProg found that there is information that is needed about their LPAR before they can begin the IPL process. To gather that information, the SysProg might ask the assistant “How do you retrieve the information needed to IPL a z/OS LPAR? Provide a detailed response”. A response the assistant might return is shown in the following image.
 
-    ![](_attachments/skillsStudio49a.png)
+![](_attachments/skillsStudio49a.png)
 
 A custom-built action can help the SysProg to take the next steps that are required by adding next-step action suggestions and start skills to gather the needed information.
 
@@ -372,20 +372,20 @@ A custom-built action can help the SysProg to take the next steps that are requi
 
 3. Enter an example phrase (**Retrieve IPL information**) to prompt the assistant to start the custom-built action and click **Save**.
 
-   Prompt:
-   ```
-   Retrieve IPL information
-   ```
+    Prompt:
+    ```
+    Retrieve IPL information
+    ```
 
     ![](_attachments/skillsStudio52a.png)
 
 4. Review the form to create a custom-built action.
 
-   A custom-built action can consist of multiple steps with each step that is taken with or without conditions. Each step specifies the assistant's response and the next step to start.
+    A custom-built action can consist of multiple steps with each step that is taken with or without conditions. Each step specifies the assistant's response and the next step to start.
    
-   !!! Note "For client demonstrations and pilots..."
+    !!! Note "For client demonstrations and pilots..."
 
-       FOr client demonstrations and pilots, it is possible to add a custom search query such that when conversational search is executed in the 1st step, the query being used is hard-coded and isn’t necessarily what the end-user inputted. This can be done by clicking on the Edit settings option under Search for the answer and specifying a custom search query that specifies the exact query to be used.
+        For client demonstrations and pilots, it is possible to add a custom search query such that when conversational search is executed in the 1st step, the query being used is hard-coded and isn’t necessarily what the end-user inputted. This can be done by clicking on the Edit settings option under Search for the answer and specifying a custom search query that specifies the exact query to be used.
 
 5. Click the **And then** drop-down list and select **Search for the answer**.
 
@@ -397,68 +397,68 @@ A custom-built action can help the SysProg to take the next steps that are requi
 
 7. Enter a **Custom search query** and click **Apply**.
 
-   Custom search query:
-   ```
-   How do you retrieve the information needed to IPL a z/OS LPAR? Provide a detailed response
-   ```
+    Custom search query:
+    ```
+    How do you retrieve the information needed to IPL a z/OS LPAR? Provide a detailed response
+    ```
 
     ![](_attachments/skillsStudio55a.png)
 
 8. Click **Next step +**.
 
-   The new custom-built action only responds with a description of how to retrieve the IPL information. Now, infuse automation into the conversation and ask the user if they want to perform the action.
+     The new custom-built action only responds with a description of how to retrieve the IPL information. Now, infuse automation into the conversation and ask the user if they want to perform the action.
 
-    ![](_attachments/skillsStudio56a.png)
+     ![](_attachments/skillsStudio56a.png)
 
 9. In the **Assistant says** field, enter a response asking if the user wants to display the IPL information.
 
-   Assistant says:
-   ```
-   Would you like to display your LPARs IPL information?
-   ```
+    Assistant says:
+    ```
+    Would you like to display your LPARs IPL information?
+    ```
 
-    ![](_attachments/skillsStudio57a.png)
+     ![](_attachments/skillsStudio57a.png)
 
 10. Click the **Define customer response** drop-down and select **Confirmation**.
 
-   Now, after providing a conversational search-based response to the original question, the assistant asks the user if they want to display the IPL information and prompts the user to select **Yes** or **No**.
+     Now, after providing a conversational search-based response to the original question, the assistant asks the user if they want to display the IPL information and prompts the user to select **Yes** or **No**.
 
-    ![](_attachments/skillsStudio58a.png)
+     ![](_attachments/skillsStudio58a.png)
 
 11. Click **Next step +**.
 
-    ![](_attachments/skillsStudio59a.png)
+     ![](_attachments/skillsStudio59a.png)
 
 12. Click the **Is taken** drop-down and select **with conditions**.
 
-    ![](_attachments/skillsStudio60a.png)
+     ![](_attachments/skillsStudio60a.png)
 
 13. Review the **Conditions**.
 
-    Notice that the default condition is based on **Step 2** and the user clicking **Yes** when prompted.
+     Notice that the default condition is based on **Step 2** and the user clicking **Yes** when prompted.
 
-    ![](_attachments/skillsStudio61a.png)
+     ![](_attachments/skillsStudio61a.png)
 
-14. Enter **Retrieving your system's IPL information...** in the **Assistant says*** field.
+14. Enter **Retrieving your system's IPL information...** in the **Assistant says** field.
 
-    Assistant says:
-    ```
-    Retrieving your system's IPL information...
-    ```
+     Assistant says:
+     ```
+     Retrieving your system's IPL information...
+     ```
 
-    ![](_attachments/skillsStudio62a.png)
+     ![](_attachments/skillsStudio62a.png)
 
 15. Click the **And then** drop-down and select **Go to a subaction**.
 
-    ![](_attachments/skillsStudio63a.png)
+     ![](_attachments/skillsStudio63a.png)
 
 16. Click (**a**) the **Go to** drop-down, (**b**) select your skill-based action (**z/OS IPL Information**), and then (**c**) click **Apply**.
 
-    ![](_attachments/skillsStudio64a.png)
+     ![](_attachments/skillsStudio64a.png)
 
 17. Click **Save** (![](_attachments/diskIcon.png)) and then click **x**.
 
-    ![](_attachments/skillsStudio65a.png)
+     ![](_attachments/skillsStudio65a.png)
 
 ## Test the custom-built action
 You can now practice demonstrating the flow of this use case. Recall the steps that were taken and the scenario of the early-tenure SysProg being tasked with preparing for an upcoming IPL.
@@ -469,35 +469,35 @@ You can now practice demonstrating the flow of this use case. Recall the steps t
 
 2. Enter **How do you retrieve the information needed to IPL a z/OS LPAR?** in the assistant prompt.
 
-    Prompt:
-    ```
-    How do you retrieve the information needed to IPL a z/OS LPAR?
-    ```
+     Prompt:
+     ```
+     How do you retrieve the information needed to IPL a z/OS LPAR?
+     ```
 
-   !!! Tip "Use the **Change layout** to open a full page view of your assistant."
+    !!! Tip "Use the **Change layout** option to open a full page view of the assistant."
 
     ![](_attachments/skillsStudio67a.png)
 
 3. Review the response.
 
-    By using the conversational search capability of watsonx Assistant for Z, grounded on Z-domain knowledge in the Z RAG, the user is able to quickly find an answer to their question. The assistant returns a response that shows the exact operator command they might use, and the types of details it provides which is relevant for preparing for an upcoming IPL. For example, the system’s release level, the LOAD LIB information used for the IPL, the IODF device, the IPL device, and other system information.
+     By using the conversational search capability of watsonx Assistant for Z, grounded on Z-domain knowledge in the Z RAG, the user is able to quickly find an answer to their question. The assistant returns a response that shows the exact operator command they might use, and the types of details it provides which is relevant for preparing for an upcoming IPL. For example, the system’s release level, the LOAD LIB information used for the IPL, the IODF device, the IPL device, and other system information.
     
-    You are also able to improve their productivity by infusing automations into the natural conversation that will provide them exactly the information they need to accomplish their task.
+     You are also able to improve their productivity by infusing automations into the natural conversation that will provide them exactly the information they need to accomplish their task.
 
-    ![](_attachments/skillsStudio68a.png)
+     ![](_attachments/skillsStudio68a.png)
 
 4. Click **Yes**.
 
-    ![](_attachments/skillsStudio69a.png)
+     ![](_attachments/skillsStudio69a.png)
 
 5. Using the defaults in the form, click **Apply**.
 
-    ![](_attachments/skillsStudio70a.png)
+     ![](_attachments/skillsStudio70a.png)
 
 6. Review the response to the custom-built action.
 
-    The output provides relevant pieces of information the early-tenure SysProg needs to prepare for an IPL on their z/OS LPAR. For example, when the system was last IPLed, the z/OS release they have running (2.5), the IPL volume (D25VS1), the IPL LOAD PARM (LOADK2) used during the last IPL, and other relevant details.
+     The output provides relevant pieces of information the early-tenure SysProg needs to prepare for an IPL on their z/OS LPAR. For example, when the system was last IPLed, the z/OS release they have running (2.5), the IPL volume (D25VS1), the IPL LOAD PARM (LOADK2) used during the last IPL, and other relevant details.
     
-    ![](_attachments/skillsStudio71a.png)
+     ![](_attachments/skillsStudio71a.png)
 
 The ability to infuse skills and automations into the conversation allows the user to issue the operator command on their system directly within the assistant itself. The assistant provides a single interface for retrieving details that are required for the IPL process to go smoothly and increases the user's efficiency.
