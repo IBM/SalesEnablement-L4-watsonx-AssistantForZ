@@ -15,7 +15,7 @@
     * [Import pre-packaged z/OS skills](skills/importingzOSskills.md)
 * [Publish and deploy your assistant](publishDeploy.md)
 * Use Cases
-    * [Retrieve IPL information](usecases/ipl/iplPH.md)
+    * [Retrieve IPL information](usecases/ipl/ipl.md)
     * [SSL certificate renewal](usecases/cert/certPH.md)
     * [RACF Administration support](usecases/racf/racfPH.md)
 * [Other integrations](otherIntegrations.md)
