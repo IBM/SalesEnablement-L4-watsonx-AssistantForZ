@@ -842,7 +842,8 @@
 <p>Now, shift roles to that of a mainframe Security Administrator. Your client would like to understand how watsonx Assistant for Z can help them to ensure their critical security certificates are up-to-date and reduce the risk of expired certificates disrupting their organization’s services. </p>
 <p>Secure Sockets Layer (<abbr title="Secure Sockets Layer">SSL</abbr>) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/<abbr title="Operating System">OS</abbr> environment. It has been a while since the Security Administrator performed the  tasks to manage and renew a certificate, but recalls there being many steps required on z/<abbr title="Operating System">OS</abbr> and various <abbr title="Resource Access Control Facility">RACF</abbr> commands that need run to renew a certificate. Rather than going to their senior Security Administrator for assistance, you can demonstrate how leveraging watsonx Assistant for Z can help them automate the certificate renewal process by infusing Ansible automation into natural conversation, as well as providing step-by-step guidance on the processes to determine certificate expiration and renewing certificates.</p>
 <p>In this scenario, you will leverage the Ansible automation templates provided with your <abbr title="Ansible Automation Platform">AAP</abbr> and WAZI z/<abbr title="Operating System">OS</abbr> environment to create assistant actions to guide the client through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration dates, and automating the certificate renewal process for them. This will save them time and improve their productivity.</p>
-<h2 id="create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates">Create an initial Certificate Authority (CA) certificate to sign future SITE certificates<a class="headerlink" href="#create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates" title="Permanent link">#</a></h2>
+<h2 id="create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates">Create an initial Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate to sign future SITE certificates<a class="headerlink" href="#create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates" title="Permanent link">#</a></h2>
+<p>For this use case, a Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate is needed to sign new SITE certificates. </p>
 <ol>
 <li>Open and log into the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) web console. </li>
 </ol>
@@ -852,82 +853,110 @@
 <ol start="2">
 <li>
 <p>Click <strong>Templates</strong> under the <strong>Resources</strong> section.</p>
+<p><a class="glightbox" href="../_attachments/cert-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-1a.png"></a></p>
 </li>
 <li>
-<p>Click the launch icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p>Click the <strong>launch</strong> icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/cert-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-2a.png"></a></p>
 </li>
 <li>
-<p>On the <strong>Survey</strong> screen, modify the <strong>Certificate Label</strong> and <strong>Type</strong> fields with the values that follow. Leave the default values for all other fields.</p>
+<p>On the <strong>Survey</strong> screen, modify the <strong>Certificate Label</strong> and <strong>Type</strong> fields with the values that follow and then click <strong>Next</strong>. </p>
 <p><strong>a</strong>: <strong>Certificate Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TESTCA
+ </p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>TESTCA
 </span></code></pre></div>
 <p><strong>b</strong>: <strong>Type</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CERTAUTH
+ </p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CERTAUTH
 </span></code></pre></div>
+<p>!!! Note "Leave the default values for all other fields."</p>
+<p><a class="glightbox" href="../_attachments/cert-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-3a.png"></a>    </p>
 </li>
 <li>
-<p>Click <strong>Next</strong>.</p>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-4a.png"></a>   </p>
 </li>
-<li>Click <strong>Launch</strong>.</li>
 <li>
-<p>Inspect the output of the job.</p>
+<p>Review the output of the job.</p>
 <p>In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.</p>
+<p><a class="glightbox" href="../_attachments/cert-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-5a.png"></a>    </p>
 </li>
 <li>
-<p>Below the line <strong>TASK [GENERATE new certificate]</strong>, click the <strong>changed: [zos host]</strong>.</p>
+<p>Locate the line <strong>TASK [GENERATE new certificate]</strong>, click the <strong>changed: [zos host]</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-6a.png"></a>   </p>
 </li>
-<li>Click <strong>JSON</strong>.</li>
-<li>Review the <strong>RACDCERT</strong> command that was run to generate the certificate.</li>
-<li>Click <strong>x</strong> to close the window.</li>
+<li>
+<p>Click <strong>JSON</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-7a.png"></a>  </p>
+</li>
+<li>
+<p>Review the <strong>RACDCERT</strong> command that was run to generate the certificate and then click <strong>x</strong> to close the window.</p>
+<p><a class="glightbox" href="../_attachments/cert-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-8a.png"></a>  </p>
+</li>
 </ol>
 <h2 id="create-an-expiring-certificate">Create an <em>expiring</em> certificate<a class="headerlink" href="#create-an-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Now create an expiring certificate using the <abbr title="Certificate Authority">CA</abbr> certificate you just created.</p>
 <ol>
-<li>Return to the <strong>Templates</strong> tab and click the launch icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</li>
 <li>
-<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified. Leave the default values for all other fields.</p>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/cert-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-9a.png"></a>  </p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>. </p>
 <p><strong>a</strong>: <strong>Type</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SITE
+ </p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SITE
 </span></code></pre></div>
 <p><strong>b</strong>: <strong>Sign with</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CERTAUTH
+ </p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CERTAUTH
 </span></code></pre></div>
 <p><strong>c</strong>: <strong>Sign Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>TESTCA
+ </p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>TESTCA
 </span></code></pre></div>
 <p><strong>d</strong>: <strong>Common Name</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>company.com
+ </p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>company.com
 </span></code></pre></div>
 <p><strong>e</strong>: <strong>Expiration Date</strong>
-Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
-<p>Unlike the first certificate you created which was <em>self-signed</em>, this certificate will be signed by the local certificate authority using the CA you created.</p>
+ Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
+<p>!!! Note "Leave the default values for all other fields."</p>
+<p>Unlike the first certificate you created which was <em>self-signed</em>, this certificate will be signed by the local certificate authority using the <abbr title="Certificate Authority">CA</abbr> you created.</p>
+<p>!!! Note "The image below does not highlight all the fields that need to be modified!"</p>
+<p><a class="glightbox" href="../_attachments/cert-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-10a.png"></a>  </p>
 </li>
 <li>
-<p>Click <strong>Next</strong> and then click <strong>Launch</strong>.</p>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-11a.png"></a>  </p>
 </li>
-<li>Inspect the output of the job.</li>
+<li>
+<p>Verify the job was successful and inspect the output of the job.</p>
+<p><a class="glightbox" href="../_attachments/cert-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-12a.png"></a> </p>
+</li>
 </ol>
 <h2 id="renew-the-expiring-certificate">Renew the <em>expiring</em> certificate<a class="headerlink" href="#renew-the-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Now that you have a certificate and it is expiring within 30 days, it is time to renew the certificate.</p>
 <ol>
-<li>Return to the <strong>Templates</strong> tab and click the launch icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> template.</li>
 <li>
-<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified. Leave the default values for all other fields.</p>
-<p><strong>a</strong>: <strong>Certificate Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>TESTSITE
-</span></code></pre></div>
-<p><strong>b</strong>: <strong>Type</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SITE
-</span></code></pre></div>
-<p><strong>c</strong>: <strong>Sign with</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CERTAUTH
-</span></code></pre></div>
-<p><strong>d</strong>: <strong>Sign Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>TESTCA
-</span></code></pre></div>
-<p><strong>e</strong>: <strong>Expiration Date</strong>
-For now, leave the default date. If you do modify it, in the YYYY-MM-DD format.</p>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/cert-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-13a.png"></a> </p>
 </li>
 <li>
-<p>Click <strong>Next</strong> and <strong>Launch</strong>.</p>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>.</p>
+<p><strong>a</strong>: <strong>Certificate Label</strong>
+ </p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>TESTSITE
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Type</strong>
+ </p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SITE
+</span></code></pre></div>
+<p><strong>c</strong>: <strong>Sign with</strong>
+ <code>CERTAUTH</code></p>
+<p><strong>d</strong>: <strong>Sign Label</strong>
+ </p><div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TESTCA
+</span></code></pre></div>
+<p><strong>e</strong>: <strong>Expiration Date</strong>
+ Specify a new expiration date in the format YYYY-MM-DD.</p>
+<p>!!! Note "The image below does not highlight all the fields that need to be modified!"</p>
+<p><a class="glightbox" href="../_attachments/cert-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-14a.png"></a>  </p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-15a.png"></a>  </p>
 </li>
 <li>
 <p>Verify the job was <strong>Successful</strong> and review the output.</p>
@@ -954,43 +983,63 @@ For now, leave the default date. If you do modify it, in the YYYY-MM-DD format.<
 </li>
 <li>Rekey the certificate and give it a new temporary label</li>
 <li>Generate a CSR for the new certificate</li>
-<li>Sign the new certificate with the local CA</li>
+<li>Sign the new certificate with the local <abbr title="Certificate Authority">CA</abbr></li>
 <li>Delete the old certificate</li>
 <li>Relabel the new certificate to use the same label as before</li>
 <li>Refresh the digital certificate list</li>
 </ul>
+<p><a class="glightbox" href="../_attachments/cert-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-16a.png"></a> </p>
 </li>
 </ol>
 <h2 id="create-another-expiring-certificate">Create another <em>expiring</em> certificate<a class="headerlink" href="#create-another-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Create one more expiring certificate to use with the your assistant and new skills you will create.</p>
 <ol>
-<li>Return to the <strong>Templates</strong> tab and click the launch icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</li>
 <li>
-<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified. Leave the default values for all other fields.</p>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/cert-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-17a.png"></a> </p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>.</p>
 <p><strong>a</strong>: <strong>Certificate Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DEMOCERT
+ </p><div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>DEMOCERT
 </span></code></pre></div>
 <p><strong>b</strong>: <strong>Type</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>SITE
+ </p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>SITE
 </span></code></pre></div>
 <p><strong>c</strong>: <strong>Sign with</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>CERTAUTH
+ </p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CERTAUTH
 </span></code></pre></div>
 <p><strong>d</strong>: <strong>Sign Label</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>TESTCA
+ </p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TESTCA
 </span></code></pre></div>
 <p><strong>e</strong>: <strong>Common Name</strong>
-</p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>company.com
+ </p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>company.com
 </span></code></pre></div>
 <p><strong>f</strong>: <strong>Expiration Date</strong>
-Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
+ Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
+<p>!!! Note "The image below does not highlight all the fields that need to be modified!"</p>
+<p><a class="glightbox" href="../_attachments/cert-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-18a.png"></a> </p>
 </li>
 <li>
-<p>Click <strong>Next</strong> and then click <strong>Launch</strong>.</p>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../_attachments/cert-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-19a.png"></a> </p>
 </li>
-<li>Verify the <strong>DEMOCERT</strong> was successfully created.</li>
+<li>
+<p>Verify the <strong>DEMOCERT</strong> was successfully created.</p>
+<p><a class="glightbox" href="../_attachments/cert-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-20a.png"></a> </p>
+</li>
 </ol>
 <h2 id="import-the-ansible-automations-into-watsonx-orchestrate">Import the Ansible automations into watsonx Orchestrate<a class="headerlink" href="#import-the-ansible-automations-into-watsonx-orchestrate" title="Permanent link">#</a></h2>
-<p>Page 142</p>
+<p>For this use case, configure the assistant to guide the user through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration date and automate the certificate renewal process. To do so, import the needed <abbr title="Ansible Automation Platform">AAP</abbr> templates into watsonx Orchestrate as skills.</p>
+<p>For this use case, the ansible templates you will import are:</p>
+<ul>
+<li>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</li>
+<li>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</li>
+<li>Retrieve job output (utility skill)</li>
+</ul>
+<ol>
+<li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
