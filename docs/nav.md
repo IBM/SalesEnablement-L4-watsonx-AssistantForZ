@@ -16,7 +16,7 @@
 * [Publish and deploy your assistant](publishDeploy.md)
 * Use cases
     * [Retrieve IPL information](usecases/ipl/ipl.md)
-    * [SSL certificate renewal](usecases/cert/certPH.md)
+    * [SSL certificate renewal](usecases/cert/cert.md)
     * [RACF Administration support](usecases/racf/racfPH.md)
 * [Other integrations](otherIntegrations.md)
 * [Next steps](NextSteps.md)
