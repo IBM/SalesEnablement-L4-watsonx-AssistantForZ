@@ -917,7 +917,9 @@
 </p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Checking user privileges for 
 </span></code></pre></div>
 <p>Include in the <strong>Assistant says</strong> the provided user ID by including the function <em>1. What is your <abbr title="Resource Access Control Facility">RACF</abbr> User ID</em>. </p>
-<p>!!! Tip "Enter <code>$</code> after the <strong>Assistant says</strong> phrase, then click <strong>Action step variables</strong>, and then click <strong>1. What is your <abbr title="Resource Access Control Facility">RACF</abbr> User ID</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Enter <code>$</code> after the <strong>Assistant says</strong> phrase, then click <strong>Action step variables</strong>, and then click <strong>1. What is your <abbr title="Resource Access Control Facility">RACF</abbr> User ID</strong>.</p>
+</div>
 <p>Add an <strong>And then</strong> option to run the <strong><abbr title="Time Sharing Option">TSO</abbr> Command</strong> as a subaction. </p>
 <p>Edit the <strong>passed values</strong> for the subaction and add a new passed value for <em>1. extra_vars.zos_tso_command</em>. The <strong>To</strong> of the variable will be an <strong>Expression</strong> and include the string <code>\</code>LISTUSER ` + <code>and the **Action step variable**: *1. What is your RACF User ID*. When</code>LISTUSER <code>in the **Expression** field, enter</code>$` to be prompted with the available </p>
 </li>
