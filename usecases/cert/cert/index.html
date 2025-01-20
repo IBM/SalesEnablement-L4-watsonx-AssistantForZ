@@ -1665,7 +1665,316 @@
 <p><a class="glightbox" href="../_attachments/a-preview1-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-1a.png"></a></p>
 </li>
 <li>
+<p>Enter the following prompt in the preview.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+</span></code></pre></div>
+<a class="glightbox" href="../_attachments/a-preview1-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-2a.png"></a>
+</li>
+<li>
+<p>Review the response and click <strong>Yes</strong>.</p>
+<p>The assistant responds by calling Conversational search and returns a response using the Z <abbr title="Retrieval augmented generation">RAG</abbr>, displaying the RACDCERT command that can be used. The assistant then prompts <code>Would you like to run the skill to retrieve?</code>.</p>
+<p><a class="glightbox" href="../_attachments/a-preview1-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-3a.png"></a></p>
+</li>
+<li>
+<p>Review the response and enter <code>DEMOCRT</code>.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>DEMOCRT
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/a-preview1-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/a-preview1-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-5a.png"></a></p>
+</li>
+<li>
+<p>Review the response.</p>
+<p>If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/<abbr title="Operating System">OS</abbr> Certs – List Cert Ansible job, but rather the certificate expiration date which was extracted from the full job output using the Regular Expression transformation. </p>
+</li>
 </ol>
+<h2 id="complete-the-custom-built-skill-to-renew-the-certificate">Complete the custom-built skill to renew the certificate<a class="headerlink" href="#complete-the-custom-built-skill-to-renew-the-certificate" title="Permanent link">#</a></h2>
+<p>Now that the custom-built action is working, add steps to include the certificate renewal process. After retrieving and displaying the user’s certificate expiration date, ask the user if they want to renew the certificate, and if so, prompt for the new date and renew the certificate.</p>
+<ol>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-1a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-2a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in teh <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Would you like to renew your certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-3a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-5a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>This step handles the flow in which the user select Yes in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-6a.png"></a> </p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>What date would you like to set the renewed certificate’s expiration date to? Please enter in the form of YYYY-MM-DD.
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-7a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-8a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-9a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+</li>
+</ol>
+<p>With the desired expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a sub-action. Next trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/addLastSteps-10a.png)
+</code></pre></div>
+<ol start="11">
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p>This assistant first responds with the message that follows before triggering the certificate renewal skill-flow. When performing a demo of this use case, mention the <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong> Ansible playbook typically takes a minute or so to complete. </p>
+<p><strong>Assistant says</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Renewing your certificate…this could take up to a minute. Please wait one minute before selecting an option below.
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-11a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-12a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Go to</strong> option list and select the <strong>Cert Renewal skill flow</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-13a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-14a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p>To pass the input values to the Cert Renewal skill flow subaction using the user's provided expiration date and the certificate label specified earlier, edit the passed values to the subaction. </p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-15a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-16a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Action step variables</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>What is your certificate label?</strong></p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-18a.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 16 - 18 adding the <strong>extra_vars.new_expiry-date_survey</strong> input variable and  <strong>What date would you like to set the...</strong> in the <strong>To</strong> field.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-19a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.sign_label_survey</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-20a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> option list, select <strong>Enter text</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-21a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>TESTCA</code> in the <strong>Enter text</strong> field and click <strong>Apply</strong> for the <strong>To</strong> option list.</p>
+<p><strong>Enter text</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TESTCA
+</span></code></pre></div>
+<p>For this passed value, hard-code <code>TESTCA</code> in the skill flow’s input for the sign_label variable. This is the <abbr title="Certificate Authority">CA</abbr> certificate created earlier for demo purposes in the <abbr title="Ansible Automation Platform">AAP</abbr> web console.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-22a.png"></a></p>
+</li>
+<li>
+<p>Review the <strong>Edit passed values</strong> and then click <strong>Apply</strong>.</p>
+<p>Review all 3 variables are set correctly.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-23a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong></p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-24a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>To complete the flow, ask the user if they want to verify the new expiration date.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-25a.png"></a></p>
+</li>
+<li>
+<p>Enter the text that follows in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Would you like to verify the new expiration date for your certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-26a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-27a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-28a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-28a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>On the condition that the user selected <code>Yes</code> in the previous step, configure a step to run the <strong>Retrieve certificate expiration</strong> skill-flow again to retrieve and display the new expiration date of the renewed certificate.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-29a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-29a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-30a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-30a.png"></a></p>
+</li>
+<li>
+<p>Click the (<strong>a</strong>) <strong>Go to</strong> option list, select (<strong>b</strong>) <strong>Retrieve certificate expiration</strong>, and then click (<strong>c</strong>) <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-31a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-32a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-33a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-33a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> option list, click <strong>Action step variables</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-34a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-34a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>What is your certificate label?</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-35a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-35a.png"></a></p>
+</li>
+<li>
+<p>Review the <strong>Edit variable values</strong> and click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-36a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-36a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-37a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-37a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when executing the Retrieve certificate expiration skill flow - this was because output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-38a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Below is the new expiration date of your renewed certificate:
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-39a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-39a.png"></a></p>
+</li>
+<li>
+<p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-40a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-40a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Retrieve certificate expiration (step 10)</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Be sure to select the output from <strong>step 10</strong> and not step 4.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/addLastSteps-41a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-41a.png"></a></p>
+</li>
+<li>
+<p>Click  <strong>Retrieve certificate expiration result variable</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-42a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-42a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>End the action</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-43a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-43a.png"></a></p>
+</li>
+<li>
+<p>Review the (<strong>a</strong>) final step, click (<strong>b</strong>) <strong>Save</strong> (<a class="glightbox" href="../../_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/diskIcon.png"></a>), and then click (<strong>c</strong>) <strong>x</strong>.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-44a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-44a.png"></a></p>
+</li>
+</ol>
+<h2 id="run-the-complete-custom-built-action">Run the complete custom-built action<a class="headerlink" href="#run-the-complete-custom-built-action" title="Permanent link">#</a></h2>
+<p>The custom-built action is now complete and can be demonstrated to the Security Administrator for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the Security Administrator is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.</p>
+<ol>
+<li>
+<p>Open <strong>Preview</strong> in the <strong>Ai assistant builder</strong>.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-1a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the assistant.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>How do I check the expiration date for my certificate that’s expiring soon?
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Use the <strong>Change layout</strong> option to open a full page view of the assistant.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/aa-prview2-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-2a.png"></a>    </p>
+</li>
+<li>
+<p>Review the response and click <strong>Yes</strong>.</p>
+<p>The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a <abbr title="Resource Access Control Facility">RACF</abbr> command that the Security Administrator could use to determine their certificate’s expiration date.</p>
+<p>Following the response, the assistant prompts the user if they want to run the skill to retrieve a certificate’s expiration date.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-3a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>DEMOCERT</code> after the assistant responds with <strong>What is your certificate label?</strong></p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>DEMOCERT
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/aa-prview2-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-4a.png"></a></p>
+</li>
+<li>
+<p>Wait 10 seconds and then click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-5a.png"></a>    </p>
+</li>
+<li>
+<p>Review the response and then click <strong>Yes</strong>.</p>
+<p>By providing the automation within the assistant conversation, it makes it very quick for the Security Administrator to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to  renew the certificate if they choose to do so.</p>
+<div class="admonition warning">
+<p class="admonition-title">The expiration date you see may differ from the image that follows.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/aa-prview2-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-6a.png"></a></p>
+</li>
+<li>
+<p>Enter a date in the future in the format <strong>YYYY-MM-DD</strong>.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-7a.png"></a></p>
+</li>
+<li>
+<p>Review the response, wait 30 seconds to a minute, and then click <strong>Yes</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">It is crucial that you wait 30 seconds to a minute before selecting Yes.</p>
+<p>This is because in the background, your z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew automation is running within <abbr title="Ansible Automation Platform">AAP</abbr> (which you can verify within the <abbr title="Ansible Automation Platform">AAP</abbr> Web console). This is mapping the user-inputted expiration date as well as the original certificate label provided by the end-user to the inputs of this <abbr title="Ansible Automation Platform">AAP</abbr> automation."</p>
+</div>
+<p><a class="glightbox" href="../_attachments/aa-prview2-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-8a.png"></a></p>
+</li>
+<li>
+<p>Wait 10 seconds and then click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-9a.png"></a></p>
+</li>
+<li>
+<p>Review the response.</p>
+<p>The response should match the date entered in step 7.</p>
+<p><a class="glightbox" href="../_attachments/aa-prview2-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-10a.png"></a>    </p>
+</li>
+</ol>
+<p>If successfully configured, you can now illustrate how watsonx Assistant for Z can provide value to z/<abbr title="Operating System">OS</abbr> Security Administrator's in helping them automate common or cumbersome tasks, such as renewing <abbr title="Secure Sockets Layer">SSL</abbr> certificates. In the demo, the Security Administrator received immediate guidance on identifying the certificate expiration date via <abbr title="Resource Access Control Facility">RACF</abbr> commands and they were able to run automation proposed by the assistant to retrieve the certificate information. 
+Additionally, because the assistant was configured with step-by-step conversation flows, it was possible to add additional prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the Security Administrator is able to reduce the time it takes to complete this routine task.</p>
+<p>Recall how many steps were involved in the Ansible template for z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures their critical certificates are up-to-date and reduce the risk of expired certificates disrupting their business services.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
