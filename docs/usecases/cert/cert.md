@@ -570,5 +570,305 @@ Congratulations! You’ve just created a new skill flow that accomplishes part o
 
 In the next section, you will create one more simpler skill flow for the z/OS Certs – Search and Renew skill you previously imported. Once this additional skill flow is created, you will add both skill flows as skill-based actions which can be called in a custom-built action to map inputs to the skill flows through natural conversation.
 
-Page 164
+## Create a skill flow for certificate renewal
+The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/OS Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow you create next will comprise of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.
+
+1. In **Skill studio**, click **Create** and then click **Skill flow**.
+
     ![](_attachments/c-sf2-1a.png)
+
+2. Click the **+** icon.
+
+    ![](_attachments/c-sf-3a.png) 
+
+3. Click the **certs** app.
+
+    !!! Tip "Search on **certs** if you do not see the tile for your app."
+
+    ![](_attachments/c-sf-4a.png)
+
+4. Click **Add Skill +** in the **z/OS Certs - Search and Renew** tile.
+
+    ![](_attachments/c-sf2-4a.png)
+
+As mentioned, there is no need to return the ansible job output of this skill when it’s executed. The The **z/OS Certs - Search and Renew** is used to set default values for some of the inputs. For the purpose of this use case, we can assume that the Security Administrator will be renewing their SITE certificates which are signed with a previously generated Certificate Authority.
+
+5. Click the **z/OS Certs - Search and Renew** skill.
+
+    ![](_attachments/c-sf2-5a.png)
+
+6. Click **Input**.
+
+    ![](_attachments/c-sf2-6a.png)
+
+7. Hover over the **extra_vars.cert_type_survey** input field and click the pencil icon (![](../_attachments/pencilIcon.png)).
+
+    ![](_attachments/c-sf2-7a.png)
+
+8. Click in the **extra_vars.cert_type_survey** input field and enter `SITE`.
+
+    **extra_vars.cert_type_survey**:
+    ```
+    SITE
+    ```
+
+    !!! Warning "Do not enter spaces before or after the word `SITE`."
+
+    ![](_attachments/c-sf2-8a.png)
+
+9. Repeat 7 and 8 for the **extra_vars.sign_with_survey** field and enter the word `CERTAUTH`.
+
+    **extra_vars.sign_with_survey**:
+    ```
+    CERTAUTH
+    ```
+
+    !!! Warning "Do not enter spaces before or after the word `CERTAUTH`."
+
+    ![](_attachments/c-sf2-9a.png)
+
+10. Enable the **Hide this form from the user** option for both the **Input** and **Output** forms.
+
+    !!! Note "The image that follows only shows the **Output** form, but enable the option for both forms."
+
+    ![](_attachments/c-sf2-10a.png)
+
+11. Click (**a**) the pencil icon (![](../_attachments/pencilIcon.png)) for the skill flow,  enter (**b**) `Cert Renewal skill flow` in the **Name** field, and click (**c**) **Save**.
+
+    **Name**: 
+    ```
+    Cert Renewal skill flow
+    ```
+
+    ![](_attachments/c-sf2-11a.png)
+
+12. Click **Actions** and then click **Save as draft**.
+
+    ![](_attachments/c-sf2-12a.png)
+
+13. Click **Actions** and then click **Enhance**.
+
+    ![](_attachments/c-sf2-13a.png)
+
+14. Review the skill flow settings and click **Publish**.
+
+    ![](_attachments/c-sf2-14a.png)
+
+## Add the skill flows to the assistant
+Next, create 2 skill-based actions using the skill flows. This enables the ability to call the skill flow as a sub-action within a new custom-built action. For this use case, you will create 2 skill-based actions using your previously created skill flows:
+
+- Retrieve certificate expiration – maps the user prompted certificate label as input and extracts the certificate expiration date from the Ansible job’s output.
+
+- Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and executes the Search and Renew Ansible job to extend the expiration date of the certificate.
+  
+Once the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the Security Administrator with the certificate renewal process.
+
+1. Open **AI assistant builder** in watsonx Orchestrate.
+
+    ![](_attachments/c-actions-1a.png)
+
+2. Click **Actions**.
+
+    ![](_attachments/c-actions-2a.png)
+
+3. Click **New action+**.
+
+    ![](_attachments/c-actions-3a.png)
+
+4. Click **Skill-based action**.
+
+    ![](_attachments/c-actions-4a.png)
+
+5. Click the **Retrieve certificate expiration** tile and then click **Next**.
+
+    ![](_attachments/c-actions-5a.png)
+
+6. Click **Cancel** on the **New action** dialog.
+
+    !!! Note "For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being executed as the skill-based action, do not enter any example phrases."
+
+    ![](_attachments/c-actions-6a.png)
+
+7. Click **x** to close the **Retrieve certificate expiration** skill.
+
+    ![](_attachments/c-actions-7a.png)
+
+8. Repeat steps 3 - 7 to create a skill-based action for the **Cert Renewal skill flow**.
+
+    !!! Note "This action is also triggered from a custom-built action. Do not enter any example phrases."
+
+9. Verify both skill-based actions are available.
+
+    ![](_attachments/c-actions-9a.png)
+
+## Create a custom-built action for SSL Certificate Renewal
+Next, create a custom-built action that executes the new skill-based actions as sub-actions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the end-user, and map those details to the action inputs. 
+
+Recall the use case in scope for this section – demonstrate how an assistant can automate the SSL Certificate Renewal process and guide users through the process in a natural conversation.
+
+1. Click **New action +**.
+
+    ![](_attachments/c-custom-1a.png)
+
+2. Click **Custom-built-action**.
+
+    ![](_attachments/c-custom-2a.png)
+
+3. Enter `z/OS certificate expires soon` and then click **Save**.
+
+    **What does your customer say to start this interaction**:
+    ```
+    z/OS certificate expires soon
+    ```
+
+    ![](_attachments/c-custom-3a.png)
+
+The conversational search capability provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the end-user prompts the assistant with `z/OS certificate expires soon`, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.
+
+4. Click the **And then** drop down and select **Search for the answer**.
+
+    ![](_attachments/c-custom-4a.png)
+
+The result is that any time the user’s input matches the example phrase `z/OS certificate expires soon`, the first step taken is for the assistant to use conversational search and provide a response to their original question.
+
+Like in the IPL Information scenario, add a custom search query so when conversational search is executed in the first conversation step, the query being used is hard-coded and is not necessarily what the end-user inputted.
+
+5. Click **Edit settings**.
+
+    ![](_attachments/c-custom-5a.png)
+
+6. Enter the following prompt to be used in the **Custom search query** field and then click **Apply**.
+
+    **Custom search query**:
+    ```
+    My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+    ```
+
+    ![](_attachments/c-custom-6a.png)
+
+7. Click **Next step+**.
+
+    ![](_attachments/c-custom-7a.png)
+
+8. Enter the following response in the **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    Would you like to run the skill to retrieve your certificate’s expiration date?
+    ```
+
+    ![](_attachments/c-custom-8a.png)
+
+9. Click the **Define customer response** option list and select **Confirmation**.
+
+    The **Confirmation** option prompts the user to select `Yes` or `No`.
+
+    ![](_attachments/c-custom-9a.png)
+
+10. Click **Next step +**.
+
+    ![](_attachments/c-custom-10a.png)
+
+11. Click the **Is taken** option list and select **with conditions**.
+
+    This step handles the flow when the user selects `Yes` in the previous step, indicating that want to run the skill to retrieve the certificate’s expiration date. To run the **Retrieve certificate expiration action** created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.
+
+    ![](_attachments/c-custom-11a.png)
+
+12. Enter the following text in the **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    What is your certificate label?
+    ```
+
+    ![](_attachments/c-custom-12a.png)
+
+13. Click the **Define customer response** drop-down list and select **Free text**.
+
+    ![](_attachments/c-custom-13a.png)
+
+14. Click **Next step+**.
+
+    ![](_attachments/c-custom-14a.png)
+
+15. Click the **Is taken** option list and select **with conditions**.
+
+    After the user enters the certificate label as free text, the next step is to run the **Retrieve certificate expiration** skill-based action created earlier. To do so, map the user input to the skill flow and retrieve the expiration date for that certificate.
+
+    ![](_attachments/c-custom-15a.png)
+
+16. Click the **And then** option list and click **Go to a subaction**.
+
+    Notice the default condition validates the free text is defined from the previous step.
+
+    ![](_attachments/c-custom-16a.png)
+
+17. Click the (**a**) **Go to** option list, select the (**b**) **Retrieve certificate expiration** skill-based action, and then click (**c**) **Apply**.
+
+    ![](_attachments/c-custom-17a.png)
+
+18. Click **Edit passed values**.
+
+    To execute the **Retrieve certificate expiration** subaction using the users certificate label, the passed value needs to be modified.
+
+    ![](_attachments/c-custom-18a.png)
+
+19. Click **Set new value +** and then select **extra_vars.cert_label_survey**.
+
+    ![](_attachments/c-custom-19a.png)
+
+20. In the **To** field, select **Action step variables**, and then select **What is your certificate label?**.
+
+    ![](_attachments/c-custom-20a.gif)
+
+21. Click **Apply**.
+
+    ![](_attachments/c-custom-21a.png)
+
+22. Click **Next step +**.
+
+    ![](_attachments/c-custom-22a.png)
+
+23. Click the **Is taken** option list and select **with conditions**.
+
+    In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the **Retrieve certificate expiration** skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when executing the subaction in the previous step. Now, configure the custom-action to provide that output as a response.
+
+    ![](_attachments/c-custom-23a.png)
+
+24. Enter the following text in the **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    Below is your certificate’s expiration date:
+    ```
+
+    ![](_attachments/c-custom-24a.png)
+
+25. While still in the **Assistant says** field, press **return** and then type `$`.
+
+    !!! Note "The `$` is a special key that lists available functions. The image below is edited to show you must type the `$`, but it will not be displayed on your screen."
+
+     ![](_attachments/c-custom-25a.png)
+    
+26. Click **Retrieve certificate expiration (step 4)** and then click **Retrieve certificate expiration result variable**.
+
+     ![](_attachments/c-custom-26a.gif)
+
+27. Review the **Assistant says** field and then click **Save** (![](../_attachments/diskIcon.png)).
+
+     ![](_attachments/c-custom-27a.png)
+
+## Test the **z/OS certificate expires soon** custom-built skill
+Before completing the use case, test the **z/OS certificate expires soon** custom-built skill using the **DEMOCERT** certificate created earlier.
+
+1. Click **Preview**.
+
+    ![](_attachments/a-preview1-1a.png)
+
+2. 
+
+
+
+
+
