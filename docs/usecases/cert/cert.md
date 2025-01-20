@@ -1,14 +1,14 @@
 # Use case: SSL Certificate renewal on z/OS
-Now, shift roles to that of a mainframe Security Administrator. Your client would like to understand how watsonx Assistant for Z can help them to ensure their critical security certificates are up-to-date and reduce the risk of expired certificates disrupting their organization’s services. 
+Now, shift roles to that of a mainframe Security Administrator (SA). The client want to understand how watsonx Assistant for Z can help them to verify that their critical security certificates are up to date and reduce the risk of expired certificates disrupting their organization’s services. 
 
-Secure Sockets Layer (SSL) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/OS environment. It has been a while since the Security Administrator performed the  tasks to manage and renew a certificate, but recalls there being many steps required on z/OS and various RACF commands that need run to renew a certificate. Rather than going to their senior Security Administrator for assistance, you can demonstrate how leveraging watsonx Assistant for Z can help them automate the certificate renewal process by infusing Ansible automation into natural conversation, as well as providing step-by-step guidance on the processes to determine certificate expiration and renewing certificates.
+Secure Sockets Layer (SSL) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/OS environment. The SA has not performed the tasks to manage and renew a certificate in some time. The SA recalls that there are many steps that are required on z/OS and various RACF commands that need to be run to renew a certificate. Rather than going to their senior SA for assistance, demonstrate how using watsonx Assistant for Z can help the SA automate the certificate renewal process. 
 
-In this scenario, you will leverage the Ansible automation templates provided with your AAP and WAZI z/OS environment to create assistant actions to guide the client through the process of identifying their SSL certificate’s expiration dates, and automating the certificate renewal process for them. This will save them time and improve their productivity.
+In this scenario, use the Ansible automation templates that are provided with AAP and the WAZI z/OS environment to create assistant actions. The actions guide the client through the process of identifying their SSL certificate’s expiration dates, and automating the certificate renewal process for them. The assistant saves them time and improve their productivity.
 
-## Create an initial Certificate Authority (CA) certificate to sign future SITE certificates
-For this use case, a Certificate Authority (CA) certificate is needed to sign new SITE certificates. 
+## Create an initial certificate authority (CA) certificate to sign future SITE certificates
+For this use case, a certificate authority (CA) certificate is needed to sign new SITE certificates. 
 
-1. Open and log into the Ansible Automation Platform (AAP) web console. 
+1. Open and log in to the Ansible Automation Platform (AAP) web console. 
 
     !!! Tip "Don't remember how?"
  
@@ -44,7 +44,7 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
 
 6. Review the output of the job.
 
-     In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.
+     In the output of the playbook, notice that a new keyring is created, a certificate is created, and the certificate is connected to the key ring.
 
      ![](_attachments/cert-5a.png)    
 
@@ -61,7 +61,7 @@ For this use case, a Certificate Authority (CA) certificate is needed to sign ne
      ![](_attachments/cert-8a.png)  
     
 ## Create an *expiring* certificate
-Now create an expiring certificate using the CA certificate you just created.
+Now, create an expiring certificate that uses the CA certificate that you just created.
 
 1. Return to the **Templates** tab and click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
@@ -95,9 +95,9 @@ Now create an expiring certificate using the CA certificate you just created.
 
     !!! Note "Leave the default values for all other fields."
 
-    Unlike the first certificate you created which was *self-signed*, this certificate will be signed by the local certificate authority using the CA you created.
+    Unlike the first certificate you created which was *self-signed*, this certificate will be signed by the local certificate authority that uses the CA you created.
 
-    !!! Note "The image below does not highlight all the fields that need to be modified!"
+    !!! Note "The following image does not highlight all the fields that need to be modified!"
 
     ![](_attachments/cert-10a.png)  
 
@@ -105,7 +105,7 @@ Now create an expiring certificate using the CA certificate you just created.
 
      ![](_attachments/cert-11a.png)  
 
-4. Verify the job was successful and inspect the output of the job.
+4. Verify that the job was successful and inspect the output of the job.
 
      ![](_attachments/cert-12a.png) 
 
@@ -142,7 +142,7 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
     
     Specify a new expiration date in the format YYYY-MM-DD.
 
-    !!! Note "The image below does not highlight all the fields that need to be modified!"
+    !!! Note "The following image does not highlight all the fields that need to be modified!"
 
     ![](_attachments/cert-14a.png)  
 
@@ -150,9 +150,9 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
 
     ![](_attachments/cert-15a.png)  
 
-4. Verify the job was **Successful** and review the output.
+4. Verify that the job was **Successful** and review the output.
 
-    **Note**: you may need to click the **Reload Output** button after the job completes to view the full output.
+    **Note**: Click the **Reload Output** button to view the full output after the job completes.
 
     Review the tasks that were run within the automation to renew the certificate. Some of the steps completed include:
 
@@ -162,9 +162,9 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
 
     - Search the output of the report for the given certificate label
 
-    - Print out the expiring certificate, if it is found. You should see: ‘TESTSITE expiring – True’
+    - Print the expiring certificate, if it is found. You see: ‘TESTSITE expiring – True’
 
-    - If the certificate is expiring, kick off a series of RACDCERT commands to do the following:
+    - If the certificate is expiring, start a series of RACDCERT commands to do the following:
   
          - Backup the expiring certificate
        
@@ -183,7 +183,7 @@ Now that you have a certificate and it is expiring within 30 days, it is time to
      ![](_attachments/cert-16a.png) 
 
 ## Create another *expiring* certificate
-Create one more expiring certificate to use with the your assistant and new skills you will create.
+Create one more expiring certificate to use with the assistant and the new skills you will create.
 
 1. Return to the **Templates** tab and click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **z/OS Certs - Create Cert** template.
 
@@ -220,7 +220,7 @@ Create one more expiring certificate to use with the your assistant and new skil
     
     Enter a date that falls within the next 30 days in the format YYYY-MM-DD.
 
-    !!! Note "The image below does not highlight all the fields that need to be modified!"
+    !!! Note "The following image does not highlight all the fields that need to be modified!"
 
     ![](_attachments/cert-18a.png) 
 
@@ -228,7 +228,7 @@ Create one more expiring certificate to use with the your assistant and new skil
 
     ![](_attachments/cert-19a.png) 
 
-4. Verify the **DEMOCERT** was successfully created.
+4. Verify that the **DEMOCERT** was successfully created.
 
     ![](_attachments/cert-20a.png) 
 
@@ -236,7 +236,7 @@ Create one more expiring certificate to use with the your assistant and new skil
 
 For this use case, configure the assistant to guide the user through the process of identifying their SSL certificate’s expiration date and automate the certificate renewal process. To do so, import the needed AAP templates into watsonx Orchestrate as skills.
 
-For this use case, the ansible templates you will import are:
+For this use case, the ansible templates you import are:
 
 - z/OS Certs – List Cert
 - z/OS Certs – Search and Renew
@@ -335,7 +335,7 @@ For this use case, the ansible templates you will import are:
 
     ![](_attachments/c-skill-14a.png)
 
-7. Verify the app is connected.
+7. Verify that the app is connected.
 
     ![](_attachments/c-skill-15a.png)
 
@@ -366,7 +366,7 @@ For this use case, the ansible templates you will import are:
     ![](_attachments/c-app-6.png)
 
 ## Create a skill flow to retrieve certificate expiration dates.
-The goal of this scenario to configure the assistant to automate the certificate renewal process for the client. The first step in that process is to help the security administrator identify the expiration date of their z/OS certificate. You have now imported the **z/OS Certs – List Cert** skill from Ansible Automation Platform. Next, create a skill flow using that skill which can later be leveraged in a natural conversation through assistant actions.
+The goal of this scenario is to configure the assistant to automate the certificate renewal process for the client. The first step in that process is to help the SA identify the expiration date of their z/OS certificate. You have imported the **z/OS Certs – List Cert** skill from Ansible Automation Platform. Next, create a new skill flow that uses the **z/OS Certs – List Cert** skill that can later be used in a natural conversation through assistant actions.
 
 First, create a skill flow to retrieve and display the expiration date of a z/OS certificate based on the certificate label the user provides.
 
@@ -416,7 +416,7 @@ First, create a skill flow to retrieve and display the expiration date of a z/OS
 
 12. On both the **Input** and **Output** tabs for the **z/OS Certs - List Cert** skill, enable the **Hide this form from the user** options.
 
-    To enhance the user experience, hide the input and output forms from the user. This will disable the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.
+    To enhance the user experience, hide the input and output forms from the user. This disables the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.
 
     ![](_attachments/c-sf-12a.png)
 
@@ -424,7 +424,7 @@ First, create a skill flow to retrieve and display the expiration date of a z/OS
 
     ![](_attachments/c-sf-13a.png)
 
-The output of the **List Cert** skill includes a large amount of data. In the assistant, only the **certificate expiration date** is needed. In the next steps, transform the output to only return the **certificate expiration date**.
+The output of the **List Cert** skill includes a large amount of data. In the assistant, only the **certificate expiration date** is needed. In the next steps, transform the output to return only the **certificate expiration date**.
 
 14. Click the **+** icon **below** the **Retrieve job output** skill.
 
@@ -496,7 +496,7 @@ The output of the **List Cert** skill includes a large amount of data. In the as
 
     ![](_attachments/c-sf-26a.png)
 
-27. Enter `certificate expiration date` in the form title and toggle on the **Hide this form from the user** option.
+27. Enter `certificate expiration date` in the form title and toggle the **Hide this form from the user** option.
 
     **Form title**:
     ```
@@ -505,7 +505,7 @@ The output of the **List Cert** skill includes a large amount of data. In the as
 
     ![](_attachments/c-sf-27a.png)
 
-Next, create an output for to return the the transformed data from the input skill.
+Next, create an output for to return the transformed data from the input skill.
 
 28.  Click the **+** icon **below** the **Input form**.
     
@@ -523,9 +523,9 @@ Next, create an output for to return the the transformed data from the input ski
 
     ![](_attachments/c-sf-31a.png)
 
-32. Click in the **Custom forms** text entry field and enter `#` (the pound key, also know as the number sign or hash key).
+32. Click in the **Custom forms** field and enter `#` (the pound key, also know as the number sign or hash key).
 
-    Typing the `#` will open a new dialog window.
+    Typing the `#` opens a new dialog window.
 
     ![](_attachments/c-sf-32a.png)
 
@@ -566,12 +566,12 @@ Next, create an output for to return the the transformed data from the input ski
 
     ![](_attachments/c-sf-39a.png)
 
-Congratulations! You’ve just created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/OS certificate based on the certificate label the end-user provides. You will see this in action in the following sections.
+You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/OS certificate based on the certificate label the user provides.
 
-In the next section, you will create one more simpler skill flow for the z/OS Certs – Search and Renew skill you previously imported. Once this additional skill flow is created, you will add both skill flows as skill-based actions which can be called in a custom-built action to map inputs to the skill flows through natural conversation.
+In the next section, you will create a simpler skill flow for the z/OS Certs – Search and Renew skill that you previously imported. After this additional skill flow is created, add both skill flows as skill-based actions to be called in a custom-built action that maps inputs to the skill flows through natural conversation.
 
 ## Create a skill flow for certificate renewal
-The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/OS Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow you create next will comprise of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.
+The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/OS Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow that you create next is composed of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.
 
 1. In **Skill studio**, click **Create** and then click **Skill flow**.
 
@@ -591,7 +591,7 @@ The final step before configuring the assistant with actions is to create a skil
 
     ![](_attachments/c-sf2-4a.png)
 
-As mentioned, there is no need to return the ansible job output of this skill when it’s executed. The The **z/OS Certs - Search and Renew** is used to set default values for some of the inputs. For the purpose of this use case, we can assume that the Security Administrator will be renewing their SITE certificates which are signed with a previously generated Certificate Authority.
+As mentioned, there is no need to return the Ansible job output of this skill when it is run. The **z/OS Certs - Search and Renew** is used to set default values for some of the inputs. In this use case, assume that the SA will be renewing their SITE certificates that are signed with a previously generated certificate authority.
 
 5. Click the **z/OS Certs - Search and Renew** skill.
 
@@ -633,7 +633,7 @@ As mentioned, there is no need to return the ansible job output of this skill wh
 
     ![](_attachments/c-sf2-10a.png)
 
-11. Click (**a**) the pencil icon (![](../_attachments/pencilIcon.png)) for the skill flow,  enter (**b**) `Cert Renewal skill flow` in the **Name** field, and click (**c**) **Save**.
+11. Click (**a**) the pencil icon (![](../_attachments/pencilIcon.png)) for the skill flow, enter (**b**) `Cert Renewal skill flow` in the **Name** field, and click (**c**) **Save**.
 
     **Name**: 
     ```
@@ -655,13 +655,13 @@ As mentioned, there is no need to return the ansible job output of this skill wh
     ![](_attachments/c-sf2-14a.png)
 
 ## Add the skill flows to the assistant
-Next, create 2 skill-based actions using the skill flows. This enables the ability to call the skill flow as a sub-action within a new custom-built action. For this use case, you will create 2 skill-based actions using your previously created skill flows:
+Next, create 2 skill-based actions that use the skill flows. The skill-based actions enable the ability to call the skill flow as a subaction within a new custom-built action. For this use case, create two skill-based actions that use the previously created skill flows:
 
 - Retrieve certificate expiration – maps the user prompted certificate label as input and extracts the certificate expiration date from the Ansible job’s output.
 
-- Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and executes the Search and Renew Ansible job to extend the expiration date of the certificate.
+- Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and runs the Search and Renew Ansible job to extend the expiration date of the certificate.
   
-Once the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the Security Administrator with the certificate renewal process.
+After the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the SA with the certificate renewal process.
 
 1. Open **AI assistant builder** in watsonx Orchestrate.
 
@@ -685,7 +685,7 @@ Once the 2 skill flows are added as skill-based actions, integrate the actions i
 
 6. Click **Cancel** on the **New action** dialog.
 
-    !!! Note "For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being executed as the skill-based action, do not enter any example phrases."
+    !!! Note "For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being run as the skill-based action, do not enter any example phrases."
 
     ![](_attachments/c-actions-6a.png)
 
@@ -697,14 +697,12 @@ Once the 2 skill flows are added as skill-based actions, integrate the actions i
 
     !!! Note "This action is also triggered from a custom-built action. Do not enter any example phrases."
 
-9. Verify both skill-based actions are available.
+9. Verify that both skill-based actions are available.
 
     ![](_attachments/c-actions-9a.png)
 
 ## Create a custom-built action for SSL Certificate Renewal
-Next, create a custom-built action that executes the new skill-based actions as sub-actions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the end-user, and map those details to the action inputs. 
-
-Recall the use case in scope for this section – demonstrate how an assistant can automate the SSL Certificate Renewal process and guide users through the process in a natural conversation.
+Next, create a custom-built action that runs the new skill-based actions as subactions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the user, and map those details to the action inputs. 
 
 1. Click **New action +**.
 
@@ -723,15 +721,15 @@ Recall the use case in scope for this section – demonstrate how an assistant c
 
     ![](_attachments/c-custom-3a.png)
 
-The conversational search capability provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the end-user prompts the assistant with `z/OS certificate expires soon`, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.
+The conversational search capability that is provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the user prompts the assistant with `z/OS certificate expires soon`, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.
 
 4. Click the **And then** drop down and select **Search for the answer**.
 
     ![](_attachments/c-custom-4a.png)
 
-The result is that any time the user’s input matches the example phrase `z/OS certificate expires soon`, the first step taken is for the assistant to use conversational search and provide a response to their original question.
+The result is that anytime the user input matches the example phrase `z/OS certificate expires soon`, the first step that is taken is for the assistant to use conversational search and provide a response to their original question.
 
-Like in the IPL Information scenario, add a custom search query so when conversational search is executed in the first conversation step, the query being used is hard-coded and is not necessarily what the end-user inputted.
+Like in the IPL Information scenario, add a custom search query so when conversational search is run in the first conversation step, the query used is hardcoded and not what the user input.
 
 5. Click **Edit settings**.
 
@@ -771,7 +769,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
 11. Click the **Is taken** option list and select **with conditions**.
 
-    This step handles the flow when the user selects `Yes` in the previous step, indicating that want to run the skill to retrieve the certificate’s expiration date. To run the **Retrieve certificate expiration action** created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.
+    This step handles the flow when the user selects `Yes` in the previous step, indicating that they want to run the skill to retrieve the certificate’s expiration date. To run the **Retrieve certificate expiration action** created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.
 
     ![](_attachments/c-custom-11a.png)
 
@@ -800,7 +798,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
 16. Click the **And then** option list and click **Go to a subaction**.
 
-    Notice the default condition validates the free text is defined from the previous step.
+    Notice that the default condition validates the *free text* is defined from the previous step.
 
     ![](_attachments/c-custom-16a.png)
 
@@ -810,7 +808,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
 18. Click **Edit passed values**.
 
-    To execute the **Retrieve certificate expiration** subaction using the users certificate label, the passed value needs to be modified.
+    To run the **Retrieve certificate expiration** subaction that uses the users certificate label, the passed value needs to be modified.
 
     ![](_attachments/c-custom-18a.png)
 
@@ -832,7 +830,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
 23. Click the **Is taken** option list and select **with conditions**.
 
-    In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the **Retrieve certificate expiration** skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when executing the subaction in the previous step. Now, configure the custom-action to provide that output as a response.
+    In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the **Retrieve certificate expiration** skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when running the subaction in the previous step. Now, configure the custom-action to provide that output as a response.
 
     ![](_attachments/c-custom-23a.png)
 
@@ -847,7 +845,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
 25. While still in the **Assistant says** field, press **return** and then type `$`.
 
-    !!! Note "The `$` is a special key that lists available functions. The image below is edited to show you must type the `$`, but it will not be displayed on your screen."
+    !!! Note "The `$` is a special key that lists available functions. The following image is edited to show that you must type the `$`, but it is not displayed on your screen."
 
      ![](_attachments/c-custom-25a.png)
     
@@ -860,7 +858,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
      ![](_attachments/c-custom-27a.png)
 
 ## Test the **z/OS certificate expires soon** custom-built skill
-Before completing the use case, test the **z/OS certificate expires soon** custom-built skill using the **DEMOCERT** certificate created earlier.
+Before completing the use case, test the **z/OS certificate expires soon** custom-built skill that uses the **DEMOCERT** certificate created earlier.
 
 1. Click **Preview**.
 
@@ -876,7 +874,7 @@ Before completing the use case, test the **z/OS certificate expires soon** custo
 
 3. Review the response and click **Yes**.
 
-    The assistant responds by calling Conversational search and returns a response using the Z RAG, displaying the RACDCERT command that can be used. The assistant then prompts `Would you like to run the skill to retrieve?`.
+    The assistant responds by calling Conversational search and returns a response by using the Z RAG, displaying the RACDCERT command that can be used. The assistant then prompts `Would you like to run the skill to retrieve?`.
 
     ![](_attachments/a-preview1-3a.png)
 
@@ -895,7 +893,7 @@ Before completing the use case, test the **z/OS certificate expires soon** custo
 
 6. Review the response.
 
-    If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/OS Certs – List Cert Ansible job, but rather the certificate expiration date which was extracted from the full job output using the Regular Expression transformation. 
+    If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/OS Certs – List Cert Ansible job, but rather the certificate expiration date that was extracted from the full job output by using the Regular Expression transformation. 
 
 ## Complete the custom-built skill to renew the certificate
 Now that the custom-built action is working, add steps to include the certificate renewal process. After retrieving and displaying the user’s certificate expiration date, ask the user if they want to renew the certificate, and if so, prompt for the new date and renew the certificate.
@@ -908,7 +906,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-2a.png)
 
-3. Enter the following text in teh **Assistant says** field.
+3. Enter the following text in the **Assistant says** field.
 
     **Assistant says**:
     ```
@@ -927,7 +925,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
 6. Click the **Is taken** option list and select **with conditions**.
 
-    This step handles the flow in which the user select Yes in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.
+    This step handles the flow in which the user selects `Yes` in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.
 
     ![](_attachments/addLastSteps-6a.png) 
 
@@ -950,7 +948,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
 10. Click the **Is taken** option list and select **with conditions**.
 
-   With the desired expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a sub-action. Next trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.
+    With the new expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a subaction. Next, trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.
 
     ![](_attachments/addLastSteps-10a.png)
 
@@ -979,7 +977,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
 15. Click **Edit passed values**.
 
-    To pass the input values to the Cert Renewal skill flow subaction using the user's provided expiration date and the certificate label specified earlier, edit the passed values to the subaction. 
+    Edit the passed values to use them in the **Cert Renewal** skill flow subaction.
 
     ![](_attachments/addLastSteps-15a.png)
 
@@ -995,7 +993,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-18a.png)
 
-19. Repeat steps 16 - 18 adding the **extra_vars.new_expiry-date_survey** input variable and  **What date would you like to set the...** in the **To** field.
+19. Repeat steps 16 - 18 adding the **extra_vars.new_expiry-date_survey** input variable and **What date would you like to set the...** in the **To** field.
 
     ![](_attachments/addLastSteps-19a.png)
 
@@ -1014,7 +1012,7 @@ Now that the custom-built action is working, add steps to include the certificat
     TESTCA
     ```
 
-    For this passed value, hard-code `TESTCA` in the skill flow’s input for the sign_label variable. This is the CA certificate created earlier for demo purposes in the AAP web console.
+    For this passed value, hardcode `TESTCA` in the skill flow’s input for the sign_label variable. This is the CA certificate created earlier for demo purposes in the AAP web console.
 
     ![](_attachments/addLastSteps-22a.png)
 
@@ -1091,7 +1089,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
 38. Click the **Is taken** option list and select **with conditions**.
 
-    The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when executing the Retrieve certificate expiration skill flow - this was because output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.
+    The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when running the Retrieve certificate expiration skill flow - this was because the output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.
 
     ![](_attachments/addLastSteps-38a.png)
 
@@ -1106,7 +1104,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
 40. While still in the **Assistant says** field, press **return** and then type `$`.
 
-    !!! Note "The `$` is a special key that lists available functions. The image below is edited to show you must type the `$`, but it will not be displayed on your screen."
+    !!! Note "The `$` is a special key that lists available functions. The following image is edited to show that you must type the `$`, but it is not displayed on your screen."
 
     ![](_attachments/addLastSteps-40a.png)
 
@@ -1116,7 +1114,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-41a.png)
 
-42. Click  **Retrieve certificate expiration result variable**.
+42. Click **Retrieve certificate expiration result variable**.
 
     ![](_attachments/addLastSteps-42a.png)
 
@@ -1129,7 +1127,7 @@ Now that the custom-built action is working, add steps to include the certificat
     ![](_attachments/addLastSteps-44a.png)
 
 ## Run the complete custom-built action
-The custom-built action is now complete and can be demonstrated to the Security Administrator for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the Security Administrator is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.
+The custom-built action is now complete and can be demonstrated to the SA for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the SA is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.
 
 1. Open **Preview** in the **Ai assistant builder**.
 
@@ -1148,7 +1146,7 @@ The custom-built action is now complete and can be demonstrated to the Security 
 
 3. Review the response and click **Yes**.
 
-    The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a RACF command that the Security Administrator could use to determine their certificate’s expiration date.
+    The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a RACF command that the SA might use to determine their certificate’s expiration date.
 
     Following the response, the assistant prompts the user if they want to run the skill to retrieve a certificate’s expiration date.
 
@@ -1169,7 +1167,7 @@ The custom-built action is now complete and can be demonstrated to the Security 
 
 6. Review the response and then click **Yes**.
 
-    By providing the automation within the assistant conversation, it makes it very quick for the Security Administrator to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to  renew the certificate if they choose to do so.
+    By providing the automation within the assistant conversation, it makes it very quick for the SA to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to renew the certificate if they choose to do so.
 
     !!! Warning "The expiration date you see may differ from the image that follows."
 
@@ -1193,16 +1191,10 @@ The custom-built action is now complete and can be demonstrated to the Security 
 
 10. Review the response.
 
-    The response should match the date entered in step 7.
+    The response should match the date that is entered in step 7.
 
     ![](_attachments/aa-prview2-10a.png)    
 
-In the demo, the Security Administrator received immediate guidance on identifying the certificate expiration date via RACF commands and they were able to run automation proposed by the assistant to retrieve the certificate information. Additionally, because the assistant is configured with step-by-step conversation flows, it is possible to add additional prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the Security Administrator is able to reduce the time it takes to complete this routine task.
+In the demo, the SA receives immediate guidance on identifying the certificate expiration date via RACF commands. The SA runs automation that is proposed by the assistant to retrieve the certificate information. Also, because the assistant is configured with step-by-step conversation flows, it is possible to add other prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the SA is able to reduce the time it takes to complete this routine task.
 
-Recall how many steps were involved in the Ansible template for **z/OS Certs – Search and Renew**. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures their critical certificates are up-to-date and reduce the risk of expired certificates disrupting their business services.
-
-
-
-
-
-
+Recall how many steps were involved in the Ansible template for **z/OS Certs – Search and Renew**. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures that their critical certificates are up to date and reduce the risk of expired certificates disrupting their business services.
