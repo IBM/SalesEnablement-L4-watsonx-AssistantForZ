@@ -952,26 +952,27 @@ and
 </div>
 <p><strong>Step 6.</strong> <em>With conditions</em>, change the condition <strong>Step 4. What type of assistance?</strong> and the value of <strong>Changing my <abbr title="Resource Access Control Facility">RACF</abbr> password</strong>, and add a <code>Yes</code> or <code>No</code> confirmation.</p>
 <p><strong>Assistant says:</strong>
- </p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Would you like to change your user ID’s RACF passphrase?
+</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Would you like to change your user ID’s RACF passphrase?
 </span></code></pre></div>
 <p><strong>Step 7.</strong> <em>With conditions</em>, prompt the user to enter their new password as <em>free text</em>.</p>
 <p><strong>Assistant says</strong>:
- </p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Please enter your new RACF passphrase.
+</p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Please enter your new RACF passphrase.
 </span></code></pre></div>
 <p><strong>Step 8.</strong> <em>With conditions</em>, change the condition to <strong>Step 6. Would you like to change your user IDS passphrase</strong> equals <code>Yes</code>, inform the user the password is bing changed, and create a <strong><abbr title="Time Sharing Option">TSO</abbr> Command</strong> subaction to change the passphrase.</p>
 <p><strong>Assistant says</strong>:
- </p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Issuing RACF command ...
+</p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Issuing RACF command ...
 </span></code></pre></div>
-<p>!!! Warning "The formatting of the values that follow is important."</p>
-<div class="highlight"><pre><span></span><code> When creating the **To** expression for the passed values, be very careful with typing the expression. Do NOT cut &amp; paste this value. Type each charter. All quotes are single-quotes. The `$&lt;&gt;` denotes typing `$` and then selecting the appropriate **action step variable**.
-</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">The formatting of the values that follow is important.</p>
+<p>When creating the <strong>To</strong> expression for the passed values, be very careful with typing the expression. Do NOT cut &amp; paste this value. Type each charter. All quotes are single-quotes. The <code>$&lt;&gt;</code> denotes typing <code>$</code> and then selecting the appropriate <strong>action step variable</strong>.</p>
+</div>
 <p>Edit the passed values for the <abbr title="Time Sharing Option">TSO</abbr> Command subaction to include the <strong>1. extra_vars.zos_tso_command</strong> variable with a <strong>To</strong> expression with the value of:</p>
 <p><code>'ALTUSER ' + $&lt;1. What is your RACF User ID?&gt; + ' PHRASE(''$&lt;7. Please enter your new RACF passphrase&gt;'') NOEXPIRE RESUME'</code></p>
 <p>The expression should look like the following image:</p>
 <p><a class="glightbox" href="../_attachments/changePPExpression.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changePPExpression.png"></a></p>
 <p><strong>Step 9.</strong>: <em>With conditions</em>, change the condition to <strong>Step 6. Would you like to change your user IDS passphrase</strong> equals <code>Yes</code>, ., and inform the user the passphrase has been changed. Change the <strong>And then</strong> option to <strong>End the action</strong>.</p>
 <p><strong>Assistant says</strong>: 
- <code>User passphrase changed to $&lt;7. Please enter your new RACF passphrase.&gt;</code></p>
+<code>User passphrase changed to $&lt;7. Please enter your new RACF passphrase.&gt;</code></p>
 <p>When entering the above string, after typing <code>$</code> select the <strong>7. Please enter your new <abbr title="Resource Access Control Facility">RACF</abbr> passphrase</strong>.</p>
 </li>
 <li>
@@ -979,9 +980,11 @@ and
 </li>
 <li>
 <p>Demonstrate the custom-built action.</p>
-<p>Using the <strong><abbr title="Artificial intelligence">AI</abbr> Assistant builder</strong> preview, run the custom-built action. The following video shows how the demonstration should work.</p>
+<p>Using the <strong><abbr title="Artificial intelligence">AI</abbr> Assistant builder</strong> preview, run the custom-built action. Use the APP web console to verify the passphrase ws changed. </p>
+<p>The following video shows how the demonstration should work.</p>
 </li>
 </ol>
+<p>This use case demonstrates the value watsonx Assistant for Z can provide to offload common, manual tasks from subject matter experts like <abbr title="Resource Access Control Facility">RACF</abbr> Administrators. The use case shows the level of customization offered with infusing automations into natural conversations. Watsonx Assistant for Z improves employee productivity and reduces effort needed by individuals to completing manual tasks.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
