@@ -256,7 +256,7 @@ For this use case, the ansible templates you will import are:
 
 4. Enter the following values in the **z/OS Skills accelerator** form and then click **Connect**.
 
-    Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](exploreAAP.md) section earlier.
+    Use the **URL**, **User Name**, and **Password** values recorded in the [Explore Ansible Automation Platform](../../skills/exploreAAP.md) section earlier.
 
     **a**: Connection Type: 
     ```
@@ -866,7 +866,341 @@ Before completing the use case, test the **z/OS certificate expires soon** custo
 
     ![](_attachments/a-preview1-1a.png)
 
-2. 
+2. Enter the following prompt in the preview.
+
+    **Prompt**:
+    ```
+    My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+    ```
+    ![](_attachments/a-preview1-2a.png)
+
+3. Review the response and click **Yes**.
+
+    The assistant responds by calling Conversational search and returns a response using the Z RAG, displaying the RACDCERT command that can be used. The assistant then prompts `Would you like to run the skill to retrieve?`.
+
+    ![](_attachments/a-preview1-3a.png)
+
+4. Review the response and enter `DEMOCRT`.
+
+    **Prompt**:
+    ```
+    DEMOCRT
+    ```
+
+    ![](_attachments/a-preview1-4a.png)
+
+5. Click **Apply**.
+
+    ![](_attachments/a-preview1-5a.png)
+
+6. Review the response.
+
+    If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/OS Certs – List Cert Ansible job, but rather the certificate expiration date which was extracted from the full job output using the Regular Expression transformation. 
+
+## Complete the custom-built skill to renew the certificate
+Now that the custom-built action is working, add steps to include the certificate renewal process. After retrieving and displaying the user’s certificate expiration date, ask the user if they want to renew the certificate, and if so, prompt for the new date and renew the certificate.
+
+1. Click **Next step +**.
+
+    ![](_attachments/addLastSteps-1a.png)
+
+2. Click the **Is taken** option list and select **with conditions**.
+
+    ![](_attachments/addLastSteps-2a.png)
+
+3. Enter the following text in teh **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    Would you like to renew your certificate?
+    ```
+
+    ![](_attachments/addLastSteps-3a.png)
+
+4. Click the **Define customer response** option list and select **Confirmation**.
+
+    ![](_attachments/addLastSteps-4a.png)
+
+5. Click **Next step +**.
+
+    ![](_attachments/addLastSteps-5a.png)
+
+6. Click the **Is taken** option list and select **with conditions**.
+
+    This step handles the flow in which the user select Yes in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.
+
+    ![](_attachments/addLastSteps-6a.png) 
+
+7. Enter the following text in the **Assistant says** field.
+
+    **Assistant says**: 
+    ```
+    What date would you like to set the renewed certificate’s expiration date to? Please enter in the form of YYYY-MM-DD.
+    ```
+
+    ![](_attachments/addLastSteps-7a.png)
+
+8. Click the **Define customer response** option list and select **Free text**.
+
+    ![](_attachments/addLastSteps-8a.png)
+
+9. Click **New step +**.
+
+    ![](_attachments/addLastSteps-9a.png)
+
+10. Click the **Is taken** option list and select **with conditions**.
+
+   With the desired expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a sub-action. Next trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.
+
+    ![](_attachments/addLastSteps-10a.png)
+
+11. Enter the following text in the **Assistant says** field.
+
+    This assistant first responds with the message that follows before triggering the certificate renewal skill-flow. When performing a demo of this use case, mention the **z/OS Certs – Search and Renew** Ansible playbook typically takes a minute or so to complete. 
+
+    **Assistant says**: 
+    ```
+    Renewing your certificate…this could take up to a minute. Please wait one minute before selecting an option below.
+    ```
+
+    ![](_attachments/addLastSteps-11a.png)
+
+12. Click the **And then** option list and select **Go to a subaction**.
+
+    ![](_attachments/addLastSteps-12a.png)
+
+13. Click the **Go to** option list and select the **Cert Renewal skill flow**.
+
+    ![](_attachments/addLastSteps-13a.png)
+
+14. Click **Apply**.
+
+    ![](_attachments/addLastSteps-14a.png)
+
+15. Click **Edit passed values**.
+
+    To pass the input values to the Cert Renewal skill flow subaction using the user's provided expiration date and the certificate label specified earlier, edit the passed values to the subaction. 
+
+    ![](_attachments/addLastSteps-15a.png)
+
+16. Click **Set new value +** and then select **extra_vars.cert_label_survey**.
+
+    ![](_attachments/addLastSteps-16a.png)
+
+17. In the **To** field, select **Action step variables**.
+
+    ![](_attachments/addLastSteps-17a.png)
+
+18. Click **What is your certificate label?**
+
+    ![](_attachments/addLastSteps-18a.png)
+
+19. Repeat steps 16 - 18 adding the **extra_vars.new_expiry-date_survey** input variable and  **What date would you like to set the...** in the **To** field.
+
+    ![](_attachments/addLastSteps-19a.png)
+
+20. Click **Set new value +** and then select **extra_vars.sign_label_survey**.
+
+    ![](_attachments/addLastSteps-20a.png)
+
+21. In the **To** option list, select **Enter text**.
+
+    ![](_attachments/addLastSteps-21a.png)
+
+22. Enter `TESTCA` in the **Enter text** field and click **Apply** for the **To** option list.
+
+    **Enter text**:
+    ```
+    TESTCA
+    ```
+
+    For this passed value, hard-code `TESTCA` in the skill flow’s input for the sign_label variable. This is the CA certificate created earlier for demo purposes in the AAP web console.
+
+    ![](_attachments/addLastSteps-22a.png)
+
+23. Review the **Edit passed values** and then click **Apply**.
+
+    Review all 3 variables are set correctly.
+
+    ![](_attachments/addLastSteps-23a.png)
+
+24. Click **Next step +**
+
+    ![](_attachments/addLastSteps-24a.png)
+
+25. Click the **Is taken** option list and select **with conditions**.
+
+    To complete the flow, ask the user if they want to verify the new expiration date.
+
+    ![](_attachments/addLastSteps-25a.png)
+
+26. Enter the text that follows in the **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    Would you like to verify the new expiration date for your certificate?
+    ```
+
+    ![](_attachments/addLastSteps-26a.png)
+
+27. Click the **Define customer response** option list and select **Confirmation**.
+
+    ![](_attachments/addLastSteps-27a.png)
+
+28. Click **Next step +**.
+
+    ![](_attachments/addLastSteps-28a.png)
+
+29. Click the **Is taken** option list and select **with conditions**.
+
+    On the condition that the user selected `Yes` in the previous step, configure a step to run the **Retrieve certificate expiration** skill-flow again to retrieve and display the new expiration date of the renewed certificate.
+
+    ![](_attachments/addLastSteps-29a.png)
+
+30. Click the **And then** option list and select **Go to a subaction**.
+
+    ![](_attachments/addLastSteps-30a.png)
+
+31. Click the (**a**) **Go to** option list, select (**b**) **Retrieve certificate expiration**, and then click (**c**) **Apply**.
+
+    ![](_attachments/addLastSteps-31a.png)
+
+32. Click **Edit passed values**.
+
+    ![](_attachments/addLastSteps-32a.png)
+
+33. Click **Set new value +** and then select **extra_vars.cert_label_survey**.
+
+    ![](_attachments/addLastSteps-33a.png)
+
+34. In the **To** option list, click **Action step variables**.
+
+    ![](_attachments/addLastSteps-34a.png)
+
+35. Click **What is your certificate label?**.
+
+    ![](_attachments/addLastSteps-35a.png)
+
+36. Review the **Edit variable values** and click **Apply**.
+
+    ![](_attachments/addLastSteps-36a.png)
+
+37. Click **Next step +**.
+
+    ![](_attachments/addLastSteps-37a.png)
+
+38. Click the **Is taken** option list and select **with conditions**.
+
+    The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when executing the Retrieve certificate expiration skill flow - this was because output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.
+
+    ![](_attachments/addLastSteps-38a.png)
+
+39. Enter the following text in the **Assistant says** field.
+
+    **Assistant says**:
+    ```
+    Below is the new expiration date of your renewed certificate:
+    ```
+
+    ![](_attachments/addLastSteps-39a.png)
+
+40. While still in the **Assistant says** field, press **return** and then type `$`.
+
+    !!! Note "The `$` is a special key that lists available functions. The image below is edited to show you must type the `$`, but it will not be displayed on your screen."
+
+    ![](_attachments/addLastSteps-40a.png)
+
+41. Click **Retrieve certificate expiration (step 10)**.
+
+    !!! Warning "Be sure to select the output from **step 10** and not step 4."
+
+    ![](_attachments/addLastSteps-41a.png)
+
+42. Click  **Retrieve certificate expiration result variable**.
+
+    ![](_attachments/addLastSteps-42a.png)
+
+43. Click the **And then** option list and select **End the action**.
+
+    ![](_attachments/addLastSteps-43a.png)
+
+44. Review the (**a**) final step, click (**b**) **Save** (![](../_attachments/diskIcon.png)), and then click (**c**) **x**.
+
+    ![](_attachments/addLastSteps-44a.png)
+
+## Run the complete custom-built action
+The custom-built action is now complete and can be demonstrated to the Security Administrator for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the Security Administrator is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.
+
+1. Open **Preview** in the **Ai assistant builder**.
+
+    ![](_attachments/aa-prview2-1a.png)
+
+2. Enter the following text in the assistant.
+
+    **Prompt**:
+    ```
+    How do I check the expiration date for my certificate that’s expiring soon?
+    ```
+
+    !!! Tip "Use the **Change layout** option to open a full page view of the assistant."
+
+    ![](_attachments/aa-prview2-2a.png)    
+
+3. Review the response and click **Yes**.
+
+    The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a RACF command that the Security Administrator could use to determine their certificate’s expiration date.
+
+    Following the response, the assistant prompts the user if they want to run the skill to retrieve a certificate’s expiration date.
+
+    ![](_attachments/aa-prview2-3a.png)
+
+4. Enter `DEMOCERT` after the assistant responds with **What is your certificate label?**
+
+    **Prompt**:
+    ```
+    DEMOCERT
+    ```
+
+    ![](_attachments/aa-prview2-4a.png)
+
+5. Wait 10 seconds and then click **Apply**.
+
+    ![](_attachments/aa-prview2-5a.png)    
+
+6. Review the response and then click **Yes**.
+
+    By providing the automation within the assistant conversation, it makes it very quick for the Security Administrator to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to  renew the certificate if they choose to do so.
+
+    !!! Warning "The expiration date you see may differ from the image that follows."
+
+    ![](_attachments/aa-prview2-6a.png)
+
+7. Enter a date in the future in the format **YYYY-MM-DD**.
+
+    ![](_attachments/aa-prview2-7a.png)
+
+8. Review the response, wait 30 seconds to a minute, and then click **Yes**.
+
+    !!! Warning "It is crucial that you wait 30 seconds to a minute before selecting Yes."
+    
+        This is because in the background, your z/OS Certs – Search and Renew automation is running within AAP (which you can verify within the AAP Web console). This is mapping the user-inputted expiration date as well as the original certificate label provided by the end-user to the inputs of this AAP automation."
+
+    ![](_attachments/aa-prview2-8a.png)
+
+9. Wait 10 seconds and then click **Apply**.
+
+    ![](_attachments/aa-prview2-9a.png)
+
+10. Review the response.
+
+    The response should match the date entered in step 7.
+
+    ![](_attachments/aa-prview2-10a.png)    
+
+In the demo, the Security Administrator received immediate guidance on identifying the certificate expiration date via RACF commands and they were able to run automation proposed by the assistant to retrieve the certificate information. Additionally, because the assistant is configured with step-by-step conversation flows, it is possible to add additional prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the Security Administrator is able to reduce the time it takes to complete this routine task.
+
+Recall how many steps were involved in the Ansible template for **z/OS Certs – Search and Renew**. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures their critical certificates are up-to-date and reduce the risk of expired certificates disrupting their business services.
+
 
 
 

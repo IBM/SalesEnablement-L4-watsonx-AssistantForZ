@@ -1,7 +1,7 @@
 # Welcome
 Welcome to the {{guide.name}} (lab guide). The lab guide is part of the {{learningplan.name}} learning plan for IBM and Business Partner Technical Sales and related badge. The learning plan is intended to teach technical sellers and Business Partners how to conduct a proof of experience (PoX) for a client. 
 
-!!! Warning "In a fast-paced world, things change"
+!!! Warning "In a fast-paced world, things change..."
 
     The products and services may appear differently than what is shown in the lab guide. This can occur if the product or service is updated with a new version.
 
