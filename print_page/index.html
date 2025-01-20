@@ -720,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../usecases/cert/certPH/" class="md-nav__link">
+      <a href="../usecases/cert/cert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1002,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#usecases-cert-certph" class="md-nav__link">
+  <a href="#usecases-cert-cert" class="md-nav__link">
     <span class="md-ellipsis">
       SSL certificate renewal
     </span>
@@ -4001,7 +4001,1142 @@ To both run the action and display the results, a skill flow is needed. Skills a
 </ol>
 <p>The ability to infuse skills and automations into the conversation allows the user to issue the operator command on their system directly within the assistant itself. The assistant provides a single interface for retrieving details that are required for the <abbr title="Initial Program Load">IPL</abbr> process to go smoothly and increases the user's efficiency.</p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-cert-certph"><div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#usecases-cert-certph-coming-soon" title="Permanent link">#</a></h1>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-cert-cert"><div><h1 id="use-case-ssl-certificate-renewal-on-zos">Use case: <abbr title="Secure Sockets Layer">SSL</abbr> Certificate renewal on z/<abbr title="Operating System">OS</abbr><a class="headerlink" href="#usecases-cert-cert-use-case-ssl-certificate-renewal-on-zos" title="Permanent link">#</a></h1>
+<p>Now, shift roles to that of a mainframe Security Administrator. Your client would like to understand how watsonx Assistant for Z can help them to ensure their critical security certificates are up-to-date and reduce the risk of expired certificates disrupting their organization’s services. </p>
+<p>Secure Sockets Layer (<abbr title="Secure Sockets Layer">SSL</abbr>) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/<abbr title="Operating System">OS</abbr> environment. It has been a while since the Security Administrator performed the  tasks to manage and renew a certificate, but recalls there being many steps required on z/<abbr title="Operating System">OS</abbr> and various <abbr title="Resource Access Control Facility">RACF</abbr> commands that need run to renew a certificate. Rather than going to their senior Security Administrator for assistance, you can demonstrate how leveraging watsonx Assistant for Z can help them automate the certificate renewal process by infusing Ansible automation into natural conversation, as well as providing step-by-step guidance on the processes to determine certificate expiration and renewing certificates.</p>
+<p>In this scenario, you will leverage the Ansible automation templates provided with your <abbr title="Ansible Automation Platform">AAP</abbr> and WAZI z/<abbr title="Operating System">OS</abbr> environment to create assistant actions to guide the client through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration dates, and automating the certificate renewal process for them. This will save them time and improve their productivity.</p>
+<h2 id="usecases-cert-cert-create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates">Create an initial Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate to sign future SITE certificates<a class="headerlink" href="#usecases-cert-cert-create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates" title="Permanent link">#</a></h2>
+<p>For this use case, a Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate is needed to sign new SITE certificates. </p>
+<ol>
+<li>
+<p>Open and log into the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) web console. </p>
+<div class="admonition tip">
+<p class="admonition-title">Don't remember how?</p>
+<p>Refer to the first 5 steps in <a href="#skills-exploreaap">Explore Ansible Automation Platform</a>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Templates</strong> under the <strong>Resources</strong> section.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-1a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>launch</strong> icon (<a class="glightbox" href="../usecases/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-2a.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the <strong>Certificate Label</strong> and <strong>Type</strong> fields with the values that follow and then click <strong>Next</strong>. </p>
+<p><strong>a</strong>: <strong>Certificate Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#usecases-cert-cert-__codelineno-0-1"></a>TESTCA
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Type</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#usecases-cert-cert-__codelineno-1-1"></a>CERTAUTH
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Leave the default values for all other fields.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-3a.png"></a>    </p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-4a.png"></a>   </p>
+</li>
+<li>
+<p>Review the output of the job.</p>
+<p>In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-5a.png"></a>    </p>
+</li>
+<li>
+<p>Locate the line <strong>TASK [GENERATE new certificate]</strong>, click the <strong>changed: [zos host]</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-6a.png"></a>   </p>
+</li>
+<li>
+<p>Click <strong>JSON</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-7a.png"></a>  </p>
+</li>
+<li>
+<p>Review the <strong>RACDCERT</strong> command that was run to generate the certificate and then click <strong>x</strong> to close the window.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-8a.png"></a>  </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-create-an-expiring-certificate">Create an <em>expiring</em> certificate<a class="headerlink" href="#usecases-cert-cert-create-an-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Now create an expiring certificate using the <abbr title="Certificate Authority">CA</abbr> certificate you just created.</p>
+<ol>
+<li>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="../usecases/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-9a.png"></a>  </p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>. </p>
+<p><strong>a</strong>: <strong>Type</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#usecases-cert-cert-__codelineno-2-1"></a>SITE
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Sign with</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#usecases-cert-cert-__codelineno-3-1"></a>CERTAUTH
+</span></code></pre></div>
+<p><strong>c</strong>: <strong>Sign Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#usecases-cert-cert-__codelineno-4-1"></a>TESTCA
+</span></code></pre></div>
+<p><strong>d</strong>: <strong>Common Name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#usecases-cert-cert-__codelineno-5-1"></a>company.com
+</span></code></pre></div>
+<p><strong>e</strong>: <strong>Expiration Date</strong></p>
+<p>Enter a date that occurs within the next 30 days. The date must be in the format YYYY-MM-DD.</p>
+<div class="admonition note">
+<p class="admonition-title">Leave the default values for all other fields.</p>
+</div>
+<p>Unlike the first certificate you created which was <em>self-signed</em>, this certificate will be signed by the local certificate authority using the <abbr title="Certificate Authority">CA</abbr> you created.</p>
+<div class="admonition note">
+<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-10a.png"></a>  </p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-11a.png"></a>  </p>
+</li>
+<li>
+<p>Verify the job was successful and inspect the output of the job.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-12a.png"></a> </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-renew-the-expiring-certificate">Renew the <em>expiring</em> certificate<a class="headerlink" href="#usecases-cert-cert-renew-the-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Now that you have a certificate and it is expiring within 30 days, it is time to renew the certificate.</p>
+<ol>
+<li>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="../usecases/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> template.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-13a.png"></a> </p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>.</p>
+<p><strong>a</strong>: <strong>Certificate Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#usecases-cert-cert-__codelineno-6-1"></a>TESTSITE
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Type</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#usecases-cert-cert-__codelineno-7-1"></a>SITE
+</span></code></pre></div>
+<p><strong>c</strong>: <strong>Sign with</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#usecases-cert-cert-__codelineno-8-1"></a>CERTAUTH
+</span></code></pre></div>
+<p><strong>d</strong>: <strong>Sign Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#usecases-cert-cert-__codelineno-9-1"></a>TESTCA
+</span></code></pre></div>
+<p><strong>e</strong>: <strong>Expiration Date</strong></p>
+<p>Specify a new expiration date in the format YYYY-MM-DD.</p>
+<div class="admonition note">
+<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-14a.png"></a>  </p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-15a.png"></a>  </p>
+</li>
+<li>
+<p>Verify the job was <strong>Successful</strong> and review the output.</p>
+<p><strong>Note</strong>: you may need to click the <strong>Reload Output</strong> button after the job completes to view the full output.</p>
+<p>Review the tasks that were run within the automation to renew the certificate. Some of the steps completed include:</p>
+<ul>
+<li>
+<p>Run the RACF_CERTIFICATE_EXPIRATION z/<abbr title="Operating System">OS</abbr> Health Check</p>
+</li>
+<li>
+<p>Submit <abbr title="Job Control Language">JCL</abbr> to pull a report on the z/<abbr title="Operating System">OS</abbr> Health Check</p>
+</li>
+<li>
+<p>Search the output of the report for the given certificate label</p>
+</li>
+<li>
+<p>Print out the expiring certificate, if it is found. You should see: ‘TESTSITE expiring – True’</p>
+</li>
+<li>
+<p>If the certificate is expiring, kick off a series of RACDCERT commands to do the following:</p>
+<ul>
+<li>
+<p>Backup the expiring certificate</p>
+</li>
+<li>
+<p>Rekey the certificate and give it a new temporary label</p>
+</li>
+<li>
+<p>Generate a CSR for the new certificate</p>
+</li>
+<li>
+<p>Sign the new certificate with the local <abbr title="Certificate Authority">CA</abbr></p>
+</li>
+<li>
+<p>Delete the old certificate</p>
+</li>
+<li>
+<p>Relabel the new certificate to use the same label as before</p>
+</li>
+<li>
+<p>Refresh the digital certificate list</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-16a.png"></a> </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-create-another-expiring-certificate">Create another <em>expiring</em> certificate<a class="headerlink" href="#usecases-cert-cert-create-another-expiring-certificate" title="Permanent link">#</a></h2>
+<p>Create one more expiring certificate to use with the your assistant and new skills you will create.</p>
+<ol>
+<li>
+<p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="../usecases/_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-17a.png"></a> </p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the fields that follow with the values specified and then click <strong>Next</strong>.</p>
+<p><strong>a</strong>: <strong>Certificate Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#usecases-cert-cert-__codelineno-10-1"></a>DEMOCERT
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Type</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#usecases-cert-cert-__codelineno-11-1"></a>SITE
+</span></code></pre></div>
+<p><strong>c</strong>: <strong>Sign with</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#usecases-cert-cert-__codelineno-12-1"></a>CERTAUTH
+</span></code></pre></div>
+<p><strong>d</strong>: <strong>Sign Label</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#usecases-cert-cert-__codelineno-13-1"></a>TESTCA
+</span></code></pre></div>
+<p><strong>e</strong>: <strong>Common Name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#usecases-cert-cert-__codelineno-14-1"></a>company.com
+</span></code></pre></div>
+<p><strong>f</strong>: <strong>Expiration Date</strong></p>
+<p>Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
+<div class="admonition note">
+<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-18a.png"></a> </p>
+</li>
+<li>
+<p>Click <strong>Launch</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-19a.png"></a> </p>
+</li>
+<li>
+<p>Verify the <strong>DEMOCERT</strong> was successfully created.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/cert-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/cert-20a.png"></a> </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-import-the-ansible-automations-into-watsonx-orchestrate">Import the Ansible automations into watsonx Orchestrate<a class="headerlink" href="#usecases-cert-cert-import-the-ansible-automations-into-watsonx-orchestrate" title="Permanent link">#</a></h2>
+<p>For this use case, configure the assistant to guide the user through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration date and automate the certificate renewal process. To do so, import the needed <abbr title="Ansible Automation Platform">AAP</abbr> templates into watsonx Orchestrate as skills.</p>
+<p>For this use case, the ansible templates you will import are:</p>
+<ul>
+<li>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</li>
+<li>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</li>
+<li>Retrieve job output (utility skill)</li>
+</ul>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-2a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-3a.png"></a></p>
+</li>
+<li>
+<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="#skills-exploreaap">Explore Ansible Automation Platform</a> section earlier.</p>
+<p><strong>a</strong>: Connection Type: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#usecases-cert-cert-__codelineno-15-1"></a>ansible
+</span></code></pre></div>
+<p><strong>b</strong>: Application Name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#usecases-cert-cert-__codelineno-16-1"></a>certs
+</span></code></pre></div>
+<p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: </p>
+<p>&lt;Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
+<p><strong>d</strong>: User Name: </p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Name (for <abbr title="User Interface">UI</abbr> access)&gt;</p>
+<p><strong>e</strong>: Password:</p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
+<p><strong>f</strong>: Search Pattern: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#usecases-cert-cert-__codelineno-17-1"></a>*
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-4a.png"></a></p>
+</li>
+<li>
+<p>Expand the <strong>Ansible Job Template Proj...</strong> folder and then click <strong>aap4zos</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-5a.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Z/os certs - list cert</strong> and <strong>Z/os certs - search and renew</strong> and then click <strong>Save as draft</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Scroll through the table of skills to find the required skills.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-6a.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../usecases/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/ellipsesIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill and select <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-7a.png"></a></p>
+</li>
+<li>
+<p>Review the skill enhancement options and then click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-8a.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 7 and 8 for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> skill.</p>
+</li>
+<li>
+<p><strong>Challenge</strong>: You also need to add the <strong>Retrieve job output</strong> utility to your <strong>certs</strong> app just like you did when creating the <strong>Gather Facts</strong> skill flow. Repeat steps 2 - 8 to add the <strong>Retrieve job output</strong> utility skill to your <strong>certs</strong> app. </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-verify-all-the-skills-are-successfully-imported-and-create-the-app-connection">Verify all the skills are successfully imported and create the app connection.<a class="headerlink" href="#usecases-cert-cert-verify-all-the-skills-are-successfully-imported-and-create-the-app-connection" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill catalog</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-9a.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>certs</strong> in the search bar.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-10a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>certs</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-11a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> for each of the 3 skills in the certs app.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-12a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-13a.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-14a.png"></a></p>
+</li>
+<li>
+<p>Verify the app is connected.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-skill-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-skill-15a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-connect-the-app-to-the-assistant">Connect the app to the assistant.<a class="headerlink" href="#usecases-cert-cert-connect-the-app-to-the-assistant" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill catalog</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-1.png"></a></p>
+</li>
+<li>
+<p>Select the <strong>Draft</strong> version of your assistant and click <strong>Connections</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-2.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>certs</strong> in the search bar.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-3.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../usecases/_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/ellipsesIcon.png"></a>) for the <em>certs</em><em> app and select </em><em>Connect app</em>*.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-4.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-5.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-app-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-app-6.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-create-a-skill-flow-to-retrieve-certificate-expiration-dates">Create a skill flow to retrieve certificate expiration dates.<a class="headerlink" href="#usecases-cert-cert-create-a-skill-flow-to-retrieve-certificate-expiration-dates" title="Permanent link">#</a></h2>
+<p>The goal of this scenario to configure the assistant to automate the certificate renewal process for the client. The first step in that process is to help the security administrator identify the expiration date of their z/<abbr title="Operating System">OS</abbr> certificate. You have now imported the <strong>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</strong> skill from Ansible Automation Platform. Next, create a skill flow using that skill which can later be leveraged in a natural conversation through assistant actions.</p>
+<p>First, create a skill flow to retrieve and display the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</p>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-1a.png"></a> </p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-2a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-3a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>certs</strong> app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Search on <strong>certs</strong> if you do not see the tile for your app.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-5a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill and repeat steps 4 and 5 to add the <strong>Retrieve job output</strong> skill.</p>
+</li>
+<li>
+<p>Click the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-6a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>id</strong> field.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-7a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>z/<abbr title="Operating System">OS</abbr> certs - List Cert</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-9a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>job</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-10a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-11a.png"></a></p>
+</li>
+<li>
+<p>On both the <strong>Input</strong> and <strong>Output</strong> tabs for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill, enable the <strong>Hide this form from the user</strong> options.</p>
+<p>To enhance the user experience, hide the input and output forms from the user. This will disable the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-12a.png"></a></p>
+</li>
+<li>
+<p>Repeat step 12 for the <strong>Output</strong> of the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-13a.png"></a></p>
+</li>
+</ol>
+<p>The output of the <strong>List Cert</strong> skill includes a large amount of data. In the assistant, only the <strong>certificate expiration date</strong> is needed. In the next steps, transform the output to only return the <strong>certificate expiration date</strong>.</p>
+<ol start="14">
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Retrieve job output</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-14a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Custom forms</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-15a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> in the <strong>Input form</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-16a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Input form</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add input field +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-18a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Paragraph text</strong> and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-19a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>certificate expiration date</code> in the <strong>Display label</strong> field and click <strong>Apply</strong>.</p>
+<p><strong>Display label</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#usecases-cert-cert-__codelineno-18-1"></a>certificate expiration date
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-20a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>certificate expiration date</strong> entry field.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-21a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Mapping data for "certificate expiration data"</strong> section, click <strong>Retrieve job output</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-22a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>content</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-23a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add transformation +</strong>.</p>
+<p>A <strong>transformation</strong> is used to extract the <strong>certificate expiration date</strong> from all the job output data.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-24a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Select</strong> drop-down and select <strong>Get substring by regular expression</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-25a.png"></a></p>
+</li>
+<li>
+<p>Cut and paste the <em>regular express</em> that follows to extract the certificate end date and then click <strong>Add</strong>.</p>
+<p><strong>Regular Expression</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#usecases-cert-cert-__codelineno-19-1"></a>(?&lt;=End Date: ).[^"]*
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are several ways to transform data to match the type of output you need. In the above example, regular expression is used to get the needed output (the certificate expiration date). This regular expression was tested against the output of the z/<abbr title="Operating System">OS</abbr> Certs – List Cert Ansible job to extract the value assigned to the ‘End Date’ field in the job’s output. After completing this use case, you can experiment with other regular expressions to extract additional information from the job’s output. </p>
+<p>For more information on transforming data within watsonx Orchestrate, review the documentation found <a href="https://www.ibm.com/docs/en/watsonx/watson-orchestrate/current?topic=flows-mapping-values-input-fields#transforming-data" target="_blank">here</a>.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-26a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>certificate expiration date</code> in the form title and toggle on the <strong>Hide this form from the user</strong> option.</p>
+<p><strong>Form title</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#usecases-cert-cert-__codelineno-20-1"></a>certificate expiration date
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-27a.png"></a></p>
+</li>
+</ol>
+<p>Next, create an output for to return the the transformed data from the input skill.</p>
+<ol start="28">
+<li>
+<p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Input form</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-28a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-28a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom forms</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-29a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-29a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>Output form</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-30a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-30a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Output form</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-31a.png"></a></p>
+</li>
+<li>
+<p>Click in the <strong>Custom forms</strong> text entry field and enter <code>#</code> (the pound key, also know as the number sign or hash key).</p>
+<p>Typing the <code>#</code> will open a new dialog window.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-32a.png"></a></p>
+</li>
+<li>
+<p>Expand (<strong>a</strong>) <strong>Input form</strong>, select (<strong>b</strong>) <strong>certificate expiration date</strong>, and then click (<strong>c</strong>) <strong>OK</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-33a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-33a.png"></a></p>
+</li>
+<li>
+<p>Enable the <strong>Hide this form from the user</strong> option.</p>
+<div class="admonition question">
+<p class="admonition-title">Why hide some of the forms?</p>
+<p>You may be wondering why hide the input and output forms for the skills in the skill flow. This is done to execute the automation based on user prompts for the inputs of the skills. This is done through natural conversation with the assistant when the skill flow is configured as an assistant ‘action’ (you will do this soon). Although the final output is hidden, it is accessible as a variable in a custom-built action. The value can be displayed exactly at the point it is expected in the conversation.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-34a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-34a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>pencil</strong> icon (<a class="glightbox" href="../skills/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../skills/_attachments/pencilIcon.png"></a>).</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-35a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-35a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>Retrieve certificate expiration</code> in the <strong>Name</strong> field and click <strong>Save</strong>.</p>
+<p><strong>Name</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#usecases-cert-cert-__codelineno-21-1"></a>Retrieve certificate expiration
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-36a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-36a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-37a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-37a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-38a.png"></a></p>
+</li>
+<li>
+<p>Review the skill flow settings and click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-39a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-39a.png"></a></p>
+</li>
+</ol>
+<p>Congratulations! You’ve just created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the end-user provides. You will see this in action in the following sections.</p>
+<p>In the next section, you will create one more simpler skill flow for the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew skill you previously imported. Once this additional skill flow is created, you will add both skill flows as skill-based actions which can be called in a custom-built action to map inputs to the skill flows through natural conversation.</p>
+<h2 id="usecases-cert-cert-create-a-skill-flow-for-certificate-renewal">Create a skill flow for certificate renewal<a class="headerlink" href="#usecases-cert-cert-create-a-skill-flow-for-certificate-renewal" title="Permanent link">#</a></h2>
+<p>The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow you create next will comprise of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.</p>
+<ol>
+<li>
+<p>In <strong>Skill studio</strong>, click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-1a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-3a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>certs</strong> app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Search on <strong>certs</strong> if you do not see the tile for your app.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> tile.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-4a.png"></a></p>
+</li>
+</ol>
+<p>As mentioned, there is no need to return the ansible job output of this skill when it’s executed. The The <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> is used to set default values for some of the inputs. For the purpose of this use case, we can assume that the Security Administrator will be renewing their SITE certificates which are signed with a previously generated Certificate Authority.</p>
+<ol start="5">
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-5a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Input</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-6a.png"></a></p>
+</li>
+<li>
+<p>Hover over the <strong>extra_vars.cert_type_survey</strong> input field and click the pencil icon (<a class="glightbox" href="../usecases/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/pencilIcon.png"></a>).</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-7a.png"></a></p>
+</li>
+<li>
+<p>Click in the <strong>extra_vars.cert_type_survey</strong> input field and enter <code>SITE</code>.</p>
+<p><strong>extra_vars.cert_type_survey</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#usecases-cert-cert-__codelineno-22-1"></a>SITE
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Do not enter spaces before or after the word <code>SITE</code>.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-8a.png"></a></p>
+</li>
+<li>
+<p>Repeat 7 and 8 for the <strong>extra_vars.sign_with_survey</strong> field and enter the word <code>CERTAUTH</code>.</p>
+<p><strong>extra_vars.sign_with_survey</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#usecases-cert-cert-__codelineno-23-1"></a>CERTAUTH
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Do not enter spaces before or after the word <code>CERTAUTH</code>.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-9a.png"></a></p>
+</li>
+<li>
+<p>Enable the <strong>Hide this form from the user</strong> option for both the <strong>Input</strong> and <strong>Output</strong> forms.</p>
+<div class="admonition note">
+<p class="admonition-title">The image that follows only shows the <strong>Output</strong> form, but enable the option for both forms.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-10a.png"></a></p>
+</li>
+<li>
+<p>Click (<strong>a</strong>) the pencil icon (<a class="glightbox" href="../usecases/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/pencilIcon.png"></a>) for the skill flow,  enter (<strong>b</strong>) <code>Cert Renewal skill flow</code> in the <strong>Name</strong> field, and click (<strong>c</strong>) <strong>Save</strong>.</p>
+<p><strong>Name</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#usecases-cert-cert-__codelineno-24-1"></a>Cert Renewal skill flow
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-11a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-12a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-13a.png"></a></p>
+</li>
+<li>
+<p>Review the skill flow settings and click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-sf2-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-sf2-14a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-add-the-skill-flows-to-the-assistant">Add the skill flows to the assistant<a class="headerlink" href="#usecases-cert-cert-add-the-skill-flows-to-the-assistant" title="Permanent link">#</a></h2>
+<p>Next, create 2 skill-based actions using the skill flows. This enables the ability to call the skill flow as a sub-action within a new custom-built action. For this use case, you will create 2 skill-based actions using your previously created skill flows:</p>
+<ul>
+<li>
+<p>Retrieve certificate expiration – maps the user prompted certificate label as input and extracts the certificate expiration date from the Ansible job’s output.</p>
+</li>
+<li>
+<p>Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and executes the Search and Renew Ansible job to extend the expiration date of the certificate.</p>
+</li>
+</ul>
+<p>Once the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the Security Administrator with the certificate renewal process.</p>
+<ol>
+<li>
+<p>Open <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-2a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New action+</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-3a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Skill-based action</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-4a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Retrieve certificate expiration</strong> tile and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-5a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Cancel</strong> on the <strong>New action</strong> dialog.</p>
+<div class="admonition note">
+<p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being executed as the skill-based action, do not enter any example phrases.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-6a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>x</strong> to close the <strong>Retrieve certificate expiration</strong> skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-7a.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 3 - 7 to create a skill-based action for the <strong>Cert Renewal skill flow</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">This action is also triggered from a custom-built action. Do not enter any example phrases.</p>
+</div>
+</li>
+<li>
+<p>Verify both skill-based actions are available.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-actions-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-actions-9a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-create-a-custom-built-action-for-ssl-certificate-renewal">Create a custom-built action for <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal<a class="headerlink" href="#usecases-cert-cert-create-a-custom-built-action-for-ssl-certificate-renewal" title="Permanent link">#</a></h2>
+<p>Next, create a custom-built action that executes the new skill-based actions as sub-actions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the end-user, and map those details to the action inputs. </p>
+<p>Recall the use case in scope for this section – demonstrate how an assistant can automate the <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal process and guide users through the process in a natural conversation.</p>
+<ol>
+<li>
+<p>Click <strong>New action +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom-built-action</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-2a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>z/OS certificate expires soon</code> and then click <strong>Save</strong>.</p>
+<p><strong>What does your customer say to start this interaction</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#usecases-cert-cert-__codelineno-25-1"></a>z/OS certificate expires soon
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-3a.png"></a></p>
+</li>
+</ol>
+<p>The conversational search capability provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the end-user prompts the assistant with <code>z/OS certificate expires soon</code>, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.</p>
+<ol start="4">
+<li>
+<p>Click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-4a.png"></a></p>
+</li>
+</ol>
+<p>The result is that any time the user’s input matches the example phrase <code>z/OS certificate expires soon</code>, the first step taken is for the assistant to use conversational search and provide a response to their original question.</p>
+<p>Like in the <abbr title="Initial Program Load">IPL</abbr> Information scenario, add a custom search query so when conversational search is executed in the first conversation step, the query being used is hard-coded and is not necessarily what the end-user inputted.</p>
+<ol start="5">
+<li>
+<p>Click <strong>Edit settings</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-5a.png"></a></p>
+</li>
+<li>
+<p>Enter the following prompt to be used in the <strong>Custom search query</strong> field and then click <strong>Apply</strong>.</p>
+<p><strong>Custom search query</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#usecases-cert-cert-__codelineno-26-1"></a>My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-6a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step+</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-7a.png"></a></p>
+</li>
+<li>
+<p>Enter the following response in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#usecases-cert-cert-__codelineno-27-1"></a>Would you like to run the skill to retrieve your certificate’s expiration date?
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-8a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p>The <strong>Confirmation</strong> option prompts the user to select <code>Yes</code> or <code>No</code>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-9a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-10a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>This step handles the flow when the user selects <code>Yes</code> in the previous step, indicating that want to run the skill to retrieve the certificate’s expiration date. To run the <strong>Retrieve certificate expiration action</strong> created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-11a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#usecases-cert-cert-__codelineno-28-1"></a>What is your certificate label?
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-12a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> drop-down list and select <strong>Free text</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-13a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step+</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-14a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>After the user enters the certificate label as free text, the next step is to run the <strong>Retrieve certificate expiration</strong> skill-based action created earlier. To do so, map the user input to the skill flow and retrieve the expiration date for that certificate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-15a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and click <strong>Go to a subaction</strong>.</p>
+<p>Notice the default condition validates the free text is defined from the previous step.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-16a.png"></a></p>
+</li>
+<li>
+<p>Click the (<strong>a</strong>) <strong>Go to</strong> option list, select the (<strong>b</strong>) <strong>Retrieve certificate expiration</strong> skill-based action, and then click (<strong>c</strong>) <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p>To execute the <strong>Retrieve certificate expiration</strong> subaction using the users certificate label, the passed value needs to be modified.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-18a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-19a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Action step variables</strong>, and then select <strong>What is your certificate label?</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-20a.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-20a.gif"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-21a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-22a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the <strong>Retrieve certificate expiration</strong> skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when executing the subaction in the previous step. Now, configure the custom-action to provide that output as a response.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-23a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#usecases-cert-cert-__codelineno-29-1"></a>Below is your certificate’s expiration date:
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-24a.png"></a></p>
+</li>
+<li>
+<p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-25a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Retrieve certificate expiration (step 4)</strong> and then click <strong>Retrieve certificate expiration result variable</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-26a.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-26a.gif"></a></p>
+</li>
+<li>
+<p>Review the <strong>Assistant says</strong> field and then click <strong>Save</strong> (<a class="glightbox" href="../usecases/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/diskIcon.png"></a>).</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/c-custom-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/c-custom-27a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-test-the-zos-certificate-expires-soon-custom-built-skill">Test the <strong>z/<abbr title="Operating System">OS</abbr> certificate expires soon</strong> custom-built skill<a class="headerlink" href="#usecases-cert-cert-test-the-zos-certificate-expires-soon-custom-built-skill" title="Permanent link">#</a></h2>
+<p>Before completing the use case, test the <strong>z/<abbr title="Operating System">OS</abbr> certificate expires soon</strong> custom-built skill using the <strong>DEMOCERT</strong> certificate created earlier.</p>
+<ol>
+<li>
+<p>Click <strong>Preview</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/a-preview1-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/a-preview1-1a.png"></a></p>
+</li>
+<li>
+<p>Enter the following prompt in the preview.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#usecases-cert-cert-__codelineno-30-1"></a>My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+</span></code></pre></div>
+<a class="glightbox" href="../usecases/cert/_attachments/a-preview1-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/a-preview1-2a.png"></a>
+</li>
+<li>
+<p>Review the response and click <strong>Yes</strong>.</p>
+<p>The assistant responds by calling Conversational search and returns a response using the Z <abbr title="Retrieval augmented generation">RAG</abbr>, displaying the RACDCERT command that can be used. The assistant then prompts <code>Would you like to run the skill to retrieve?</code>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/a-preview1-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/a-preview1-3a.png"></a></p>
+</li>
+<li>
+<p>Review the response and enter <code>DEMOCRT</code>.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#usecases-cert-cert-__codelineno-31-1"></a>DEMOCRT
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/a-preview1-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/a-preview1-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/a-preview1-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/a-preview1-5a.png"></a></p>
+</li>
+<li>
+<p>Review the response.</p>
+<p>If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/<abbr title="Operating System">OS</abbr> Certs – List Cert Ansible job, but rather the certificate expiration date which was extracted from the full job output using the Regular Expression transformation. </p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-complete-the-custom-built-skill-to-renew-the-certificate">Complete the custom-built skill to renew the certificate<a class="headerlink" href="#usecases-cert-cert-complete-the-custom-built-skill-to-renew-the-certificate" title="Permanent link">#</a></h2>
+<p>Now that the custom-built action is working, add steps to include the certificate renewal process. After retrieving and displaying the user’s certificate expiration date, ask the user if they want to renew the certificate, and if so, prompt for the new date and renew the certificate.</p>
+<ol>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-1a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-2a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in teh <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#usecases-cert-cert-__codelineno-32-1"></a>Would you like to renew your certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-3a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-4a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-5a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>This step handles the flow in which the user select Yes in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-6a.png"></a> </p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#usecases-cert-cert-__codelineno-33-1"></a>What date would you like to set the renewed certificate’s expiration date to? Please enter in the form of YYYY-MM-DD.
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-7a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-8a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-9a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+</li>
+</ol>
+<p>With the desired expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a sub-action. Next trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/addLastSteps-10a.png)
+</code></pre></div>
+<ol start="11">
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p>This assistant first responds with the message that follows before triggering the certificate renewal skill-flow. When performing a demo of this use case, mention the <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong> Ansible playbook typically takes a minute or so to complete. </p>
+<p><strong>Assistant says</strong>: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#usecases-cert-cert-__codelineno-34-1"></a>Renewing your certificate…this could take up to a minute. Please wait one minute before selecting an option below.
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-11a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-12a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Go to</strong> option list and select the <strong>Cert Renewal skill flow</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-13a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-14a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p>To pass the input values to the Cert Renewal skill flow subaction using the user's provided expiration date and the certificate label specified earlier, edit the passed values to the subaction. </p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-15a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-16a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Action step variables</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>What is your certificate label?</strong></p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-18a.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 16 - 18 adding the <strong>extra_vars.new_expiry-date_survey</strong> input variable and  <strong>What date would you like to set the...</strong> in the <strong>To</strong> field.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-19a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.sign_label_survey</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-20a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> option list, select <strong>Enter text</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-21a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>TESTCA</code> in the <strong>Enter text</strong> field and click <strong>Apply</strong> for the <strong>To</strong> option list.</p>
+<p><strong>Enter text</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#usecases-cert-cert-__codelineno-35-1"></a>TESTCA
+</span></code></pre></div>
+<p>For this passed value, hard-code <code>TESTCA</code> in the skill flow’s input for the sign_label variable. This is the <abbr title="Certificate Authority">CA</abbr> certificate created earlier for demo purposes in the <abbr title="Ansible Automation Platform">AAP</abbr> web console.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-22a.png"></a></p>
+</li>
+<li>
+<p>Review the <strong>Edit passed values</strong> and then click <strong>Apply</strong>.</p>
+<p>Review all 3 variables are set correctly.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-23a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong></p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-24a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>To complete the flow, ask the user if they want to verify the new expiration date.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-25a.png"></a></p>
+</li>
+<li>
+<p>Enter the text that follows in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#usecases-cert-cert-__codelineno-36-1"></a>Would you like to verify the new expiration date for your certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-26a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-27a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-28a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-28a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>On the condition that the user selected <code>Yes</code> in the previous step, configure a step to run the <strong>Retrieve certificate expiration</strong> skill-flow again to retrieve and display the new expiration date of the renewed certificate.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-29a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-29a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-30a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-30a.png"></a></p>
+</li>
+<li>
+<p>Click the (<strong>a</strong>) <strong>Go to</strong> option list, select (<strong>b</strong>) <strong>Retrieve certificate expiration</strong>, and then click (<strong>c</strong>) <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-31a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-32a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-33a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-33a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> option list, click <strong>Action step variables</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-34a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-34a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>What is your certificate label?</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-35a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-35a.png"></a></p>
+</li>
+<li>
+<p>Review the <strong>Edit variable values</strong> and click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-36a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-36a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-37a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-37a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when executing the Retrieve certificate expiration skill flow - this was because output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-38a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#usecases-cert-cert-__codelineno-37-1"></a>Below is the new expiration date of your renewed certificate:
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-39a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-39a.png"></a></p>
+</li>
+<li>
+<p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-40a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-40a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Retrieve certificate expiration (step 10)</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Be sure to select the output from <strong>step 10</strong> and not step 4.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-41a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-41a.png"></a></p>
+</li>
+<li>
+<p>Click  <strong>Retrieve certificate expiration result variable</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-42a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-42a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and select <strong>End the action</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-43a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-43a.png"></a></p>
+</li>
+<li>
+<p>Review the (<strong>a</strong>) final step, click (<strong>b</strong>) <strong>Save</strong> (<a class="glightbox" href="../usecases/_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/_attachments/diskIcon.png"></a>), and then click (<strong>c</strong>) <strong>x</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/addLastSteps-44a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/addLastSteps-44a.png"></a></p>
+</li>
+</ol>
+<h2 id="usecases-cert-cert-run-the-complete-custom-built-action">Run the complete custom-built action<a class="headerlink" href="#usecases-cert-cert-run-the-complete-custom-built-action" title="Permanent link">#</a></h2>
+<p>The custom-built action is now complete and can be demonstrated to the Security Administrator for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the Security Administrator is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.</p>
+<ol>
+<li>
+<p>Open <strong>Preview</strong> in the <strong>Ai assistant builder</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-1a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the assistant.</p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#usecases-cert-cert-__codelineno-38-1"></a>How do I check the expiration date for my certificate that’s expiring soon?
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Use the <strong>Change layout</strong> option to open a full page view of the assistant.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-2a.png"></a>    </p>
+</li>
+<li>
+<p>Review the response and click <strong>Yes</strong>.</p>
+<p>The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a <abbr title="Resource Access Control Facility">RACF</abbr> command that the Security Administrator could use to determine their certificate’s expiration date.</p>
+<p>Following the response, the assistant prompts the user if they want to run the skill to retrieve a certificate’s expiration date.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-3a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>DEMOCERT</code> after the assistant responds with <strong>What is your certificate label?</strong></p>
+<p><strong>Prompt</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#usecases-cert-cert-__codelineno-39-1"></a>DEMOCERT
+</span></code></pre></div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-4a.png"></a></p>
+</li>
+<li>
+<p>Wait 10 seconds and then click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-5a.png"></a>    </p>
+</li>
+<li>
+<p>Review the response and then click <strong>Yes</strong>.</p>
+<p>By providing the automation within the assistant conversation, it makes it very quick for the Security Administrator to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to  renew the certificate if they choose to do so.</p>
+<div class="admonition warning">
+<p class="admonition-title">The expiration date you see may differ from the image that follows.</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-6a.png"></a></p>
+</li>
+<li>
+<p>Enter a date in the future in the format <strong>YYYY-MM-DD</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-7a.png"></a></p>
+</li>
+<li>
+<p>Review the response, wait 30 seconds to a minute, and then click <strong>Yes</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">It is crucial that you wait 30 seconds to a minute before selecting Yes.</p>
+<p>This is because in the background, your z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew automation is running within <abbr title="Ansible Automation Platform">AAP</abbr> (which you can verify within the <abbr title="Ansible Automation Platform">AAP</abbr> Web console). This is mapping the user-inputted expiration date as well as the original certificate label provided by the end-user to the inputs of this <abbr title="Ansible Automation Platform">AAP</abbr> automation."</p>
+</div>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-8a.png"></a></p>
+</li>
+<li>
+<p>Wait 10 seconds and then click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-9a.png"></a></p>
+</li>
+<li>
+<p>Review the response.</p>
+<p>The response should match the date entered in step 7.</p>
+<p><a class="glightbox" href="../usecases/cert/_attachments/aa-prview2-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/cert/_attachments/aa-prview2-10a.png"></a>    </p>
+</li>
+</ol>
+<p>In the demo, the Security Administrator received immediate guidance on identifying the certificate expiration date via <abbr title="Resource Access Control Facility">RACF</abbr> commands and they were able to run automation proposed by the assistant to retrieve the certificate information. Additionally, because the assistant is configured with step-by-step conversation flows, it is possible to add additional prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the Security Administrator is able to reduce the time it takes to complete this routine task.</p>
+<p>Recall how many steps were involved in the Ansible template for <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong>. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures their critical certificates are up-to-date and reduce the risk of expired certificates disrupting their business services.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-racf-racfph"><div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#usecases-racf-racfph-coming-soon" title="Permanent link">#</a></h1>
 <!-- Terminology -->
