@@ -1451,7 +1451,7 @@
 <p><a class="glightbox" href="../_attachments/c-sf2-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf2-12a.png"></a></p>
 </li>
 <li>
-<p>Click <strong>Actions</strong> and then click <strong>Enhance this skill</strong>.</p>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
 <p><a class="glightbox" href="../_attachments/c-sf2-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf2-13a.png"></a></p>
 </li>
 <li>
@@ -1497,6 +1497,162 @@
 <p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being executed as the skill-based action, do not enter any example phrases.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/c-actions-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-6a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>x</strong> tro close the <strong>Retrieve certificate expiration</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-7a.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 3 - 7 to create a skill-based action for the <strong>Cert Renewal skill flow</strong>.</p>
+<p>!!! Note "This action is also triggered from a custom-built action. Do not enter any example phrases.</p>
+</li>
+<li>
+<p>Verify both skill-based actions are available.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-9a.png"></a></p>
+</li>
+</ol>
+<h2 id="create-a-custom-built-action-for-ssl-certificate-renewal">Create a custom-built action for <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal<a class="headerlink" href="#create-a-custom-built-action-for-ssl-certificate-renewal" title="Permanent link">#</a></h2>
+<p>Next, create a custom-built action that executes the new skill-based actions as sub-actions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the end-user, and map those details to the action inputs. </p>
+<p>Recall the use case in scope for this section – demonstrate how an assistant can automate the <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal process and guide users through the process in a natural conversation.</p>
+<ol>
+<li>
+<p>Click <strong>New action+</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Custom-built-action</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-2a.png"></a></p>
+</li>
+<li>
+<p>Enter <code>z/OS certificate expires soon</code> and then click <strong>Save</strong>.</p>
+<p><strong>What does your customer say to start this interaction</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>z/OS certificate expires soon
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-custom-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-3a.png"></a></p>
+</li>
+</ol>
+<p>The conversational search capability provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the end-user prompts the assistant with <code>z/OS certificate expires soon</code>, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.</p>
+<ol start="4">
+<li>
+<p>Click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-4a.png"></a></p>
+</li>
+</ol>
+<p>The result is that any time the user’s input matches the example phrase <code>z/OS certificate expires soon</code>, the first step taken is for the assistant to use conversational search and provide a response to their original question.</p>
+<p>Like in the <abbr title="Initial Program Load">IPL</abbr> Information scenario, add a custom search query so when conversational search is executed in the first conversation step, the query being used is hard-coded and is not necessarily what the end-user inputted.</p>
+<ol start="5">
+<li>
+<p>Click <strong>Edit settings</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-5a.png"></a></p>
+</li>
+<li>
+<p>Enter the following prompt to be used in the <strong>Custom search query</strong> field and then click <strong>Apply</strong>.</p>
+<p><strong>Custom search query</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>My z/OS certificate is going to expire soon. How do I retrieve the expiration date for my certificate?
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-custom-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-6a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step+</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-7a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-7a.png"></a></p>
+</li>
+<li>
+<p>Enter the following response in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Would you like to run the skill to retrieve your certificate’s expiration date?
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-custom-8a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-8a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>.</p>
+<p>The <strong>Confirmation</strong> option prompts the user to select <code>Yes</code> or <code>No</code>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-9a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-10a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>This step handles the flow when the user selects <code>Yes</code> in the previous step, indicating that want to run the skill to retrieve the certificate’s expiration date. To run the <strong>Retrieve certificate expiration action</strong> created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-11a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>What is your certificate label?
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-custom-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-12a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> drop-down list and select <strong>Free text</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-13a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step+</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-14a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>After the user enters the certificate label as free text, the next step is to run the <strong>Retrieve certificate expiration</strong> skill-based action created earlier. To do so, map the user input to the skill flow and retrieve the expiration date for that certificate.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-15a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>And then</strong> option list and click <strong>Go to a subaction</strong>.</p>
+<p>Notice the default condition validates the free text is defined from the previous step.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-16a.png"></a></p>
+</li>
+<li>
+<p>Click the (<strong>a</strong>) <strong>Go to</strong> option list, select the (<strong>b</strong>) <strong>Retrieve certificate expiration</strong> skill-based action, and then click (<strong>c</strong>) <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-17a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-17a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>.</p>
+<p>To execute the <strong>Retrieve certificate expiration</strong> subaction using the users certificate label, the passed value needs to be modified.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-18a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Set new value +</strong> and then select <strong>extra_vars.cert_label_survey</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-19a.png"></a></p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Action step variables</strong>, and then select <strong>What is your certificate label?</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-20a.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-20a.gif"></a></p>
+</li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-21a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-21a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next step +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-22a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the <strong>Retrieve certificate expiration</strong> skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when executing the subaction in the previous step. Now, configure the custom-action to provide that output as a response.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-23a.png"></a></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
+<p><strong>Assistant says</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Below is your certificate’s expiration date:
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/c-custom-24a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-24a.png"></a></p>
+</li>
+<li>
+<p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/c-custom-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-25a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Retrieve certificate expiration (step 4)</strong> and then click <strong>Retrieve certificate expiration result variable</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-custom-26a.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-26a.gif"></a></p>
+</li>
+<li>
+<p>Review the <strong>Assistant says</strong> field and then click <strong>Save</strong> (<a class="glightbox" href="../../_attachments/diskIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/diskIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/c-custom-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-27a.png"></a></p>
 </li>
 <li>
 </ol>
