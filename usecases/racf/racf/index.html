@@ -912,6 +912,8 @@
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>What is your RACF User ID?
 </span></code></pre></div>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step1.png"></a></p>
 <p><strong>Step 2.</strong> <em>Without conditions</em>, use provided user ID and display a message that the assistant is checking the current privileges.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Checking user privileges for 
@@ -926,10 +928,14 @@
 </span></code></pre></div>
 <p>After the <code>+</code>, enter a <code>$</code> and select <strong>Action step variables</strong> and then select <strong>1. What is your <abbr title="Resource Access Control Facility">RACF</abbr> User ID</strong>.</p>
 <p><a class="glightbox" href="../_attachments/editPassedValues.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/editPassedValues.png"></a></p>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step2.png"></a>    </p>
 <p><strong>Step 3.</strong> <em>Without conditions</em>, prompt the user if they want <abbr title="Resource Access Control Facility">RACF</abbr> assistance and get a <code>Yes</code> or <code>No</code> confirmation.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Do you need RACF assistance?
 </span></code></pre></div>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step3.png"></a>    </p>
 <p><strong>Step 4.</strong> <em>With conditions</em>, prompt the user what type of assistance they need.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>What type of assistance?
@@ -942,6 +948,8 @@ and
 </span></code></pre></div>
 <p>Change the <strong>Customer response</strong> settings to <strong>Always ask for this information, regardless of previous messages.</strong></p>
 <p><a class="glightbox" href="../_attachments/customerReponseSettings2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/customerReponseSettings2.png"></a></p>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step4.png"></a>   </p>
 <p><strong>Step 5.</strong> <em>With conditions</em>, change the condition <strong>Step 4. What type of assistance?</strong> and the value of <strong>Privilege issue</strong>.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Notifying the RACF Administrator.
@@ -950,14 +958,20 @@ and
 <p class="admonition-title">Other options exist.</p>
 <p>There are alternative actions that can be taken if the user selects ‘Privileges issue’. For example, the assistant can trigger an automated email to the <abbr title="Resource Access Control Facility">RACF</abbr> administrator. At the time of writing this documentation, Orchestrate does not allow Outlook integrations to IBM’s Outlook organization, so this action cannot be demonstrated. But for the purpose of the flow, simply have the assistant respond with ‘Notifying the <abbr title="Resource Access Control Facility">RACF</abbr> Administrator’ for demonstration purposes.</p>
 </div>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step5.png"></a>   </p>
 <p><strong>Step 6.</strong> <em>With conditions</em>, change the condition <strong>Step 4. What type of assistance?</strong> and the value of <strong>Changing my <abbr title="Resource Access Control Facility">RACF</abbr> password</strong>, and add a <code>Yes</code> or <code>No</code> confirmation.</p>
 <p><strong>Assistant says:</strong>
 </p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Would you like to change your user ID’s RACF passphrase?
 </span></code></pre></div>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step6.png"></a>  </p>
 <p><strong>Step 7.</strong> <em>With conditions</em>, prompt the user to enter their new password as <em>free text</em>.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Please enter your new RACF passphrase.
 </span></code></pre></div>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step7.png"></a>  </p>
 <p><strong>Step 8.</strong> <em>With conditions</em>, change the condition to <strong>Step 6. Would you like to change your user IDS passphrase</strong> equals <code>Yes</code>, inform the user the password is bing changed, and create a <strong><abbr title="Time Sharing Option">TSO</abbr> Command</strong> subaction to change the passphrase.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Issuing RACF command ...
@@ -970,10 +984,14 @@ and
 <p><code>'ALTUSER ' + $&lt;1. What is your RACF User ID?&gt; + ' PHRASE(''$&lt;7. Please enter your new RACF passphrase&gt;'') NOEXPIRE RESUME'</code></p>
 <p>The expression should look like the following image:</p>
 <p><a class="glightbox" href="../_attachments/changePPExpression.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/changePPExpression.png"></a></p>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step8.png"></a>  </p>
 <p><strong>Step 9.</strong>: <em>With conditions</em>, change the condition to <strong>Step 6. Would you like to change your user IDS passphrase</strong> equals <code>Yes</code>, ., and inform the user the passphrase has been changed. Change the <strong>And then</strong> option to <strong>End the action</strong>.</p>
 <p><strong>Assistant says</strong>: 
 <code>User passphrase changed to $&lt;7. Please enter your new RACF passphrase.&gt;</code></p>
 <p>When entering the above string, after typing <code>$</code> select the <strong>7. Please enter your new <abbr title="Resource Access Control Facility">RACF</abbr> passphrase</strong>.</p>
+<p>The step should look like the following image:</p>
+<p><a class="glightbox" href="../_attachments/step9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step9.png"></a>  </p>
 </li>
 <li>
 <p>Be sure to save your custom-built action.</p>
