@@ -855,14 +855,14 @@
 
 
 <div><h1 id="use-case-ssl-certificate-renewal-on-zos">Use case: <abbr title="Secure Sockets Layer">SSL</abbr> Certificate renewal on z/<abbr title="Operating System">OS</abbr><a class="headerlink" href="#use-case-ssl-certificate-renewal-on-zos" title="Permanent link">#</a></h1>
-<p>Now, shift roles to that of a mainframe Security Administrator. Your client would like to understand how watsonx Assistant for Z can help them to ensure their critical security certificates are up-to-date and reduce the risk of expired certificates disrupting their organization’s services. </p>
-<p>Secure Sockets Layer (<abbr title="Secure Sockets Layer">SSL</abbr>) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/<abbr title="Operating System">OS</abbr> environment. It has been a while since the Security Administrator performed the  tasks to manage and renew a certificate, but recalls there being many steps required on z/<abbr title="Operating System">OS</abbr> and various <abbr title="Resource Access Control Facility">RACF</abbr> commands that need run to renew a certificate. Rather than going to their senior Security Administrator for assistance, you can demonstrate how leveraging watsonx Assistant for Z can help them automate the certificate renewal process by infusing Ansible automation into natural conversation, as well as providing step-by-step guidance on the processes to determine certificate expiration and renewing certificates.</p>
-<p>In this scenario, you will leverage the Ansible automation templates provided with your <abbr title="Ansible Automation Platform">AAP</abbr> and WAZI z/<abbr title="Operating System">OS</abbr> environment to create assistant actions to guide the client through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration dates, and automating the certificate renewal process for them. This will save them time and improve their productivity.</p>
-<h2 id="create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates">Create an initial Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate to sign future SITE certificates<a class="headerlink" href="#create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates" title="Permanent link">#</a></h2>
-<p>For this use case, a Certificate Authority (<abbr title="Certificate Authority">CA</abbr>) certificate is needed to sign new SITE certificates. </p>
+<p>Now, shift roles to that of a mainframe Security Administrator (<abbr title="Security Administrator">SA</abbr>). The client want to understand how watsonx Assistant for Z can help them to verify that their critical security certificates are up to date and reduce the risk of expired certificates disrupting their organization’s services. </p>
+<p>Secure Sockets Layer (<abbr title="Secure Sockets Layer">SSL</abbr>) certificates, often referred to as digital certificates, are used to establish an encrypted connection between communicating parties over a network. Certificate management is crucial for maintaining the security of a company’s z/<abbr title="Operating System">OS</abbr> environment. The <abbr title="Security Administrator">SA</abbr> has not performed the tasks to manage and renew a certificate in some time. The <abbr title="Security Administrator">SA</abbr> recalls that there are many steps that are required on z/<abbr title="Operating System">OS</abbr> and various <abbr title="Resource Access Control Facility">RACF</abbr> commands that need to be run to renew a certificate. Rather than going to their senior <abbr title="Security Administrator">SA</abbr> for assistance, demonstrate how using watsonx Assistant for Z can help the <abbr title="Security Administrator">SA</abbr> automate the certificate renewal process. </p>
+<p>In this scenario, use the Ansible automation templates that are provided with <abbr title="Ansible Automation Platform">AAP</abbr> and the WAZI z/<abbr title="Operating System">OS</abbr> environment to create assistant actions. The actions guide the client through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration dates, and automating the certificate renewal process for them. The assistant saves them time and improve their productivity.</p>
+<h2 id="create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates">Create an initial certificate authority (<abbr title="Certificate Authority">CA</abbr>) certificate to sign future SITE certificates<a class="headerlink" href="#create-an-initial-certificate-authority-ca-certificate-to-sign-future-site-certificates" title="Permanent link">#</a></h2>
+<p>For this use case, a certificate authority (<abbr title="Certificate Authority">CA</abbr>) certificate is needed to sign new SITE certificates. </p>
 <ol>
 <li>
-<p>Open and log into the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) web console. </p>
+<p>Open and log in to the Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) web console. </p>
 <div class="admonition tip">
 <p class="admonition-title">Don't remember how?</p>
 <p>Refer to the first 5 steps in <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a>.</p>
@@ -895,7 +895,7 @@
 </li>
 <li>
 <p>Review the output of the job.</p>
-<p>In the output of the playbook, notice a new keyring was created, a certificate was created, and the certificate ws connected to the key ring.</p>
+<p>In the output of the playbook, notice that a new keyring is created, a certificate is created, and the certificate is connected to the key ring.</p>
 <p><a class="glightbox" href="../_attachments/cert-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-5a.png"></a>    </p>
 </li>
 <li>
@@ -912,7 +912,7 @@
 </li>
 </ol>
 <h2 id="create-an-expiring-certificate">Create an <em>expiring</em> certificate<a class="headerlink" href="#create-an-expiring-certificate" title="Permanent link">#</a></h2>
-<p>Now create an expiring certificate using the <abbr title="Certificate Authority">CA</abbr> certificate you just created.</p>
+<p>Now, create an expiring certificate that uses the <abbr title="Certificate Authority">CA</abbr> certificate that you just created.</p>
 <ol>
 <li>
 <p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
@@ -937,9 +937,9 @@
 <div class="admonition note">
 <p class="admonition-title">Leave the default values for all other fields.</p>
 </div>
-<p>Unlike the first certificate you created which was <em>self-signed</em>, this certificate will be signed by the local certificate authority using the <abbr title="Certificate Authority">CA</abbr> you created.</p>
+<p>Unlike the first certificate you created which was <em>self-signed</em>, this certificate will be signed by the local certificate authority that uses the <abbr title="Certificate Authority">CA</abbr> you created.</p>
 <div class="admonition note">
-<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+<p class="admonition-title">The following image does not highlight all the fields that need to be modified!</p>
 </div>
 <p><a class="glightbox" href="../_attachments/cert-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-10a.png"></a>  </p>
 </li>
@@ -948,7 +948,7 @@
 <p><a class="glightbox" href="../_attachments/cert-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-11a.png"></a>  </p>
 </li>
 <li>
-<p>Verify the job was successful and inspect the output of the job.</p>
+<p>Verify that the job was successful and inspect the output of the job.</p>
 <p><a class="glightbox" href="../_attachments/cert-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-12a.png"></a> </p>
 </li>
 </ol>
@@ -976,7 +976,7 @@
 <p><strong>e</strong>: <strong>Expiration Date</strong></p>
 <p>Specify a new expiration date in the format YYYY-MM-DD.</p>
 <div class="admonition note">
-<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+<p class="admonition-title">The following image does not highlight all the fields that need to be modified!</p>
 </div>
 <p><a class="glightbox" href="../_attachments/cert-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-14a.png"></a>  </p>
 </li>
@@ -985,8 +985,8 @@
 <p><a class="glightbox" href="../_attachments/cert-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-15a.png"></a>  </p>
 </li>
 <li>
-<p>Verify the job was <strong>Successful</strong> and review the output.</p>
-<p><strong>Note</strong>: you may need to click the <strong>Reload Output</strong> button after the job completes to view the full output.</p>
+<p>Verify that the job was <strong>Successful</strong> and review the output.</p>
+<p><strong>Note</strong>: Click the <strong>Reload Output</strong> button to view the full output after the job completes.</p>
 <p>Review the tasks that were run within the automation to renew the certificate. Some of the steps completed include:</p>
 <ul>
 <li>
@@ -999,10 +999,10 @@
 <p>Search the output of the report for the given certificate label</p>
 </li>
 <li>
-<p>Print out the expiring certificate, if it is found. You should see: ‘TESTSITE expiring – True’</p>
+<p>Print the expiring certificate, if it is found. You see: ‘TESTSITE expiring – True’</p>
 </li>
 <li>
-<p>If the certificate is expiring, kick off a series of RACDCERT commands to do the following:</p>
+<p>If the certificate is expiring, start a series of RACDCERT commands to do the following:</p>
 <ul>
 <li>
 <p>Backup the expiring certificate</p>
@@ -1032,7 +1032,7 @@
 </li>
 </ol>
 <h2 id="create-another-expiring-certificate">Create another <em>expiring</em> certificate<a class="headerlink" href="#create-another-expiring-certificate" title="Permanent link">#</a></h2>
-<p>Create one more expiring certificate to use with the your assistant and new skills you will create.</p>
+<p>Create one more expiring certificate to use with the assistant and the new skills you will create.</p>
 <ol>
 <li>
 <p>Return to the <strong>Templates</strong> tab and click the <strong>launch</strong> icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Create Cert</strong> template.</p>
@@ -1058,7 +1058,7 @@
 <p><strong>f</strong>: <strong>Expiration Date</strong></p>
 <p>Enter a date that falls within the next 30 days in the format YYYY-MM-DD.</p>
 <div class="admonition note">
-<p class="admonition-title">The image below does not highlight all the fields that need to be modified!</p>
+<p class="admonition-title">The following image does not highlight all the fields that need to be modified!</p>
 </div>
 <p><a class="glightbox" href="../_attachments/cert-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-18a.png"></a> </p>
 </li>
@@ -1067,13 +1067,13 @@
 <p><a class="glightbox" href="../_attachments/cert-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-19a.png"></a> </p>
 </li>
 <li>
-<p>Verify the <strong>DEMOCERT</strong> was successfully created.</p>
+<p>Verify that the <strong>DEMOCERT</strong> was successfully created.</p>
 <p><a class="glightbox" href="../_attachments/cert-20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/cert-20a.png"></a> </p>
 </li>
 </ol>
 <h2 id="import-the-ansible-automations-into-watsonx-orchestrate">Import the Ansible automations into watsonx Orchestrate<a class="headerlink" href="#import-the-ansible-automations-into-watsonx-orchestrate" title="Permanent link">#</a></h2>
 <p>For this use case, configure the assistant to guide the user through the process of identifying their <abbr title="Secure Sockets Layer">SSL</abbr> certificate’s expiration date and automate the certificate renewal process. To do so, import the needed <abbr title="Ansible Automation Platform">AAP</abbr> templates into watsonx Orchestrate as skills.</p>
-<p>For this use case, the ansible templates you will import are:</p>
+<p>For this use case, the ansible templates you import are:</p>
 <ul>
 <li>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</li>
 <li>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</li>
@@ -1165,7 +1165,7 @@
 <p><a class="glightbox" href="../_attachments/c-skill-14a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-14a.png"></a></p>
 </li>
 <li>
-<p>Verify the app is connected.</p>
+<p>Verify that the app is connected.</p>
 <p><a class="glightbox" href="../_attachments/c-skill-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-15a.png"></a></p>
 </li>
 </ol>
@@ -1197,7 +1197,7 @@
 </li>
 </ol>
 <h2 id="create-a-skill-flow-to-retrieve-certificate-expiration-dates">Create a skill flow to retrieve certificate expiration dates.<a class="headerlink" href="#create-a-skill-flow-to-retrieve-certificate-expiration-dates" title="Permanent link">#</a></h2>
-<p>The goal of this scenario to configure the assistant to automate the certificate renewal process for the client. The first step in that process is to help the security administrator identify the expiration date of their z/<abbr title="Operating System">OS</abbr> certificate. You have now imported the <strong>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</strong> skill from Ansible Automation Platform. Next, create a skill flow using that skill which can later be leveraged in a natural conversation through assistant actions.</p>
+<p>The goal of this scenario is to configure the assistant to automate the certificate renewal process for the client. The first step in that process is to help the <abbr title="Security Administrator">SA</abbr> identify the expiration date of their z/<abbr title="Operating System">OS</abbr> certificate. You have imported the <strong>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</strong> skill from Ansible Automation Platform. Next, create a new skill flow that uses the <strong>z/<abbr title="Operating System">OS</abbr> Certs – List Cert</strong> skill that can later be used in a natural conversation through assistant actions.</p>
 <p>First, create a skill flow to retrieve and display the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</p>
 <ol>
 <li>
@@ -1248,7 +1248,7 @@
 </li>
 <li>
 <p>On both the <strong>Input</strong> and <strong>Output</strong> tabs for the <strong>z/<abbr title="Operating System">OS</abbr> Certs - List Cert</strong> skill, enable the <strong>Hide this form from the user</strong> options.</p>
-<p>To enhance the user experience, hide the input and output forms from the user. This will disable the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.</p>
+<p>To enhance the user experience, hide the input and output forms from the user. This disables the List Cert skill form from being displayed. Rather than the user entering in their certificate details as input to the skill form, those details can be gathered into the skill through user prompts when creating an assistant action. This enables a more natural conversation flow when interacting with the assistant.</p>
 <p><a class="glightbox" href="../_attachments/c-sf-12a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-12a.png"></a></p>
 </li>
 <li>
@@ -1256,7 +1256,7 @@
 <p><a class="glightbox" href="../_attachments/c-sf-13a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-13a.png"></a></p>
 </li>
 </ol>
-<p>The output of the <strong>List Cert</strong> skill includes a large amount of data. In the assistant, only the <strong>certificate expiration date</strong> is needed. In the next steps, transform the output to only return the <strong>certificate expiration date</strong>.</p>
+<p>The output of the <strong>List Cert</strong> skill includes a large amount of data. In the assistant, only the <strong>certificate expiration date</strong> is needed. In the next steps, transform the output to return only the <strong>certificate expiration date</strong>.</p>
 <ol start="14">
 <li>
 <p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Retrieve job output</strong> skill.</p>
@@ -1323,14 +1323,14 @@
 <p><a class="glightbox" href="../_attachments/c-sf-26a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-26a.png"></a></p>
 </li>
 <li>
-<p>Enter <code>certificate expiration date</code> in the form title and toggle on the <strong>Hide this form from the user</strong> option.</p>
+<p>Enter <code>certificate expiration date</code> in the form title and toggle the <strong>Hide this form from the user</strong> option.</p>
 <p><strong>Form title</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>certificate expiration date
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/c-sf-27a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-27a.png"></a></p>
 </li>
 </ol>
-<p>Next, create an output for to return the the transformed data from the input skill.</p>
+<p>Next, create an output for to return the transformed data from the input skill.</p>
 <ol start="28">
 <li>
 <p>Click the <strong>+</strong> icon <strong>below</strong> the <strong>Input form</strong>.</p>
@@ -1349,8 +1349,8 @@
 <p><a class="glightbox" href="../_attachments/c-sf-31a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-31a.png"></a></p>
 </li>
 <li>
-<p>Click in the <strong>Custom forms</strong> text entry field and enter <code>#</code> (the pound key, also know as the number sign or hash key).</p>
-<p>Typing the <code>#</code> will open a new dialog window.</p>
+<p>Click in the <strong>Custom forms</strong> field and enter <code>#</code> (the pound key, also know as the number sign or hash key).</p>
+<p>Typing the <code>#</code> opens a new dialog window.</p>
 <p><a class="glightbox" href="../_attachments/c-sf-32a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-32a.png"></a></p>
 </li>
 <li>
@@ -1389,10 +1389,10 @@
 <p><a class="glightbox" href="../_attachments/c-sf-39a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-39a.png"></a></p>
 </li>
 </ol>
-<p>Congratulations! You’ve just created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the end-user provides. You will see this in action in the following sections.</p>
-<p>In the next section, you will create one more simpler skill flow for the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew skill you previously imported. Once this additional skill flow is created, you will add both skill flows as skill-based actions which can be called in a custom-built action to map inputs to the skill flows through natural conversation.</p>
+<p>You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</p>
+<p>In the next section, you will create a simpler skill flow for the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew skill that you previously imported. After this additional skill flow is created, add both skill flows as skill-based actions to be called in a custom-built action that maps inputs to the skill flows through natural conversation.</p>
 <h2 id="create-a-skill-flow-for-certificate-renewal">Create a skill flow for certificate renewal<a class="headerlink" href="#create-a-skill-flow-for-certificate-renewal" title="Permanent link">#</a></h2>
-<p>The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow you create next will comprise of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.</p>
+<p>The final step before configuring the assistant with actions is to create a skill flow for renewing certificates. Recall the z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew automation imported the from Ansible Automation Platform earlier. The skill flow that you create next is composed of that single skill. There is no need to return the output. After the automation is triggered, the user can verify the new expiration date by running the retrieve certificate expiration date flow.</p>
 <ol>
 <li>
 <p>In <strong>Skill studio</strong>, click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
@@ -1414,7 +1414,7 @@
 <p><a class="glightbox" href="../_attachments/c-sf2-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf2-4a.png"></a></p>
 </li>
 </ol>
-<p>As mentioned, there is no need to return the ansible job output of this skill when it’s executed. The The <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> is used to set default values for some of the inputs. For the purpose of this use case, we can assume that the Security Administrator will be renewing their SITE certificates which are signed with a previously generated Certificate Authority.</p>
+<p>As mentioned, there is no need to return the Ansible job output of this skill when it is run. The <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> is used to set default values for some of the inputs. In this use case, assume that the <abbr title="Security Administrator">SA</abbr> will be renewing their SITE certificates that are signed with a previously generated certificate authority.</p>
 <ol start="5">
 <li>
 <p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Certs - Search and Renew</strong> skill.</p>
@@ -1456,7 +1456,7 @@
 <p><a class="glightbox" href="../_attachments/c-sf2-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf2-10a.png"></a></p>
 </li>
 <li>
-<p>Click (<strong>a</strong>) the pencil icon (<a class="glightbox" href="../../_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/pencilIcon.png"></a>) for the skill flow,  enter (<strong>b</strong>) <code>Cert Renewal skill flow</code> in the <strong>Name</strong> field, and click (<strong>c</strong>) <strong>Save</strong>.</p>
+<p>Click (<strong>a</strong>) the pencil icon (<a class="glightbox" href="../../_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/pencilIcon.png"></a>) for the skill flow, enter (<strong>b</strong>) <code>Cert Renewal skill flow</code> in the <strong>Name</strong> field, and click (<strong>c</strong>) <strong>Save</strong>.</p>
 <p><strong>Name</strong>: 
 </p><div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Cert Renewal skill flow
 </span></code></pre></div>
@@ -1476,16 +1476,16 @@
 </li>
 </ol>
 <h2 id="add-the-skill-flows-to-the-assistant">Add the skill flows to the assistant<a class="headerlink" href="#add-the-skill-flows-to-the-assistant" title="Permanent link">#</a></h2>
-<p>Next, create 2 skill-based actions using the skill flows. This enables the ability to call the skill flow as a sub-action within a new custom-built action. For this use case, you will create 2 skill-based actions using your previously created skill flows:</p>
+<p>Next, create 2 skill-based actions that use the skill flows. The skill-based actions enable the ability to call the skill flow as a subaction within a new custom-built action. For this use case, create two skill-based actions that use the previously created skill flows:</p>
 <ul>
 <li>
 <p>Retrieve certificate expiration – maps the user prompted certificate label as input and extracts the certificate expiration date from the Ansible job’s output.</p>
 </li>
 <li>
-<p>Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and executes the Search and Renew Ansible job to extend the expiration date of the certificate.</p>
+<p>Cert Renewal skill flow – maps the user prompted certificate label and new expiration date as input and runs the Search and Renew Ansible job to extend the expiration date of the certificate.</p>
 </li>
 </ul>
-<p>Once the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the Security Administrator with the certificate renewal process.</p>
+<p>After the 2 skill flows are added as skill-based actions, integrate the actions into a custom-built action that defines the entire conversation flow. The flow assists the <abbr title="Security Administrator">SA</abbr> with the certificate renewal process.</p>
 <ol>
 <li>
 <p>Open <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in watsonx Orchestrate.</p>
@@ -1510,7 +1510,7 @@
 <li>
 <p>Click <strong>Cancel</strong> on the <strong>New action</strong> dialog.</p>
 <div class="admonition note">
-<p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being executed as the skill-based action, do not enter any example phrases.</p>
+<p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being run as the skill-based action, do not enter any example phrases.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/c-actions-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-6a.png"></a></p>
 </li>
@@ -1525,13 +1525,12 @@
 </div>
 </li>
 <li>
-<p>Verify both skill-based actions are available.</p>
+<p>Verify that both skill-based actions are available.</p>
 <p><a class="glightbox" href="../_attachments/c-actions-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-9a.png"></a></p>
 </li>
 </ol>
 <h2 id="create-a-custom-built-action-for-ssl-certificate-renewal">Create a custom-built action for <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal<a class="headerlink" href="#create-a-custom-built-action-for-ssl-certificate-renewal" title="Permanent link">#</a></h2>
-<p>Next, create a custom-built action that executes the new skill-based actions as sub-actions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the end-user, and map those details to the action inputs. </p>
-<p>Recall the use case in scope for this section – demonstrate how an assistant can automate the <abbr title="Secure Sockets Layer">SSL</abbr> Certificate Renewal process and guide users through the process in a natural conversation.</p>
+<p>Next, create a custom-built action that runs the new skill-based actions as subactions. Configure the custom-built action to enable a natural conversation with the assistant, gather relevant details from the user, and map those details to the action inputs. </p>
 <ol>
 <li>
 <p>Click <strong>New action +</strong>.</p>
@@ -1549,15 +1548,15 @@
 <p><a class="glightbox" href="../_attachments/c-custom-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-3a.png"></a></p>
 </li>
 </ol>
-<p>The conversational search capability provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the end-user prompts the assistant with <code>z/OS certificate expires soon</code>, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.</p>
+<p>The conversational search capability that is provided by watsonx Assistant for Z can provide step-by-step guidance for determining certificate expiration and renewing certificates, and is grounded on Z domain-specific knowledge. In the first step to be taken when the user prompts the assistant with <code>z/OS certificate expires soon</code>, configure the assistant to use conversational search to provide a response on the process and the ability to automate the process.</p>
 <ol start="4">
 <li>
 <p>Click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>.</p>
 <p><a class="glightbox" href="../_attachments/c-custom-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-4a.png"></a></p>
 </li>
 </ol>
-<p>The result is that any time the user’s input matches the example phrase <code>z/OS certificate expires soon</code>, the first step taken is for the assistant to use conversational search and provide a response to their original question.</p>
-<p>Like in the <abbr title="Initial Program Load">IPL</abbr> Information scenario, add a custom search query so when conversational search is executed in the first conversation step, the query being used is hard-coded and is not necessarily what the end-user inputted.</p>
+<p>The result is that anytime the user input matches the example phrase <code>z/OS certificate expires soon</code>, the first step that is taken is for the assistant to use conversational search and provide a response to their original question.</p>
+<p>Like in the <abbr title="Initial Program Load">IPL</abbr> Information scenario, add a custom search query so when conversational search is run in the first conversation step, the query used is hardcoded and not what the user input.</p>
 <ol start="5">
 <li>
 <p>Click <strong>Edit settings</strong>.</p>
@@ -1592,7 +1591,7 @@
 </li>
 <li>
 <p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
-<p>This step handles the flow when the user selects <code>Yes</code> in the previous step, indicating that want to run the skill to retrieve the certificate’s expiration date. To run the <strong>Retrieve certificate expiration action</strong> created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.</p>
+<p>This step handles the flow when the user selects <code>Yes</code> in the previous step, indicating that they want to run the skill to retrieve the certificate’s expiration date. To run the <strong>Retrieve certificate expiration action</strong> created earlier, the assistant  needs the certificate label. This label is mapped as input to the skill.</p>
 <p><a class="glightbox" href="../_attachments/c-custom-11a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-11a.png"></a></p>
 </li>
 <li>
@@ -1617,7 +1616,7 @@
 </li>
 <li>
 <p>Click the <strong>And then</strong> option list and click <strong>Go to a subaction</strong>.</p>
-<p>Notice the default condition validates the free text is defined from the previous step.</p>
+<p>Notice that the default condition validates the <em>free text</em> is defined from the previous step.</p>
 <p><a class="glightbox" href="../_attachments/c-custom-16a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-16a.png"></a></p>
 </li>
 <li>
@@ -1626,7 +1625,7 @@
 </li>
 <li>
 <p>Click <strong>Edit passed values</strong>.</p>
-<p>To execute the <strong>Retrieve certificate expiration</strong> subaction using the users certificate label, the passed value needs to be modified.</p>
+<p>To run the <strong>Retrieve certificate expiration</strong> subaction that uses the users certificate label, the passed value needs to be modified.</p>
 <p><a class="glightbox" href="../_attachments/c-custom-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-18a.png"></a></p>
 </li>
 <li>
@@ -1647,7 +1646,7 @@
 </li>
 <li>
 <p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
-<p>In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the <strong>Retrieve certificate expiration</strong> skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when executing the subaction in the previous step. Now, configure the custom-action to provide that output as a response.</p>
+<p>In the previous step, you configured the assistant to run the Retrieve certificate expiration subaction you created, passing the certificate label the user inputted to the skills inputs. Recall when the <strong>Retrieve certificate expiration</strong> skill flow was created, the output form at the end of the skill flow was hidden. That form contained the expiration date. As a result, nothing is returned when running the subaction in the previous step. Now, configure the custom-action to provide that output as a response.</p>
 <p><a class="glightbox" href="../_attachments/c-custom-23a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-23a.png"></a></p>
 </li>
 <li>
@@ -1660,7 +1659,7 @@
 <li>
 <p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The following image is edited to show that you must type the <code>$</code>, but it is not displayed on your screen.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/c-custom-25a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-custom-25a.png"></a></p>
 </li>
@@ -1674,7 +1673,7 @@
 </li>
 </ol>
 <h2 id="test-the-zos-certificate-expires-soon-custom-built-skill">Test the <strong>z/<abbr title="Operating System">OS</abbr> certificate expires soon</strong> custom-built skill<a class="headerlink" href="#test-the-zos-certificate-expires-soon-custom-built-skill" title="Permanent link">#</a></h2>
-<p>Before completing the use case, test the <strong>z/<abbr title="Operating System">OS</abbr> certificate expires soon</strong> custom-built skill using the <strong>DEMOCERT</strong> certificate created earlier.</p>
+<p>Before completing the use case, test the <strong>z/<abbr title="Operating System">OS</abbr> certificate expires soon</strong> custom-built skill that uses the <strong>DEMOCERT</strong> certificate created earlier.</p>
 <ol>
 <li>
 <p>Click <strong>Preview</strong>.</p>
@@ -1689,7 +1688,7 @@
 </li>
 <li>
 <p>Review the response and click <strong>Yes</strong>.</p>
-<p>The assistant responds by calling Conversational search and returns a response using the Z <abbr title="Retrieval augmented generation">RAG</abbr>, displaying the RACDCERT command that can be used. The assistant then prompts <code>Would you like to run the skill to retrieve?</code>.</p>
+<p>The assistant responds by calling Conversational search and returns a response by using the Z <abbr title="Retrieval augmented generation">RAG</abbr>, displaying the RACDCERT command that can be used. The assistant then prompts <code>Would you like to run the skill to retrieve?</code>.</p>
 <p><a class="glightbox" href="../_attachments/a-preview1-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/a-preview1-3a.png"></a></p>
 </li>
 <li>
@@ -1705,7 +1704,7 @@
 </li>
 <li>
 <p>Review the response.</p>
-<p>If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/<abbr title="Operating System">OS</abbr> Certs – List Cert Ansible job, but rather the certificate expiration date which was extracted from the full job output using the Regular Expression transformation. </p>
+<p>If you see the following response (the date may differ), the custom-built skill ran successfully. The output of the skill flow was not the entire output of the z/<abbr title="Operating System">OS</abbr> Certs – List Cert Ansible job, but rather the certificate expiration date that was extracted from the full job output by using the Regular Expression transformation. </p>
 </li>
 </ol>
 <h2 id="complete-the-custom-built-skill-to-renew-the-certificate">Complete the custom-built skill to renew the certificate<a class="headerlink" href="#complete-the-custom-built-skill-to-renew-the-certificate" title="Permanent link">#</a></h2>
@@ -1720,7 +1719,7 @@
 <p><a class="glightbox" href="../_attachments/addLastSteps-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-2a.png"></a></p>
 </li>
 <li>
-<p>Enter the following text in teh <strong>Assistant says</strong> field.</p>
+<p>Enter the following text in the <strong>Assistant says</strong> field.</p>
 <p><strong>Assistant says</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Would you like to renew your certificate?
 </span></code></pre></div>
@@ -1736,7 +1735,7 @@
 </li>
 <li>
 <p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
-<p>This step handles the flow in which the user select Yes in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.</p>
+<p>This step handles the flow in which the user selects <code>Yes</code> in the previous step indicating they want to renew their expiring certificate. Before initiating the Cert Renewal skill flow action to automate this, the assistant first needs the new expiration date for the certificate.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-6a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-6a.png"></a> </p>
 </li>
 <li>
@@ -1756,12 +1755,9 @@
 </li>
 <li>
 <p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
+<p>With the new expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a subaction. Next, trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.</p>
+<p><a class="glightbox" href="../_attachments/addLastSteps-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-10a.png"></a></p>
 </li>
-</ol>
-<p>With the desired expiration date entered by the user, the next step is to run the Cert Renewal skill flow action as a sub-action. Next trigger the renewal skill flow and pass the user provided details as input to the action to renew the certificate and extend the certificates expiration date.</p>
-<div class="highlight"><pre><span></span><code>![](_attachments/addLastSteps-10a.png)
-</code></pre></div>
-<ol start="11">
 <li>
 <p>Enter the following text in the <strong>Assistant says</strong> field.</p>
 <p>This assistant first responds with the message that follows before triggering the certificate renewal skill-flow. When performing a demo of this use case, mention the <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong> Ansible playbook typically takes a minute or so to complete. </p>
@@ -1784,7 +1780,7 @@
 </li>
 <li>
 <p>Click <strong>Edit passed values</strong>.</p>
-<p>To pass the input values to the Cert Renewal skill flow subaction using the user's provided expiration date and the certificate label specified earlier, edit the passed values to the subaction. </p>
+<p>Edit the passed values to use them in the <strong>Cert Renewal</strong> skill flow subaction.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-15a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-15a.png"></a></p>
 </li>
 <li>
@@ -1800,7 +1796,7 @@
 <p><a class="glightbox" href="../_attachments/addLastSteps-18a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-18a.png"></a></p>
 </li>
 <li>
-<p>Repeat steps 16 - 18 adding the <strong>extra_vars.new_expiry-date_survey</strong> input variable and  <strong>What date would you like to set the...</strong> in the <strong>To</strong> field.</p>
+<p>Repeat steps 16 - 18 adding the <strong>extra_vars.new_expiry-date_survey</strong> input variable and <strong>What date would you like to set the...</strong> in the <strong>To</strong> field.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-19a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-19a.png"></a></p>
 </li>
 <li>
@@ -1816,7 +1812,7 @@
 <p><strong>Enter text</strong>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>TESTCA
 </span></code></pre></div>
-<p>For this passed value, hard-code <code>TESTCA</code> in the skill flow’s input for the sign_label variable. This is the <abbr title="Certificate Authority">CA</abbr> certificate created earlier for demo purposes in the <abbr title="Ansible Automation Platform">AAP</abbr> web console.</p>
+<p>For this passed value, hardcode <code>TESTCA</code> in the skill flow’s input for the sign_label variable. This is the <abbr title="Certificate Authority">CA</abbr> certificate created earlier for demo purposes in the <abbr title="Ansible Automation Platform">AAP</abbr> web console.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-22a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-22a.png"></a></p>
 </li>
 <li>
@@ -1887,7 +1883,7 @@
 </li>
 <li>
 <p>Click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>.</p>
-<p>The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when executing the Retrieve certificate expiration skill flow - this was because output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.</p>
+<p>The final step is to display new expiration date of the certificate. Nothing is returned in the previous step when running the Retrieve certificate expiration skill flow - this was because the output form was hidden when the skill was created. In this step, provide the output as an assistant response to the user, with only the expiration date extracted from the full job output.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-38a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-38a.png"></a></p>
 </li>
 <li>
@@ -1900,7 +1896,7 @@
 <li>
 <p>While still in the <strong>Assistant says</strong> field, press <strong>return</strong> and then type <code>$</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The image below is edited to show you must type the <code>$</code>, but it will not be displayed on your screen.</p>
+<p class="admonition-title">The <code>$</code> is a special key that lists available functions. The following image is edited to show that you must type the <code>$</code>, but it is not displayed on your screen.</p>
 </div>
 <p><a class="glightbox" href="../_attachments/addLastSteps-40a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-40a.png"></a></p>
 </li>
@@ -1912,7 +1908,7 @@
 <p><a class="glightbox" href="../_attachments/addLastSteps-41a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-41a.png"></a></p>
 </li>
 <li>
-<p>Click  <strong>Retrieve certificate expiration result variable</strong>.</p>
+<p>Click <strong>Retrieve certificate expiration result variable</strong>.</p>
 <p><a class="glightbox" href="../_attachments/addLastSteps-42a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/addLastSteps-42a.png"></a></p>
 </li>
 <li>
@@ -1925,7 +1921,7 @@
 </li>
 </ol>
 <h2 id="run-the-complete-custom-built-action">Run the complete custom-built action<a class="headerlink" href="#run-the-complete-custom-built-action" title="Permanent link">#</a></h2>
-<p>The custom-built action is now complete and can be demonstrated to the Security Administrator for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the Security Administrator is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.</p>
+<p>The custom-built action is now complete and can be demonstrated to the <abbr title="Security Administrator">SA</abbr> for this use case. In demonstrating the ability to infuse Ansible automations into a natural conversation, the <abbr title="Security Administrator">SA</abbr> is able to see the value that watsonx Assistant for Z can provide in helping them improve productivity and remove the need to go to their senior colleagues for assistance.</p>
 <ol>
 <li>
 <p>Open <strong>Preview</strong> in the <strong>Ai assistant builder</strong>.</p>
@@ -1943,7 +1939,7 @@
 </li>
 <li>
 <p>Review the response and click <strong>Yes</strong>.</p>
-<p>The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a <abbr title="Resource Access Control Facility">RACF</abbr> command that the Security Administrator could use to determine their certificate’s expiration date.</p>
+<p>The assistant responds with conversational search, providing a content-grounded answer based on IBM Z documentation. The response includes a <abbr title="Resource Access Control Facility">RACF</abbr> command that the <abbr title="Security Administrator">SA</abbr> might use to determine their certificate’s expiration date.</p>
 <p>Following the response, the assistant prompts the user if they want to run the skill to retrieve a certificate’s expiration date.</p>
 <p><a class="glightbox" href="../_attachments/aa-prview2-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-3a.png"></a></p>
 </li>
@@ -1960,7 +1956,7 @@
 </li>
 <li>
 <p>Review the response and then click <strong>Yes</strong>.</p>
-<p>By providing the automation within the assistant conversation, it makes it very quick for the Security Administrator to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to  renew the certificate if they choose to do so.</p>
+<p>By providing the automation within the assistant conversation, it makes it very quick for the <abbr title="Security Administrator">SA</abbr> to identify the certificate’s expiration date. In addition to providing this valuable information, the assistant is configured with another automation to renew the certificate if they choose to do so.</p>
 <div class="admonition warning">
 <p class="admonition-title">The expiration date you see may differ from the image that follows.</p>
 </div>
@@ -1984,12 +1980,12 @@
 </li>
 <li>
 <p>Review the response.</p>
-<p>The response should match the date entered in step 7.</p>
+<p>The response should match the date that is entered in step 7.</p>
 <p><a class="glightbox" href="../_attachments/aa-prview2-10a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aa-prview2-10a.png"></a>    </p>
 </li>
 </ol>
-<p>In the demo, the Security Administrator received immediate guidance on identifying the certificate expiration date via <abbr title="Resource Access Control Facility">RACF</abbr> commands and they were able to run automation proposed by the assistant to retrieve the certificate information. Additionally, because the assistant is configured with step-by-step conversation flows, it is possible to add additional prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the Security Administrator is able to reduce the time it takes to complete this routine task.</p>
-<p>Recall how many steps were involved in the Ansible template for <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong>. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures their critical certificates are up-to-date and reduce the risk of expired certificates disrupting their business services.</p>
+<p>In the demo, the <abbr title="Security Administrator">SA</abbr> receives immediate guidance on identifying the certificate expiration date via <abbr title="Resource Access Control Facility">RACF</abbr> commands. The <abbr title="Security Administrator">SA</abbr> runs automation that is proposed by the assistant to retrieve the certificate information. Also, because the assistant is configured with step-by-step conversation flows, it is possible to add other prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the <abbr title="Security Administrator">SA</abbr> is able to reduce the time it takes to complete this routine task.</p>
+<p>Recall how many steps were involved in the Ansible template for <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong>. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures that their critical certificates are up to date and reduce the risk of expired certificates disrupting their business services.</p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
