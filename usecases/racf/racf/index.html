@@ -921,8 +921,8 @@
 <p>Use the <code>single quote</code> character <strong>'</strong> for all single quotes shown.</p>
 </div>
 <p><strong>Step 2.</strong> <em>Without conditions</em>, use provided user ID and display a message that the assistant is checking the current privileges.</p>
-<p><strong>Assistant says</strong>:
-<code>Checking user privileges for $\&lt;1. What is your RACF User ID&gt;</code></p>
+<p><strong>Assistant says</strong>:</p>
+<p><code>Checking user privileges for $&lt;1. What is your RACF User ID&gt;</code></p>
 <p>Include in the <strong>Assistant says</strong> the provided user ID by including the function <em>1. What is your <abbr title="Resource Access Control Facility">RACF</abbr> User ID</em>. </p>
 <p>Add an <strong>And then</strong> option to run the <strong><abbr title="Time Sharing Option">TSO</abbr> Command</strong> as a subaction. </p>
 <p>Edit the <strong>passed values</strong> for the subaction and add a new passed value for <em>1. extra_vars.zos_tso_command</em>. The <strong>To</strong> of the variable will be an <strong>Expression</strong> and include the string:</p>
@@ -988,8 +988,8 @@ and
 <p>The step should look like the following image:</p>
 <p><a class="glightbox" href="../_attachments/step8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step8.png"></a>  </p>
 <p><strong>Step 9.</strong>: <em>With conditions</em>, change the condition to <strong>Step 6. Would you like to change your user IDS passphrase</strong> equals <code>Yes</code>, ., and inform the user the passphrase has been changed. Change the <strong>And then</strong> option to <strong>End the action</strong>.</p>
-<p><strong>Assistant says</strong>: 
-<code>User passphrase changed to $&lt;7. Please enter your new RACF passphrase.&gt;</code></p>
+<p><strong>Assistant says</strong>: </p>
+<p><code>User passphrase changed to $&lt;7. Please enter your new RACF passphrase.&gt;</code></p>
 <p>When entering the above string, after typing <code>$</code> select the <strong>7. Please enter your new <abbr title="Resource Access Control Facility">RACF</abbr> passphrase</strong>.</p>
 <p>The step should look like the following image:</p>
 <p><a class="glightbox" href="../_attachments/step9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/step9.png"></a>  </p>
