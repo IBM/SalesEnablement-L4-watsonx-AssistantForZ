@@ -446,7 +446,7 @@ Before ingesting documents, complete the following setup steps.
 
     !!! Warning "The output from the command does not include a newline."
 
-        The value returned for the cluster domain does not include a newline. When copying the value do not include the character or characters used for your command line prompt. Do not include the your prompt in the next step!
+        The value returned for the cluster domain does not include a newline. When copying the value do not include the character or characters used for your command line prompt. Do not include your prompt in the next step! For example, the command may return `apps.678e206af501a868a5828e4a.ocp.techzone.ibm.com%`. You do NOT want to include the `%` character which was part of the terminal command prompt.
 
     **Note**: The output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com**
 
