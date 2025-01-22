@@ -90,6 +90,11 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     set TLS_VERIFY=false
     ```
 
+    Windows OS PowerShell:
+    ```
+    Set-Item Env:\TLS_VERIFY "false"
+    ```
+
 5. Initialize the `zassist` environment.
 
     ```
