@@ -214,7 +214,9 @@ Before ingesting documents, complete the following setup steps.
 
     To create or retrieve your existing entitlement key, follow the instructions <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">here</a>.
 
-    If extra assistance is needed, refer to this <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">site</a>. 
+    If you don't have an entitlement key at the above link, click the **Add new key** to create a new one or <a href="https://myibm.ibm.com/products-services/containerlibrary" target="_blank">visit this link to create a new one</a>.
+
+    If extra assistance is needed, refer to this <a href="https://github.ibm.com/alchemy-registry/image-iam/blob/master/obtaining_entitlement.md" target="_blank">site</a>. Note, the process here is not 
 
     Locate your existing key or create a new one and continue to the next step.
 
