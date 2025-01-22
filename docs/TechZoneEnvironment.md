@@ -9,7 +9,7 @@ To enable sellers to learn how to deliver client pilots of {{offering.name}}, th
 
 !!! Warning "All activities in this lab guide are required."
 
-    To earn the IBM Watsonx Assistant for Z Technical Sales Advanced badge and complete the Level 4 learning plan, you must provision all three ITZ environments and finish every section in the lab guide. Disregard any statements in the ITZ collection that suggest optional environments or tasks.
+    To earn the IBM watsonx Assistant for Z Technical Sales Advanced badge and complete the Level 4 learning plan, you must provision all three ITZ environments and finish every section in the lab guide. Disregard any statements in the ITZ collection that suggest optional environments or tasks.
 
 Follow the instructions to create new reservation requests, extend the reservations, and access the ITZ demonstration environments. Provisioning the SNO environment in ITZ can take several hours, while the other two environments typically provisioning in under 30 minutes.
 
@@ -51,7 +51,7 @@ Follow the instructions to create new reservation requests, extend the reservati
 
     **d**. Preferred geography: select the region nearest to your physical location for improved performance and reduced network latency.
 
-    **e**. End date and time: the initial maximum will be set to two days after the current date and time. Instructions follow to extend the reservation end date.
+    **e**. End date and time: the initial maximum will be set to a specific number of days (typically two, but in somce cases longer) after the current date and time. Instructions follow to extend the reservation end date.
 
     **f**. Accept the IBM Technology Zone's terms and conditions and security policies.
 
@@ -119,8 +119,8 @@ After joining the account, verify that the account appears in your available acc
 
 3. Click the following link to open a browser to the IBM Cloud portal.
 
-    <a href="cloud.ibm.com" target="_blank">**IBM Cloud portal**</a>
-
+    <a href="https://cloud.ibm.com/" target="_blank">**IBM Cloud portal**</a>
+    
 4. Follow the directions to complete the authentication to IBM Cloud using the same email address you used to login to ITZ. The login steps vary depending on any two-factor authentication methods enabled. 
 
     ![](_attachments/itzCloudLogin.png)

@@ -99,11 +99,7 @@ In the next steps you will be to configure **conversational search** for your as
 
     ![](_attachments/genAIMenu.png)
 
-2. Select the base large language model (LLM) settings.
-
-    !!! Important "If available, set the LLM model to **granite-13b-chat-v2**."
-
-        Notice their are several LLM models available. **The current recommendation is for pilots, to use the *granite-13b-chat-v2* model as it provides the best results in recent testing.** However, this model has been deprecated as of 2024-11-04 and will may not be available after 2025-01-19. **Note**: screen captures that follow show the **granite-3-8b-instruct** LLM as being selected.
+2. Select **granite-3-8b-instruct** for the base large language model (LLM) settings.
 
     ![](_attachments/genAILLMdefaults.png)
 
@@ -381,7 +377,7 @@ Now, you can begin issuing queries to test the assistant's responses. For more d
     **Prompt**: 
 
     ```
-    What is the APF list in z/OS? Provide a detailed explanation?
+    What is the APF list in z/OS?
     ```
 
     **Example output**:

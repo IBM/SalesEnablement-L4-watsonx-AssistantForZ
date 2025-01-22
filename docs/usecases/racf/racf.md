@@ -78,29 +78,41 @@ Creating a custom-built action for the assistant that provides self-service opti
     ```
     What is your RACF User ID?
     ```
-     
+
+    The step should look like the following image:
+
+    ![](_attachments/step1.png)
+
+    !!! Warning "Use the following guidance when entering prompts and expressions in the following custom-built action steps."
+
+        Do NOT use the copy and paste icon if the string contains a `$`. Type each string manually.
+
+        When `$` appears in the string to enter, type the `$` character and then select the variable specified in the `<>`. For example: `User passphrase changed to $<7. Please enter your new RACF passphrase>`
+
+        Use the `single quote` character **'** for all single quotes shown.
+
+
     **Step 2.** *Without conditions*, use provided user ID and display a message that the assistant is checking the current privileges.
 
     **Assistant says**:
-    ```
-    Checking user privileges for 
-    ```
+
+    `Checking user privileges for $<1. What is your RACF User ID>`
 
     Include in the **Assistant says** the provided user ID by including the function *1. What is your RACF User ID*. 
-
-    !!! Tip "Enter `$` after the **Assistant says** phrase, then click **Action step variables**, and then click **1. What is your RACF User ID**."
 
     Add an **And then** option to run the **TSO Command** as a subaction. 
     
     Edit the **passed values** for the subaction and add a new passed value for *1. extra_vars.zos_tso_command*. The **To** of the variable will be an **Expression** and include the string:
     
-    ```
-    `LIST USER ` + 
-    ```
+    `'LIST USER ' + $<1. What is your RACF User ID>`
     
     After the `+ `, enter a `$` and select **Action step variables** and then select **1. What is your RACF User ID**.
 
-    ![](_attachments/editPassedValues.png)
+    ![](_attachments/step2Expression.png)
+
+    The step should look like the following image:
+
+    ![](_attachments/step2.png)    
 
     **Step 3.** *Without conditions*, prompt the user if they want RACF assistance and get a `Yes` or `No` confirmation.
 
@@ -108,6 +120,10 @@ Creating a custom-built action for the assistant that provides self-service opti
     ```
     Do you need RACF assistance?
     ```
+
+    The step should look like the following image:
+
+    ![](_attachments/step3.png)    
 
     **Step 4.** *With conditions*, prompt the user what type of assistance they need.
 
@@ -129,6 +145,10 @@ Creating a custom-built action for the assistant that provides self-service opti
 
     ![](_attachments/customerReponseSettings2.png)
 
+    The step should look like the following image:
+
+    ![](_attachments/step4.png)   
+
     **Step 5.** *With conditions*, change the condition **Step 4. What type of assistance?** and the value of **Privilege issue**.
 
     **Assistant says**:
@@ -140,6 +160,10 @@ Creating a custom-built action for the assistant that provides self-service opti
 
         There are alternative actions that can be taken if the user selects ‘Privileges issue’. For example, the assistant can trigger an automated email to the RACF administrator. At the time of writing this documentation, Orchestrate does not allow Outlook integrations to IBM’s Outlook organization, so this action cannot be demonstrated. But for the purpose of the flow, simply have the assistant respond with ‘Notifying the RACF Administrator’ for demonstration purposes.
 
+    The step should look like the following image:
+
+    ![](_attachments/step5.png)   
+
     **Step 6.** *With conditions*, change the condition **Step 4. What type of assistance?** and the value of **Changing my RACF password**, and add a `Yes` or `No` confirmation.
 
     **Assistant says:**
@@ -147,12 +171,20 @@ Creating a custom-built action for the assistant that provides self-service opti
     Would you like to change your user ID’s RACF passphrase?
     ```
 
+    The step should look like the following image:
+
+    ![](_attachments/step6.png)  
+
     **Step 7.** *With conditions*, prompt the user to enter their new password as *free text*.
 
     **Assistant says**:
     ```
     Please enter your new RACF passphrase.
     ```
+
+    The step should look like the following image:
+
+    ![](_attachments/step7.png)  
 
     **Step 8.** *With conditions*, change the condition to **Step 6. Would you like to change your user IDS passphrase** equals `Yes`, inform the user the password is bing changed, and create a **TSO Command** subaction to change the passphrase.
 
@@ -173,23 +205,31 @@ Creating a custom-built action for the assistant that provides self-service opti
 
     ![](_attachments/changePPExpression.png)
 
+    The step should look like the following image:
 
-    **Step 9.**: *With conditions*, change the condition to **Step 6. Would you like to change your user IDS passphrase** equals `Yes`, ., and inform the user the passphrase has been changed. Change the **And then** option to **End the action**.
+    ![](_attachments/step8.png)  
+
+    **Step 9.**: *With conditions*, change the condition to **Step 6. Would you like to change your user IDS passphrase** equals `Yes`, and inform the user the passphrase has been changed. Change the **And then** option to **End the action**.
 
     **Assistant says**: 
+    
     `User passphrase changed to $<7. Please enter your new RACF passphrase.>`
 
     When entering the above string, after typing `$` select the **7. Please enter your new RACF passphrase**.
 
-6. Be sure to save your custom-built action.
+    The step should look like the following image:
 
-7. Demonstrate the custom-built action.
+    ![](_attachments/step9.png)  
+
+7. Be sure to save your custom-built action.
+
+8. Demonstrate the custom-built action.
 
     Using the **AI Assistant builder** preview, run the custom-built action. Use the APP web console to verify the passphrase ws changed. 
      
     The following video shows how the demonstration should work. The video does not have audio.
 
-    ![type:vidoe](_videos/racfVideo-final.mp4)
+    ![type:video](_videos/racfVideo-final.mp4)
 
   
 This use case demonstrates the value watsonx Assistant for Z can provide to offload common, manual tasks from subject matter experts like RACF Administrators. The use case shows the level of customization offered with infusing automations into natural conversations. Watsonx Assistant for Z improves employee productivity and reduces effort needed by individuals to completing manual tasks.
