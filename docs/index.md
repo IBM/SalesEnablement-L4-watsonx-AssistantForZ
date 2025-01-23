@@ -203,5 +203,3 @@ Use these helpful tips to take full advantage of the {{guide.name}}.
     <!-- ![](_attachments/demoGuide3.png) -->
 
 Continue to the [Reserve the IBM Technology Zone environments](TechZoneEnvironment.md) section to begin the journey to obtain the {{badge.name}} badge.
-
-
