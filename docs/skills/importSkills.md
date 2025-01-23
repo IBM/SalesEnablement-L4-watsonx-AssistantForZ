@@ -32,7 +32,7 @@ The next steps assume that you have an active browser window to the watsonx Orch
 
     **e**: Password: <enter the AAP User Password\>
 
-    **f**: Search Pattern: `*` (this will display all skills available)
+    **f**: Search Pattern: `*` (displays all skills available)
 
     ![](_attachments/skillsForm.png)
 
