@@ -39,7 +39,7 @@ For this use case, you are importing the skill for retrieving a z/OS server’s 
     wxa4z-skillpak-prepackaged-skills.json
     ```
 
-    Substitute your Wazi as a Service (WaaS) instance URL for the string `<your z/OSMV URL>`. Your WaaS URL is based on your ITZ AAP URL that can be obtained from your watsonx Assistant for Z Pilot - AAP & z/OS ITZ reservation.
+    Substitute your Wazi as a Service (WaaS) instance URL for the string `<your z/OSMF URL>`. Your WaaS URL is based on your ITZ AAP URL that can be obtained from your watsonx Assistant for Z Pilot - AAP & z/OS ITZ reservation.
 
     The AAP URL is similar to:
 
@@ -47,7 +47,7 @@ For this use case, you are importing the skill for retrieving a z/OS server’s 
 
     Change the ```aap``` string to ```zos``` and append ```:10443``` to the URL value. **Record this value for later use!** Your new URL is similar to:
 
-    ```https://itzvsi-zis-ppxbcno.techzone.ibm.com:10443```
+    ```https://itzvsi-zos-ppxbcno.techzone.ibm.com:10443```
 
     Before:
 
