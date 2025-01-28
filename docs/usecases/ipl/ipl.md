@@ -153,7 +153,7 @@ For your skills to run successfully on your WaaS instance, you need to ensure th
 
     ![](_attachments/skillsStudio6a.png)
 
-8.  Click the ellipses icon (~![](../_attachments/ellipsesIcon.png)) for the **z/OS IPL Information** skill and then click **Enhance this skill**.
+8.  Click the ellipses icon (![](../_attachments/ellipsesIcon.png)) for the **z/OS IPL Information** skill and then click **Enhance this skill**.
 
     ![](_attachments/skillsStudio7a.png)
 
