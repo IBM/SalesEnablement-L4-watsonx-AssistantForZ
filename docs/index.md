@@ -38,7 +38,7 @@ The prerequisite requirements to complete this course are as follows:
 
     It is important to read and follow all the documented steps. Skipping steps or sections can cause issues with completing the lab.
 
-    Also, invest a few minutes in reading the tips in the [Using the demonstration guide](#using-the-demonstration-guide) section. THe tips will save you time and frustration in completing the lab.
+    Also, invest a few minutes in reading the tips in the [Using the demonstration guide](#using-the-demonstration-guide) section. The tips will save you time and frustration in completing the lab.
 
 ## Lab overview
 This lab guide covers the setup, configuration, and usage of watsonx Assistant for Z. This lab guide uses the <a href="{{itz.collectionURL}}" target="_blank">{{offering.name}} Velocity collection</a> and the three Velocity Pilot lab environments in IBM Technology Zone (ITZ). 
