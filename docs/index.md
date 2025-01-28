@@ -30,7 +30,7 @@ The prerequisite requirements to complete this course are as follows:
 
     - <a href="https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/CommandLInePrimer/CommandLine.html" target="_blank">MacOS terminal</a>.
 
-    - <a href="https://www.youtube.com/watch?v=ZtqBQ68cfJc" target="_blank">The 50 most popular Linux & terminal commands - full course for beignners</a> (based on the book below).
+    - <a href="https://www.youtube.com/watch?v=ZtqBQ68cfJc" target="_blank">The 50 most popular Linux & terminal commands - full course for beginners</a> (based on the following book).
 
     - <a href="https://www.freecodecamp.org/news/the-linux-commands-handbook/" target="_blank">The Linux Commands Handbook</a> (Linux/MacOS).
 
@@ -45,7 +45,7 @@ This lab guide covers the setup, configuration, and usage of watsonx Assistant f
 
 The lab guide also enables dedicated lab environments for customized client PoXs and demonstrations. If you are preparing for an actual pilot engagement, refer to the <a href="https://ibm.seismic.com/Link/Content/DCCRRWqjGBTVc87VBGCfC2F2VQVV" target="_blank">Pilot Scoping Guide for watsonx Assistant for Z</a> for additional information.
 
-Using the lab guide, you will learn how to:
+Using the lab guide, you learn how to:
 
 - Provision the lab environments
 - Create an assistant and configuring conversational search
@@ -58,7 +58,7 @@ Using the lab guide, you will learn how to:
 - Create skill flows 
 - Publish and deploy an assistant
 
-In addition, you will import pre-packaged z/OS skills and create custom-built skills to deliver an assistant that handles 3 use cases:
+In addition, you import pre-packaged z/OS skills and create custom-built skills to deliver an assistant that handles 3 use cases:
 
 - Retrieving initial program load (IPL) information
 - Managing certificates
