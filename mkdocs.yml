@@ -141,7 +141,7 @@ extra:
   learningplan:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 4"
     YLurl: "https://yourlearning.ibm.com/activity/PLAN-93023CD29A04"
-    BPurl: ""
+    BPurl: "https://www.ibm.com/training/learning-path/ibm-watsonx-assistant-for-z-technical-sales-advanced-960"
   level3learningplan:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 3"
     YLurl: "https://yourlearning.ibm.com/activity/PLAN-FEA26E32C03A"
@@ -152,6 +152,7 @@ extra:
     BPurl: "https://learn.ibm.com/course/view.php?id=16848"
   badge:
     name: "IBM watsonx Assistant for Z Technical Sales Advanced"
+    url: "https://www.credly.com/org/ibm/badge/ibm-watsonx-assistant-for-z-technical-sales-advance"
   offering:
     name: "IBM watsonx Assistant for Z"
   guide:
