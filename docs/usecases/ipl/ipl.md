@@ -172,7 +172,7 @@ For your skills to run successfully on your WaaS instance, you need to ensure th
 
     ![](_attachments/skillsStudio10a.png)
 
-3. Click the ellipses icon (~![](../_attachments/ellipsesIcon.png)) for the **z/OS Operations** and then click **Edit**.
+3. Click the ellipses icon (![](../_attachments/ellipsesIcon.png)) for the **z/OS Operations** and then click **Edit**.
 
     ![](_attachments/skillsStudio11a.png)
 
