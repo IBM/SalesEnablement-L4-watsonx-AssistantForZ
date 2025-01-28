@@ -14,9 +14,9 @@ The ITZ collection and associated environment for this L4 was created and is mai
 
 Use the slack support channel or contact Max and/or his team.
 
-  supportSlack: 
-    name: "#watsonx-assistant-z-technical"
-    url: "https://ibm.enterprise.slack.com/archives/C07ARLXF2R1"
+    supportSlack: 
+        name: "#watsonx-assistant-z-technical"
+        url: "https://ibm.enterprise.slack.com/archives/C07ARLXF2R1"
 
 ## Building the demonstration guide
 
