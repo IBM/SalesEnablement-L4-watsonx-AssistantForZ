@@ -11,7 +11,7 @@ Wiki: <a href="https://pages.github.ibm.com/wxa4z/wiki/" target="_blank">Develop
 Box: <a href="https://ibm.box.com/s/f19a7r8h1omgqgtff8jfj8d4szd2kg4b" target="_blank">wxa4z Q&A - questions with high-quality responses</a>.
 
 ## Earn the badge
-Finally, remember to earn the <a href="https://www.credly.com/org/ibm/badge/ibm-watsonx-assistant-for-z-technical-sales-advance">{{badge.name}}</a> badge you must complete the {{learningplan.name}} learning plan.
+Finally, remember to earn the <a href="https://www.credly.com/org/ibm/badge/ibm-watsonx-assistant-for-z-technical-sales-advance" target="_blank">{{badge.name}}</a> badge you must complete the {{learningplan.name}} learning plan.
 
 **IBM technical sellers**: <a href="{{learningplan.YLurl}}" target="_blank">Your Learning learning plan</a>
 
