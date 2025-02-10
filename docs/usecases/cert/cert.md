@@ -786,7 +786,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
     ![](_attachments/c-custom-13a.png)
 
-14. Click **Next step+**.
+14. Click **New step+**.
 
     ![](_attachments/c-custom-14a.png)
 
