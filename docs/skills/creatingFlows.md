@@ -158,7 +158,7 @@ As mentioned in a previous section, default utility skills that are provided wit
 
     ![](_attachments/skillFlow25-b.png)
 
-14. Optionally, toggle the **Hide this from the user** setting.
+14. Do not toggle/enable the **Hide this from the user** setting as it is needed in order to display the full output of the previous skill.
 
     For this lab guide, this option is left disabled. Learn more about this option <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=combining-skills-into-skill-flows#hiding-input-and-output-forms" target="_blank">here</a>.
 
