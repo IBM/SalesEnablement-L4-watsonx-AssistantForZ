@@ -5,9 +5,9 @@ site_author: Andrew R. Jones (andrewj@us.ibm.com) and Max Weiss (maxwell.g.weiss
 copyright: Copyright &copy; 2024 IBM - V 2.0
 
 # Repository
-repo_name:  IBM/SalesEnablement-L4-watsonx-AssistantForZ
+repo_name:  andrewj-us/wxa4z-l4
 
-#repo_url: https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ
+#repo_url: https://github.ibm.com/andrewj-us/wxa4z-l4
 #edit_uri: edit/master/docs
 docs_dir: docs
 
@@ -137,7 +137,7 @@ extra:
   wxoSupportSlack:
     name: "#wxo-practitioners"
     url: "https://ibm.enterprise.slack.com/archives/C05B099DNG6"
-  gitRepo: "https://github.com/IBM/SalesEnablement-L4-watsonx-AssistantForZ"
+  gitRepo: "https://github.ibm.com/andrewj-us/wxa4z-l4"
   learningplan:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 4"
     YLurl: "https://yourlearning.ibm.com/activity/PLAN-93023CD29A04"
@@ -158,7 +158,7 @@ extra:
   guide:
     name: "IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide"
     lastUpdate: "26 December 2024"
-    url: "https://ibm.github.io/SalesEnablement-L4-watsonx-AssistantForZ/"
+    url: "https://pages.github.ibm.com/andrewj-us/wxa4z-l4/"
     pdf: "_pdf/IBM%20watsonx%20Assistant%20for%20Z%20Level%204%20Lab%20Guide.pdf"
   itz:
     account1: "2701257 - itz-watsonx-3"
