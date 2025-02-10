@@ -275,7 +275,7 @@ Before configuring the **z/OS IPL Information** skill as an assistant action, th
 
     ![](_attachments/skillsStudio32a.png)
 
-5. Click the ellipses icon (~![](../_attachments/ellipsesIcon.png)) for the **z/OS operations** app and then click **Connect app**.
+5. Click the ellipses icon (![](../_attachments/ellipsesIcon.png)) for the **z/OS operations** app and then click **Connect app**.
 
     ![](_attachments/skillsStudio33a.png)
 
@@ -404,7 +404,7 @@ A custom-built action can help the SysProg to take the next steps that are requi
 
     ![](_attachments/skillsStudio55a.png)
 
-8. Click **Next step +**.
+8. Click **New step +**.
 
      The new custom-built action only responds with a description of how to retrieve the IPL information. Now, infuse automation into the conversation and ask the user if they want to perform the action.
 
@@ -425,7 +425,7 @@ A custom-built action can help the SysProg to take the next steps that are requi
 
      ![](_attachments/skillsStudio58a.png)
 
-11. Click **Next step +**.
+11. Click **New step +**.
 
      ![](_attachments/skillsStudio59a.png)
 

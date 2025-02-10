@@ -878,11 +878,11 @@ Before completing the use case, test the **z/OS certificate expires soon** custo
 
     ![](_attachments/a-preview1-3a.png)
 
-4. Review the response and enter `DEMOCRT`.
+4. Review the response and enter `DEMOCERT`.
 
     **Prompt**:
     ```
-    DEMOCRT
+    DEMOCERT
     ```
 
     ![](_attachments/a-preview1-4a.png)
