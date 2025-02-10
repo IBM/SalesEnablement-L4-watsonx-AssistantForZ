@@ -744,7 +744,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
     ![](_attachments/c-custom-6a.png)
 
-7. Click **Next step+**.
+7. Click **New step+**.
 
     ![](_attachments/c-custom-7a.png)
 
@@ -763,7 +763,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
     ![](_attachments/c-custom-9a.png)
 
-10. Click **Next step +**.
+10. Click **New step +**.
 
     ![](_attachments/c-custom-10a.png)
 
@@ -824,7 +824,7 @@ Like in the IPL Information scenario, add a custom search query so when conversa
 
     ![](_attachments/c-custom-21a.png)
 
-22. Click **Next step +**.
+22. Click **New step +**.
 
     ![](_attachments/c-custom-22a.png)
 
@@ -898,7 +898,7 @@ Before completing the use case, test the **z/OS certificate expires soon** custo
 ## Complete the custom-built skill to renew the certificate
 Now that the custom-built action is working, add steps to include the certificate renewal process. After retrieving and displaying the user’s certificate expiration date, ask the user if they want to renew the certificate, and if so, prompt for the new date and renew the certificate.
 
-1. Click **Next step +**.
+1. Click **New step +**.
 
     ![](_attachments/addLastSteps-1a.png)
 
@@ -919,7 +919,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-4a.png)
 
-5. Click **Next step +**.
+5. Click **New step +**.
 
     ![](_attachments/addLastSteps-5a.png)
 
@@ -1022,7 +1022,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-23a.png)
 
-24. Click **Next step +**
+24. Click **New step +**
 
     ![](_attachments/addLastSteps-24a.png)
 
@@ -1045,7 +1045,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-27a.png)
 
-28. Click **Next step +**.
+28. Click **New step +**.
 
     ![](_attachments/addLastSteps-28a.png)
 
@@ -1083,7 +1083,7 @@ Now that the custom-built action is working, add steps to include the certificat
 
     ![](_attachments/addLastSteps-36a.png)
 
-37. Click **Next step +**.
+37. Click **New step +**.
 
     ![](_attachments/addLastSteps-37a.png)
 
