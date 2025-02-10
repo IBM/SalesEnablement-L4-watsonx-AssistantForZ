@@ -36,12 +36,14 @@ Three step process for this one:
 
 Next, review PDF and make sure it is as clean as possible with regard to line breaks. If needed, modify the markdown files as necessary. Use ```<div style="page-break-after: always;"></div>``` to split output to a new page, but do not put the break within an indented section or the generated markdown will not format properly. If changes are made, repeat steps 1 and 2 above. 
 
-**Warning**: The PDF may be too large for github. A warning or error will appear when `mkdopcs gh-deploy` is run in step 3. Use adobe acrobat to compress the PDF file created above.
+**Warning**: The PDF may be too large for github. A warning or error will appear when `mkdopcs gh-deploy` is run in step 
 
-3. Deploy the content.
+3. Use adobe acrobat to compress the PDF file created above.
+
+4. Deploy the content.
 
     ```
     mkdocs gh-deploy
     ```
 
-4. Sync all the changes to the github repository.
+5. Sync all the changes to the github repository.
