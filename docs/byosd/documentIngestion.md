@@ -87,6 +87,10 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/SNOOCPLogin.png)
 
+    !!! Warning "Before getting started, verify your storage configuration was setup properly by..."
+
+        Navigating to the "Persistent Volumes" and the "Persistent Volume Claims" tabs under the "Storage" section of your OCP web console. Ensure you have at least one Persistent Volume and one Persistent Volume Claim already created. If not, then you will need to re-provision your Single Node OpenShift environment.  
+
 6. Click the **kube:admin** profile drop-down and click **Copy login command**.
 
      ![](_attachments/SNOOCPProfile.png)
