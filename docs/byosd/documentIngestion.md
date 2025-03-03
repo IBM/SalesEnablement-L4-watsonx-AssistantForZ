@@ -335,7 +335,7 @@ Before ingesting documents, complete the following setup steps.
 
     Microsoft Windows:
     ```
-    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p "{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}"
+    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}'
     ```
 
     ![](_attachments/installAssistantOperator5.png)
