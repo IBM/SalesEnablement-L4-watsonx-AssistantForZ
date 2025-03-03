@@ -158,6 +158,10 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     zassist ingest ops
     ```
 
+    !!! tip "What does 'zassist ingest' do?"
+
+        The ingestion process uploads the document to the server, extracts the text, splits text into chunks, and then creates embeddings from each chunked text using IBM's slate model. 
+
 12. Upload the ingested documents.
 
     ```
@@ -167,6 +171,10 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     ```
     zassist load ops
     ```
+
+    !!! tip "What does 'zassist load' do?"
+
+        The load process takes the resulting chunked text and embeddings and uploads it into the OpenSearch database.
 
 13. Verify that all documents were successfully ingested and loaded.
 
