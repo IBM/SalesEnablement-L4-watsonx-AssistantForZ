@@ -239,15 +239,15 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIActionsSetByAssistantMenu12.png)
 
-16. Delete **all** of the **Conversation steps**.
+16. Delete **all** of the **Conversation steps** except for the last one (Step 6).
 
-    **Note**: The following image is edited. Only five steps are shown, but all six need to be deleted. You need to select each step individually. Click **delete** (![](_attachments/deleteIcon.png)) and confirm the deletion.
+    **Note**: You need to select each step individually. Click **delete** (![](_attachments/deleteIcon.png)) and confirm the deletion for the first 5 steps.
 
     ![](_attachments/genAIActionsSetByAssistantMenu13.png)
 
-17. Verify that all **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
+17. Verify that the first 5 **Conversation steps** are deleted and then click the **x** to close the **Editor** window.
 
-    ![](_attachments/genAIActionsSetByAssistantMenu14.png)
+    ![](_attachments/Fallback-action.png)
 
 18. Click the **Global settings** (![](_attachments/globalSettingsIcon.png)).
 
@@ -336,6 +336,14 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
     **Note**: When the instructions are typed in, they are automatically saved and the LLM is immediately trained on them.
 
     ![](_attachments/genAIGenAI3.png)
+
+    !!! tip "Customizing prompt instructions"
+
+        Prompt instructions are highly customizable and should be tested prior to delivering a demo or pilot. The provided prompt instructions above are just one example. If you'd prefer more detailed responses with example commands and bulleted lists, consider using the prompt instructions more similar to the following:
+
+        ***You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Provide detailed, bulleted answers with headings and example commands.***
+
+        Try it out yourself!
 
 4.  Toggle **General-purpose answering** to **Off** and then click **Save** (![](_attachments/diskIcon.png)).
 
