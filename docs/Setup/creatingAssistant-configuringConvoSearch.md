@@ -309,6 +309,25 @@ After you save and close the **Conversational search** configuration page, a few
 
     ![](_attachments/genAIEnviroments6.png)
 
+## Modifying the Chat UI
+Due to an update of watsonx Orchestrate SaaS on IBM Cloud, you will need to change one setting that's set by default when you launch the UI for the first time. This update is not yet available in the watsonx Assistant for Z product. In order to successfully complete the skills exercises later on, you will need to switch the Chat settings to the **Legacy Chat**. Follow the below steps to do so before moving on.  
+
+1.  Click on your profile icon in the top-right corner of the screen and click on **Settings**.
+   
+    ![](_attachments/LegacyChat1.png)   
+   
+2.  Click on the **Chat version** tab and then click on **Switch to legacy chat** in blue to make the change.
+
+    ![](_attachments/LegacyChat2.png)
+
+3.  In the new pop-up window, confirm the setting change by clicking on **Change to legacy chat**.
+
+    ![](_attachments/LegacyChat3.png)
+   
+4.  Once changed, verify that your Chat version is now set to **Legacy Chat** as shown below.
+
+    ![](_attachments/LegacyChat4.png)
+
 ## Configure the base large language model
 There are enhancements that you can make to configure how the large language model (LLM) responds to your queries, including adding prompt instructions and configuring the LLM’s answer behavior.
 The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistant-configuring-base-llm" target="_blank">here</a>.
