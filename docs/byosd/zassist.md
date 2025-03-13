@@ -78,21 +78,21 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
 
 2. Extract the ```BYOD.zip``` file.
 3. Change to the ```BYOD``` directory.
-4. Set the `TLS_VERIFY` environment variable to `false`.
+4. Set the `WXA4Z_TLS_VERIFY` environment variable to `false`.
 
     Mac OS:
     ```
-    export TLS_VERIFY=false
+    export WXA4Z_TLS_VERIFY=false
     ```
 
     Windows OS:
     ```
-    set TLS_VERIFY=false
+    set WXA4Z_TLS_VERIFY=false
     ```
 
     Windows OS PowerShell:
     ```
-    Set-Item Env:\TLS_VERIFY "false"
+    Set-Item Env:\WXA4Z_TLS_VERIFY "false"
     ```
 
 5. Initialize the `zassist` environment.

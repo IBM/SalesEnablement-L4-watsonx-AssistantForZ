@@ -335,7 +335,7 @@ Before ingesting documents, complete the following setup steps.
 
     Microsoft Windows:
     ```
-    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}'
+    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p "{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}"
     ```
 
     ![](_attachments/installAssistantOperator5.png)
@@ -536,7 +536,7 @@ Before ingesting documents, complete the following setup steps.
 
 3.  Copy and record the location for the **wxa4z-opensearch-wrapper** route.
 
-    ![](_attachments/ocpRouteToWrapper.png)
+    ![](_attachments/ocpRouteToWrappernew.png)
 
 ### Update your assistant with the new BYOS instance route
 <a name="BYOS-url"></a>
