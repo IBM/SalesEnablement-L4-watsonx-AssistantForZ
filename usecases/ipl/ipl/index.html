@@ -949,9 +949,15 @@
 <p>Replace the default command with the text that follows and substituting a password of your choosing for the string <code>YOUR PASSWORD PHRASE</code> and then click <strong>Next</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ALTUSER IBMUSER PHRASE('YOUR PASSWORD PHRASE') NOEXPIRE RESUME
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Avoid typographical errors later... keep the password simple.</p>
-</div>
+<details class="tip">
+<summary>Syntax rules for <abbr title="Resource Access Control Facility">RACF</abbr> Password Phrases (below)</summary>
+</details>
+<ul>
+<li>Minimum length: 9 characters</li>
+<li>Must contain at least 2 alphabetic characters (A - Z, a - z)</li>
+<li>Must contain at least 2 non-alphabetic characters (numerics, punctuation, or special characters, including spaces)</li>
+<li>Must not contain more than 2 consecutive characters that are identical</li>
+</ul>
 <p>If you type the command yourself, be sure to include the single quotes before and after the password. <strong>Record the password as it will be needed later.</strong> We will refer to this as your <strong>WaaS password</strong>."</p>
 <p><a class="glightbox" href="../_attachments/tsoCommand1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/tsoCommand1.png"></a></p>
 </li>
