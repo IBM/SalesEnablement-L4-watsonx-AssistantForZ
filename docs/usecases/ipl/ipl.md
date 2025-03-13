@@ -88,10 +88,10 @@ For your skills to run successfully on your WaaS instance, you need to ensure th
 
     ??? tip "Syntax rules for RACF Password Phrases (below)"
     
-       - Minimum length: 9 characters
-       - Must contain at least 2 alphabetic characters (A - Z, a - z)
-       - Must contain at least 2 non-alphabetic characters (numerics, punctuation, or special characters, including spaces)
-       - Must not contain more than 2 consecutive characters that are identical
+        - Minimum length: 9 characters
+        - Must contain at least 2 alphabetic characters (A - Z, a - z)
+        - Must contain at least 2 non-alphabetic characters (numerics, punctuation, or special characters, including spaces)
+        - Must not contain more than 2 consecutive characters that are identical
     
     If you type the command yourself, be sure to include the single quotes before and after the password. **Record the password as it will be needed later.** We will refer to this as your **WaaS password**."
 
