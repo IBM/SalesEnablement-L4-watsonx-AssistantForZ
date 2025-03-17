@@ -80,6 +80,12 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
 3. Change to the ```BYOD``` directory.
 4. Set the `WXA4Z_TLS_VERIFY` environment variable to `false`.
 
+    ??? Warning "WARNING: The below commands may not be appropriate depending on your version of zassist. See below..."
+
+        The below commands referencing the **WXA4Z_TLS_VERIFY** environment variable will only work in your setup if you are using zassist version 1.0.2 or later. If you are using an earlier version of the utility, you will need to replace **WXA4Z_TLS_VERIFY** with the **TLS_VERIFY** environment variable in the below commands. 
+
+        You can verify your version of zassist by running the **zassist version** command. Alternatively (and recommended), you can download the latest version of the zassist utility via the Box folder referenced in the beginning of this section. 
+
     Mac OS:
     ```
     export WXA4Z_TLS_VERIFY=false
