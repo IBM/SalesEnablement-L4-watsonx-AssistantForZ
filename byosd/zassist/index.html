@@ -955,6 +955,11 @@
 <li>Change to the <code>BYOD</code> directory.</li>
 <li>
 <p>Set the <code>WXA4Z_TLS_VERIFY</code> environment variable to <code>false</code>.</p>
+<details class="warning">
+<summary>WARNING: The below commands may not be appropriate depending on your version of zassist. See below...</summary>
+<p>The below commands referencing the <strong>WXA4Z_TLS_VERIFY</strong> environment variable will only work in your setup if you are using zassist version 1.0.2 or later. If you are using an earlier version of the utility, you will need to replace <strong>WXA4Z_TLS_VERIFY</strong> with the <strong>TLS_VERIFY</strong> environment variable in the below commands. </p>
+<p>You can verify your version of zassist by running the <strong>zassist version</strong> command. Alternatively (and recommended), you can download the latest version of the zassist utility via the Box folder referenced in the beginning of this section. </p>
+</details>
 <p>Mac <abbr title="Operating System">OS</abbr>:
 </p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>export WXA4Z_TLS_VERIFY=false
 </span></code></pre></div>
