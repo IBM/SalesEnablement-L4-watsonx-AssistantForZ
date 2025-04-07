@@ -346,7 +346,7 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 
     Enter prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. 
         
-    The following is an example prompt instruction that works well. Experiment with different prompt instructions.
+    The following is an example prompt instruction that provides shorter, concise responses. Experiment with different prompt instructions, for example the longer, more verbose prompt instructions **below**.
 
     ```
     You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Keep all answers short and concise, unless requested to provide details.
@@ -360,7 +360,7 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 
         Prompt instructions are highly customizable and should be tested prior to delivering a demo or pilot. The provided prompt instructions above are just one example. If you'd prefer more detailed responses with example commands and bulleted lists, consider using the prompt instructions more similar to the following:
 
-        ***You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Provide detailed, bulleted answers with headings and example commands.***
+        ***You are a subject matter expert on IBM Z mainframe systems. Please respond to all prompts with truth and accuracy. Provide detailed and bulleted answers with headings, along with examples and commands when requested. DO NOT guess the answer.***
 
         Try it out yourself!
 
