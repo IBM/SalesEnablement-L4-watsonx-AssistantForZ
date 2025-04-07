@@ -206,7 +206,11 @@ Before ingesting documents, complete the following setup steps.
         ![](_attachments/SNOOCPOperator6.png)
 
 ### Install the watsonx Assistant for Z Operator (for OpenSearch)
-1. In your command prompt or terminal window, create a new namespace called `wxa4z-byos` in the Red Hat OpenShift cluster.
+1. In your command prompt or terminal window, create 2 new namespaces called `wxa4z-operator` and `wxa4z-byos` in the Red Hat OpenShift cluster by issuing the following 2 commands in sequence.
+
+    ```
+    oc create namespace wxa4z-operator 
+    ```
 
     ```
     oc create namespace wxa4z-byos 
@@ -273,14 +277,12 @@ Before ingesting documents, complete the following setup steps.
     kind: CatalogSource 
     metadata: 
       name: ibm-wxa4z-operator-catalog 
-      namespace: wxa4z-byos 
+      namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog:v2.1.0@sha256:a085d360b6aa0e40cf86a632eb5cd190a0407d1c54ec1b2d1d2fb5507f39a524
+      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:1fc00683885bf9f41ab7df55091676eb305ff9c870a6fddffdc02bd503506ff8
       publisher: 'IBM' 
       sourceType: grpc 
-      secrets: 
-      - icr-pull-secret
     ```
 
 7.  Create your document catalog in the Red Hat OpenShift operator.
@@ -291,9 +293,9 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/createCatalog.png)
 
-8.  In the Red Hat OpenShift web console, click **OperatorHub** and select the **wxa4z-byos** project.
+8.  In the Red Hat OpenShift web console, click **OperatorHub** and select the **wxa4z-operator** project.
 
-    ![](_attachments/installAssistantOperator0.png)
+    ![](_attachments/installAssistantOperator0-new.png)
 
 9.  Enter **ibm watsonx** in the search field and the click the **IBM watsonx Assistant for Z Operator Catalog** tile.
 
@@ -303,7 +305,7 @@ Before ingesting documents, complete the following setup steps.
 
     **Note**: The current version of the operator may differ than that shown in the image below.
 
-    ![](_attachments/installAssistantOperator1.png)
+    ![](_attachments/installAssistantOperator1-new.png)
 
 10. Click **Install**.
 
@@ -311,9 +313,9 @@ Before ingesting documents, complete the following setup steps.
 
     ![](_attachments/installAssistantOperator2.png)
 
-11. Select **A specific namespace on the cluster** (**a**) under **Installation mode** and **wxa4z-byos** (**b**) for the **Installed Namespace**, then click **Install** (**c**).
+11. Select **A specific namespace on the cluster** (**a**) under **Installation mode** and **wxa4z-operator** (**b**) for the **Installed Namespace**, then click **Install** (**c**).
 
-    ![](_attachments/installAssistantOperator3.png)
+    ![](_attachments/installAssistantOperator3-new.png)
 
     !!! Warning "Do not continue until..."
     
@@ -321,40 +323,14 @@ Before ingesting documents, complete the following setup steps.
 
         ![](_attachments/installAssistantOperator4.png)
 
-12. In your command prompt or terminal window, run the following commands to add the Container Registry credential to the operator's service account.
 
-    Mac OS and Microsoft Windows:
-    ```
-    oc project wxa4z-byos
-    ```
-
-    Mac OS:
-    ```
-    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p '{"imagePullSecrets": [{"name": "icr-pull-secret"}]}'
-    ```
-
-    Microsoft Windows:
-    ```
-    oc patch serviceaccount ibm-wxa4z-operator-controller-manager --type merge -p "{\"imagePullSecrets\":[{\"name\":\"icr-pull-secret\"}]}"
-    ```
-
-    ![](_attachments/installAssistantOperator5.png)
-
-13. In the Red Hat OpenShift web console, under **Workloads**, click **Pods**.
+12. In the Red Hat OpenShift web console, under **Workloads**, click **Pods**.
 
     ![](_attachments/installAssistantOperator6.png)
 
-14. Verify the two pods that start with **ibm-wxa4z-operator** have a status of **Running** and that all pods are **Ready**.
+13. Verify the two pods that start with **ibm-wxa4z-operator** have a status of **Running** and that all pods are **Ready**.
 
     ![](_attachments/installAssistantOperator7.png)
-
-15. Run the following command to set the administrative policy for the workspace.
-
-    ```
-    oc -n wxa4z-byos adm policy add-scc-to-user privileged -z byos
-    ```
-
-    ![](_attachments/installAssistantOperator8.png)
 
 ### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
 
@@ -521,14 +497,20 @@ Before ingesting documents, complete the following setup steps.
     oc apply -f byos.yaml
     ```
 
+    !!! Warning "Change your selected namespace in the Web Console to view progress"
+
+        The new pods will be created in your **wxa4z-byos** namespace. To view the progress of your pods creation, select the **wxa4z-byos** project from the **Projects** drop-down within the OCP Web console. 
+
+        ![](_attachments/installAssistantOperator-changeNamespace.png)
+
 ### Verify all the required pods are running and get the network route to your BYOS instance
-1. In the OCP console, verify that all pods have the status of **Running** or **Completed**.
+1. In the OCP console, verify that all pods have the status of **Running** or **Completed** within the **wxa4z-byos** project.
 
     !!! Warning "Do not continue until..."
     
         The BYOS deployment can take 20 minutes or more to complete. Do not continue until all the pods have a status of “Running” or "Completed". The next step is to retrieve your BYOS endpoint URL.
 
-        ![](_attachments/ocpWorkloadsPodsStatus.png)
+        ![](_attachments/ocpWorkloadPodsStatus-new.png)
 
 2.  Under **Networking**, click **Routes**.
 
