@@ -1594,7 +1594,7 @@
 <p>Complete the <strong>Custom service</strong> (<strong>a-e</strong>) form and then click <strong>Next</strong> (<strong>f</strong>).</p>
 <p><strong>a</strong>. Select <strong>By providing credentials</strong>.</p>
 <p><strong>b</strong>. Enter the following value in the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong> field (use the copy icon to avoid typographical errors). This is the <abbr title="Uniform Resource Locator">URL</abbr> for the shared <a href="https://opensearch.org/">OpenSearch</a> instance. In later sections, you create and customize a dedicated instance.
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-0-1"></a>https://wxa4z-opensearch-wrapper-wxa4z-sales-v2-1-0.wxa4z-cloud-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-east.containers.appdomain.cloud/v1/query
 </span></code></pre></div>
 <p><strong>c</strong>. Select <strong>Basic authentication</strong> in the <strong>Choose an authentication type</strong> drop-down list.</p>
 <p><strong>d</strong>. Enter <code>admin</code> in the <strong>Username</strong> field.</p>
@@ -1798,7 +1798,7 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 <p>Enter a <strong>prompt instruction</strong>.</p>
 <p>Your assistant's <abbr title="Large language model">LLM</abbr> gives refined responses by following the prompt's instructions, which clarify how to achieve the end-goal of an action.</p>
 <p>Enter prompt instructions in the field. The maximum number of characters you can enter in the prompt instruction field is 1,000. </p>
-<p>The following is an example prompt instruction that works well. Experiment with different prompt instructions.</p>
+<p>The following is an example prompt instruction that provides shorter, concise responses. Experiment with different prompt instructions, for example the longer, more verbose prompt instructions <strong>below</strong>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#setup-creatingassistant-configuringconvosearch-__codelineno-2-1"></a>You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Keep all answers short and concise, unless requested to provide details.
 </span></code></pre></div>
 <p><strong>Note</strong>: When the instructions are typed in, they are automatically saved and the <abbr title="Large language model">LLM</abbr> is immediately trained on them.</p>
@@ -1806,7 +1806,7 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 <div class="admonition tip">
 <p class="admonition-title">Customizing prompt instructions</p>
 <p>Prompt instructions are highly customizable and should be tested prior to delivering a demo or pilot. The provided prompt instructions above are just one example. If you'd prefer more detailed responses with example commands and bulleted lists, consider using the prompt instructions more similar to the following:</p>
-<p><strong><em>You are a subject matter expert on mainframe systems. Please respond to all prompts with truth and accuracy. Provide detailed, bulleted answers with headings and example commands.</em></strong></p>
+<p><strong><em>You are a subject matter expert on IBM Z mainframe systems. Please respond to all prompts with truth and accuracy. Provide detailed and bulleted answers with headings, along with examples and commands when requested. DO NOT guess the answer.</em></strong></p>
 <p>Try it out yourself!</p>
 </div>
 </li>
@@ -1879,7 +1879,7 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 <p>Wait a few minutes and try again. It may be the service was in the process of restarting.</p>
 </li>
 <li>
-<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://pages.github.ibm.com/andrewj-us/wxa4z-l4/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-demo-v2-1-0.wxo4z-opc-opensearch-clus-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-south.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
+<p>If you printed this demonstration guide or saved a copy, verify you are using the most current version of the <a href="https://pages.github.ibm.com/andrewj-us/wxa4z-l4/" target="_blank">lab guide</a> and the correct service <abbr title="Uniform Resource Locator">URL</abbr> (https://wxa4z-opensearch-wrapper-wxa4z-sales-v2-1-0.wxa4z-cloud-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-east.containers.appdomain.cloud/v1/query). The <abbr title="Uniform Resource Locator">URL</abbr> may have changed since you saved or printed the lab guide.</p>
 </li>
 </ul>
 </details>
