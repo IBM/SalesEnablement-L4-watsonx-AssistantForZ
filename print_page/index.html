@@ -2205,8 +2205,8 @@ Sample output:
 <strong>Record the outputted operatorgroup as you will need it for the following step.</strong>
 <div class="admonition warning">
 <p class="admonition-title">Your <strong>operatorgroup</strong> will be unique and look something like</p>
-<p>NAME                        AGE
-wxa4z-operator-sv8j8        42s</p>
+<p><code>NAME                        AGE</code>
+<code>wxa4z-operator-sv8j8        42s</code></p>
 </div>
 </li>
 <li>
@@ -2215,8 +2215,8 @@ wxa4z-operator-sv8j8        42s</p>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">The command and corresponding output should like something like</p>
-<p>oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'</p>
-<p>operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched</p>
+<p><code>oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'</code></p>
+<p><code>operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched</code></p>
 </div>
 </li>
 </ol>
