@@ -356,10 +356,10 @@ Before ingesting documents, complete the following setup steps.
     **Record the outputted operatorgroup as you will need it for the following step.**
 
     !!! Warning "Your **operatorgroup** will be unique and look something like"
-
-        NAME                        AGE
-        wxa4z-operator-sv8j8        42s
-
+        
+        `NAME                        AGE`
+        `wxa4z-operator-sv8j8        42s`
+        
 15. Finally, run the following command to update the list of targeted namespaces, where **`<operatorgroup-name>`** is substituted with ***your*** unique operator group name recorded in the previous step.
     
     ```
@@ -368,10 +368,10 @@ Before ingesting documents, complete the following setup steps.
 
     !!! Warning "The command and corresponding output should like something like"
         
-        oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+        `oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'`
 
 
-        operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched
+        `operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched`
 
 
 ### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
