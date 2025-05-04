@@ -1896,6 +1896,19 @@ The options are summarized <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?
 <p><a class="glightbox" href="../byosd/_attachments/LabArchitecture-Lab%202%20-%20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../byosd/_attachments/LabArchitecture-Lab%202%20-%20a.png"></a></p>
 <p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="#techzoneenvironment">IBM Technology Zone environment</a> section to complete the reservation.</p>
+<h2 id="byosd-documentingestion-summary-of-new-features-for-v223-of-z-byosearch-rag-deployment">Summary of new features for v2.2.3 of Z BYOSearch &amp; <abbr title="Retrieval augmented generation">RAG</abbr> deployment<a class="headerlink" href="#byosd-documentingestion-summary-of-new-features-for-v223-of-z-byosearch-rag-deployment" title="Permanent link">#</a></h2>
+<p>The step-by-step instructions in this section will walk you through installing version 2.2.3 of BYOSearch with the corresponding <abbr title="Retrieval augmented generation">RAG</abbr> documentation. </p>
+<p><strong>Details of the v2.2.3 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a></strong>.</p>
+<p>Key features include:</p>
+<ul>
+<li>
+<p>Tabular support for IBM documentation pre-ingested into the deployed zRAG</p>
+</li>
+<li>
+<p>Conversational search scoping according to <em>product areas</em> now supported</p>
+</li>
+</ul>
+<p>For more details on the filtering/scoping of product areas during conversational search, please refer to Step 10 of <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-configuring-your-conversational-search" target="_blank">this page</a>.</p>
 <h2 id="byosd-documentingestion-install-the-red-hat-openshift-command-line-interface-utility">Install the Red Hat OpenShift command line interface utility<a class="headerlink" href="#byosd-documentingestion-install-the-red-hat-openshift-command-line-interface-utility" title="Permanent link">#</a></h2>
 <p>The Red Hat OpenShift command line interface (<abbr title="Command Line Interface">CLI</abbr>) utility, which is known as <strong>oc</strong>, must be installed on your local workstation. If you already installed the <strong>oc</strong> utility, you can proceed to <a href="#byosd-documentingestion-Login2OpenShift">log in to the <abbr title="Single-node Red Hat OpenShift">SNO</abbr> cluster</a>.</p>
 <ol>
@@ -2138,7 +2151,7 @@ Sample output:
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#byosd-documentingestion-__codelineno-13-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-operator</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#byosd-documentingestion-__codelineno-13-6"></a><span class="nt">spec</span><span class="p">:</span><span class="w"> </span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#byosd-documentingestion-__codelineno-13-7"></a><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">"IBM</span><span class="nv"> </span><span class="s">watsonx</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Z</span><span class="nv"> </span><span class="s">Operator</span><span class="nv"> </span><span class="s">Catalog"</span><span class="w"> </span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#byosd-documentingestion-__codelineno-13-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog@sha256:1fc00683885bf9f41ab7df55091676eb305ff9c870a6fddffdc02bd503506ff8</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#byosd-documentingestion-__codelineno-13-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog@sha256:6caba1a9aa9a0cb877385928af45c930b87281400e5b22d457e1238c3ba35718</span><span class="w">    </span>
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#byosd-documentingestion-__codelineno-13-9"></a><span class="w">  </span><span class="nt">publisher</span><span class="p">:</span><span class="w"> </span><span class="s">'IBM'</span><span class="w"> </span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#byosd-documentingestion-__codelineno-13-10"></a><span class="w">  </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc</span><span class="w"> </span>
 </span></code></pre></div>
@@ -2184,29 +2197,51 @@ Sample output:
 <p>Verify the two pods that start with <strong>ibm-wxa4z-operator</strong> have a status of <strong>Running</strong> and that all pods are <strong>Ready</strong>.</p>
 <p><a class="glightbox" href="../byosd/_attachments/installAssistantOperator7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../byosd/_attachments/installAssistantOperator7.png"></a></p>
 </li>
+<li>
+<p>Once the operator install is complete, update the <strong><em>operator group</em></strong> to target the namespace where you will deploy BYOSearch.</p>
+<p>First, run the following command to retrieve the <strong>unique</strong> name of your operator group:</p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#byosd-documentingestion-__codelineno-15-1"></a>oc -n wxa4z-operator get operatorgroup
+</span></code></pre></div>
+<strong>Record the outputted operatorgroup as you will need it for the following step.</strong>
+<div class="admonition warning">
+<p class="admonition-title">Your <strong>operatorgroup</strong> will be unique and look something like</p>
+<p>NAME                        AGE
+wxa4z-operator-sv8j8        42s</p>
+</div>
+</li>
+<li>
+<p>Finally, run the following command to update the list of targeted namespaces, where <strong><code>&lt;operatorgroup-name&gt;</code></strong> is substituted with <strong><em>your</em></strong> unique operator group name recorded in the previous step.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#byosd-documentingestion-__codelineno-16-1"></a>oc -n wxa4z-operator patch operatorgroup &lt;operatorgroup-name&gt; --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">The command and corresponding output should like something like</p>
+<p>oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'</p>
+<p>operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched</p>
+</div>
+</li>
 </ol>
 <h3 id="byosd-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources">Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources<a class="headerlink" href="#byosd-documentingestion-deploy-required-secrets-and-the-custom-bring-your-own-search-byosearch-resources" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>In a text editor, create a file that is named <code>os-secret.yaml</code>, paste the following text in the file, and then modify the default password.</p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#byosd-documentingestion-__codelineno-15-1"></a>os-secret.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#byosd-documentingestion-__codelineno-17-1"></a>os-secret.yaml
 </span></code></pre></div>
 <p><strong>Substitute a secure password of your choosing for the string <code>&lt;OPENSEARCH_PASSWORD&gt;</code>. Record this value for later use.</strong></p>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#byosd-documentingestion-__codelineno-16-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#byosd-documentingestion-__codelineno-16-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#byosd-documentingestion-__codelineno-16-3"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;OPENSEARCH_PASSWORD&gt;</span><span class="w"> </span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#byosd-documentingestion-__codelineno-16-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#byosd-documentingestion-__codelineno-16-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#byosd-documentingestion-__codelineno-16-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span><span class="w"> </span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#byosd-documentingestion-__codelineno-16-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#byosd-documentingestion-__codelineno-16-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+</p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#byosd-documentingestion-__codelineno-18-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#byosd-documentingestion-__codelineno-18-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#byosd-documentingestion-__codelineno-18-3"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;OPENSEARCH_PASSWORD&gt;</span><span class="w"> </span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#byosd-documentingestion-__codelineno-18-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#byosd-documentingestion-__codelineno-18-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#byosd-documentingestion-__codelineno-18-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span><span class="w"> </span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#byosd-documentingestion-__codelineno-18-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#byosd-documentingestion-__codelineno-18-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#byosd-documentingestion-__codelineno-17-1"></a>oc apply -f os-secret.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#byosd-documentingestion-__codelineno-19-1"></a>oc apply -f os-secret.yaml
 </span></code></pre></div>
 </li>
 </ol>
@@ -2215,51 +2250,51 @@ Sample output:
 <li>
 <p>In a text editor, create a file that is named <code>client-ingestion-secret.yaml</code>, paste the following text in the file, and then modify the default password.</p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#byosd-documentingestion-__codelineno-18-1"></a>client-ingestion-secret.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#byosd-documentingestion-__codelineno-20-1"></a>client-ingestion-secret.yaml
 </span></code></pre></div>
 <p><strong>Substitute a secure authentication key of your choosing for the string <code>&lt;CLIENT_INGESTION_AUTHKEY&gt;</code>. The authentication key can be a random password.  Record this value for later use.</strong></p>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#byosd-documentingestion-__codelineno-19-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#byosd-documentingestion-__codelineno-19-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#byosd-documentingestion-__codelineno-19-3"></a><span class="w">  </span><span class="nt">authkey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CLIENT_INGESTION_AUTHKEY&gt;</span><span class="w"> </span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#byosd-documentingestion-__codelineno-19-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#byosd-documentingestion-__codelineno-19-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#byosd-documentingestion-__codelineno-19-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span><span class="w"> </span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#byosd-documentingestion-__codelineno-19-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#byosd-documentingestion-__codelineno-19-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+</p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#byosd-documentingestion-__codelineno-21-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#byosd-documentingestion-__codelineno-21-2"></a><span class="nt">stringData</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#byosd-documentingestion-__codelineno-21-3"></a><span class="w">  </span><span class="nt">authkey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;CLIENT_INGESTION_AUTHKEY&gt;</span><span class="w"> </span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#byosd-documentingestion-__codelineno-21-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#byosd-documentingestion-__codelineno-21-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#byosd-documentingestion-__codelineno-21-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span><span class="w"> </span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#byosd-documentingestion-__codelineno-21-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#byosd-documentingestion-__codelineno-21-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#byosd-documentingestion-__codelineno-20-1"></a>oc apply -f client-ingestion-secret.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#byosd-documentingestion-__codelineno-22-1"></a>oc apply -f client-ingestion-secret.yaml
 </span></code></pre></div>
 </li>
 <li>
 <p>In a text editor, create a file that is named <code>wrapper-creds.yaml</code>, paste the following text in the file, and then modify the default password. </p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#byosd-documentingestion-__codelineno-21-1"></a>wrapper-creds.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#byosd-documentingestion-__codelineno-23-1"></a>wrapper-creds.yaml
 </span></code></pre></div>
 <p><strong>Substitute a secure password credential of your choosing for the string <code>&lt;WRAPPER_PASSWORD&gt;</code>. The password can be a random password.  Record this value for later use. Use this password in the following steps when you configure your <abbr title="Bring Your Own Search">BYOS</abbr> connection in your assistant to connect to the network route.</strong> </p>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#byosd-documentingestion-__codelineno-22-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#byosd-documentingestion-__codelineno-22-2"></a><span class="nt">stringData</span><span class="p">:</span>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#byosd-documentingestion-__codelineno-22-3"></a><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#byosd-documentingestion-__codelineno-22-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;WRAPPER_PASSWORD&gt;</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#byosd-documentingestion-__codelineno-22-5"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#byosd-documentingestion-__codelineno-22-6"></a><span class="nt">metadata</span><span class="p">:</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#byosd-documentingestion-__codelineno-22-7"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wrapper-creds</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#byosd-documentingestion-__codelineno-22-8"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#byosd-documentingestion-__codelineno-22-9"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+</p><div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#byosd-documentingestion-__codelineno-24-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#byosd-documentingestion-__codelineno-24-2"></a><span class="nt">stringData</span><span class="p">:</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#byosd-documentingestion-__codelineno-24-3"></a><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#byosd-documentingestion-__codelineno-24-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;WRAPPER_PASSWORD&gt;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#byosd-documentingestion-__codelineno-24-5"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#byosd-documentingestion-__codelineno-24-6"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#byosd-documentingestion-__codelineno-24-7"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wrapper-creds</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#byosd-documentingestion-__codelineno-24-8"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#byosd-documentingestion-__codelineno-24-9"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Create the secret by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#byosd-documentingestion-__codelineno-23-1"></a>oc apply -f wrapper-creds.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#byosd-documentingestion-__codelineno-25-1"></a>oc apply -f wrapper-creds.yaml
 </span></code></pre></div>
 </li>
 <li>
 <p>Obtain and record your cluster domain that is used for routes by running the following command.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#byosd-documentingestion-__codelineno-24-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
+<div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#byosd-documentingestion-__codelineno-26-1"></a>oc -n openshift-ingress-operator get ingresscontroller default -o jsonpath="{.status.domain}"
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">The output from the command does not include a newline.</p>
@@ -2270,63 +2305,63 @@ Sample output:
 <li>
 <p>In a text editor, create a file that is named <code>byos.yaml</code> and paste the following text in the file.</p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#byosd-documentingestion-__codelineno-25-1"></a>byos.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#byosd-documentingestion-__codelineno-27-1"></a>byos.yaml
 </span></code></pre></div>
 <p>Substitute the domain name recorded in the previous step for the string <code>&lt;YOUR_CLUSTER_DOMAIN&gt;</code>.</p>
 <p>File contents:
-</p><div class="highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#byosd-documentingestion-__codelineno-26-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#byosd-documentingestion-__codelineno-26-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#byosd-documentingestion-__codelineno-26-3"></a><span class="nt">metadata</span><span class="p">:</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#byosd-documentingestion-__codelineno-26-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">byosearch</span>
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#byosd-documentingestion-__codelineno-26-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#byosd-documentingestion-__codelineno-26-6"></a><span class="nt">spec</span><span class="p">:</span>
-</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#byosd-documentingestion-__codelineno-26-7"></a><span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
-</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#byosd-documentingestion-__codelineno-26-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr-pull-secret</span>
-</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#byosd-documentingestion-__codelineno-26-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#byosd-documentingestion-__codelineno-26-10"></a><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos-cluster</span>
-</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#byosd-documentingestion-__codelineno-26-11"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
-</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#byosd-documentingestion-__codelineno-26-12"></a>
-</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#byosd-documentingestion-__codelineno-26-13"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
-</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#byosd-documentingestion-__codelineno-26-14"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
-</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#byosd-documentingestion-__codelineno-26-15"></a>
-</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#byosd-documentingestion-__codelineno-26-16"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
-</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#byosd-documentingestion-__codelineno-26-17"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#byosd-documentingestion-__codelineno-26-18"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
-</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#byosd-documentingestion-__codelineno-26-19"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
-</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#byosd-documentingestion-__codelineno-26-20"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
-</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#byosd-documentingestion-__codelineno-26-21"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
-</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#byosd-documentingestion-__codelineno-26-22"></a>
-</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#byosd-documentingestion-__codelineno-26-23"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
-</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#byosd-documentingestion-__codelineno-26-24"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#byosd-documentingestion-__codelineno-26-25"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
-</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#byosd-documentingestion-__codelineno-26-26"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
-</span><span id="__span-26-27"><a id="__codelineno-26-27" name="__codelineno-26-27" href="#byosd-documentingestion-__codelineno-26-27"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-</span><span id="__span-26-28"><a id="__codelineno-26-28" name="__codelineno-26-28" href="#byosd-documentingestion-__codelineno-26-28"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"500Mi"</span>
-</span><span id="__span-26-29"><a id="__codelineno-26-29" name="__codelineno-26-29" href="#byosd-documentingestion-__codelineno-26-29"></a><span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
-</span><span id="__span-26-30"><a id="__codelineno-26-30" name="__codelineno-26-30" href="#byosd-documentingestion-__codelineno-26-30"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-</span><span id="__span-26-31"><a id="__codelineno-26-31" name="__codelineno-26-31" href="#byosd-documentingestion-__codelineno-26-31"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
-</span><span id="__span-26-32"><a id="__codelineno-26-32" name="__codelineno-26-32" href="#byosd-documentingestion-__codelineno-26-32"></a>
-</span><span id="__span-26-33"><a id="__codelineno-26-33" name="__codelineno-26-33" href="#byosd-documentingestion-__codelineno-26-33"></a><span class="w">  </span><span class="nt">clientIngestion</span><span class="p">:</span>
-</span><span id="__span-26-34"><a id="__codelineno-26-34" name="__codelineno-26-34" href="#byosd-documentingestion-__codelineno-26-34"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span>
-</span><span id="__span-26-35"><a id="__codelineno-26-35" name="__codelineno-26-35" href="#byosd-documentingestion-__codelineno-26-35"></a>
-</span><span id="__span-26-36"><a id="__codelineno-26-36" name="__codelineno-26-36" href="#byosd-documentingestion-__codelineno-26-36"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
-</span><span id="__span-26-37"><a id="__codelineno-26-37" name="__codelineno-26-37" href="#byosd-documentingestion-__codelineno-26-37"></a><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
-</span><span id="__span-26-38"><a id="__codelineno-26-38" name="__codelineno-26-38" href="#byosd-documentingestion-__codelineno-26-38"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
-</span><span id="__span-26-39"><a id="__codelineno-26-39" name="__codelineno-26-39" href="#byosd-documentingestion-__codelineno-26-39"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
-</span><span id="__span-26-40"><a id="__codelineno-26-40" name="__codelineno-26-40" href="#byosd-documentingestion-__codelineno-26-40"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
-</span><span id="__span-26-41"><a id="__codelineno-26-41" name="__codelineno-26-41" href="#byosd-documentingestion-__codelineno-26-41"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
-</span><span id="__span-26-42"><a id="__codelineno-26-42" name="__codelineno-26-42" href="#byosd-documentingestion-__codelineno-26-42"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
-</span><span id="__span-26-43"><a id="__codelineno-26-43" name="__codelineno-26-43" href="#byosd-documentingestion-__codelineno-26-43"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
-</span><span id="__span-26-44"><a id="__codelineno-26-44" name="__codelineno-26-44" href="#byosd-documentingestion-__codelineno-26-44"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
-</span><span id="__span-26-45"><a id="__codelineno-26-45" name="__codelineno-26-45" href="#byosd-documentingestion-__codelineno-26-45"></a><span class="w">    </span><span class="nt">pvc</span><span class="p">:</span>
-</span><span id="__span-26-46"><a id="__codelineno-26-46" name="__codelineno-26-46" href="#byosd-documentingestion-__codelineno-26-46"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
-</span><span id="__span-26-47"><a id="__codelineno-26-47" name="__codelineno-26-47" href="#byosd-documentingestion-__codelineno-26-47"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-26-48"><a id="__codelineno-26-48" name="__codelineno-26-48" href="#byosd-documentingestion-__codelineno-26-48"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
+</p><div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#byosd-documentingestion-__codelineno-28-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#byosd-documentingestion-__codelineno-28-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#byosd-documentingestion-__codelineno-28-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#byosd-documentingestion-__codelineno-28-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">byosearch</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#byosd-documentingestion-__codelineno-28-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#byosd-documentingestion-__codelineno-28-6"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#byosd-documentingestion-__codelineno-28-7"></a><span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#byosd-documentingestion-__codelineno-28-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr-pull-secret</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#byosd-documentingestion-__codelineno-28-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#byosd-documentingestion-__codelineno-28-10"></a><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos-cluster</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#byosd-documentingestion-__codelineno-28-11"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#byosd-documentingestion-__codelineno-28-12"></a>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#byosd-documentingestion-__codelineno-28-13"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#byosd-documentingestion-__codelineno-28-14"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#byosd-documentingestion-__codelineno-28-15"></a>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#byosd-documentingestion-__codelineno-28-16"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#byosd-documentingestion-__codelineno-28-17"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#byosd-documentingestion-__codelineno-28-18"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#byosd-documentingestion-__codelineno-28-19"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#byosd-documentingestion-__codelineno-28-20"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#byosd-documentingestion-__codelineno-28-21"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#byosd-documentingestion-__codelineno-28-22"></a>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#byosd-documentingestion-__codelineno-28-23"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#byosd-documentingestion-__codelineno-28-24"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#byosd-documentingestion-__codelineno-28-25"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#byosd-documentingestion-__codelineno-28-26"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+</span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#byosd-documentingestion-__codelineno-28-27"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</span><span id="__span-28-28"><a id="__codelineno-28-28" name="__codelineno-28-28" href="#byosd-documentingestion-__codelineno-28-28"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"500Mi"</span>
+</span><span id="__span-28-29"><a id="__codelineno-28-29" name="__codelineno-28-29" href="#byosd-documentingestion-__codelineno-28-29"></a><span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
+</span><span id="__span-28-30"><a id="__codelineno-28-30" name="__codelineno-28-30" href="#byosd-documentingestion-__codelineno-28-30"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</span><span id="__span-28-31"><a id="__codelineno-28-31" name="__codelineno-28-31" href="#byosd-documentingestion-__codelineno-28-31"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
+</span><span id="__span-28-32"><a id="__codelineno-28-32" name="__codelineno-28-32" href="#byosd-documentingestion-__codelineno-28-32"></a>
+</span><span id="__span-28-33"><a id="__codelineno-28-33" name="__codelineno-28-33" href="#byosd-documentingestion-__codelineno-28-33"></a><span class="w">  </span><span class="nt">clientIngestion</span><span class="p">:</span>
+</span><span id="__span-28-34"><a id="__codelineno-28-34" name="__codelineno-28-34" href="#byosd-documentingestion-__codelineno-28-34"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span>
+</span><span id="__span-28-35"><a id="__codelineno-28-35" name="__codelineno-28-35" href="#byosd-documentingestion-__codelineno-28-35"></a>
+</span><span id="__span-28-36"><a id="__codelineno-28-36" name="__codelineno-28-36" href="#byosd-documentingestion-__codelineno-28-36"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
+</span><span id="__span-28-37"><a id="__codelineno-28-37" name="__codelineno-28-37" href="#byosd-documentingestion-__codelineno-28-37"></a><span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
+</span><span id="__span-28-38"><a id="__codelineno-28-38" name="__codelineno-28-38" href="#byosd-documentingestion-__codelineno-28-38"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+</span><span id="__span-28-39"><a id="__codelineno-28-39" name="__codelineno-28-39" href="#byosd-documentingestion-__codelineno-28-39"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
+</span><span id="__span-28-40"><a id="__codelineno-28-40" name="__codelineno-28-40" href="#byosd-documentingestion-__codelineno-28-40"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
+</span><span id="__span-28-41"><a id="__codelineno-28-41" name="__codelineno-28-41" href="#byosd-documentingestion-__codelineno-28-41"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
+</span><span id="__span-28-42"><a id="__codelineno-28-42" name="__codelineno-28-42" href="#byosd-documentingestion-__codelineno-28-42"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+</span><span id="__span-28-43"><a id="__codelineno-28-43" name="__codelineno-28-43" href="#byosd-documentingestion-__codelineno-28-43"></a><span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+</span><span id="__span-28-44"><a id="__codelineno-28-44" name="__codelineno-28-44" href="#byosd-documentingestion-__codelineno-28-44"></a><span class="w">        </span><span class="nt">nvidia.com/gpu</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
+</span><span id="__span-28-45"><a id="__codelineno-28-45" name="__codelineno-28-45" href="#byosd-documentingestion-__codelineno-28-45"></a><span class="w">    </span><span class="nt">pvc</span><span class="p">:</span>
+</span><span id="__span-28-46"><a id="__codelineno-28-46" name="__codelineno-28-46" href="#byosd-documentingestion-__codelineno-28-46"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
+</span><span id="__span-28-47"><a id="__codelineno-28-47" name="__codelineno-28-47" href="#byosd-documentingestion-__codelineno-28-47"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-48"><a id="__codelineno-28-48" name="__codelineno-28-48" href="#byosd-documentingestion-__codelineno-28-48"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#byosd-documentingestion-__codelineno-27-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#byosd-documentingestion-__codelineno-29-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Change your selected namespace in the Web Console to view progress</p>
@@ -2386,7 +2421,7 @@ You are now ready to configure your assistant with the route to your <abbr title
 <details class="failure">
 <summary>The <strong>wxa4z-client-ingestion</strong> pod does not start</summary>
 <p>Did you include the <strong>%</strong> character in the <strong>clusterDomain</strong> name when creating the <strong>byos.yaml</strong>? To resolve, edit the <strong>byos.yaml</strong> file and run the following command again. The current pod will be terminated and a new one started. This will take about 20 minutes to start.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#byosd-documentingestion-__codelineno-28-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#byosd-documentingestion-__codelineno-30-1"></a>oc apply -f byos.yaml
 </span></code></pre></div>
 </details>
 <!-- Terminology -->
