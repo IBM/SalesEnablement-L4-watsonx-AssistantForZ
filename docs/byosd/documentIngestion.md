@@ -12,6 +12,20 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
+## Summary of new features for v2.2.3 of Z BYOSearch & RAG deployment
+
+The step-by-step instructions in this section will walk you through installing version 2.2.3 of BYOSearch with the corresponding RAG documentation. 
+
+**Details of the v2.2.3 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
+
+Key features include:
+
+- Tabular support for IBM documentation pre-ingested into the deployed zRAG
+
+- Conversational search scoping according to *product areas* now supported
+
+For more details on the filtering/scoping of product areas during conversational search, please refer to Step 10 of <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-configuring-your-conversational-search" target="_blank">this page</a>.
+
 ## Install the Red Hat OpenShift command line interface utility 
 The Red Hat OpenShift command line interface (CLI) utility, which is known as **oc**, must be installed on your local workstation. If you already installed the **oc** utility, you can proceed to [log in to the SNO cluster](#Login2OpenShift).
 
@@ -280,7 +294,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:1fc00683885bf9f41ab7df55091676eb305ff9c870a6fddffdc02bd503506ff8
+      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:6caba1a9aa9a0cb877385928af45c930b87281400e5b22d457e1238c3ba35718    
       publisher: 'IBM' 
       sourceType: grpc 
     ```
@@ -331,6 +345,34 @@ Before ingesting documents, complete the following setup steps.
 13. Verify the two pods that start with **ibm-wxa4z-operator** have a status of **Running** and that all pods are **Ready**.
 
     ![](_attachments/installAssistantOperator7.png)
+
+14. Once the operator install is complete, update the ***operator group*** to target the namespace where you will deploy BYOSearch.
+    
+    First, run the following command to retrieve the **unique** name of your operator group:
+
+    ```
+    oc -n wxa4z-operator get operatorgroup
+    ```
+    **Record the outputted operatorgroup as you will need it for the following step.**
+
+    !!! Warning "Your **operatorgroup** will be unique and look something like"
+
+        NAME                        AGE
+        wxa4z-operator-sv8j8        42s
+
+15. Finally, run the following command to update the list of targeted namespaces, where **`<operatorgroup-name>`** is substituted with ***your*** unique operator group name recorded in the previous step.
+    
+    ```
+    oc -n wxa4z-operator patch operatorgroup <operatorgroup-name> --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+    ```
+
+    !!! Warning "The command and corresponding output should like something like"
+        
+        oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+
+
+        operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched
+
 
 ### Deploy required secrets and the custom bring-your-own-search (BYOSearch) resources
 
