@@ -168,7 +168,7 @@ extra:
     orchestrateEnv: "https://techzone.ibm.com/my/reservations/create/66f6f414c428e2fc24fa1088"
     aapEnv: "https://techzone.ibm.com/my/reservations/create/66f806f842f6741b9e19f99c"
     snoEnv: "https://techzone.ibm.com/my/reservations/create/66f6f42ec428e2fc24fa1089"
-    hostedOpenSearchInstance: "https://wxa4z-opensearch-wrapper-wxa4z-sales-v2-1-0.wxa4z-cloud-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-east.containers.appdomain.cloud/v1/query"
+    hostedOpenSearchInstance: "https://wxa4z-opensearch-wrapper-wxa4z-sales-v2-2-3.wxa4z-cloud-47e063e6a3ad1f71bf2e58f91c3b4c2e-0000.us-east.containers.appdomain.cloud/v1/query"
     hostedOpenSearchID: "admin"
     hostedOpenSearchPW: "secureP@ssw0rd!"
   watsonx4Z:
