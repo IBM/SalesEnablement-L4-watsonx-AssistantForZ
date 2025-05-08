@@ -76,11 +76,11 @@
 
 7. Click the ellipses (![](../_attachments/ellipsesIcon.png)) for the **Db2 Reorg** skill and select **Enhance this skill**.
 
-    **enter screenshot**
+    ![](_attachments/db2-3.png)
 
 8.  Review the skill enhancement options and then click **Publish**.
 
-    **Enter SCreenshot**
+    ![](_attachments/db2-4.png)
 
 9.  **Challenge**: You also need to add the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app just like you did when creating the **Gather Facts** skill flow. Repeat steps 2 - 8 to add the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app. 
 
