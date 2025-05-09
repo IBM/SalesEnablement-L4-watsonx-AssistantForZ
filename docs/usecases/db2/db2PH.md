@@ -82,7 +82,9 @@
 
     ![](_attachments/db2-4.png)
 
-9.  **Challenge**: You also need to add the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app just like you did when creating the **Gather Facts** skill flow. Repeat steps 2 - 8 to add the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app. 
+9.  **Challenge**: You also need to import the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app just like you did when creating the **Gather Facts** skill flow. Repeat steps 2 - 8 to import the **Retrieve job output** and **Retrieve job status** utility skills to your **db2-error** app. 
+    
+    Once done, you should be able to see all 3 skills in your **Skills Catalog** in the **Published** state.
 
 
 ## Verify all the skills are successfully imported and create the app connection.
@@ -91,29 +93,21 @@
 
     ![](_attachments/c-skill-9a.png)
 
-2. Enter **db2-error** in the search bar.
+2. Enter **db2-error** in the search bar and click the application tile..
 
-    **Enter screenshot**
+    ![](_attachments/db2-5.png)
 
-3. Click the **db2-error** tile.
+3. Click **Add skill +** for each of the 3 skills in the db2-error app and then click **Connect app**.
 
-    **Enter screenshot**
+    ![](_attachments/db2-6.png)
 
-4. Click **Add skill +** for each of the 3 skills in the certs app.
+4. Enter your **AAP Username** and **AAP Password** and then click **Connect app**.
 
-    **Enter screenshot**
+    ![](_attachments/db2-7.png)
 
-5. Click **Connect app**.
+5. Verify that the app is connected.
 
-    **Enter screenshot**
-
-6. Enter your **AAP Username** and **AAP Password** and then click **Connect app**.
-
-    **Enter screenshot**
-
-7. Verify that the app is connected.
-
-    **Enter screenshot**
+    ![](_attachments/db2-8.png)
 
 ## Connect the app to the assistant.
 
@@ -127,16 +121,67 @@
 
 3. Enter **db2-error** in the search bar.
 
-    **Enter screenshot**
+    ![](_attachments/db2-9.png)
 
 4. Click the ellipses (![](../_attachments/ellipsesIcon.png)) for the *db2-error* app and select **Connect app**.
 
-    **Enter screenshot**
+    ![](_attachments/db2-10.png)
 
 5. Click **Connect app**.
 
-    **Enter screenshot**
+    ![](_attachments/db2-11.png)
 
 6. Enter your **AAP Username** and **AAP Password** and then click **Connect app**.
 
-    **Enter screenshot**
+    ![](_attachments/db2-12.png)
+
+## Create a skill flow to extract and display job completion details
+
+**The goal of this...**
+
+Recall in the AAP template you executed earlier the output that was displayed showing:
+
+- asfads
+- asdfa
+- asdf
+
+You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.
+
+1. Open **Skill studio** in watsonx Orchestrate. 
+   
+    ![](_attachments/c-skill-1a.png)
+   
+2. Click **Create** and then click **Skill flow**.
+
+    ![](_attachments/c-sf-2a.png) 
+
+3. Click the **+** icon.
+
+    ![](_attachments/c-sf-3a.png) 
+
+4. Click the **db2-error** app.
+
+    !!! Tip "Search on **db2-error** if you do not see the tile for your app."
+
+    ![](_attachments/db2-13.png)
+
+5. Click **Add Skill +** in the **Retrieve job output** tile.
+
+    ![](_attachments/db2-14.png)
+
+6. Click the **+** icon below the **Retrieve job output** skill. Next you'll add the **Input form** skill to extract certain output details. 
+
+    ![](_attachments/db2-15.png)
+
+7. Click the **Custom forms** app tile. 
+   
+    ![](_attachments/db2-16.png)
+
+8. Click **Add skill +** in the **Input form** tile. 
+   
+    ![](_attachments/db2-17.png)
+
+9. **Repeat steps 6 - 8** to add the **Output form** skill after the previous skill from the same ***Custom forms*** app. The resulting skill flow should like the following:
+    
+    ![](_attachments/db2-18.png)
+
