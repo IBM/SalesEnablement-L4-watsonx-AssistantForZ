@@ -224,3 +224,59 @@ Now that you have the skill flow built out, you will modify the inputs/outputs t
     Once done, you should see the following with all 3 Input Fields:
 
     ![](_attachments/db2-26.png)
+
+16. Next, you will add **transformations** to each of the input fields to extract the relevant information from the Ansible output. 
+    
+    Underneath the **Return Code** input field, click on **Add transformation +**.
+
+    ![](_attachments/db2-27.png)
+
+17. Click on the **Operator** drop-down and select **Get substring by regular expression**.
+    
+    ![](_attachments/db2-28.png)
+
+18. In the **Regular Expression** field, copy and paste the following string and then click **Add**.
+    
+    **Regular Expression**:
+    ```
+    (?<=Return Code: ).[^"]*
+    ```
+    
+    ![](_attachments/db2-29.png)
+
+19. Now repeat steps 16 - 18 for both the **Job ID** and **Image Copy DSN** Input fields, however, using the following reugular expressions for each:
+    
+    - **Job ID**: `(?<=Job ID: ).[^"]*`
+    - **Image Copy DSN**: `(?<=Image Copy DSN: ).[^"]*`
+  
+    Afterwards, you should have set regular expression transformations for all 3 Input fields:
+
+    ![](_attachments/db2-30.png)
+
+20. Next, you will modify the **Output form** skill tile to display the 3 transformed fields to the end-user.
+    
+    Click on the **Output form** skill tile within your skill flow.
+
+    ![](_attachments/db2-31.png)
+
+21. Click in the **Custom forms** field and enter `#` (the pound key, also known as the number sign or hash key).
+    
+    Typing the `#` opens a new dialog window. 
+
+    ![](_attachments/db2-32.png)
+
+22. Expand **Input form**, select **Return Code**, and then click **OK**. 
+    
+    ![](_attachments/db2-33.png)
+    
+    The result will look like the following:
+
+    ![](_attachments/db2-34.png)
+
+23. Now **repeat steps 20 - 22** to add the transformed outputs of the other 2 fields:
+    - **Job ID**
+    - **Image Copy DSN**
+
+    The result will look like the following:
+
+    **screenshot**
