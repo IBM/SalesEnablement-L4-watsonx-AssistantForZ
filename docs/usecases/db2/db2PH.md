@@ -185,3 +185,42 @@ You will build a skill flow that extracts this information from the Ansible auto
     
     ![](_attachments/db2-18.png)
 
+
+Now that you have the skill flow built out, you will modify the inputs/outputs to display useful information about the **Db2 Reorg** automation post-completion. 
+
+10. Click on the **Input form** tile and enter a **Form title**, such as ***Job completion details***.
+    
+    ![](_attachments/db2-19.png)
+
+11. Then click on **Add input field +**.
+    
+    ![](_attachments/db2-20.png)
+
+12. Select **Paragraph text** and then click **Next**. 
+    
+    ![](_attachments/db2-21.png)
+
+13. For this input field, enter a **Display label** of ***Return Code*** and then click **Apply**. 
+    
+    ![](_attachments/db2-22.png)
+
+14. Click on the resulting text box for the **Return Code** field. 
+    
+    ![](_attachments/db2-23.png)
+
+    Then in the  **Mapping data** window, select your **Retrieve job output** skill, and then click on the **content** skill output. 
+
+    ![](_attachments/db2-24.png)
+
+    The result should look like the following:
+
+    ![](_attachments/db2-25.png)
+
+15. Now **repeat steps 11 - 14** to add two more **Input fields** with **Display labels** titled:
+
+    - Job ID
+    - Image Copy DSN
+
+    Once done, you should see the following with all 3 Input Fields:
+
+    ![](_attachments/db2-26.png)
