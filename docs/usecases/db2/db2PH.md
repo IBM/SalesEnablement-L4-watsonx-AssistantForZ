@@ -279,4 +279,57 @@ Now that you have the skill flow built out, you will modify the inputs/outputs t
 
     The result will look like the following:
 
+    ![](_attachments/db2-35.png)
+
+24. To complete the skill flow, click on the **Retrieve job output** skill tile and hide both the Input and Output tabs. This disables the Retrieve job output skill form from being displayed. Instead, the job id from the Db2 Reorg skill will be automatically passed to the Retrieve job output skill as you will see later. 
+    
+    To do this, click on the **Retrieve job output** skill tile. 
+
+    ![](_attachments/db2-36.png)
+
+25. On the **Input** tab, click on the **Hide this form from the user** toggle as shown below to enable it. 
+    
+    ![](_attachments/db2-37.png)
+
+26. Next, click on the **Output** tab and, again, click on **Hide this form from the user** toggle.
+    
+    ![](_attachments/db2-38.png)
+
+27. Finally, click on the **Input form** skill tile in your skill flow and click on the toggle to **Hide this form from the user**. 
+    
+    ![](_attachments/db2-39.png)
+
+28. Before saving your skill flow, you must give it a name. Click on the **pencil** icon (![](../../skills/_attachments/pencilIcon.png)).
+
+    ![](_attachments/c-sf-35a.png)
+
     **screenshot**
+
+29. Enter `Job completion details` in the **Name** field and click **Save**. 
+    
+    **Name**:
+    ```
+    Job completion details
+    ```
+
+    **screenshot**
+
+30. Click **Actions** and then click **Save as draft**.
+
+    ![](_attachments/c-sf-37a.png)
+
+31. Click **Actions** and then click **Enhance**.
+
+    ![](_attachments/c-sf-38a.png)
+
+32. Review the skill flow settings and click **Publish**.
+
+    ![](_attachments/c-sf-39a.png)
+
+You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/OS certificate based on the certificate label the user provides.
+
+
+    
+
+
+
