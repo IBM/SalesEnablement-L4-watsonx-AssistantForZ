@@ -301,9 +301,7 @@ Now that you have the skill flow built out, you will modify the inputs/outputs t
 
 28. Before saving your skill flow, you must give it a name. Click on the **pencil** icon (![](../../skills/_attachments/pencilIcon.png)).
 
-    ![](_attachments/c-sf-35a.png)
-
-    **screenshot**
+    ![](_attachments/db2-40.png)
 
 29. Enter `Job completion details` in the **Name** field and click **Save**. 
     
@@ -312,24 +310,76 @@ Now that you have the skill flow built out, you will modify the inputs/outputs t
     Job completion details
     ```
 
-    **screenshot**
+    ![](_attachments/db2-41.png)
 
 30. Click **Actions** and then click **Save as draft**.
 
-    ![](_attachments/c-sf-37a.png)
+    ![](_attachments/db2-42.png)
 
 31. Click **Actions** and then click **Enhance**.
 
-    ![](_attachments/c-sf-38a.png)
+    ![](_attachments/db2-43.png)
 
 32. Review the skill flow settings and click **Publish**.
 
-    ![](_attachments/c-sf-39a.png)
+    ![](_attachments/db2-44.png)
 
-You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/OS certificate based on the certificate label the user provides.
+    You should then see your new skill flow in the **Skill Studio** titled **Job completion details** in the **Published state**:
 
+    ![](_attachments/db2-45.png)
 
-    
+**You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/OS certificate based on the certificate label the user provides.**
 
+## Add skills to your assistant as skill-based actions
+
+Next, you will add the imported skills, including your newly created skill flow to your assistant as **skill-based actions** in order to call them from a **custom-built action** you will later create to handle the Db2 error debugging flow a user may initiate via natural conversation. 
+
+In this section, you will add the following skills/skill flows to your assistant as **skill-based actions**:
+
+- **Db2 Reorg** - imported from AAP
+- **Retrieve job status** - imported from AAP as *utility skill*
+- **Retrieve job output** - imported from AAP as *utility skill*
+- **Job completion details** - skill flow you previously created to extract and return job-specific completion details
+  
+1. Open **AI assistant builder** in watsonx Orchestrate.
+
+    ![](_attachments/c-actions-1a.png)
+
+2. Click **Actions**.
+
+    ![](_attachments/c-actions-2a.png)
+
+3. Click **New action+**.
+
+    ![](_attachments/c-actions-3a.png)
+
+4. Click **Skill-based action**.
+
+    ![](_attachments/c-actions-4a.png)
+
+5. Click the **Db2 Reorg** tile and then click **Next**.
+
+    ![](_attachments/db2-46.png)
+
+6. Click **Cancel** on the **New action** dialog.
+
+    !!! Note "For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being run as the skill-based action, do not enter any example phrases."
+
+    ![](_attachments/db2-47.png)
+
+7. Click **x** to close the **Db2 Reorg** skill.
+
+    ![](_attachments/db2-48.png)
+
+8. Repeat steps 3 - 7 to create a skill-based action for the following skills and skill flow you previously added:
+   - **Retrieve job status**
+   - **Retrieve job output**
+   - **Job completion details**
+
+    !!! Note "These actions are also triggered from a custom-built action. Do not enter any example phrases."
+
+    When finished, all 4 new actions should appear in your **Actions list** similar to the following:
+
+    ![](_attachments/db2-49.png)
 
 
