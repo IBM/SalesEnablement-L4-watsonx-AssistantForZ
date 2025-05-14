@@ -20,7 +20,7 @@
     
     
       
-        <title>COMING SOON! - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
+        <title>db2PH - IBM watsonx Assistant for Z for Technical Sales Level 4 Lab Guide</title>
       
     
     
@@ -137,11 +137,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#coming-soon" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -174,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              COMING SOON!
+              db2PH
             
           </span>
         </div>
@@ -866,8 +861,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -883,7 +876,357 @@
 
 
 
-<div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#coming-soon" title="Permanent link">#</a></h1>
+  <h1>db2PH</h1>
+
+<div><p># Use case: Db2 Error Message Debugging</p>
+<p>Database Administrators (DBAs) often spend significant time performing many routine database management tasks. And may often require manual intervention, increasing the risk of human error, slowing down operations and reducing overall productivity. And especially for early-tenure staff members, the troubleshooting and diagnosing error messages can take longer than necessary due to knowledge gaps, manual processes and lack of automation. </p>
+<p>This scenario will show how a purpose-built assistant flow can help streamline the process of understanding a particular error message, generating accurate and current answers to questions, along with step-by-step guidance to learn more with conversational <abbr title="Artificial intelligence">AI</abbr>. Additionally, the assistant has the ability to recommend skills at different points in the conversation to help automate the resolution on their behalf, depending on the error message. This results in less time spent debugging error messages and improving the time-to-resolution of Db2 for z/<abbr title="Operating System">OS</abbr> errors.</p>
+<p>## Test the Db2 Reorg Ansible Automation in <abbr title="Ansible Automation Platform">AAP</abbr></p>
+<p><strong>placeholder</strong></p>
+<p>## Importing the Ansible Playbooks as Skills</p>
+<p>For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. </p>
+<p>The Ansible templates you will import are:</p>
+<ul>
+<li>Db2 Reorg</li>
+<li>Retrieve job output (<em>utility skill</em>)</li>
+<li>Retrieve job status (<em>utility skill</em>)</li>
+</ul>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-2a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-3a.png"></a></p>
+</li>
+<li>
+<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a> section earlier.</p>
+<p><strong>a</strong>: Connection Type: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ansible
+</span></code></pre></div>
+<p><strong>b</strong>: Application Name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>db2-error
+</span></code></pre></div>
+<p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: </p>
+<p>&lt;Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
+<p><strong>d</strong>: User Name: </p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Name (for <abbr title="User Interface">UI</abbr> access)&gt;</p>
+<p><strong>e</strong>: Password:</p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
+<p><strong>f</strong>: Search Pattern: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>*
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-1.png"></a></p>
+</li>
+<li>
+<p>Expand the <strong>Ansible Job Template Proj...</strong> folder and then click <strong>aap4zos</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-5a.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db-2.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <strong>Db2 Reorg</strong> skill and select <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-3.png"></a></p>
+</li>
+<li>
+<p>Review the skill enhancement options and then click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-4.png"></a></p>
+</li>
+<li>
+<p><strong>Challenge</strong>: You also need to import the <strong>Retrieve job output</strong> and <strong>Retrieve job status</strong> utility skills to your <strong>db2-error</strong> app just like you did when creating the <strong>Gather Facts</strong> skill flow. Repeat steps 2 - 8 to import the <strong>Retrieve job output</strong> and <strong>Retrieve job status</strong> utility skills to your <strong>db2-error</strong> app. </p>
+<p>Once done, you should be able to see all 3 skills in your <strong>Skills Catalog</strong> in the <strong>Published</strong> state.</p>
+</li>
+</ol>
+<h2 id="verify-all-the-skills-are-successfully-imported-and-create-the-app-connection">Verify all the skills are successfully imported and create the app connection.<a class="headerlink" href="#verify-all-the-skills-are-successfully-imported-and-create-the-app-connection" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill catalog</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-9a.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>db2-error</strong> in the search bar and click the application tile..</p>
+<p><a class="glightbox" href="../_attachments/db2-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-5.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> for each of the 3 skills in the db2-error app and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-6.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-7.png"></a></p>
+</li>
+<li>
+<p>Verify that the app is connected.</p>
+<p><a class="glightbox" href="../_attachments/db2-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-8.png"></a></p>
+</li>
+</ol>
+<h2 id="connect-the-app-to-the-assistant">Connect the app to the assistant.<a class="headerlink" href="#connect-the-app-to-the-assistant" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill sets</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-app-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-app-1.png"></a></p>
+</li>
+<li>
+<p>Select the <strong>Draft</strong> version of your assistant and click <strong>Connections</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-app-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-app-2.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>db2-error</strong> in the search bar.</p>
+<p><a class="glightbox" href="../_attachments/db2-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-9.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <em>db2-error</em> app and select <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-10.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-11.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-12.png"></a></p>
+</li>
+</ol>
+<h2 id="create-a-skill-flow-to-extract-and-display-job-completion-details">Create a skill flow to extract and display job completion details<a class="headerlink" href="#create-a-skill-flow-to-extract-and-display-job-completion-details" title="Permanent link">#</a></h2>
+<p><strong>The goal of this...</strong></p>
+<p>Recall in the <abbr title="Ansible Automation Platform">AAP</abbr> template you executed earlier the output that was displayed showing:</p>
+<ul>
+<li>asfads</li>
+<li>asdfa</li>
+<li>asdf</li>
+</ul>
+<p>You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.</p>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate. </p>
+<p><a class="glightbox" href="../_attachments/c-skill-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-2a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-3a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>db2-error</strong> app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Search on <strong>db2-error</strong> if you do not see the tile for your app.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/db2-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-13.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>Retrieve job output</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/db2-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-14.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon below the <strong>Retrieve job output</strong> skill. Next you'll add the <strong>Input form</strong> skill to extract certain output details. </p>
+<p><a class="glightbox" href="../_attachments/db2-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-15.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Custom forms</strong> app tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-16.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> in the <strong>Input form</strong> tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-17.png"></a></p>
+</li>
+<li>
+<p><strong>Repeat steps 6 - 8</strong> to add the <strong>Output form</strong> skill after the previous skill from the same <strong><em>Custom forms</em></strong> app. The resulting skill flow should like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-18.png"></a></p>
+</li>
+</ol>
+<p>Now that you have the skill flow built out, you will modify the inputs/outputs to display useful information about the <strong>Db2 Reorg</strong> automation post-completion. </p>
+<ol start="10">
+<li>
+<p>Click on the <strong>Input form</strong> tile and enter a <strong>Form title</strong>, such as <strong><em>Job completion details</em></strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-19.png"></a></p>
+</li>
+<li>
+<p>Then click on <strong>Add input field +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-20.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Paragraph text</strong> and then click <strong>Next</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-21.png"></a></p>
+</li>
+<li>
+<p>For this input field, enter a <strong>Display label</strong> of <strong><em>Return Code</em></strong> and then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-22.png"></a></p>
+</li>
+<li>
+<p>Click on the resulting text box for the <strong>Return Code</strong> field. </p>
+<p><a class="glightbox" href="../_attachments/db2-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-23.png"></a></p>
+<p>Then in the  <strong>Mapping data</strong> window, select your <strong>Retrieve job output</strong> skill, and then click on the <strong>content</strong> skill output. </p>
+<p><a class="glightbox" href="../_attachments/db2-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-24.png"></a></p>
+<p>The result should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-25.png"></a></p>
+</li>
+<li>
+<p>Now <strong>repeat steps 11 - 14</strong> to add two more <strong>Input fields</strong> with <strong>Display labels</strong> titled:</p>
+<ul>
+<li>Job ID</li>
+<li>Image Copy DSN</li>
+</ul>
+<p>Once done, you should see the following with all 3 Input Fields:</p>
+<p><a class="glightbox" href="../_attachments/db2-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-26.png"></a></p>
+</li>
+<li>
+<p>Next, you will add <strong>transformations</strong> to each of the input fields to extract the relevant information from the Ansible output. </p>
+<p>Underneath the <strong>Return Code</strong> input field, click on <strong>Add transformation +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-27.png"></a></p>
+</li>
+<li>
+<p>Click on the <strong>Operator</strong> drop-down and select <strong>Get substring by regular expression</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-28.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Regular Expression</strong> field, copy and paste the following string and then click <strong>Add</strong>.</p>
+<p><strong>Regular Expression</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(?&lt;=Return Code: ).[^"]*
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-29.png"></a></p>
+</li>
+<li>
+<p>Now repeat steps 16 - 18 for both the <strong>Job ID</strong> and <strong>Image Copy DSN</strong> Input fields, however, using the following reugular expressions for each:</p>
+<ul>
+<li><strong>Job ID</strong>: <code>(?&lt;=Job ID: ).[^"]*</code></li>
+<li><strong>Image Copy DSN</strong>: <code>(?&lt;=Image Copy DSN: ).[^"]*</code></li>
+</ul>
+<p>Afterwards, you should have set regular expression transformations for all 3 Input fields:</p>
+<p><a class="glightbox" href="../_attachments/db2-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-30.png"></a></p>
+</li>
+<li>
+<p>Next, you will modify the <strong>Output form</strong> skill tile to display the 3 transformed fields to the end-user.</p>
+<p>Click on the <strong>Output form</strong> skill tile within your skill flow.</p>
+<p><a class="glightbox" href="../_attachments/db2-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-31.png"></a></p>
+</li>
+<li>
+<p>Click in the <strong>Custom forms</strong> field and enter <code>#</code> (the pound key, also known as the number sign or hash key).</p>
+<p>Typing the <code>#</code> opens a new dialog window. </p>
+<p><a class="glightbox" href="../_attachments/db2-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-32.png"></a></p>
+</li>
+<li>
+<p>Expand <strong>Input form</strong>, select <strong>Return Code</strong>, and then click <strong>OK</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-33.png"></a></p>
+<p>The result will look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-34.png"></a></p>
+</li>
+<li>
+<p>Now <strong>repeat steps 20 - 22</strong> to add the transformed outputs of the other 2 fields:</p>
+<ul>
+<li><strong>Job ID</strong></li>
+<li><strong>Image Copy DSN</strong></li>
+</ul>
+<p>The result will look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-35.png"></a></p>
+</li>
+<li>
+<p>To complete the skill flow, click on the <strong>Retrieve job output</strong> skill tile and hide both the Input and Output tabs. This disables the Retrieve job output skill form from being displayed. Instead, the job id from the Db2 Reorg skill will be automatically passed to the Retrieve job output skill as you will see later. </p>
+<p>To do this, click on the <strong>Retrieve job output</strong> skill tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-36.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Input</strong> tab, click on the <strong>Hide this form from the user</strong> toggle as shown below to enable it. </p>
+<p><a class="glightbox" href="../_attachments/db2-37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-37.png"></a></p>
+</li>
+<li>
+<p>Next, click on the <strong>Output</strong> tab and, again, click on <strong>Hide this form from the user</strong> toggle.</p>
+<p><a class="glightbox" href="../_attachments/db2-38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-38.png"></a></p>
+</li>
+<li>
+<p>Finally, click on the <strong>Input form</strong> skill tile in your skill flow and click on the toggle to <strong>Hide this form from the user</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-39.png"></a></p>
+</li>
+<li>
+<p>Before saving your skill flow, you must give it a name. Click on the <strong>pencil</strong> icon (<a class="glightbox" href="../../../skills/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../skills/_attachments/pencilIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/db2-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-40.png"></a></p>
+</li>
+<li>
+<p>Enter <code>Job completion details</code> in the <strong>Name</strong> field and click <strong>Save</strong>. </p>
+<p><strong>Name</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Job completion details
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-41.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-42.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-43.png"></a></p>
+</li>
+<li>
+<p>Review the skill flow settings and click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-44.png"></a></p>
+<p>You should then see your new skill flow in the <strong>Skill Studio</strong> titled <strong>Job completion details</strong> in the <strong>Published state</strong>:</p>
+<p><a class="glightbox" href="../_attachments/db2-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-45.png"></a></p>
+</li>
+</ol>
+<p><strong>You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</strong></p>
+<h2 id="add-skills-to-your-assistant-as-skill-based-actions">Add skills to your assistant as skill-based actions<a class="headerlink" href="#add-skills-to-your-assistant-as-skill-based-actions" title="Permanent link">#</a></h2>
+<p>Next, you will add the imported skills, including your newly created skill flow to your assistant as <strong>skill-based actions</strong> in order to call them from a <strong>custom-built action</strong> you will later create to handle the Db2 error debugging flow a user may initiate via natural conversation. </p>
+<p>In this section, you will add the following skills/skill flows to your assistant as <strong>skill-based actions</strong>:</p>
+<ul>
+<li><strong>Db2 Reorg</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr></li>
+<li><strong>Retrieve job status</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr> as <em>utility skill</em></li>
+<li><strong>Retrieve job output</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr> as <em>utility skill</em></li>
+<li><strong>Job completion details</strong> - skill flow you previously created to extract and return job-specific completion details</li>
+</ul>
+<ol>
+<li>
+<p>Open <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-2a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New action+</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-3a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Skill-based action</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-4a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Db2 Reorg</strong> tile and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-46.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Cancel</strong> on the <strong>New action</strong> dialog.</p>
+<div class="admonition note">
+<p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being run as the skill-based action, do not enter any example phrases.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/db2-47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-47.png"></a></p>
+</li>
+<li>
+<p>Click <strong>x</strong> to close the <strong>Db2 Reorg</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/db2-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-48.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 3 - 7 to create a skill-based action for the following skills and skill flow you previously added:
+   - <strong>Retrieve job status</strong>
+   - <strong>Retrieve job output</strong>
+   - <strong>Job completion details</strong></p>
+<div class="admonition note">
+<p class="admonition-title">These actions are also triggered from a custom-built action. Do not enter any example phrases.</p>
+</div>
+<p>When finished, all 4 new actions should appear in your <strong>Actions list</strong> similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-49.png"></a></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
