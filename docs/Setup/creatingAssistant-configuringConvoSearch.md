@@ -55,15 +55,25 @@ A high-level, logical architecture of the environment is illustrated in the foll
 
     ![](_attachments/cloudWOButton.png)
 
-4. Click the **AI assistant builder** tile to start creating a new assistant.
+4. **Request a skills-based tenant of watsonx Orchestrate**
+   
+   As of April 30, 2025, all new tenants of the watsonx Orchestrate environment you provision will default to the new agentic experience. In order to complete the exercises in this guide to setup a wxa4z demo or pilot environment, you will be required to take a manual step to revert your tenant back to the ***skills-based experience***. 
+
+   This can be done by following the instructions outlined <a href="https://w3.ibm.com/w3publisher/watsonx-orchestrate/access/skill-based-tenants" target="_blank">here</a>.
+   
+
+   For **Business Partners**, please reach out to your IBM contact to assist you with this step.  
+
+    
+5. Click the **AI assistant builder** tile to start creating a new assistant.
 
     ![](_attachments/cloudWOAIAssistantBuilder.png)
 
-5.  Enter a name and optional description for your assistant and click **Next**.
+6.  Enter a name and optional description for your assistant and click **Next**.
 
     ![](_attachments/createAssistant1.png)
 
-6.  Complete the **Personalize your assistant** form and click **Next**.
+7.  Complete the **Personalize your assistant** form and click **Next**.
 
     Explore the personalization options. In creating an assistant for a client pilot, consider specifying attributes that align with the client's business.
 
@@ -77,13 +87,13 @@ A high-level, logical architecture of the environment is illustrated in the foll
 
     ![](_attachments/createAssistant2.png)
 
-7.  Complete the **Customize your chat UI** form and click **Next**.
+8.  Complete the **Customize your chat UI** form and click **Next**.
 
     Explore the customization options. When creating an assistant for a client pilot, consider specifying attributes that align with the client (for example, colors and logos).
 
     ![](_attachments/createAssistant3.png)
 
-8.  Preview your assistant and then click **Create**.
+9.  Preview your assistant and then click **Create**.
 
     ![](_attachments/createAssistant4.png)
 
