@@ -383,3 +383,58 @@ In this section, you will add the following skills/skill flows to your assistant
     ![](_attachments/db2-49.png)
 
 
+## Create a custom-built action for Db2 error Debugging
+
+Next, you will create a custom-built action that handles the end-to-end debugging process when a user reports a Db2 error message. The steps in this section illustrate one way of accomplishing this. 
+
+### Provide error message troubleshooting
+
+The expected prompt when a user has to begin the debugging process may be something like ***I need help debugging***. 
+
+Lets create a custom-built action to handle this. 
+
+1. Click **New action +**. 
+   
+   **screenshot**
+
+2. Click **Custom-built action**. 
+   
+   **screenshot**
+
+3. Enter ***I need help debugging*** and then click **Save**. 
+   
+   **screenshot**
+
+4. In the **Step 1** tile, in the **Assistant says** text box, type ***Please provide the error message***. 
+
+    **screenshot**
+
+5. Click the **Define customer response** option list and select **Free text** 
+   
+   **screenshot**
+    
+    This will prompt the user to enter their error message. 
+
+6. Click **New step +**. 
+   
+   **screenshot**
+
+7. In the **Step 2** tile, click the **Is taken** option list and select **with conditions**
+   
+   Then click the **And then** drop down and select **Search for the answer**. 
+
+   **screenshot**
+
+8. Click **Edit settings**, and in the **custom search query** field, enter the following prompt:
+   
+   `What is Db2 for z/OS error message`
+
+   Followed by that text, enter the `$` symbol to select a variable. In the pop-up window, select **Action step variables** --> **1. Please provide the error message**.
+
+   **screenshot**
+
+    Then click **Apply**. 
+
+    **screenshot**
+
+9. 
