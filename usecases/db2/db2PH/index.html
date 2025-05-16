@@ -1227,6 +1227,57 @@
 <p><a class="glightbox" href="../_attachments/db2-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-49.png"></a></p>
 </li>
 </ol>
+<h2 id="create-a-custom-built-action-for-db2-error-debugging">Create a custom-built action for Db2 error Debugging<a class="headerlink" href="#create-a-custom-built-action-for-db2-error-debugging" title="Permanent link">#</a></h2>
+<p>Next, you will create a custom-built action that handles the end-to-end debugging process when a user reports a Db2 error message. The steps in this section illustrate one way of accomplishing this. </p>
+<h3 id="provide-error-message-troubleshooting">Provide error message troubleshooting<a class="headerlink" href="#provide-error-message-troubleshooting" title="Permanent link">#</a></h3>
+<p>The expected prompt when a user has to begin the debugging process may be something like <strong><em>I need help debugging</em></strong>. </p>
+<p>Lets create a custom-built action to handle this. </p>
+<ol>
+<li>Click <strong>New action +</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>Click <strong>Custom-built action</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>Enter <strong><em>I need help debugging</em></strong> and then click <strong>Save</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>
+<p>In the <strong>Step 1</strong> tile, in the <strong>Assistant says</strong> text box, type <strong><em>Please provide the error message</em></strong>. </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong> </p>
+</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<div class="highlight"><pre><span></span><code>This will prompt the user to enter their error message.
+</code></pre></div>
+<ol start="6">
+<li>Click <strong>New step +</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="7">
+<li>In the <strong>Step 2</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong></li>
+</ol>
+<p>Then click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>. </p>
+<p><strong>screenshot</strong></p>
+<ol start="8">
+<li>Click <strong>Edit settings</strong>, and in the <strong>custom search query</strong> field, enter the following prompt:</li>
+</ol>
+<p><code>What is Db2 for z/OS error message</code></p>
+<p>Followed by that text, enter the <code>$</code> symbol to select a variable. In the pop-up window, select <strong>Action step variables</strong> --&gt; <strong>1. Please provide the error message</strong>.</p>
+<p><strong>screenshot</strong></p>
+<div class="highlight"><pre><span></span><code>Then click **Apply**.
+
+**screenshot**
+</code></pre></div>
+<ol start="9">
+<li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
