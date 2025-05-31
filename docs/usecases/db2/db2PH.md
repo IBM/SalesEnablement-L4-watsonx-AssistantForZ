@@ -141,9 +141,9 @@
 
 Recall in the AAP template you executed earlier the output that was displayed showing:
 
-- asfads
-- asdfa
-- asdf
+- placeholder
+- placeholder
+- placeholder
 
 You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.
 
@@ -405,27 +405,30 @@ Lets create a custom-built action to handle this.
    
    **screenshot**
 
-4. In the **Step 1** tile, in the **Assistant says** text box, type ***Please provide the error message***. 
+### Step 1 
+
+1. In the **Step 1** tile, in the **Assistant says** text box, type ***Please provide the error message***. 
 
     **screenshot**
 
-5. Click the **Define customer response** option list and select **Free text** 
+2. Click the **Define customer response** option list and select **Free text** 
    
    **screenshot**
     
     This will prompt the user to enter their error message. 
 
-6. Click **New step +**. 
+3. Click **New step +**. 
    
    **screenshot**
 
-7. In the **Step 2** tile, click the **Is taken** option list and select **with conditions**
+### Step 2
+1. In the **Step 2** tile, click the **Is taken** option list and select **with conditions**
    
    Then click the **And then** drop down and select **Search for the answer**. 
 
    **screenshot**
 
-8. Click **Edit settings**, and in the **custom search query** field, enter the following prompt:
+2. Click **Edit settings**, and in the **custom search query** field, enter the following prompt:
    
    `What is Db2 for z/OS error message`
 
@@ -437,4 +440,292 @@ Lets create a custom-built action to handle this.
 
     **screenshot**
 
-9. 
+3. Click **New step +**.
+   
+### Step 3
+
+1. In the **Step 3** tile, click the **Is taken** option list and select **with conditions**. Leave the defaults.
+   
+2. In the **Assistant says** field, type ***Is there anything else I can help you with?***. 
+   
+3. Click the **Define customer response** option list and select **Confirmation**. 
+   
+   **screenshot**
+
+   This will prompt the user to select Yes/No. 
+
+4. Click **New step +**.
+
+### Step 4
+
+1. In the **Step 4** tile, click the **Is taken** option list and select **with conditions**. Leave the defaults. 
+   
+2. In the **Assistant says** field, type ***What can I help you with?***. 
+   
+3. Click the **Define customer response** option list and select **Freee text**. 
+
+4. Click on the **And then** drop-down and select **Search for the answer** 
+
+5. Click **New step +**. 
+
+### Step 5
+
+1. In the **Step 5** tile, click the **Is taken** option list and select **with conditions**. This time you will change the defaults. 
+
+2. In the default condition that is displayed, click on the ***"is"*** option and instead select ***contains***. 
+
+3. In the field to the right of that where it says **Enter a string**, type ***reorg***.
+   
+   **screenshot**
+
+   This will handle the logic in the case where the user prompts the assistant about performing a reorg. 
+
+4. In the **Assistant says** field, type ***Would you like to run a skill to execute a table space reorg?***. 
+
+5. Click the **Define customer response** option list and select **Confirmation**. 
+
+6. Click **New step +**. 
+
+### Step 6
+
+1. In the **Step 6** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. Now you'll configure the assistant to begin gathering the needed information to perform the Db2 reorg. 
+   
+   In the **Assistant says** field, type ***Please provide the Db2 subsystem name***. 
+
+3. Click the **Define customer response** option list and select **Free text**. 
+
+4. Click **New step +**.
+
+### Step 7
+
+1. In the **Step 7** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. In the **Assistant says** field, type ***Please provide the database name***.
+
+3. Click the **Define customer response** option list and select **Free text**. 
+
+4. Click **New step +**.
+
+### Step 8 
+
+1. In the **Step 8** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. In the **Assistant says** field, type ***Please provide the table space name***.
+
+3. Click the **Define customer response** option list and select **Free text**. 
+
+4. Click **New step +**.
+
+### Step 9 
+
+1. Now you will define the logic in the case that the user specified earlier that they would like to perform the rerorg. This will involve triggering the **Db2 reorg** sub-action that you previously defined as a skill-based action. 
+   
+   In the **Step 9** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. In the **Assistant says** field, type ***Running the Db2 Reorg skill based on the above input***.
+
+3. Click on the **And then** drop-down and select **Go to a subaction**. 
+
+4. In the **Subaction** window, click on the ***Select an action*** field, and select the **Db2 Reorg** subaction. 
+   
+5. Then click **Apply**. 
+
+6. Click **Edit passed values**. 
+
+   Edit the passed values to use them in the **Db2 Reorg** skill subaction. 
+
+7. Click **Set new value +** and then select the ***extra_vars.sub*** variable. 
+
+
+8. In the **To** field, select **Action step variables**. 
+
+9. Click ***6. Please provide the Db2 subsystem name***. 
+
+10. Repeat steps 7 - 9 to add two additional passed values:
+    
+    - Set **extra_vars.db** --> **7. Please provide the database name**
+    - Set **extra_vars.ts** --> **8. Please provide the table space name**
+
+    The result should look like the following:
+
+    **screenshot**
+
+11. Once done, click **Apply**. 
+
+12. Click **New step +**.
+
+### Step 10
+
+1. This step will handle the logic in the case that the skill is being run and providing a status update on the job. 
+   
+    In the **Step 10** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. In the **Assistant says** field, type ***Job not yet ready. Would you like to check the job status?***.
+
+3. Click the **Define customer response** option list and select **Confirmation**. 
+
+4. Click **New step +**.
+
+### Step 11
+
+1. This step will handle the logic given that the user previously selected **Yes**. 
+   
+   In the **Step 11** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
+
+2. Click on the **And then** drop-down and select **Go to a subaction**. 
+
+3. In the **Subaction** window, click on the ***Select an action*** field, and select the **Retrieve job status** subaction. 
+   
+4. Then click **Apply**. 
+
+5. Click **Edit passed values**. 
+
+6. Click **Set new value +** and then select the ***1. id*** variable. 
+
+7. In the **To** field, select the **Expression** option. 
+   
+   This will display a text box where you will next enter in a regular expression to pass the Job ID of the previously run **Db2 Reorg** skill to the **Retrieve job status** utility skill. 
+
+8. In the **Expression** text box, enter `$` which will display an option list for referencing a variable. 
+
+9. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+
+    This will autofill the variable reference in the expression text box as shown below. 
+
+10. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+
+11. Finally, click **Apply** to save the regular expression. 
+    
+    The new passed value should look similar to the following:
+
+12. Then click **Apply** again. 
+
+13. Finally, click **New step +**.
+
+### Step 12
+
+1. Now you will handle the logic in the case that the **Db2 Reorg** job hasn't yet completed. 
+   
+   In the **Step 12** tile, click the **Is taken** option list and select **with conditions**. This time, you will modify the default condition. 
+
+2. In the default condition, click on the first part of the condition labeled ***10. Job not yet ready*** and instead select **Expression** from the drop-down list. 
+
+   This will then present a field to enter a regular expression. 
+
+3. Click on the ***Expand*** icon to the right of the field to enter the text box in full display. 
+
+4. You will now enter an expression to create the condition that the previously ran **Retrieve job status** skill outputted anything other than **Successful**, indicating that the **Db2 Reorg** job hasn't completed yet. 
+   
+   In the **Expression Editor** text box, enter a `$` which will display an option list for referencing a variable. 
+
+5. Select **Retrieve job status (step 11)** and then **1. Retrieve job status result variable** 
+
+   **screenshot**
+
+   The result will look something like this:
+
+   **screenshot**
+
+6. Following the variable reference, type `.status` as shown below:
+   
+   *screenshot**
+
+7. Then set the condition that the status **does not** equal **successful** by entering a space followed by `!= 'successful'`
+   
+   The full regular expression should look like the following:
+
+   **screenshot**
+
+8. Then click **Apply** to save your changes.
+   
+9. In the case that the job hasn't completed, the assistant will repeat steps 10-11. 
+    
+    Click on the **And then** drop-down and select **Re-ask previous step(s)**.
+
+10. In the new **Settings** window, *select the checkboxes* for **Steps 10 and 11** as shown below. 
+    
+    **screenshot**
+
+11. Then click **Apply**. 
+
+12. Finally, click **New step +**.
+
+### Step 13
+
+1. Now you will handle the logic in the case that the **Db2 Reorg** job has completed. 
+   
+   In the **Step 13** tile, click the **Is taken** option list and select **with conditions**. This time, you will modify the default condition. 
+
+2. In the default condition, click on the first part of the condition labeled ***10. Job not yet ready*** and instead select **Expression** from the drop-down list. 
+
+   This will then present a field to enter a regular expression. 
+
+3. Just as you did in the previous step, click on the ***Expand*** icon to the right of the field to enter the text box in full display. 
+
+4. You will now enter an expression to create the condition that the previously ran **Retrieve job status** skill outputted a **Successful** message, indicating that the **Db2 Reorg** job has completed. 
+   
+   In the **Expression Editor** text box, enter a `$` which will display an option list for referencing a variable. 
+
+5. Select **Retrieve job status (step 11)** and then **1. Retrieve job status result variable** 
+
+   **screenshot**
+
+   The result will look something like this:
+
+   **screenshot**
+
+6. Following the variable reference, type `.status` as shown below:
+   
+   *screenshot**
+
+7. Then set the condition that the status **does** equal **successful** by entering a space followed by `== 'successful'`
+   
+   The full regular expression should look like the following:
+
+   **screenshot**
+
+8. Then click **Apply** to save your changes.
+
+9. In the case that the job did successfully complete, the assistant will inform the user. 
+    
+    In the **Assistant says** text box, type ***The job has completed successfully***. 
+
+10. Then click **New step +**. 
+
+### Step 14
+
+1. You will now handle the logic following the successful completion of the **Db2 Reorg** skill to give the user an option on what they'd like to do:
+   - **Get the full job output** - retrieve and display the full log of the job
+   - **View the job completion details** - extract and display key details from the job completion using the skill flow you previously created
+   - **Exit**
+
+    **Challenge**: Create the same condition used in the previous step defining the logic that the output of the **Retrieve job status** equals **successful**. 
+
+    Once done, the condition for **Step 14** should look like the following:
+    
+    **Screenshot**
+
+2. In the **Assistant says** text box, type ***What would you like to do?*** in order to prompt the user to select a following option. 
+
+3. Click on the **Define customer response** option list and select **Options**. 
+
+4. Now enter the following options:
+   - *Get full job output*
+   - *View job completion details*
+   - *Exit*
+   
+   The options should look like the following:
+   **Screenshot**
+
+5. Then click **Apply** to save your changes. 
+
+6. Click on the **Settings** icon and then select **Always ask for this information, regardless of previous messages.** to ensure the user is always asked. 
+
+   Then click **Apply**. 
+
+7. Then click **New step +**. 
+
+### Step 15
+
