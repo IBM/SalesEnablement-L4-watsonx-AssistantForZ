@@ -1656,6 +1656,288 @@
 <li>Then click <strong>New step +</strong>. </li>
 </ol>
 <h3 id="step-15">Step 15<a class="headerlink" href="#step-15" title="Permanent link">#</a></h3>
+<ol>
+<li>This step will handle the logic on condition that the user selected the <strong>View job completion details</strong> in the previous step. </li>
+</ol>
+<p>In the <strong>Step 15</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will again modify the default condition. </p>
+<ol start="2">
+<li>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>Retrieving job completion details</em></strong>. </p>
+</li>
+<li>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Job completion details</strong> subaction, which is the skill flow you previously created. </p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>. </p>
+</li>
+</ol>
+<p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to the skill flow. </p>
+<ol start="8">
+<li>
+<p>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Expression</strong>. </p>
+<p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Expressions</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p>This will autofill the variable reference in the expression text box as shown below. </p>
+</li>
+<li>
+<p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+</li>
+<li>
+<p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
+<p>The new passed value should look similar to the following:</p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong> again. </p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>.</p>
+</li>
+</ol>
+<h3 id="step-16">Step 16<a class="headerlink" href="#step-16" title="Permanent link">#</a></h3>
+<ol>
+<li>In the previous step, if the user selected the <strong>View job completion details</strong> option, the skill flow you created will get executed and return the extracted job completion details for the <strong>Db2 Reorg</strong> skill. </li>
+</ol>
+<p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next - i.e. <strong><em>Get the full job output</em></strong> or <strong><em>Exit</em></strong> the current conversation altogether. </p>
+<p>To configure this, in the <strong>Step 16</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just like you did in the previous step, you will again modify the default condition, specifying that the user previously selected the <strong>View job completion details</strong>. </p>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </p>
+<ol start="2">
+<li>
+<p>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </p>
+</li>
+<li>
+<p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 and 15</strong> as shown below. </p>
+</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>. </p>
+</li>
+</ol>
+<h3 id="step-17">Step 17<a class="headerlink" href="#step-17" title="Permanent link">#</a></h3>
+<ol>
+<li>In this step, you'll configure the condition that the user previously selected the <strong>Get full job output</strong> option. </li>
+</ol>
+<p>To configure this, in the <strong>Step 17</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option in step 14. </p>
+<ol start="2">
+<li>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></p>
+</li>
+<li>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Retrieve job output</strong> subaction. </p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>. </p>
+</li>
+</ol>
+<p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to <strong>Retrieve job output</strong> utility skill. </p>
+<ol start="7">
+<li>
+<p>Click <strong>Set new value</strong> and then select the <strong><em>1. id</em></strong> variable. </p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, select <strong>Expression</strong>. </p>
+</li>
+</ol>
+<p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
+<ol start="9">
+<li>
+<p>In the <strong>Expressions</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p>This will autofill the variable reference in the expression text box as shown below. </p>
+</li>
+<li>
+<p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+</li>
+<li>
+<p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
+<p>The new passed value should look similar to the following:</p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong> again. </p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>. </p>
+</li>
+</ol>
+<h3 id="step-18">Step 18<a class="headerlink" href="#step-18" title="Permanent link">#</a></h3>
+<ol>
+<li>In the previous step, if the user selected the <strong>Get full job output</strong> option, the <strong>Retrieve job output</strong> skill will get executed and return the full output log of the <strong>Db2 Reorg</strong> skill. </li>
+</ol>
+<p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next.</p>
+<p>To configure this, in the <strong>Step 18</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just as in the previous step, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option. </p>
+<ol start="2">
+<li>
+<p>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </p>
+</li>
+<li>
+<p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 - 17</strong> as shown below. </p>
+</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>. </p>
+</li>
+</ol>
+<h3 id="step-19">Step 19<a class="headerlink" href="#step-19" title="Permanent link">#</a></h3>
+<ol>
+<li>This will be the final step in the <strong>custom-built action</strong> you're creating to handle the condition that the user selected the <strong>Exit</strong> option previously. </li>
+</ol>
+<p>In this case, the assistant guided conversation will conclude and the action should end. </p>
+<p>To configure this, in the <strong>Step 19</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Now you will modify the default condition, specifying that the user previously selected the <strong>Exit</strong> option. </p>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>Exit</strong>. </p>
+<ol start="2">
+<li>Lastly, click on the <strong>And then</strong> drop-down and select <strong>End the action</strong>. </li>
+</ol>
+<p><strong>IMPORTANT</strong>: Make sure to save the entire action before exiting the action view by <strong>clicking on the save icon</strong> in the top-right corner of the screen.</p>
+<p><strong>screenshot</strong></p>
+<p><strong><em>This concludes the creation of your custom-built action and you will next be able to test out the flow</em></strong>.  </p>
+<h2 id="demonstrate-the-assistant-action">Demonstrate the assistant action<a class="headerlink" href="#demonstrate-the-assistant-action" title="Permanent link">#</a></h2>
+<p>Now that you have fully configured your <strong>custom-built action</strong> to handle the Db2 error troubleshooting process, you will next be able to demonstrate the end-to-end flow. </p>
+<p>To do this, first open the <strong>Preview</strong> screen within the <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong>. </p>
+<p><strong>screenshot</strong></p>
+<p>To begin the conversation that an early-tenure DBA may have with the assistant to start the debugging process following the discovery of a Db2 for z/<abbr title="Operating System">OS</abbr> error message, they might prompt the assistant with something like:  <strong><em>I need help debugging a Db2 for z/<abbr title="Operating System">OS</abbr> error message</em></strong>. </p>
+<ol>
+<li>Enter the following text in the assistant to begin the flow:</li>
+</ol>
+<p><strong>Prompt:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>I need help debugging a Db2 for z/OS error message.
+</span></code></pre></div>
+<p>As was configured previously, the assistant asks for more details in order to help debug as shown below: </p>
+<p><a class="glightbox" href="../_attachments/db2error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-1.png"></a></p>
+<ol start="2">
+<li>In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code <strong>00C9009D</strong>. </li>
+</ol>
+<p>Enter <strong>00C9009D</strong> in response to the assistant asking for the error message:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>00C9009D
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-2.png"></a></p>
+<ol start="3">
+<li>The assistant then outputs a very detailed explanation for the Db2 for z/<abbr title="Operating System">OS</abbr> error message, including the <strong>System action</strong>, the <strong>System Programmer Response</strong>, <strong>User Response</strong>, as well as <strong>Problem Determination</strong> with additional information as shown below:</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/db2error-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-3.png"></a></p>
+<p>Based on the information provided, the DBA understand that the error occurred due to lack of sufficient space in the relevant table space. And one solution would be to <strong><em>run the REORG TABLESPACE</em></strong> utility to attempt to claim additional free space. Additionally, they understand that the the table space in question could be identified from the <strong>DSNT501I</strong> error message. </p>
+<p>In addition to providing that detailed response, the assistant then asks <strong><em>Is there anything else I can help you with?</em></strong></p>
+<p>The DBA would like to get more details on the tablespace reorg process in order to resolve the issue, so they respond to the assistant by clicking <strong>Yes</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2error-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-4.png"></a></p>
+<ol start="4">
+<li>After clicking <strong>Yes</strong>, the assistant responds asking <strong><em>What can I help you with?</em></strong></li>
+</ol>
+<p>From here, the DBA prompts the assistant with <strong><em>What are the steps to execute a reorg of a Db2 for z/<abbr title="Operating System">OS</abbr> table space?</em></strong></p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>What are the steps to execute a reorg of a Db2 for z/OS table space?
+</span></code></pre></div>
+   <a class="glightbox" href="../_attachments/db2error-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-5.png"></a>
+<ol start="5">
+<li>Again, the assistant provides very detailed guidance on some of the planning considerations and execution of performing a Reorg of a Db2 table space. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/db2error-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-6.png"></a></p>
+<p>Following the response, the assistant asks the user: <strong><em>Would you like to run a skill to execute a table space reorg?</em></strong> 
+   This was because the user prompted the assistant with a question related to a Db2 reorg. </p>
+<p>The user then decides to click <strong>Yes</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2error-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-7.png"></a></p>
+<ol start="6">
+<li>At this point in the flow, the assistant begins collecting information needed in order to perform the reorg via Ansible Automation. </li>
+</ol>
+<p>The assistant responds <strong><em>Please provide the Db2 subsystem name</em></strong>. </p>
+<p>The user will then respond with <strong>DBC1</strong> as their Db2 for z/<abbr title="Operating System">OS</abbr> subsytem name. </p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>DBC1
+</span></code></pre></div>
+   <a class="glightbox" href="../_attachments/db2error-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-8.png"></a>
+<ol start="7">
+<li>The assistant then comes back asking to <strong><em>Please provide the database name</em></strong>. </li>
+</ol>
+<p>The user responds with <strong>DSN8D12A</strong> as their database name.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>DSN8D12A
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-9.png"></a></p>
+<ol start="8">
+<li>Finally, the assistant asks <strong><em>Please provide the table space name</em></strong>. </li>
+</ol>
+<p>The user responds with <strong>DSN8S12E</strong> as their table space name. </p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DSN8S12E
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-10.png"></a></p>
+<ol start="9">
+<li>
+<p>After providing all 3 pieces of information, the assistant displays the ansible job form for performing the Db2 Reorg and contains all  3 details the user just provided. </p>
+<p><a class="glightbox" href="../_attachments/db2error-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-11.png"></a></p>
+<p>The user will then click <strong>Apply</strong> to kick of the job execution. </p>
+<p><a class="glightbox" href="../_attachments/db2error-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-12.png"></a></p>
+</li>
+<li>
+<p>After submitting the job, we see that it's in a <strong>Pending</strong> status and the assistant informs the user: <strong><em>Job not yet ready. Would you like to check the job status?</em></strong></p>
+<p>From here, the user selects <strong>Yes</strong>. </p>
+<p><strong>screeshot</strong></p>
+</li>
+<li>
+<p>Depending on how long waited, the job status may come back as still <strong>Running</strong> or <strong>Successful</strong>. </p>
+<p>In the case of a <strong>Successful</strong> message as shown below, the assistant informs the user that <strong><em>The job has completed successfully</em></strong> and then asks what the user would like to do next, presenting 3 options:</p>
+<ul>
+<li><strong><em>Get full job output</em></strong></li>
+<li><strong><em>View job completion details</em></strong></li>
+<li><strong><em>Exit</em></strong></li>
+</ul>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select <strong>View job completion details</strong>. </p>
+<p><strong>screenshot</strong></p>
+<p>In the output, the user can see the job completed with a Return Code of <code>0</code>, indicating a successful job completion with no errors or warnings. </p>
+<p>They can also view the <code>Job ID</code> value if they want to explore the logs in further detail. </p>
+</li>
+<li>
+<p>Following those details, the assistant returns by again asking what the user would like to do next. </p>
+<p>In addition to providing the extracted summary of the job completion, the assistant is also able to provide the full job log if the user would like to investigate. </p>
+<p>To view this, the user selects the <strong>Get full job output</strong> option. </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. </p>
+<p><strong>screenshot</strong></p>
+<p>Scrolling down in the log, they find a message indicating:
+</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
+</span></code></pre></div>
+<strong>screenshot</strong>
+<p>They can then again verify that the job was executed successfully without error. </p>
+</li>
+<li>
+<p>Just like previously, the assistant comes back asking what the user would like to do next.</p>
+<p>Now that the user has verified the job completed successfully, they would like to end the conversation. So they select <strong>Exit</strong> to conclude the demo. </p>
+<p><strong>screenshot</strong></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
