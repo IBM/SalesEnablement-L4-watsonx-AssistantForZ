@@ -729,3 +729,301 @@ Lets create a custom-built action to handle this.
 
 ### Step 15
 
+1. This step will handle the logic on condition that the user selected the **View job completion details** in the previous step. 
+   
+   In the **Step 15** tile, click the **Is taken** option list and select **with conditions**. This time you will again modify the default condition. 
+
+2. Click on the default condition labeled **Get full job output** and in the drop-down, select **View job completion details**. 
+
+3. In the **Assistant says** text box, type ***Retrieving job completion details***. 
+
+4. Click on the **And then** drop-down and select **Go to a subaction**. 
+
+5. In the **Subaction** window, click on the **Select an action** field, and select the **Job completion details** subaction, which is the skill flow you previously created. 
+
+6. Then click **Apply**. 
+
+7. Click **Edit passed values**. 
+   
+   You'll now edit the passed values to map the **Job ID** of the **Db2 Reorg** skill as input to the skill flow. 
+
+8. Click **Set new value +** and then select the ***1. id*** variable. 
+
+9. In the **To** field, select **Expression**. 
+    
+    You will now write a regular expression to retrieve the **Job ID** of the **Db2 Reorg result variable**. 
+
+10. In the **Expressions** text box, enter `$` which will display an option list for referencing a variable. 
+
+11. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+    
+    This will autofill the variable reference in the expression text box as shown below. 
+
+12. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+
+13. Finally, click **Apply** to save the regular expression. 
+    
+    The new passed value should look similar to the following:
+
+14. Then click **Apply** again. 
+    
+15. Finally, click **New step +**.
+
+### Step 16
+
+1. In the previous step, if the user selected the **View job completion details** option, the skill flow you created will get executed and return the extracted job completion details for the **Db2 Reorg** skill. 
+   
+   Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next - i.e. ***Get the full job output*** or ***Exit*** the current conversation altogether. 
+
+   To configure this, in the **Step 16** tile, click the **Is taken** option list and select **with conditions**. Just like you did in the previous step, you will again modify the default condition, specifying that the user previously selected the **View job completion details**. 
+
+   Click on the default condition labeled **Get full job output** and in the drop-down, select **View job completion details**. 
+
+2. Then click on the **And then** drop-down and select **Re-ask previous step(s)**. 
+
+3. In the new **Settings** window, *select the checkboxes* for **Steps 14 and 15** as shown below. 
+   
+   **screenshot**
+
+4. Then click **Apply**. 
+
+5. Finally, click **New step +**. 
+
+### Step 17
+
+1. In this step, you'll configure the condition that the user previously selected the **Get full job output** option. 
+   
+   To configure this, in the **Step 17** tile, click the **Is taken** option list and select **with conditions**. This time, you can leave the default condition specifying that the user selected the **Get full job output** option in step 14. 
+
+2. In the **Assistant says** text box, type ***Getting full job output...***
+
+3. Click on the **And then** drop-down and select **Go to a subaction**. 
+
+4. In the **Subaction** window, click on the **Select an action** field, and select the **Retrieve job output** subaction. 
+
+5. Then click **Apply**. 
+
+6. Click **Edit passed values**. 
+   
+   You'll now edit the passed values to map the **Job ID** of the **Db2 Reorg** skill as input to **Retrieve job output** utility skill. 
+
+7. Click **Set new value** and then select the ***1. id*** variable. 
+
+8. In the **To** field, select **Expression**. 
+   
+   You will now write a regular expression to retrieve the **Job ID** of the **Db2 Reorg result variable**. 
+
+9. In the **Expressions** text box, enter `$` which will display an option list for referencing a variable. 
+
+10. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+    
+    This will autofill the variable reference in the expression text box as shown below. 
+
+11. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+
+12. Finally, click **Apply** to save the regular expression. 
+    
+    The new passed value should look similar to the following:
+
+13. Then click **Apply** again. 
+    
+14. Finally, click **New step +**. 
+
+
+### Step 18
+
+1. In the previous step, if the user selected the **Get full job output** option, the **Retrieve job output** skill will get executed and return the full output log of the **Db2 Reorg** skill. 
+   
+   Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next.
+
+   To configure this, in the **Step 18** tile, click the **Is taken** option list and select **with conditions**. Just as in the previous step, you can leave the default condition specifying that the user selected the **Get full job output** option. 
+
+2. Then click on the **And then** drop-down and select **Re-ask previous step(s)**. 
+
+3. In the new **Settings** window, *select the checkboxes* for **Steps 14 - 17** as shown below. 
+   
+   **screenshot**
+
+4. Then click **Apply**. 
+
+5. Finally, click **New step +**. 
+
+### Step 19
+
+1. This will be the final step in the **custom-built action** you're creating to handle the condition that the user selected the **Exit** option previously. 
+   
+   In this case, the assistant guided conversation will conclude and the action should end. 
+
+   To configure this, in the **Step 19** tile, click the **Is taken** option list and select **with conditions**. Now you will modify the default condition, specifying that the user previously selected the **Exit** option. 
+
+   Click on the default condition labeled **Get full job output** and in the drop-down, select **Exit**. 
+
+2. Lastly, click on the **And then** drop-down and select **End the action**. 
+
+**IMPORTANT**: Make sure to save the entire action before exiting the action view by **clicking on the save icon** in the top-right corner of the screen.
+
+**screenshot**
+
+***This concludes the creation of your custom-built action and you will next be able to test out the flow***.  
+
+
+## Demonstrate the assistant action
+
+Now that you have fully configured your **custom-built action** to handle the Db2 error troubleshooting process, you will next be able to demonstrate the end-to-end flow. 
+
+To do this, first open the **Preview** screen within the **AI assistant builder**. 
+   
+   **screenshot**
+
+To begin the conversation that an early-tenure DBA may have with the assistant to start the debugging process following the discovery of a Db2 for z/OS error message, they might prompt the assistant with something like:  ***I need help debugging a Db2 for z/OS error message***. 
+
+1. Enter the following text in the assistant to begin the flow:
+   
+   **Prompt:**
+
+   ```
+   I need help debugging a Db2 for z/OS error message.
+   ```
+
+   As was configured previously, the assistant asks for more details in order to help debug as shown below: 
+   
+   ![](_attachments/db2error-1.png)
+
+2. In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code **00C9009D**. 
+   
+   Enter **00C9009D** in response to the assistant asking for the error message:
+
+   ```
+   00C9009D
+   ```
+
+   ![](_attachments/db2error-2.png)
+
+3. The assistant then outputs a very detailed explanation for the Db2 for z/OS error message, including the **System action**, the **System Programmer Response**, **User Response**, as well as **Problem Determination** with additional information as shown below:
+   
+   ![](_attachments/db2error-3.png)
+
+   Based on the information provided, the DBA understand that the error occurred due to lack of sufficient space in the relevant table space. And one solution would be to ***run the REORG TABLESPACE*** utility to attempt to claim additional free space. Additionally, they understand that the the table space in question could be identified from the **DSNT501I** error message. 
+
+   In addition to providing that detailed response, the assistant then asks ***Is there anything else I can help you with?***
+
+   The DBA would like to get more details on the tablespace reorg process in order to resolve the issue, so they respond to the assistant by clicking **Yes**. 
+
+   ![](_attachments/db2error-4.png)
+
+4. After clicking **Yes**, the assistant responds asking ***What can I help you with?***
+   
+   From here, the DBA prompts the assistant with ***What are the steps to execute a reorg of a Db2 for z/OS table space?***
+
+   ```
+   What are the steps to execute a reorg of a Db2 for z/OS table space?
+   ```
+   ![](_attachments/db2error-5.png)
+
+5. Again, the assistant provides very detailed guidance on some of the planning considerations and execution of performing a Reorg of a Db2 table space. 
+   
+   ![](_attachments/db2error-6.png)
+
+   Following the response, the assistant asks the user: ***Would you like to run a skill to execute a table space reorg?*** 
+   This was because the user prompted the assistant with a question related to a Db2 reorg. 
+
+   The user then decides to click **Yes**. 
+
+   ![](_attachments/db2error-7.png)
+
+6. At this point in the flow, the assistant begins collecting information needed in order to perform the reorg via Ansible Automation. 
+   
+   The assistant responds ***Please provide the Db2 subsystem name***. 
+
+   The user will then respond with **DBC1** as their Db2 for z/OS subsytem name. 
+
+   ```
+   DBC1
+   ```
+   ![](_attachments/db2error-8.png)
+
+
+7. The assistant then comes back asking to ***Please provide the database name***. 
+   
+   The user responds with **DSN8D12A** as their database name.
+
+   ```
+   DSN8D12A
+   ```
+
+   ![](_attachments/db2error-9.png)
+
+8. Finally, the assistant asks ***Please provide the table space name***. 
+   
+   The user responds with **DSN8S12E** as their table space name. 
+
+   ```
+   DSN8S12E
+   ```
+
+   ![](_attachments/db2error-10.png)
+
+9. After providing all 3 pieces of information, the assistant displays the ansible job form for performing the Db2 Reorg and contains all  3 details the user just provided. 
+    
+    ![](_attachments/db2error-11.png)
+
+    The user will then click **Apply** to kick of the job execution. 
+
+    ![](_attachments/db2error-12.png)
+
+10. After submitting the job, we see that it's in a **Pending** status and the assistant informs the user: ***Job not yet ready. Would you like to check the job status?***
+    
+    From here, the user selects **Yes**. 
+
+    **screeshot**
+
+11. Depending on how long waited, the job status may come back as still **Running** or **Successful**. 
+    
+    In the case of a **Successful** message as shown below, the assistant informs the user that ***The job has completed successfully*** and then asks what the user would like to do next, presenting 3 options:
+    
+    - ***Get full job output***
+    - ***View job completion details***
+    - ***Exit***
+
+    **screenshot**
+
+12. The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select **View job completion details**. 
+    
+    **screenshot**
+
+    In the output, the user can see the job completed with a Return Code of `0`, indicating a successful job completion with no errors or warnings. 
+
+    They can also view the `Job ID` value if they want to explore the logs in further detail. 
+
+13. Following those details, the assistant returns by again asking what the user would like to do next. 
+    
+    In addition to providing the extracted summary of the job completion, the assistant is also able to provide the full job log if the user would like to investigate. 
+
+    To view this, the user selects the **Get full job output** option. 
+
+    **screenshot**
+
+14. Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. 
+    
+    **screenshot**
+
+    Scrolling down in the log, they find a message indicating:
+    ```
+    IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
+    ```
+    **screenshot**
+
+    They can then again verify that the job was executed successfully without error. 
+
+15. Just like previously, the assistant comes back asking what the user would like to do next.
+    
+    Now that the user has verified the job completed successfully, they would like to end the conversation. So they select **Exit** to conclude the demo. 
+
+    **screenshot**
+
+
+
+
+
+
+
