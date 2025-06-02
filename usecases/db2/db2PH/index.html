@@ -901,7 +901,57 @@
 <p>Database Administrators (DBAs) often spend significant time performing many routine database management tasks. And may often require manual intervention, increasing the risk of human error, slowing down operations and reducing overall productivity. And especially for early-tenure staff members, the troubleshooting and diagnosing error messages can take longer than necessary due to knowledge gaps, manual processes and lack of automation. </p>
 <p>This scenario will show how a purpose-built assistant flow can help streamline the process of understanding a particular error message, generating accurate and current answers to questions, along with step-by-step guidance to learn more with conversational <abbr title="Artificial intelligence">AI</abbr>. Additionally, the assistant has the ability to recommend skills at different points in the conversation to help automate the resolution on their behalf, depending on the error message. This results in less time spent debugging error messages and improving the time-to-resolution of Db2 for z/<abbr title="Operating System">OS</abbr> errors.</p>
 <p>## Test the Db2 Reorg Ansible Automation in <abbr title="Ansible Automation Platform">AAP</abbr></p>
-<p><strong>placeholder</strong></p>
+<p>In this scenario, an Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) template will be used to help streamline the resolution of a previously identified Db2 for z/<abbr title="Operating System">OS</abbr> error message, indicating that a Db2 table space reorg is necessary. The Ansible template which is pre-loaded into your <abbr title="Ansible Automation Platform">AAP</abbr> environment is titled <strong>Db2 Reorg</strong>. </p>
+<p>In this section, you will test the execution of this template directly in <abbr title="Ansible Automation Platform">AAP</abbr> to get familiar with the input parameters as well as the corresponding output. </p>
+<ol>
+<li>
+<p>Open and log into the <strong><abbr title="Ansible Automation Platform">AAP</abbr> web console</strong>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Don't remember how?</p>
+<p>Refer to the first 5 steps in <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Templates</strong> under the <strong>Resources</strong> section. </p>
+<p><a class="glightbox" href="../_attachments/aap1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap1.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>launch</strong> icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>Db2 Reorg</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/aap2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap2.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the input fields with the values that follow and then click <strong>Next</strong>. </p>
+<p><strong>a</strong>: <strong>Subsystem name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DBC1
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Database name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DSN8D12A
+</span></code></pre></div>
+<strong>c</strong>: <strong>Tablespace name</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DSN8S12E
+</span></code></pre></div>
+<a class="glightbox" href="../_attachments/aap3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap3.png"></a>
+</li>
+<li>
+<p>Click <strong>Launch</strong>. </p>
+<p><a class="glightbox" href="../_attachments/aap4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap4.png"></a></p>
+</li>
+<li>
+<p>Review the output of the job. </p>
+</li>
+</ol>
+<p>In the output of the playbook, notice that there is a task titled <strong><em>modify jobclass(a) to allow job submit</em></strong>. This is an administrative task that configures a jobclass and allows the next task to successfully execute. </p>
+<p>Following that task, there is a task titled <strong><em>Submit Db2 re-org <abbr title="Job Control Language">JCL</abbr></em></strong> which executes the provided <abbr title="Job Control Language">JCL</abbr> on Wazi aaS (z/<abbr title="Operating System">OS</abbr> back-end) to perform the Db2 reorg based on the inputs provided previously. </p>
+<p>Afterwards, there is a task titled <strong><em>Print <abbr title="Job Control Language">JCL</abbr></em></strong> to retrieve and display the job output from the JES message log. </p>
+<p>And finally, there is a task titled <strong><em>Print return code, job id, and image copy dataset name</em></strong> which is used to extract important job summary details from the previous output and display it to the user. </p>
+<div class="highlight"><pre><span></span><code>![](_attachments/aap5.png)
+</code></pre></div>
+<ol start="7">
+<li>Take this time to click on any of the tasks and view the JSON output in further detail before moving on. </li>
+</ol>
+<p>The <strong><em>Return Code</em></strong> value displayed in the final task shows a return code of <code>0</code>, indicating that the Db2 Reorg job was executed successfully. </p>
+<div class="highlight"><pre><span></span><code>![](_attachments/aap6.png)
+</code></pre></div>
 <p>## Importing the Ansible Playbooks as Skills</p>
 <p>For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. </p>
 <p>The Ansible templates you will import are:</p>
@@ -927,10 +977,10 @@
 <p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
 <p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a> section earlier.</p>
 <p><strong>a</strong>: Connection Type: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ansible
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ansible
 </span></code></pre></div>
 <p><strong>b</strong>: Application Name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>db2-error
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>db2-error
 </span></code></pre></div>
 <p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: </p>
 <p>&lt;Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
@@ -939,7 +989,7 @@
 <p><strong>e</strong>: Password:</p>
 <p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
 <p><strong>f</strong>: Search Pattern: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>*
+</p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-1.png"></a></p>
 </li>
@@ -1111,7 +1161,7 @@
 <li>
 <p>In the <strong>Regular Expression</strong> field, copy and paste the following string and then click <strong>Add</strong>.</p>
 <p><strong>Regular Expression</strong>:
-</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(?&lt;=Return Code: ).[^"]*
+</p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>(?&lt;=Return Code: ).[^"]*
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-29.png"></a></p>
 </li>
@@ -1173,7 +1223,7 @@
 <li>
 <p>Enter <code>Job completion details</code> in the <strong>Name</strong> field and click <strong>Save</strong>. </p>
 <p><strong>Name</strong>:
-</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Job completion details
+</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Job completion details
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-41.png"></a></p>
 </li>
@@ -1833,7 +1883,7 @@
 <li>Enter the following text in the assistant to begin the flow:</li>
 </ol>
 <p><strong>Prompt:</strong></p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>I need help debugging a Db2 for z/OS error message.
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>I need help debugging a Db2 for z/OS error message.
 </span></code></pre></div>
 <p>As was configured previously, the assistant asks for more details in order to help debug as shown below: </p>
 <p><a class="glightbox" href="../_attachments/db2error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-1.png"></a></p>
@@ -1841,7 +1891,7 @@
 <li>In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code <strong>00C9009D</strong>. </li>
 </ol>
 <p>Enter <strong>00C9009D</strong> in response to the assistant asking for the error message:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>00C9009D
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>00C9009D
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2error-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-2.png"></a></p>
 <ol start="3">
@@ -1856,7 +1906,7 @@
 <li>After clicking <strong>Yes</strong>, the assistant responds asking <strong><em>What can I help you with?</em></strong></li>
 </ol>
 <p>From here, the DBA prompts the assistant with <strong><em>What are the steps to execute a reorg of a Db2 for z/<abbr title="Operating System">OS</abbr> table space?</em></strong></p>
-<p></p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>What are the steps to execute a reorg of a Db2 for z/OS table space?
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>What are the steps to execute a reorg of a Db2 for z/OS table space?
 </span></code></pre></div>
    <a class="glightbox" href="../_attachments/db2error-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-5.png"></a>
 <ol start="5">
@@ -1872,21 +1922,21 @@
 </ol>
 <p>The assistant responds <strong><em>Please provide the Db2 subsystem name</em></strong>. </p>
 <p>The user will then respond with <strong>DBC1</strong> as their Db2 for z/<abbr title="Operating System">OS</abbr> subsytem name. </p>
-<p></p><div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>DBC1
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>DBC1
 </span></code></pre></div>
    <a class="glightbox" href="../_attachments/db2error-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-8.png"></a>
 <ol start="7">
 <li>The assistant then comes back asking to <strong><em>Please provide the database name</em></strong>. </li>
 </ol>
 <p>The user responds with <strong>DSN8D12A</strong> as their database name.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>DSN8D12A
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DSN8D12A
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2error-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-9.png"></a></p>
 <ol start="8">
 <li>Finally, the assistant asks <strong><em>Please provide the table space name</em></strong>. </li>
 </ol>
 <p>The user responds with <strong>DSN8S12E</strong> as their table space name. </p>
-<div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DSN8S12E
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>DSN8S12E
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/db2error-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-10.png"></a></p>
 <ol start="9">
@@ -1927,7 +1977,7 @@
 <p>Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. </p>
 <p><strong>screenshot</strong></p>
 <p>Scrolling down in the log, they find a message indicating:
-</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
+</p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
 </span></code></pre></div>
 <strong>screenshot</strong>
 <p>They can then again verify that the job was executed successfully without error. </p>
