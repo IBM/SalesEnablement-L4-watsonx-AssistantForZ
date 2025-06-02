@@ -6,7 +6,63 @@
 
  ## Test the Db2 Reorg Ansible Automation in AAP
 
- **placeholder**
+ In this scenario, an Ansible Automation Platform (AAP) template will be used to help streamline the resolution of a previously identified Db2 for z/OS error message, indicating that a Db2 table space reorg is necessary. The Ansible template which is pre-loaded into your AAP environment is titled **Db2 Reorg**. 
+
+ In this section, you will test the execution of this template directly in AAP to get familiar with the input parameters as well as the corresponding output. 
+
+1. Open and log into the **AAP web console**. 
+
+    !!! Tip "Don't remember how?"   
+   
+        Refer to the first 5 steps in [Explore Ansible Automation Platform](../../skills/exploreAAP.md).
+
+2. Click **Templates** under the **Resources** section. 
+    
+    ![](_attachments/aap1.png)
+
+
+3. Click the **launch** icon (![](../_attachments/rocketIcon.png)) for the **Db2 Reorg** template.
+   
+    ![](_attachments/aap2.png)
+
+4. On the **Survey** screen, modify the input fields with the values that follow and then click **Next**. 
+
+    **a**: **Subsystem name**
+    ```
+    DBC1
+    ```
+
+    **b**: **Database name**
+    ```
+    DSN8D12A
+    ```
+    **c**: **Tablespace name**
+    ```
+    DSN8S12E
+    ```
+    ![](_attachments/aap3.png)
+
+5. Click **Launch**. 
+   
+    ![](_attachments/aap4.png)
+
+6. Review the output of the job. 
+   
+   In the output of the playbook, notice that there is a task titled ***modify jobclass(a) to allow job submit***. This is an administrative task that configures a jobclass and allows the next task to successfully execute. 
+   
+   Following that task, there is a task titled ***Submit Db2 re-org JCL*** which executes the provided JCL on Wazi aaS (z/OS back-end) to perform the Db2 reorg based on the inputs provided previously. 
+   
+   Afterwards, there is a task titled ***Print JCL*** to retrieve and display the job output from the JES message log. 
+   
+   And finally, there is a task titled ***Print return code, job id, and image copy dataset name*** which is used to extract important job summary details from the previous output and display it to the user. 
+
+    ![](_attachments/aap5.png)
+
+7. Take this time to click on any of the tasks and view the JSON output in further detail before moving on. 
+   
+   The ***Return Code*** value displayed in the final task shows a return code of `0`, indicating that the Db2 Reorg job was executed successfully. 
+   
+    ![](_attachments/aap6.png)
 
  ## Importing the Ansible Playbooks as Skills
 
