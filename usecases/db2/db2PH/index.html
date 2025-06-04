@@ -1302,112 +1302,117 @@
 <p>The expected prompt when a user has to begin the debugging process may be something like <strong><em>I need help debugging</em></strong>. </p>
 <p>Lets create a custom-built action to handle this. </p>
 <ol>
-<li>Click <strong>New action +</strong>. </li>
+<li>Click <strong>New action +</strong>.</li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow1.png"></a></p>
 <ol start="2">
 <li>Click <strong>Custom-built action</strong>. </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow2.png"></a></p>
 <ol start="3">
 <li>Enter <strong><em>I need help debugging</em></strong> and then click <strong>Save</strong>. </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow3.png"></a></p>
 <h3 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">#</a></h3>
 <ol>
 <li>
 <p>In the <strong>Step 1</strong> tile, in the <strong>Assistant says</strong> text box, type <strong><em>Please provide the error message</em></strong>. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow4.png"></a></p>
 </li>
 <li>
 <p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong> </p>
 </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow5.png"></a></p>
 <div class="highlight"><pre><span></span><code>This will prompt the user to enter their error message.
 </code></pre></div>
 <ol start="3">
 <li>Click <strong>New step +</strong>. </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow6.png"></a></p>
 <h3 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">#</a></h3>
 <ol>
-<li>In the <strong>Step 2</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong></li>
-</ol>
+<li>
+<p>In the <strong>Step 2</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong></p>
+</li>
+<li>
 <p>Then click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>. </p>
-<p><strong>screenshot</strong></p>
-<ol start="2">
-<li>Click <strong>Edit settings</strong>, and in the <strong>custom search query</strong> field, enter the following prompt:</li>
+</li>
 </ol>
+<p><a class="glightbox" href="../_attachments/flow7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow7.png"></a></p>
+<p>Click <strong>Edit settings</strong>, and in the <strong>custom search query</strong> field, enter the following prompt:</p>
 <p><code>What is Db2 for z/OS error message</code></p>
+<p><a class="glightbox" href="../_attachments/flow8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow8.png"></a></p>
 <p>Followed by that text, enter the <code>$</code> symbol to select a variable. In the pop-up window, select <strong>Action step variables</strong> --&gt; <strong>1. Please provide the error message</strong>.</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow9.png"></a></p>
 <div class="highlight"><pre><span></span><code>Then click **Apply**.
 
-**screenshot**
+![](_attachments/flow10.png)
 </code></pre></div>
 <ol start="3">
 <li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-3">Step 3<a class="headerlink" href="#step-3" title="Permanent link">#</a></h3>
 <ol>
-<li>
-<p>In the <strong>Step 3</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults.</p>
-</li>
-<li>
-<p>In the <strong>Assistant says</strong> field, type <strong><em>Is there anything else I can help you with?</em></strong>. </p>
-</li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </p>
-</li>
+<li>In the <strong>Step 3</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults.</li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow11.png"></a></p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Is there anything else I can help you with?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow12.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow13.png"></a></p>
 <p>This will prompt the user to select Yes/No. </p>
 <ol start="4">
 <li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-4">Step 4<a class="headerlink" href="#step-4" title="Permanent link">#</a></h3>
 <ol>
-<li>
-<p>In the <strong>Step 4</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults. </p>
-</li>
-<li>
-<p>In the <strong>Assistant says</strong> field, type <strong><em>What can I help you with?</em></strong>. </p>
-</li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Freee text</strong>. </p>
-</li>
-<li>
-<p>Click on the <strong>And then</strong> drop-down and select <strong>Search for the answer</strong> </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>. </p>
-</li>
+<li>In the <strong>Step 4</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow14.png"></a></p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>What can I help you with?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow15.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow16.png"></a></p>
+<ol start="4">
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Search for the answer</strong> </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow17.png"></a></p>
+<ol start="5">
+<li>Click <strong>New step +</strong>. </li>
 </ol>
 <h3 id="step-5">Step 5<a class="headerlink" href="#step-5" title="Permanent link">#</a></h3>
 <ol>
-<li>
-<p>In the <strong>Step 5</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will change the defaults. </p>
-</li>
-<li>
-<p>In the default condition that is displayed, click on the <strong><em>"is"</em></strong> option and instead select <strong><em>contains</em></strong>. </p>
-</li>
-<li>
-<p>In the field to the right of that where it says <strong>Enter a string</strong>, type <strong><em>reorg</em></strong>.</p>
-</li>
+<li>In the <strong>Step 5</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will change the defaults. </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow18.png"></a></p>
+<ol start="2">
+<li>In the default condition that is displayed, click on the <strong><em>"is"</em></strong> option and instead select <strong><em>contains</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow19.png"></a></p>
+<ol start="3">
+<li>In the field to the right of that where it says <strong>Enter a string</strong>, type <strong><em>reorg</em></strong>.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow20.png"></a></p>
 <p>This will handle the logic in the case where the user prompts the assistant about performing a reorg. </p>
 <ol start="4">
-<li>
-<p>In the <strong>Assistant says</strong> field, type <strong><em>Would you like to run a skill to execute a table space reorg?</em></strong>. </p>
-</li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>. </p>
-</li>
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Would you like to run a skill to execute a table space reorg?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow21.png"></a></p>
+<ol start="5">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow22.png"></a></p>
+<ol start="6">
+<li>Click <strong>New step +</strong>. </li>
 </ol>
 <h3 id="step-6">Step 6<a class="headerlink" href="#step-6" title="Permanent link">#</a></h3>
 <ol>
@@ -1419,13 +1424,13 @@
 </li>
 </ol>
 <p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the Db2 subsystem name</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow23.png"></a></p>
 <ol start="3">
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>.</p>
-</li>
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow24.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-7">Step 7<a class="headerlink" href="#step-7" title="Permanent link">#</a></h3>
 <ol>
@@ -1435,12 +1440,14 @@
 <li>
 <p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the database name</em></strong>.</p>
 </li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>.</p>
-</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow25.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow26.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-8">Step 8<a class="headerlink" href="#step-8" title="Permanent link">#</a></h3>
 <ol>
@@ -1450,45 +1457,56 @@
 <li>
 <p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the table space name</em></strong>.</p>
 </li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>.</p>
-</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow27.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow28.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-9">Step 9<a class="headerlink" href="#step-9" title="Permanent link">#</a></h3>
 <ol>
-<li>Now you will define the logic in the case that the user specified earlier that they would like to perform the rerorg. This will involve triggering the <strong>Db2 reorg</strong> sub-action that you previously defined as a skill-based action. </li>
+<li>Now you will define the logic in the case that the user specified earlier that they would like to perform the reorg. This will involve triggering the <strong>Db2 reorg</strong> sub-action that you previously defined as a skill-based action. </li>
 </ol>
 <p>In the <strong>Step 9</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
 <ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Running the Db2 Reorg skill based on the above input</em></strong>.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow29.png"></a></p>
+<ol start="3">
 <li>
-<p>In the <strong>Assistant says</strong> field, type <strong><em>Running the Db2 Reorg skill based on the above input</em></strong>.</p>
-</li>
-<li>
-<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../_attachments/flow30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow30.png"></a></p>
 </li>
 <li>
 <p>In the <strong>Subaction</strong> window, click on the <strong><em>Select an action</em></strong> field, and select the <strong>Db2 Reorg</strong> subaction. </p>
 </li>
-<li>
-<p>Then click <strong>Apply</strong>. </p>
-</li>
-<li>
-<p>Click <strong>Edit passed values</strong>. </p>
-</li>
 </ol>
-<p>Edit the passed values to use them in the <strong>Db2 Reorg</strong> skill subaction. </p>
+<p><a class="glightbox" href="../_attachments/flow31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow31.png"></a></p>
+<ol start="5">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow32.png"></a></p>
+<ol start="6">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p>Edit the passed values to use them in the <strong>Db2 Reorg</strong> skill subaction.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/flow33.png)
+</code></pre></div>
 <ol start="7">
-<li>
-<p>Click <strong>Set new value +</strong> and then select the <strong><em>extra_vars.sub</em></strong> variable. </p>
-</li>
-<li>
-<p>In the <strong>To</strong> field, select <strong>Action step variables</strong>. </p>
-</li>
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>extra_vars.sub</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow34.png"></a></p>
+<ol start="8">
+<li>In the <strong>To</strong> field, select <strong>Action step variables</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow35.png"></a></p>
+<ol start="9">
 <li>
 <p>Click <strong><em>6. Please provide the Db2 subsystem name</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow36.png"></a></p>
 </li>
 <li>
 <p>Repeat steps 7 - 9 to add two additional passed values:</p>
@@ -1497,10 +1515,11 @@
 <li>Set <strong>extra_vars.ts</strong> --&gt; <strong>8. Please provide the table space name</strong></li>
 </ul>
 <p>The result should look like the following:</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow37.png"></a></p>
 </li>
 <li>
 <p>Once done, click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow38.png"></a></p>
 </li>
 <li>
 <p>Click <strong>New step +</strong>.</p>
