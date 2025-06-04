@@ -449,52 +449,54 @@ The expected prompt when a user has to begin the debugging process may be someth
 
 Lets create a custom-built action to handle this. 
 
-1. Click **New action +**. 
+1. Click **New action +**.
    
-   **screenshot**
+   ![](_attachments/flow1.png)
 
 2. Click **Custom-built action**. 
    
-   **screenshot**
+   ![](_attachments/flow2.png)
 
 3. Enter ***I need help debugging*** and then click **Save**. 
    
-   **screenshot**
+   ![](_attachments/flow3.png)
 
 ### Step 1 
 
 1. In the **Step 1** tile, in the **Assistant says** text box, type ***Please provide the error message***. 
 
-    **screenshot**
+    ![](_attachments/flow4.png)
 
 2. Click the **Define customer response** option list and select **Free text** 
    
-   **screenshot**
+   ![](_attachments/flow5.png)
     
     This will prompt the user to enter their error message. 
 
 3. Click **New step +**. 
    
-   **screenshot**
+   ![](_attachments/flow6.png)
 
 ### Step 2
 1. In the **Step 2** tile, click the **Is taken** option list and select **with conditions**
    
-   Then click the **And then** drop down and select **Search for the answer**. 
+2. Then click the **And then** drop down and select **Search for the answer**. 
 
-   **screenshot**
+   ![](_attachments/flow7.png)
 
-2. Click **Edit settings**, and in the **custom search query** field, enter the following prompt:
+   Click **Edit settings**, and in the **custom search query** field, enter the following prompt:
    
    `What is Db2 for z/OS error message`
 
+   ![](_attachments/flow8.png)
+
    Followed by that text, enter the `$` symbol to select a variable. In the pop-up window, select **Action step variables** --> **1. Please provide the error message**.
 
-   **screenshot**
+   ![](_attachments/flow9.png)
 
     Then click **Apply**. 
 
-    **screenshot**
+    ![](_attachments/flow10.png)
 
 3. Click **New step +**.
    
@@ -502,11 +504,15 @@ Lets create a custom-built action to handle this.
 
 1. In the **Step 3** tile, click the **Is taken** option list and select **with conditions**. Leave the defaults.
    
+   ![](_attachments/flow11.png)
+
 2. In the **Assistant says** field, type ***Is there anything else I can help you with?***. 
+   
+   ![](_attachments/flow12.png)
    
 3. Click the **Define customer response** option list and select **Confirmation**. 
    
-   **screenshot**
+   ![](_attachments/flow13.png)
 
    This will prompt the user to select Yes/No. 
 
@@ -516,29 +522,45 @@ Lets create a custom-built action to handle this.
 
 1. In the **Step 4** tile, click the **Is taken** option list and select **with conditions**. Leave the defaults. 
    
+   ![](_attachments/flow14.png)
+   
 2. In the **Assistant says** field, type ***What can I help you with?***. 
    
-3. Click the **Define customer response** option list and select **Freee text**. 
+   ![](_attachments/flow15.png)
+   
+3. Click the **Define customer response** option list and select **Free text**. 
+   
+   ![](_attachments/flow16.png)
 
 4. Click on the **And then** drop-down and select **Search for the answer** 
+   
+   ![](_attachments/flow17.png)
 
 5. Click **New step +**. 
 
 ### Step 5
 
 1. In the **Step 5** tile, click the **Is taken** option list and select **with conditions**. This time you will change the defaults. 
+   
+   ![](_attachments/flow18.png)
 
 2. In the default condition that is displayed, click on the ***"is"*** option and instead select ***contains***. 
+   
+   ![](_attachments/flow19.png)
 
 3. In the field to the right of that where it says **Enter a string**, type ***reorg***.
    
-   **screenshot**
+   ![](_attachments/flow20.png)
 
    This will handle the logic in the case where the user prompts the assistant about performing a reorg. 
 
 4. In the **Assistant says** field, type ***Would you like to run a skill to execute a table space reorg?***. 
+   
+   ![](_attachments/flow21.png)
 
 5. Click the **Define customer response** option list and select **Confirmation**. 
+   
+   ![](_attachments/flow22.png)
 
 6. Click **New step +**. 
 
@@ -550,7 +572,11 @@ Lets create a custom-built action to handle this.
    
    In the **Assistant says** field, type ***Please provide the Db2 subsystem name***. 
 
+   ![](_attachments/flow23.png)
+
 3. Click the **Define customer response** option list and select **Free text**. 
+   
+   ![](_attachments/flow24.png)
 
 4. Click **New step +**.
 
@@ -559,8 +585,12 @@ Lets create a custom-built action to handle this.
 1. In the **Step 7** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
 
 2. In the **Assistant says** field, type ***Please provide the database name***.
+   
+   ![](_attachments/flow25.png)
 
 3. Click the **Define customer response** option list and select **Free text**. 
+   
+   ![](_attachments/flow26.png)
 
 4. Click **New step +**.
 
@@ -569,35 +599,55 @@ Lets create a custom-built action to handle this.
 1. In the **Step 8** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
 
 2. In the **Assistant says** field, type ***Please provide the table space name***.
+   
+   ![](_attachments/flow27.png)
 
 3. Click the **Define customer response** option list and select **Free text**. 
+   
+   ![](_attachments/flow28.png)
 
 4. Click **New step +**.
 
 ### Step 9 
 
-1. Now you will define the logic in the case that the user specified earlier that they would like to perform the rerorg. This will involve triggering the **Db2 reorg** sub-action that you previously defined as a skill-based action. 
+1. Now you will define the logic in the case that the user specified earlier that they would like to perform the reorg. This will involve triggering the **Db2 reorg** sub-action that you previously defined as a skill-based action. 
    
    In the **Step 9** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
 
 2. In the **Assistant says** field, type ***Running the Db2 Reorg skill based on the above input***.
+   
+   ![](_attachments/flow29.png)
 
-3. Click on the **And then** drop-down and select **Go to a subaction**. 
+3. Click on the **And then** drop-down and select **Go to a subaction**.
+   
+    ![](_attachments/flow30.png)
 
 4. In the **Subaction** window, click on the ***Select an action*** field, and select the **Db2 Reorg** subaction. 
    
+   ![](_attachments/flow31.png)
+   
 5. Then click **Apply**. 
+   
+   ![](_attachments/flow32.png)
 
 6. Click **Edit passed values**. 
 
-   Edit the passed values to use them in the **Db2 Reorg** skill subaction. 
+   Edit the passed values to use them in the **Db2 Reorg** skill subaction.
+    
+    ![](_attachments/flow33.png)
 
 7. Click **Set new value +** and then select the ***extra_vars.sub*** variable. 
+   
+   ![](_attachments/flow34.png)
 
 
 8. In the **To** field, select **Action step variables**. 
+   
+   ![](_attachments/flow35.png)
 
-9. Click ***6. Please provide the Db2 subsystem name***. 
+9.  Click ***6. Please provide the Db2 subsystem name***. 
+    
+    ![](_attachments/flow36.png)
 
 10. Repeat steps 7 - 9 to add two additional passed values:
     
@@ -606,9 +656,11 @@ Lets create a custom-built action to handle this.
 
     The result should look like the following:
 
-    **screenshot**
+    ![](_attachments/flow37.png)
 
 11. Once done, click **Apply**. 
+    
+    ![](_attachments/flow38.png)
 
 12. Click **New step +**.
 
