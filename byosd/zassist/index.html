@@ -1019,7 +1019,7 @@
 <li>
 <p>Retrieve the server <abbr title="Uniform Resource Locator">URL</abbr> for the client ingestion server.</p>
 <p>Mac <abbr title="Operating System">OS</abbr>:</p>
-<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>echo https://$(oc -n wxa4z-zad get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
 </span></code></pre></div>
 <p>The output of this command is your unique <abbr title="Uniform Resource Locator">URL</abbr> for your client ingestion server. </p>
 <p>Windows <abbr title="Operating System">OS</abbr> (this method can also be used by Mac <abbr title="Operating System">OS</abbr> users):</p>
@@ -1028,7 +1028,7 @@
 </li>
 <li>
 <p>Retrieve the <code>client-ingestion-authkey</code>.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc -n wxa4z-byos get secret client-ingestion-authkey -o jsonpath="{.data.authkey}" | base64 -d
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc -n wxa4z-zad get secret client-ingestion-authkey -o jsonpath="{.data.authkey}" | base64 -d
 </span></code></pre></div>
 <p>The output of this command is your unique auth-key that you had previously set. You will need the output of both previous commands in the next step. </p>
 <details class="failure">

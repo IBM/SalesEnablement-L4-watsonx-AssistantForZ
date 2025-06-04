@@ -926,9 +926,9 @@
 <p><a class="glightbox" href="../_attachments/LabArchitecture-Lab%202%20-%20a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/LabArchitecture-Lab%202%20-%20a.png"></a></p>
 <p>Earlier, you provisioned three IBM Technology Zone (<abbr title="IBM Technology Zone">ITZ</abbr>) environments. One of which was a single-node Red Hat OpenShift (<abbr title="Single-node Red Hat OpenShift">SNO</abbr>) cluster. If you have not reserved this environment, or it is not in the <strong>Ready</strong> state, return to the 
 <a href="../../TechZoneEnvironment/">IBM Technology Zone environment</a> section to complete the reservation.</p>
-<h2 id="summary-of-new-features-for-v223-of-z-byosearch-rag-deployment">Summary of new features for v2.2.3 of Z BYOSearch &amp; <abbr title="Retrieval augmented generation">RAG</abbr> deployment<a class="headerlink" href="#summary-of-new-features-for-v223-of-z-byosearch-rag-deployment" title="Permanent link">#</a></h2>
-<p>The step-by-step instructions in this section will walk you through installing version 2.2.3 of BYOSearch with the corresponding <abbr title="Retrieval augmented generation">RAG</abbr> documentation. </p>
-<p><strong>Details of the v2.2.3 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a></strong>.</p>
+<h2 id="summary-of-new-features-for-v224-of-z-byosearch-rag-deployment">Summary of new features for v2.2.4 of Z BYOSearch &amp; <abbr title="Retrieval augmented generation">RAG</abbr> deployment<a class="headerlink" href="#summary-of-new-features-for-v224-of-z-byosearch-rag-deployment" title="Permanent link">#</a></h2>
+<p>The step-by-step instructions in this section will walk you through installing version 2.2.4 of BYOSearch with the corresponding <abbr title="Retrieval augmented generation">RAG</abbr> documentation. </p>
+<p><strong>Details of the v2.2.4 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a></strong>.</p>
 <p>Key features include:</p>
 <ul>
 <li>
@@ -1126,10 +1126,10 @@ Sample output:
 <h3 id="install-the-watsonx-assistant-for-z-operator-for-opensearch">Install the watsonx Assistant for Z Operator (for OpenSearch)<a class="headerlink" href="#install-the-watsonx-assistant-for-z-operator-for-opensearch" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>In your command prompt or terminal window, create 2 new namespaces called <code>wxa4z-operator</code> and <code>wxa4z-byos</code> in the Red Hat OpenShift cluster by issuing the following 2 commands in sequence.</p>
+<p>In your command prompt or terminal window, create 2 new namespaces called <code>wxa4z-operator</code> and <code>wxa4z-zad</code> in the Red Hat OpenShift cluster by issuing the following 2 commands in sequence.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc create namespace wxa4z-operator 
 </span></code></pre></div>
-<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc create namespace wxa4z-byos 
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc create namespace wxa4z-zad 
 </span></code></pre></div>
 </li>
 <li>
@@ -1157,10 +1157,10 @@ Sample output:
 <li>
 <p>Enter the following command to create a pull secret for the <strong>Container Registry</strong>.</p>
 <p>Mac <abbr title="Operating System">OS</abbr>:
-</p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
+</p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc -n wxa4z-zad create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
 </span></code></pre></div>
 <p>Microsoft Windows:
-</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=%IBM_CS_ENT_KEY%
+</p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc -n wxa4z-zad create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=%IBM_CS_ENT_KEY%
 </span></code></pre></div>
 <p><a class="glightbox" href="../_attachments/createPullSecret.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/createPullSecret.png"></a></p>
 </li>
@@ -1181,7 +1181,7 @@ Sample output:
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-operator</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nt">spec</span><span class="p">:</span><span class="w"> </span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">"IBM</span><span class="nv"> </span><span class="s">watsonx</span><span class="nv"> </span><span class="s">Assistant</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Z</span><span class="nv"> </span><span class="s">Operator</span><span class="nv"> </span><span class="s">Catalog"</span><span class="w"> </span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog@sha256:6caba1a9aa9a0cb877385928af45c930b87281400e5b22d457e1238c3ba35718</span><span class="w">    </span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr.io/cpopen/ibm-wxa4z-catalog@sha256:22ab4c54e0797f3d73a1e8581cd33f5e51cdaca6ceb8d39e0669f311007af490</span>
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="nt">publisher</span><span class="p">:</span><span class="w"> </span><span class="s">'IBM'</span><span class="w"> </span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="nt">sourceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc</span><span class="w"> </span>
 </span></code></pre></div>
@@ -1241,11 +1241,11 @@ Sample output:
 </li>
 <li>
 <p>Finally, run the following command to update the list of targeted namespaces, where <strong><code>&lt;operatorgroup-name&gt;</code></strong> is substituted with <strong><em>your</em></strong> unique operator group name recorded in the previous step.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>oc -n wxa4z-operator patch operatorgroup &lt;operatorgroup-name&gt; --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>oc -n wxa4z-operator patch operatorgroup &lt;operatorgroup-name&gt; --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-zad"]}}'
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">The command and corresponding output should like something like</p>
-<p><code>oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'</code></p>
+<p><code>oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-zad"]}}'</code></p>
 <p><code>operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched</code></p>
 </div>
 </li>
@@ -1265,7 +1265,7 @@ Sample output:
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
 </span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span><span class="w"> </span>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-zad</span><span class="w"> </span>
 </span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
@@ -1290,7 +1290,7 @@ Sample output:
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"> </span>
 </span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span>
 </span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-ingestion-authkey</span><span class="w"> </span>
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span><span class="w"> </span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-zad</span><span class="w"> </span>
 </span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
@@ -1313,7 +1313,7 @@ Sample output:
 </span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
 </span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="nt">metadata</span><span class="p">:</span>
 </span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wrapper-creds</span>
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-zad</span>
 </span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 </span></code></pre></div>
 </li>
@@ -1333,36 +1333,36 @@ Sample output:
 <p><strong>Note</strong>: The output of the command will be a string similar to: <strong>apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com</strong></p>
 </li>
 <li>
-<p>In a text editor, create a file that is named <code>byos.yaml</code> and paste the following text in the file.</p>
+<p>In a text editor, create a file that is named <code>deploy-zad.yaml</code> and paste the following text in the file.</p>
 <p>File name: 
-</p><div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>byos.yaml
+</p><div class="highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>deploy-zad.yaml
 </span></code></pre></div>
 <p>Substitute the domain name recorded in the previous step for the string <code>&lt;YOUR_CLUSTER_DOMAIN&gt;</code>.</p>
 <p>File contents:
 </p><div class="highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z.watsonx.ibm.com/v1</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BYOSearch</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZAssistantDeploy</span>
 </span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nt">metadata</span><span class="p">:</span>
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">byosearch</span>
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zassistantdeploy</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-zad</span>
 </span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="nt">spec</span><span class="p">:</span>
 </span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">  </span><span class="nt">imagePullSecrets</span><span class="p">:</span>
 </span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name </span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icr-pull-secret</span>
-</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos</span>
-</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-byos-cluster</span>
-</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
-</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>
-</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
-</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
-</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>
-</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
-</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
-</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
-</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
-</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
-</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>
-</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
-</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wxa4z-zad</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">  </span><span class="nt">clusterDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_CLUSTER_DOMAIN&gt;</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">  </span><span class="nt">opensearch</span><span class="p">:</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">opensearch-creds</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">    </span><span class="nt">persistence</span><span class="p">:</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">      </span><span class="nt">storageClass</span><span class="p">:</span><span class="w"> </span><span class="s">"managed-nfs-storage"</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24Gi</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="w">  </span><span class="nt">wrapper</span><span class="p">:</span>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="w">    </span><span class="nt">createRoute</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wrapper-creds</span>
 </span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
 </span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a><span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
 </span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a><span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
@@ -1391,11 +1391,11 @@ Sample output:
 </li>
 <li>
 <p>Run the following command to deploy <abbr title="Bring Your Own Search">BYOS</abbr> on your cluster.</p>
-<div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>oc apply -f byos.yaml
+<div class="highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>oc apply -f deploy-zad.yaml
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Change your selected namespace in the Web Console to view progress</p>
-<p>The new pods will be created in your <strong>wxa4z-byos</strong> namespace. To view the progress of your pods creation, select the <strong>wxa4z-byos</strong> project from the <strong>Projects</strong> drop-down within the <abbr title="OpenShift Container Platform">OCP</abbr> Web console. </p>
+<p>The new pods will be created in your <strong>wxa4z-zad</strong> namespace. To view the progress of your pods creation, select the <strong>wxa4z-zad</strong> project from the <strong>Projects</strong> drop-down within the <abbr title="OpenShift Container Platform">OCP</abbr> Web console. </p>
 <p><a class="glightbox" href="../_attachments/installAssistantOperator-changeNamespace.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/installAssistantOperator-changeNamespace.png"></a></p>
 </div>
 </li>
@@ -1403,7 +1403,7 @@ Sample output:
 <h3 id="verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance">Verify all the required pods are running and get the network route to your <abbr title="Bring Your Own Search">BYOS</abbr> instance<a class="headerlink" href="#verify-all-the-required-pods-are-running-and-get-the-network-route-to-your-byos-instance" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong> within the <strong>wxa4z-byos</strong> project.</p>
+<p>In the <abbr title="OpenShift Container Platform">OCP</abbr> console, verify that all pods have the status of <strong>Running</strong> or <strong>Completed</strong> within the <strong>wxa4z-zad</strong> project.</p>
 <div class="admonition warning">
 <p class="admonition-title">Do not continue until...</p>
 <p>The <abbr title="Bring Your Own Search">BYOS</abbr> deployment can take 20 minutes or more to complete. Do not continue until all the pods have a status of “Running” or "Completed". The next step is to retrieve your <abbr title="Bring Your Own Search">BYOS</abbr> endpoint <abbr title="Uniform Resource Locator">URL</abbr>.</p>
