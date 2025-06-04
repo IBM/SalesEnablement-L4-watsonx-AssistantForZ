@@ -112,7 +112,7 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     Mac OS:
 
     ```
-    echo https://$(oc -n wxa4z-byos get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
+    echo https://$(oc -n wxa4z-zad get route wxa4z-client-ingestion -o jsonpath="{.spec.host}")
     ```
 
     The output of this command is your unique URL for your client ingestion server. 
@@ -126,7 +126,7 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
 7. Retrieve the `client-ingestion-authkey`.
 
     ```
-    oc -n wxa4z-byos get secret client-ingestion-authkey -o jsonpath="{.data.authkey}" | base64 -d
+    oc -n wxa4z-zad get secret client-ingestion-authkey -o jsonpath="{.data.authkey}" | base64 -d
     ```
 
     The output of this command is your unique auth-key that you had previously set. You will need the output of both previous commands in the next step. 

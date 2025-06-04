@@ -12,11 +12,11 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Summary of new features for v2.2.3 of Z BYOSearch & RAG deployment
+## Summary of new features for v2.2.4 of Z BYOSearch & RAG deployment
 
-The step-by-step instructions in this section will walk you through installing version 2.2.3 of BYOSearch with the corresponding RAG documentation. 
+The step-by-step instructions in this section will walk you through installing version 2.2.4 of BYOSearch with the corresponding RAG documentation. 
 
-**Details of the v2.2.3 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
+**Details of the v2.2.4 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
 
 Key features include:
 
@@ -220,14 +220,14 @@ Before ingesting documents, complete the following setup steps.
         ![](_attachments/SNOOCPOperator6.png)
 
 ### Install the watsonx Assistant for Z Operator (for OpenSearch)
-1. In your command prompt or terminal window, create 2 new namespaces called `wxa4z-operator` and `wxa4z-byos` in the Red Hat OpenShift cluster by issuing the following 2 commands in sequence.
+1. In your command prompt or terminal window, create 2 new namespaces called `wxa4z-operator` and `wxa4z-zad` in the Red Hat OpenShift cluster by issuing the following 2 commands in sequence.
 
     ```
     oc create namespace wxa4z-operator 
     ```
 
     ```
-    oc create namespace wxa4z-byos 
+    oc create namespace wxa4z-zad 
     ```
 
 2.  Create or obtain your IBM Container Software production entitlement key.
@@ -264,12 +264,12 @@ Before ingesting documents, complete the following setup steps.
 
     Mac OS:
     ```
-    oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
+    oc -n wxa4z-zad create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=$IBM_CS_ENT_KEY
     ```
 
     Microsoft Windows:
     ```
-    oc -n wxa4z-byos create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=%IBM_CS_ENT_KEY%
+    oc -n wxa4z-zad create secret docker-registry icr-pull-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=%IBM_CS_ENT_KEY%
     ```
 
     ![](_attachments/createPullSecret.png)
@@ -294,7 +294,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:6caba1a9aa9a0cb877385928af45c930b87281400e5b22d457e1238c3ba35718    
+      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:22ab4c54e0797f3d73a1e8581cd33f5e51cdaca6ceb8d39e0669f311007af490
       publisher: 'IBM' 
       sourceType: grpc 
     ```
@@ -363,12 +363,12 @@ Before ingesting documents, complete the following setup steps.
 15. Finally, run the following command to update the list of targeted namespaces, where **`<operatorgroup-name>`** is substituted with ***your*** unique operator group name recorded in the previous step.
     
     ```
-    oc -n wxa4z-operator patch operatorgroup <operatorgroup-name> --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'
+    oc -n wxa4z-operator patch operatorgroup <operatorgroup-name> --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-zad"]}}'
     ```
 
     !!! Warning "The command and corresponding output should like something like"
         
-        `oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-byos"]}}'`
+        `oc -n wxa4z-operator patch operatorgroup wxa4z-operator-sv8j8 --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-zad"]}}'`
 
 
         `operatorgroup.operators.coreos.com/wxa4z-operator-sv8j8 patched`
@@ -393,7 +393,7 @@ Before ingesting documents, complete the following setup steps.
     kind: Secret 
     metadata: 
       name: opensearch-creds 
-      namespace: wxa4z-byos 
+      namespace: wxa4z-zad 
     type: Opaque
     ```
 
@@ -422,7 +422,7 @@ Before ingesting documents, complete the following setup steps.
     kind: Secret 
     metadata: 
       name: client-ingestion-authkey 
-      namespace: wxa4z-byos 
+      namespace: wxa4z-zad 
     type: Opaque
     ```
 
@@ -450,7 +450,7 @@ Before ingesting documents, complete the following setup steps.
     kind: Secret
     metadata:
       name: wrapper-creds
-      namespace: wxa4z-byos
+      namespace: wxa4z-zad
     type: Opaque
     ```
 
@@ -472,11 +472,11 @@ Before ingesting documents, complete the following setup steps.
 
     **Note**: The output of the command will be a string similar to: **apps.672b79320c7a71b728e523b4.ocp.techzone.ibm.com**
 
-8.  In a text editor, create a file that is named `byos.yaml` and paste the following text in the file.
+8.  In a text editor, create a file that is named `deploy-zad.yaml` and paste the following text in the file.
 
     File name: 
     ```
-    byos.yaml
+    deploy-zad.yaml
     ```
 
     Substitute the domain name recorded in the previous step for the string `<YOUR_CLUSTER_DOMAIN>`.
@@ -484,15 +484,14 @@ Before ingesting documents, complete the following setup steps.
     File contents:
     ```yaml
     apiVersion: wxa4z.watsonx.ibm.com/v1
-    kind: BYOSearch
+    kind: ZAssistantDeploy
     metadata:
-      name: byosearch
-      namespace: wxa4z-byos
+      name: zassistantdeploy
+      namespace: wxa4z-zad
     spec:
       imagePullSecrets:
       - name : icr-pull-secret
-      namespace: wxa4z-byos
-      clusterName: wxa4z-byos-cluster
+      namespace: wxa4z-zad
       clusterDomain: <YOUR_CLUSTER_DOMAIN>
 
       opensearch:
@@ -507,6 +506,7 @@ Before ingesting documents, complete the following setup steps.
 
       wrapper:
         createRoute: true
+        secretName: wrapper-creds
         resources:
           requests:
             cpu: 2
@@ -536,17 +536,17 @@ Before ingesting documents, complete the following setup steps.
 9.  Run the following command to deploy BYOS on your cluster.
 
     ```
-    oc apply -f byos.yaml
+    oc apply -f deploy-zad.yaml
     ```
 
     !!! Warning "Change your selected namespace in the Web Console to view progress"
 
-        The new pods will be created in your **wxa4z-byos** namespace. To view the progress of your pods creation, select the **wxa4z-byos** project from the **Projects** drop-down within the OCP Web console. 
+        The new pods will be created in your **wxa4z-zad** namespace. To view the progress of your pods creation, select the **wxa4z-zad** project from the **Projects** drop-down within the OCP Web console. 
 
         ![](_attachments/installAssistantOperator-changeNamespace.png)
 
 ### Verify all the required pods are running and get the network route to your BYOS instance
-1. In the OCP console, verify that all pods have the status of **Running** or **Completed** within the **wxa4z-byos** project.
+1. In the OCP console, verify that all pods have the status of **Running** or **Completed** within the **wxa4z-zad** project.
 
     !!! Warning "Do not continue until..."
     
