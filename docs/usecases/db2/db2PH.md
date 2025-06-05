@@ -671,8 +671,12 @@ Lets create a custom-built action to handle this.
     In the **Step 10** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
 
 2. In the **Assistant says** field, type ***Job not yet ready. Would you like to check the job status?***.
+   
+   ![](_attachments/flow39.png)
 
 3. Click the **Define customer response** option list and select **Confirmation**. 
+   
+   ![](_attachments/flow40.png)
 
 4. Click **New step +**.
 
@@ -683,32 +687,52 @@ Lets create a custom-built action to handle this.
    In the **Step 11** tile, click the **Is taken** option list and select **with conditions**. Keep the default condition. 
 
 2. Click on the **And then** drop-down and select **Go to a subaction**. 
+   
+   ![](_attachments/flow41.png)
 
 3. In the **Subaction** window, click on the ***Select an action*** field, and select the **Retrieve job status** subaction. 
+   
+   ![](_attachments/flow42.png)
    
 4. Then click **Apply**. 
 
 5. Click **Edit passed values**. 
+   
+   ![](_attachments/flow43.png)
 
 6. Click **Set new value +** and then select the ***1. id*** variable. 
+   
+   ![](_attachments/flow44.png)
 
 7. In the **To** field, select the **Expression** option. 
+   
+   ![](_attachments/flow45.png)
    
    This will display a text box where you will next enter in a regular expression to pass the Job ID of the previously run **Db2 Reorg** skill to the **Retrieve job status** utility skill. 
 
 8. In the **Expression** text box, enter `$` which will display an option list for referencing a variable. 
+   
+   ![](_attachments/flow46.png)
 
-9. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+9.  Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+    
+    ![](_attachments/flow47.png)
 
     This will autofill the variable reference in the expression text box as shown below. 
 
 10. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+    
+    ![](_attachments/flow48.png)
 
 11. Finally, click **Apply** to save the regular expression. 
     
     The new passed value should look similar to the following:
 
+    ![](_attachments/flow49.png)
+
 12. Then click **Apply** again. 
+    
+    ![](_attachments/flow50.png)
 
 13. Finally, click **New step +**.
 
