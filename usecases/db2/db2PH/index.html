@@ -1534,12 +1534,14 @@
 <li>
 <p>In the <strong>Assistant says</strong> field, type <strong><em>Job not yet ready. Would you like to check the job status?</em></strong>.</p>
 </li>
-<li>
-<p>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </p>
-</li>
-<li>
-<p>Click <strong>New step +</strong>.</p>
-</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow39.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow40.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
 </ol>
 <h3 id="step-11">Step 11<a class="headerlink" href="#step-11" title="Permanent link">#</a></h3>
 <ol>
@@ -1547,43 +1549,53 @@
 </ol>
 <p>In the <strong>Step 11</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
 <ol start="2">
-<li>
-<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
-</li>
-<li>
-<p>In the <strong>Subaction</strong> window, click on the <strong><em>Select an action</em></strong> field, and select the <strong>Retrieve job status</strong> subaction. </p>
-</li>
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow41.png"></a></p>
+<ol start="3">
+<li>In the <strong>Subaction</strong> window, click on the <strong><em>Select an action</em></strong> field, and select the <strong>Retrieve job status</strong> subaction. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow42.png"></a></p>
+<ol start="4">
 <li>
 <p>Then click <strong>Apply</strong>. </p>
 </li>
 <li>
 <p>Click <strong>Edit passed values</strong>. </p>
 </li>
-<li>
-<p>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </p>
-</li>
-<li>
-<p>In the <strong>To</strong> field, select the <strong>Expression</strong> option. </p>
-</li>
 </ol>
+<p><a class="glightbox" href="../_attachments/flow43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow43.png"></a></p>
+<ol start="6">
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow44.png"></a></p>
+<ol start="7">
+<li>In the <strong>To</strong> field, select the <strong>Expression</strong> option. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow45.png"></a></p>
 <p>This will display a text box where you will next enter in a regular expression to pass the Job ID of the previously run <strong>Db2 Reorg</strong> skill to the <strong>Retrieve job status</strong> utility skill. </p>
 <ol start="8">
-<li>
-<p>In the <strong>Expression</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </p>
-</li>
+<li>In the <strong>Expression</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow46.png"></a></p>
+<ol start="9">
 <li>
 <p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow47.png"></a></p>
 <p>This will autofill the variable reference in the expression text box as shown below. </p>
 </li>
 <li>
 <p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/flow48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow48.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
 <p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/flow49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow49.png"></a></p>
 </li>
 <li>
 <p>Then click <strong>Apply</strong> again. </p>
+<p><a class="glightbox" href="../_attachments/flow50.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow50.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>New step +</strong>.</p>
