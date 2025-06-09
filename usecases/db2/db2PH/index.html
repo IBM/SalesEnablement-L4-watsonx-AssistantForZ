@@ -1606,48 +1606,53 @@
 <li>Now you will handle the logic in the case that the <strong>Db2 Reorg</strong> job hasn't yet completed. </li>
 </ol>
 <p>In the <strong>Step 12</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you will modify the default condition. </p>
+<p><a class="glightbox" href="../_attachments/flow51.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow51.png"></a></p>
 <ol start="2">
 <li>In the default condition, click on the first part of the condition labeled <strong><em>10. Job not yet ready</em></strong> and instead select <strong>Expression</strong> from the drop-down list. </li>
 </ol>
+<p><a class="glightbox" href="../_attachments/flow52.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow52.png"></a></p>
 <p>This will then present a field to enter a regular expression. </p>
 <ol start="3">
-<li>
-<p>Click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </p>
-</li>
-<li>
-<p>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted anything other than <strong>Successful</strong>, indicating that the <strong>Db2 Reorg</strong> job hasn't completed yet. </p>
-</li>
+<li>Click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow53.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow53.png"></a></p>
+<ol start="4">
+<li>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted anything other than <strong>Successful</strong>, indicating that the <strong>Db2 Reorg</strong> job hasn't completed yet. </li>
 </ol>
 <p>In the <strong>Expression Editor</strong> text box, enter a <code>$</code> which will display an option list for referencing a variable. </p>
+<p><a class="glightbox" href="../_attachments/flow54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow54.png"></a></p>
 <ol start="5">
 <li>Select <strong>Retrieve job status (step 11)</strong> and then <strong>1. Retrieve job status result variable</strong> </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow55.png"></a></p>
 <p>The result will look something like this:</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow56.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow56.png"></a></p>
 <ol start="6">
 <li>Following the variable reference, type <code>.status</code> as shown below:</li>
 </ol>
-<p><em>screenshot</em>*</p>
+<p><a class="glightbox" href="../_attachments/flow57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow57.png"></a></p>
 <ol start="7">
 <li>Then set the condition that the status <strong>does not</strong> equal <strong>successful</strong> by entering a space followed by <code>!= 'successful'</code></li>
 </ol>
 <p>The full regular expression should look like the following:</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow58.png"></a></p>
 <ol start="8">
-<li>
-<p>Then click <strong>Apply</strong> to save your changes.</p>
-</li>
+<li>Then click <strong>Apply</strong> to save your changes.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow59.png"></a></p>
+<ol start="9">
 <li>
 <p>In the case that the job hasn't completed, the assistant will repeat steps 10-11. </p>
 <p>Click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>.</p>
+<p><a class="glightbox" href="../_attachments/flow60.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow60.png"></a></p>
 </li>
 <li>
 <p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 10 and 11</strong> as shown below. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow61.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow61.png"></a></p>
 </li>
 <li>
 <p>Then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow62.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow62.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>New step +</strong>.</p>
@@ -1657,42 +1662,44 @@
 <ol>
 <li>Now you will handle the logic in the case that the <strong>Db2 Reorg</strong> job has completed. </li>
 </ol>
-<p>In the <strong>Step 13</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you will modify the default condition. </p>
+<p>In the <strong>Step 13</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Again, you will modify the default condition. </p>
 <ol start="2">
 <li>In the default condition, click on the first part of the condition labeled <strong><em>10. Job not yet ready</em></strong> and instead select <strong>Expression</strong> from the drop-down list. </li>
 </ol>
+<p><a class="glightbox" href="../_attachments/flow63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow63.png"></a></p>
 <p>This will then present a field to enter a regular expression. </p>
 <ol start="3">
-<li>
-<p>Just as you did in the previous step, click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </p>
-</li>
-<li>
-<p>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted a <strong>Successful</strong> message, indicating that the <strong>Db2 Reorg</strong> job has completed. </p>
-</li>
+<li>Just as you did in the previous step, click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow64.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow64.png"></a></p>
+<ol start="4">
+<li>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted a <strong>Successful</strong> message, indicating that the <strong>Db2 Reorg</strong> job has completed. </li>
 </ol>
 <p>In the <strong>Expression Editor</strong> text box, enter a <code>$</code> which will display an option list for referencing a variable. </p>
 <ol start="5">
 <li>Select <strong>Retrieve job status (step 11)</strong> and then <strong>1. Retrieve job status result variable</strong> </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow65.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow65.png"></a></p>
 <p>The result will look something like this:</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow66.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow66.png"></a></p>
 <ol start="6">
 <li>Following the variable reference, type <code>.status</code> as shown below:</li>
 </ol>
-<p><em>screenshot</em>*</p>
+<p><a class="glightbox" href="../_attachments/flow67.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow67.png"></a></p>
 <ol start="7">
 <li>Then set the condition that the status <strong>does</strong> equal <strong>successful</strong> by entering a space followed by <code>== 'successful'</code></li>
 </ol>
 <p>The full regular expression should look like the following:</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow68.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow68.png"></a></p>
 <ol start="8">
-<li>
-<p>Then click <strong>Apply</strong> to save your changes.</p>
-</li>
+<li>Then click <strong>Apply</strong> to save your changes.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow69.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow69.png"></a></p>
+<ol start="9">
 <li>
 <p>In the case that the job did successfully complete, the assistant will inform the user. </p>
 <p>In the <strong>Assistant says</strong> text box, type <strong><em>The job has completed successfully</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow70.png"></a></p>
 </li>
 <li>
 <p>Then click <strong>New step +</strong>. </p>
@@ -1707,32 +1714,34 @@
    - <strong>Exit</strong></p>
 <p><strong>Challenge</strong>: Create the same condition used in the previous step defining the logic that the output of the <strong>Retrieve job status</strong> equals <strong>successful</strong>. </p>
 <p>Once done, the condition for <strong>Step 14</strong> should look like the following:</p>
-<p><strong>Screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow71.png"></a></p>
 </li>
 <li>
 <p>In the <strong>Assistant says</strong> text box, type <strong><em>What would you like to do?</em></strong> in order to prompt the user to select a following option. </p>
 </li>
-<li>
-<p>Click on the <strong>Define customer response</strong> option list and select <strong>Options</strong>. </p>
-</li>
-<li>
-<p>Now enter the following options:
+</ol>
+<p><a class="glightbox" href="../_attachments/flow72.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow72.png"></a></p>
+<ol start="3">
+<li>Click on the <strong>Define customer response</strong> option list and select <strong>Options</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow73.png"></a></p>
+<ol start="4">
+<li>Now enter the following options:
    - <em>Get full job output</em>
    - <em>View job completion details</em>
-   - <em>Exit</em></p>
-</li>
+   - <em>Exit</em></li>
 </ol>
-<p>The options should look like the following:
-   <strong>Screenshot</strong></p>
+<p>The options should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow74.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow74.png"></a></p>
 <ol start="5">
-<li>
-<p>Then click <strong>Apply</strong> to save your changes. </p>
-</li>
-<li>
-<p>Click on the <strong>Settings</strong> icon and then select <strong>Always ask for this information, regardless of previous messages.</strong> to ensure the user is always asked. </p>
-</li>
+<li>Then click <strong>Apply</strong> to save your changes. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow75.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow75.png"></a></p>
+<ol start="6">
+<li>Click on the <strong>Settings</strong> icon and then select <strong>Always ask for this information, regardless of previous messages.</strong> to ensure the user is always asked. </li>
 </ol>
 <p>Then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow76.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow76.png"></a></p>
 <ol start="7">
 <li>Then click <strong>New step +</strong>. </li>
 </ol>
@@ -1742,32 +1751,38 @@
 </ol>
 <p>In the <strong>Step 15</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will again modify the default condition. </p>
 <ol start="2">
-<li>
-<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </p>
-</li>
-<li>
-<p>In the <strong>Assistant says</strong> text box, type <strong><em>Retrieving job completion details</em></strong>. </p>
-</li>
-<li>
-<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
-</li>
-<li>
-<p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Job completion details</strong> subaction, which is the skill flow you previously created. </p>
-</li>
-<li>
-<p>Then click <strong>Apply</strong>. </p>
-</li>
-<li>
-<p>Click <strong>Edit passed values</strong>. </p>
-</li>
+<li>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </li>
 </ol>
+<p><a class="glightbox" href="../_attachments/flow77.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow77.png"></a></p>
+<ol start="3">
+<li>In the <strong>Assistant says</strong> text box, type <strong><em>Retrieving job completion details</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow78.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow78.png"></a></p>
+<ol start="4">
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow79.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow79.png"></a></p>
+<ol start="5">
+<li>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Job completion details</strong> subaction, which is the skill flow you previously created.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow80.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow80.png"></a> </p>
+<ol start="6">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow81.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow81.png"></a></p>
+<ol start="7">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow82.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow82.png"></a></p>
 <p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to the skill flow. </p>
 <ol start="8">
-<li>
-<p>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </p>
-</li>
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow83.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow83.png"></a></p>
+<ol start="9">
 <li>
 <p>In the <strong>To</strong> field, select <strong>Expression</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow84.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow84.png"></a></p>
 <p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
 </li>
 <li>
@@ -1775,17 +1790,22 @@
 </li>
 <li>
 <p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
-<p>This will autofill the variable reference in the expression text box as shown below. </p>
+<p><a class="glightbox" href="../_attachments/flow85.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow85.png"></a></p>
+<p>This will autofill the variable reference in the expression text box as shown below:</p>
+<p><a class="glightbox" href="../_attachments/flow86.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow86.png"></a></p>
 </li>
 <li>
 <p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/flow87.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow87.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
 <p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/flow88.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow88.png"></a></p>
 </li>
 <li>
 <p>Then click <strong>Apply</strong> again. </p>
+<p><a class="glightbox" href="../_attachments/flow89.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow89.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>New step +</strong>.</p>
