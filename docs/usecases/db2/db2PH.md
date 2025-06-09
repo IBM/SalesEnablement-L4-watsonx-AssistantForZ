@@ -969,13 +969,19 @@ Lets create a custom-built action to handle this.
 
    Click on the default condition labeled **Get full job output** and in the drop-down, select **View job completion details**. 
 
+   ![](_attachments/flow90.png)
+
 2. Then click on the **And then** drop-down and select **Re-ask previous step(s)**. 
+   
+   ![](_attachments/flow91.png)
 
 3. In the new **Settings** window, *select the checkboxes* for **Steps 14 and 15** as shown below. 
    
-   **screenshot**
+   ![](_attachments/flow92.png)
 
 4. Then click **Apply**. 
+   
+   ![](_attachments/flow93.png)
 
 5. Finally, click **New step +**. 
 
@@ -985,37 +991,58 @@ Lets create a custom-built action to handle this.
    
    To configure this, in the **Step 17** tile, click the **Is taken** option list and select **with conditions**. This time, you can leave the default condition specifying that the user selected the **Get full job output** option in step 14. 
 
+   ![](_attachments/d1.png)
+
 2. In the **Assistant says** text box, type ***Getting full job output...***
+   
+   ![](_attachments/d2.png)
 
 3. Click on the **And then** drop-down and select **Go to a subaction**. 
 
 4. In the **Subaction** window, click on the **Select an action** field, and select the **Retrieve job output** subaction. 
+   
+   ![](_attachments/d3.png)
 
 5. Then click **Apply**. 
+   
+   ![](_attachments/d4.png)
 
 6. Click **Edit passed values**. 
+   
+   ![](_attachments/d5.png)
    
    You'll now edit the passed values to map the **Job ID** of the **Db2 Reorg** skill as input to **Retrieve job output** utility skill. 
 
 7. Click **Set new value** and then select the ***1. id*** variable. 
+   
+   ![](_attachments/d6.png)
 
 8. In the **To** field, select **Expression**. 
    
+   ![](_attachments/d7.png)
+   
    You will now write a regular expression to retrieve the **Job ID** of the **Db2 Reorg result variable**. 
 
-9. In the **Expressions** text box, enter `$` which will display an option list for referencing a variable. 
+9.  In the **Expressions** text box, enter `$` which will display an option list for referencing a variable. 
 
 10. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
+    
+    ![](_attachments/d8.png)
     
     This will autofill the variable reference in the expression text box as shown below. 
 
 11. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+    
+    ![](_attachments/d9.png)
 
 12. Finally, click **Apply** to save the regular expression. 
     
     The new passed value should look similar to the following:
 
+    ![](_attachments/d10.png)
+
 13. Then click **Apply** again. 
+    
     
 14. Finally, click **New step +**. 
 
@@ -1028,13 +1055,17 @@ Lets create a custom-built action to handle this.
 
    To configure this, in the **Step 18** tile, click the **Is taken** option list and select **with conditions**. Just as in the previous step, you can leave the default condition specifying that the user selected the **Get full job output** option. 
 
+   ![](_attachments/d11.png)
+
 2. Then click on the **And then** drop-down and select **Re-ask previous step(s)**. 
 
 3. In the new **Settings** window, *select the checkboxes* for **Steps 14 - 17** as shown below. 
    
-   **screenshot**
+   ![](_attachments/d12.png)
 
 4. Then click **Apply**. 
+   
+   ![](_attachments/d13.png)
 
 5. Finally, click **New step +**. 
 
@@ -1046,13 +1077,18 @@ Lets create a custom-built action to handle this.
 
    To configure this, in the **Step 19** tile, click the **Is taken** option list and select **with conditions**. Now you will modify the default condition, specifying that the user previously selected the **Exit** option. 
 
-   Click on the default condition labeled **Get full job output** and in the drop-down, select **Exit**. 
+   Click on the default condition labeled **Get full job output** and in the drop-down, select **Exit**.
+   
+   ![](_attachments/d14.png)
 
 2. Lastly, click on the **And then** drop-down and select **End the action**. 
+   
+   ![](_attachments/d15.png)
+   
 
 **IMPORTANT**: Make sure to save the entire action before exiting the action view by **clicking on the save icon** in the top-right corner of the screen.
 
-**screenshot**
+   ![](_attachments/d16.png)
 
 ***This concludes the creation of your custom-built action and you will next be able to test out the flow***.  
 
@@ -1165,7 +1201,7 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
     
     From here, the user selects **Yes**. 
 
-    **screeshot**
+    ![](_attachments/db2error-13.png)
 
 11. Depending on how long waited, the job status may come back as still **Running** or **Successful**. 
     
@@ -1175,11 +1211,11 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
     - ***View job completion details***
     - ***Exit***
 
-    **screenshot**
+    ![](_attachments/db2error-14.png)
 
 12. The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select **View job completion details**. 
     
-    **screenshot**
+    ![](_attachments/db2error-15.png)
 
     In the output, the user can see the job completed with a Return Code of `0`, indicating a successful job completion with no errors or warnings. 
 
@@ -1191,17 +1227,17 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
 
     To view this, the user selects the **Get full job output** option. 
 
-    **screenshot**
+    ![](_attachments/db2error-16.png)
 
 14. Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. 
     
-    **screenshot**
+    ![](_attachments/db2error-17.png)
 
     Scrolling down in the log, they find a message indicating:
     ```
     IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
     ```
-    **screenshot**
+    ![](_attachments/db2error-18.png)
 
     They can then again verify that the job was executed successfully without error. 
 
@@ -1209,7 +1245,7 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
     
     Now that the user has verified the job completed successfully, they would like to end the conversation. So they select **Exit** to conclude the demo. 
 
-    **screenshot**
+    ![](_attachments/db2error-19.png)
 
 
 
