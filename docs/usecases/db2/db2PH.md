@@ -742,45 +742,60 @@ Lets create a custom-built action to handle this.
    
    In the **Step 12** tile, click the **Is taken** option list and select **with conditions**. This time, you will modify the default condition. 
 
+   ![](_attachments/flow51.png)
+
 2. In the default condition, click on the first part of the condition labeled ***10. Job not yet ready*** and instead select **Expression** from the drop-down list. 
+   
+   ![](_attachments/flow52.png)
 
    This will then present a field to enter a regular expression. 
 
 3. Click on the ***Expand*** icon to the right of the field to enter the text box in full display. 
+   
+   ![](_attachments/flow53.png)
 
 4. You will now enter an expression to create the condition that the previously ran **Retrieve job status** skill outputted anything other than **Successful**, indicating that the **Db2 Reorg** job hasn't completed yet. 
    
    In the **Expression Editor** text box, enter a `$` which will display an option list for referencing a variable. 
 
+   ![](_attachments/flow54.png)
+
 5. Select **Retrieve job status (step 11)** and then **1. Retrieve job status result variable** 
 
-   **screenshot**
+   ![](_attachments/flow55.png)
 
    The result will look something like this:
 
-   **screenshot**
+   ![](_attachments/flow56.png)
 
 6. Following the variable reference, type `.status` as shown below:
    
-   *screenshot**
+   ![](_attachments/flow57.png)
 
 7. Then set the condition that the status **does not** equal **successful** by entering a space followed by `!= 'successful'`
    
    The full regular expression should look like the following:
 
-   **screenshot**
+   ![](_attachments/flow58.png)
 
 8. Then click **Apply** to save your changes.
    
-9. In the case that the job hasn't completed, the assistant will repeat steps 10-11. 
+   ![](_attachments/flow59.png)
+   
+9.  In the case that the job hasn't completed, the assistant will repeat steps 10-11. 
     
     Click on the **And then** drop-down and select **Re-ask previous step(s)**.
 
+    ![](_attachments/flow60.png)
+
+
 10. In the new **Settings** window, *select the checkboxes* for **Steps 10 and 11** as shown below. 
     
-    **screenshot**
+    ![](_attachments/flow61.png)
 
 11. Then click **Apply**. 
+    
+    ![](_attachments/flow62.png)
 
 12. Finally, click **New step +**.
 
@@ -788,13 +803,17 @@ Lets create a custom-built action to handle this.
 
 1. Now you will handle the logic in the case that the **Db2 Reorg** job has completed. 
    
-   In the **Step 13** tile, click the **Is taken** option list and select **with conditions**. This time, you will modify the default condition. 
+   In the **Step 13** tile, click the **Is taken** option list and select **with conditions**. Again, you will modify the default condition. 
 
 2. In the default condition, click on the first part of the condition labeled ***10. Job not yet ready*** and instead select **Expression** from the drop-down list. 
+   
+   ![](_attachments/flow63.png)
 
    This will then present a field to enter a regular expression. 
 
 3. Just as you did in the previous step, click on the ***Expand*** icon to the right of the field to enter the text box in full display. 
+   
+   ![](_attachments/flow64.png)
 
 4. You will now enter an expression to create the condition that the previously ran **Retrieve job status** skill outputted a **Successful** message, indicating that the **Db2 Reorg** job has completed. 
    
@@ -802,27 +821,31 @@ Lets create a custom-built action to handle this.
 
 5. Select **Retrieve job status (step 11)** and then **1. Retrieve job status result variable** 
 
-   **screenshot**
+   ![](_attachments/flow65.png)
 
    The result will look something like this:
 
-   **screenshot**
+   ![](_attachments/flow66.png)
 
 6. Following the variable reference, type `.status` as shown below:
    
-   *screenshot**
+   ![](_attachments/flow67.png)
 
 7. Then set the condition that the status **does** equal **successful** by entering a space followed by `== 'successful'`
    
    The full regular expression should look like the following:
 
-   **screenshot**
+   ![](_attachments/flow68.png)
 
 8. Then click **Apply** to save your changes.
+   
+   ![](_attachments/flow69.png)
 
-9. In the case that the job did successfully complete, the assistant will inform the user. 
+9.  In the case that the job did successfully complete, the assistant will inform the user. 
     
     In the **Assistant says** text box, type ***The job has completed successfully***. 
+
+    ![](_attachments/flow70.png)
 
 10. Then click **New step +**. 
 
@@ -837,11 +860,15 @@ Lets create a custom-built action to handle this.
 
     Once done, the condition for **Step 14** should look like the following:
     
-    **Screenshot**
+    ![](_attachments/flow71.png)
 
 2. In the **Assistant says** text box, type ***What would you like to do?*** in order to prompt the user to select a following option. 
+   
+   ![](_attachments/flow72.png)
 
 3. Click on the **Define customer response** option list and select **Options**. 
+   
+   ![](_attachments/flow73.png)
 
 4. Now enter the following options:
    - *Get full job output*
@@ -849,13 +876,18 @@ Lets create a custom-built action to handle this.
    - *Exit*
    
    The options should look like the following:
-   **Screenshot**
+   
+   ![](_attachments/flow74.png)
 
 5. Then click **Apply** to save your changes. 
+   
+   ![](_attachments/flow75.png)
 
 6. Click on the **Settings** icon and then select **Always ask for this information, regardless of previous messages.** to ensure the user is always asked. 
 
    Then click **Apply**. 
+
+   ![](_attachments/flow76.png)
 
 7. Then click **New step +**. 
 
@@ -866,22 +898,38 @@ Lets create a custom-built action to handle this.
    In the **Step 15** tile, click the **Is taken** option list and select **with conditions**. This time you will again modify the default condition. 
 
 2. Click on the default condition labeled **Get full job output** and in the drop-down, select **View job completion details**. 
+   
+   ![](_attachments/flow77.png)
 
 3. In the **Assistant says** text box, type ***Retrieving job completion details***. 
+   
+   ![](_attachments/flow78.png)
 
 4. Click on the **And then** drop-down and select **Go to a subaction**. 
+   
+   ![](_attachments/flow79.png)
 
-5. In the **Subaction** window, click on the **Select an action** field, and select the **Job completion details** subaction, which is the skill flow you previously created. 
+5. In the **Subaction** window, click on the **Select an action** field, and select the **Job completion details** subaction, which is the skill flow you previously created.
+
+   ![](_attachments/flow80.png) 
 
 6. Then click **Apply**. 
+   
+   ![](_attachments/flow81.png)
 
 7. Click **Edit passed values**. 
+   
+   ![](_attachments/flow82.png)
    
    You'll now edit the passed values to map the **Job ID** of the **Db2 Reorg** skill as input to the skill flow. 
 
 8. Click **Set new value +** and then select the ***1. id*** variable. 
+   
+   ![](_attachments/flow83.png)
 
-9. In the **To** field, select **Expression**. 
+9.  In the **To** field, select **Expression**. 
+    
+    ![](_attachments/flow84.png)
     
     You will now write a regular expression to retrieve the **Job ID** of the **Db2 Reorg result variable**. 
 
@@ -889,15 +937,25 @@ Lets create a custom-built action to handle this.
 
 11. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
     
-    This will autofill the variable reference in the expression text box as shown below. 
+    ![](_attachments/flow85.png)
+    
+    This will autofill the variable reference in the expression text box as shown below:
+
+    ![](_attachments/flow86.png)
 
 12. Following the variable reference, type `.job` to reference the **Job ID** of that job execution. 
+    
+    ![](_attachments/flow87.png)
 
 13. Finally, click **Apply** to save the regular expression. 
     
     The new passed value should look similar to the following:
 
+    ![](_attachments/flow88.png)
+
 14. Then click **Apply** again. 
+    
+    ![](_attachments/flow89.png)
     
 15. Finally, click **New step +**.
 
