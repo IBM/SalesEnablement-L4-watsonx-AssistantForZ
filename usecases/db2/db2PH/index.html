@@ -1818,54 +1818,58 @@
 <p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next - i.e. <strong><em>Get the full job output</em></strong> or <strong><em>Exit</em></strong> the current conversation altogether. </p>
 <p>To configure this, in the <strong>Step 16</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just like you did in the previous step, you will again modify the default condition, specifying that the user previously selected the <strong>View job completion details</strong>. </p>
 <p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow90.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow90.png"></a></p>
 <ol start="2">
-<li>
-<p>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </p>
-</li>
-<li>
-<p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 and 15</strong> as shown below. </p>
-</li>
+<li>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/flow91.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow91.png"></a></p>
+<ol start="3">
+<li>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 and 15</strong> as shown below. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow92.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow92.png"></a></p>
 <ol start="4">
-<li>
-<p>Then click <strong>Apply</strong>. </p>
-</li>
-<li>
-<p>Finally, click <strong>New step +</strong>. </p>
-</li>
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow93.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow93.png"></a></p>
+<ol start="5">
+<li>Finally, click <strong>New step +</strong>. </li>
 </ol>
 <h3 id="step-17">Step 17<a class="headerlink" href="#step-17" title="Permanent link">#</a></h3>
 <ol>
 <li>In this step, you'll configure the condition that the user previously selected the <strong>Get full job output</strong> option. </li>
 </ol>
 <p>To configure this, in the <strong>Step 17</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option in step 14. </p>
+<p><a class="glightbox" href="../_attachments/d1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d1.png"></a></p>
 <ol start="2">
-<li>
-<p>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></p>
-</li>
+<li>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d2.png"></a></p>
+<ol start="3">
 <li>
 <p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
 </li>
 <li>
 <p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Retrieve job output</strong> subaction. </p>
 </li>
-<li>
-<p>Then click <strong>Apply</strong>. </p>
-</li>
-<li>
-<p>Click <strong>Edit passed values</strong>. </p>
-</li>
 </ol>
+<p><a class="glightbox" href="../_attachments/d3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d3.png"></a></p>
+<ol start="5">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d4.png"></a></p>
+<ol start="6">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d5.png"></a></p>
 <p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to <strong>Retrieve job output</strong> utility skill. </p>
 <ol start="7">
-<li>
-<p>Click <strong>Set new value</strong> and then select the <strong><em>1. id</em></strong> variable. </p>
-</li>
-<li>
-<p>In the <strong>To</strong> field, select <strong>Expression</strong>. </p>
-</li>
+<li>Click <strong>Set new value</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
 </ol>
+<p><a class="glightbox" href="../_attachments/d6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d6.png"></a></p>
+<ol start="8">
+<li>In the <strong>To</strong> field, select <strong>Expression</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d7.png"></a></p>
 <p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
 <ol start="9">
 <li>
@@ -1873,14 +1877,17 @@
 </li>
 <li>
 <p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p><a class="glightbox" href="../_attachments/d8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d8.png"></a></p>
 <p>This will autofill the variable reference in the expression text box as shown below. </p>
 </li>
 <li>
 <p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/d9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d9.png"></a></p>
 </li>
 <li>
 <p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
 <p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/d10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d10.png"></a></p>
 </li>
 <li>
 <p>Then click <strong>Apply</strong> again. </p>
@@ -1895,6 +1902,7 @@
 </ol>
 <p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next.</p>
 <p>To configure this, in the <strong>Step 18</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just as in the previous step, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option. </p>
+<p><a class="glightbox" href="../_attachments/d11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d11.png"></a></p>
 <ol start="2">
 <li>
 <p>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </p>
@@ -1903,14 +1911,13 @@
 <p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 - 17</strong> as shown below. </p>
 </li>
 </ol>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/d12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d12.png"></a></p>
 <ol start="4">
-<li>
-<p>Then click <strong>Apply</strong>. </p>
-</li>
-<li>
-<p>Finally, click <strong>New step +</strong>. </p>
-</li>
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d13.png"></a></p>
+<ol start="5">
+<li>Finally, click <strong>New step +</strong>. </li>
 </ol>
 <h3 id="step-19">Step 19<a class="headerlink" href="#step-19" title="Permanent link">#</a></h3>
 <ol>
@@ -1918,12 +1925,14 @@
 </ol>
 <p>In this case, the assistant guided conversation will conclude and the action should end. </p>
 <p>To configure this, in the <strong>Step 19</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Now you will modify the default condition, specifying that the user previously selected the <strong>Exit</strong> option. </p>
-<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>Exit</strong>. </p>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>Exit</strong>.</p>
+<p><a class="glightbox" href="../_attachments/d14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d14.png"></a></p>
 <ol start="2">
 <li>Lastly, click on the <strong>And then</strong> drop-down and select <strong>End the action</strong>. </li>
 </ol>
+<p><a class="glightbox" href="../_attachments/d15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d15.png"></a></p>
 <p><strong>IMPORTANT</strong>: Make sure to save the entire action before exiting the action view by <strong>clicking on the save icon</strong> in the top-right corner of the screen.</p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="../_attachments/d16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d16.png"></a></p>
 <p><strong><em>This concludes the creation of your custom-built action and you will next be able to test out the flow</em></strong>.  </p>
 <h2 id="demonstrate-the-assistant-action">Demonstrate the assistant action<a class="headerlink" href="#demonstrate-the-assistant-action" title="Permanent link">#</a></h2>
 <p>Now that you have fully configured your <strong>custom-built action</strong> to handle the Db2 error troubleshooting process, you will next be able to demonstrate the end-to-end flow. </p>
@@ -2000,7 +2009,7 @@
 <li>
 <p>After submitting the job, we see that it's in a <strong>Pending</strong> status and the assistant informs the user: <strong><em>Job not yet ready. Would you like to check the job status?</em></strong></p>
 <p>From here, the user selects <strong>Yes</strong>. </p>
-<p><strong>screeshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-13.png"></a></p>
 </li>
 <li>
 <p>Depending on how long waited, the job status may come back as still <strong>Running</strong> or <strong>Successful</strong>. </p>
@@ -2010,11 +2019,11 @@
 <li><strong><em>View job completion details</em></strong></li>
 <li><strong><em>Exit</em></strong></li>
 </ul>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-14.png"></a></p>
 </li>
 <li>
 <p>The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select <strong>View job completion details</strong>. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-15.png"></a></p>
 <p>In the output, the user can see the job completed with a Return Code of <code>0</code>, indicating a successful job completion with no errors or warnings. </p>
 <p>They can also view the <code>Job ID</code> value if they want to explore the logs in further detail. </p>
 </li>
@@ -2022,21 +2031,21 @@
 <p>Following those details, the assistant returns by again asking what the user would like to do next. </p>
 <p>In addition to providing the extracted summary of the job completion, the assistant is also able to provide the full job log if the user would like to investigate. </p>
 <p>To view this, the user selects the <strong>Get full job output</strong> option. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-16.png"></a></p>
 </li>
 <li>
 <p>Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-17.png"></a></p>
 <p>Scrolling down in the log, they find a message indicating:
 </p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
 </span></code></pre></div>
-<strong>screenshot</strong>
+<a class="glightbox" href="_attachments/db2error-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-18.png"></a>
 <p>They can then again verify that the job was executed successfully without error. </p>
 </li>
 <li>
 <p>Just like previously, the assistant comes back asking what the user would like to do next.</p>
 <p>Now that the user has verified the job completed successfully, they would like to end the conversation. So they select <strong>Exit</strong> to conclude the demo. </p>
-<p><strong>screenshot</strong></p>
+<p><a class="glightbox" href="_attachments/db2error-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-19.png"></a></p>
 </li>
 </ol>
 <!-- Terminology -->
