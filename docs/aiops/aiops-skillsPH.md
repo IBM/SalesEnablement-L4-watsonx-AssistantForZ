@@ -116,10 +116,251 @@ Once you have the **session variables** defined as described above for the **LPA
 
 The three skills that are relevant to the **LPAR flow** which you will need to create **skills-based actions** for are:
 
-- Returns information about all z/OS systems
-- Retrieve a z/OS-system by LPAR name
-- Retrieve jobs running on a z/OS system
+- ***Returns information about all z/OS systems***
+- ***Retrieve a z/OS-system by LPAR name***
+- ***Retrieve jobs running on a z/OS system***
 
 For the other AIOps assistant flows, you would be using a different set of skills that you previously imported. But the above 3 are the ones that are needed to build out the **LPAR flow**. 
 
-1. First, create a new actions folder/collection...
+1. First, navigate to the your actions list by clicking on **Created by you** under **All items**
+   
+   ![](_attachments/aiops9.png)
+
+2. Click on **New action +** in the top-right corner
+   
+   ![](_attachments/aiops10.png)
+
+3. Select the tile for **Skill-based action**
+   
+   ![](_attachments/aiops11.png)
+
+4. Select the previously imported skill titled ***Returns information about all z/OS systems*** and then click **Next**. 
+   
+   ![](_attachments/aiops12.png)
+
+5. In the new action dialogue, click **Cancel** 
+   
+   ![](_attachments/aiops13.png)
+
+6. Then close out of the action page by clicking on the **x** in the top-right corner. 
+   
+   ![](_attachments/aiops14.png)
+
+7. You should now be able to see your new action as shown below:
+   
+   ![](_attachments/aiops15.png)
+
+8. Now **repeat steps 2 - 6** in order to add actions for the following imported skills:
+   
+   - ***Retrieve a z/OS-system by LPAR name***
+   - ***Retrieve jobs running on a z/OS system***
+  
+   When finished, you should see all 3 **skill-based actions** added to your list as shown below:
+
+   ![](_attachments/aiops16.png)
+
+
+### Creating the custom-built action for LPAR flow
+
+Now that you have all the relevant skills configured as **skill-based actions**, the final step is to build out the full **AIOps LPAR flow** by creating a new **custom-built action**.
+
+1. Just as you did previously, click on **New action +** in the top-right corner.
+   
+   **screenshot**
+
+2. Click on the tile for **Custom-built action**
+   
+   **screenshot**
+
+3. In the **New action** dialogue, enter ***Show all my LPARs*** for the starter prompt and click **Save**. 
+   
+   **screenshot**
+
+By default, Step 1 is selected. Follow the below instructions to complete the configuration.
+
+#### Step 1:
+
+1. Click on the **And then** drop-down and click on **Go to a subaction**. 
+   
+   **screenshot**
+
+2. In the **Go to** field, select the action called ***Returns information about all z/OS systems***, then click **Apply**.
+   
+   **screenshot**
+
+3. Click on **New step +**
+
+#### Step 2:
+
+1. Click on **Set variable values** 
+   
+   **screenshot**
+
+2. Then click on **Set new value +**
+   
+   **screenshot**
+
+3. In the drop-down, select **Session variables** and then **allLPARTable** as shown below:
+   
+   **screenshot**
+
+4. In the **To** field, select **Expression**
+   
+   **screenshot**
+
+5. Expand the **Expression** text box by clicking on the icon shown below:
+   
+   **screenshot**
+
+6. In the expanded Expressions text box, type a `$` to reference a variable, then click on **Returns information about all...(Step 1)**. Then click on **1. Returns information about all z/OS systems result variable** as shown below:
+   
+   **screenshot**
+
+7. Followed by that variable, enter `.message` and click **Apply**. 
+   
+   **screenshot**
+
+8. Now you will set a value for another session variable. 
+   
+   Click on **Set new value +**
+
+9. In the drop-down, select **Session variables** and then **LPARNormalizedTable1** as shown below:
+    
+    **screenshot**
+   
+10. Again, in the **To** field, select **Expression** and ***expand*** the text box. 
+    
+    **screenshot**
+
+11. In the text box, type a `$` to reference a variable, then click on **Session variables** and then **allLPARTable**:
+    
+    **screenshot**
+
+12. Following the variable reference, add the following:
+    ```
+    .toString().replace("LPAR Name","LPARName").toJson()
+    ```
+
+    The result should look like the following:
+
+    **screenshot**
+
+13. Then click **Apply**
+    
+    **screenshot**
+
+14. You should now have 2 session variables defined as shown below:
+    
+    **screenshot**
+
+    Next, **repeat steps 8 - 13** in order to set the last 2 values for the following variables:
+
+    **Set:**
+    ```
+    LPARNormalizedTable2
+    ```
+    **To:**
+    ```
+    LPARNormalizedTable1.toString().replace("SMF ID", "smfId").toJson()
+    ```
+    <br>
+    <br>
+    
+    **Set:**
+    ```
+    LPARIdList
+    ```
+    **To:**
+    ```
+    LPARNormalizedTable1.joinToArray("%e.LPARName%", true)
+    ```
+
+    The result should look like the following:
+
+    **screenshot**
+
+15. In the **Assistant says** field, type ***Do you want to see details of a specific LPAR?***
+    
+    **screenshot**
+
+16. Click **Define customer response** and select **Confirmation**. 
+    
+    **screenshot**
+
+17. Click on **New step +**
+
+#### Step 3:
+
+1. In the **Is taken** field, click on **without conditions** and select **with conditions**.
+   
+   **screenshot**
+
+2. In the default condition, click **Yes** and instead select **No**. 
+   
+   **screenshot**
+
+3. In the **And then** drop-down, select **End the action**. 
+   
+   **screenshot**
+
+4. Click on **New step +**
+
+#### Step 4:
+
+1. In the **Is taken** field, click on **without conditions** and select **with conditions**.
+   
+   Leave the default condition set to **Yes**
+
+2. In the **Assistant says** text box, type ***Which LPAR instance detail would you like to see?***
+   
+   **screenshot**
+
+3. Click **Define customer response* and then click **Options**
+   
+   **screenshot**
+
+4. In the **Edit response** window, toggle the **Dynamic** switch to the **On** position. 
+   
+   **screenshot**
+
+5. Then click on the **Choose source variable** drop-down and select **Session variables** and then the **LPARIdList** session variable you created earlier. 
+   
+   **screenshot**
+
+6. Then click **Apply**. 
+   
+   **screenshot**
+
+7. Then click **New step +**
+
+#### Step 5:
+
+1. Click on **Set variable values**
+   
+   **screenshot**
+
+2. Then click on **Set new value +**
+   
+   **screenshot**
+
+3. In the drop-down, select **Session variables** and then **selectedLPARId** as shown below:
+   
+   **screenshot**
+
+4. In the **To** field, select **Expression** and then expand the text box.
+   
+   **screenshot**
+
+5. In the text box, type a `$`, then click on **Action step variables** and then **4. Which LPAR instance detail would you like to see?**
+   
+   **screenshot**
+
+6. Followed by that variable, enter `.value` and click **Apply**. 
+   
+   **screenshot**
+
+7. Now you will set a value for another session variable. 
+   
+   Click on **Set new value +**
+
+8. 
