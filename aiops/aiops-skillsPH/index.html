@@ -1012,13 +1012,240 @@
 <p>Once you have the <strong>session variables</strong> defined as described above for the <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong>, the next step is to define <strong>skill-based actions</strong> using the relevant skills for the <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong>. </p>
 <p>The three skills that are relevant to the <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong> which you will need to create <strong>skills-based actions</strong> for are:</p>
 <ul>
-<li>Returns information about all z/<abbr title="Operating System">OS</abbr> systems</li>
-<li>Retrieve a z/<abbr title="Operating System">OS</abbr>-system by <abbr title="Logical Partition">LPAR</abbr> name</li>
-<li>Retrieve jobs running on a z/<abbr title="Operating System">OS</abbr> system</li>
+<li><strong><em>Returns information about all z/<abbr title="Operating System">OS</abbr> systems</em></strong></li>
+<li><strong><em>Retrieve a z/<abbr title="Operating System">OS</abbr>-system by <abbr title="Logical Partition">LPAR</abbr> name</em></strong></li>
+<li><strong><em>Retrieve jobs running on a z/<abbr title="Operating System">OS</abbr> system</em></strong></li>
 </ul>
 <p>For the other AIOps assistant flows, you would be using a different set of skills that you previously imported. But the above 3 are the ones that are needed to build out the <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong>. </p>
 <ol>
-<li>First, create a new actions folder/collection...</li>
+<li>First, navigate to the your actions list by clicking on <strong>Created by you</strong> under <strong>All items</strong></li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops9.png"></a></p>
+<ol start="2">
+<li>Click on <strong>New action +</strong> in the top-right corner</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops10.png"></a></p>
+<ol start="3">
+<li>Select the tile for <strong>Skill-based action</strong></li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops11.png"></a></p>
+<ol start="4">
+<li>Select the previously imported skill titled <strong><em>Returns information about all z/<abbr title="Operating System">OS</abbr> systems</em></strong> and then click <strong>Next</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops12.png"></a></p>
+<ol start="5">
+<li>In the new action dialogue, click <strong>Cancel</strong> </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops13.png"></a></p>
+<ol start="6">
+<li>Then close out of the action page by clicking on the <strong>x</strong> in the top-right corner. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops14.png"></a></p>
+<ol start="7">
+<li>You should now be able to see your new action as shown below:</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/aiops15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops15.png"></a></p>
+<ol start="8">
+<li>Now <strong>repeat steps 2 - 6</strong> in order to add actions for the following imported skills:</li>
+</ol>
+<ul>
+<li><strong><em>Retrieve a z/<abbr title="Operating System">OS</abbr>-system by <abbr title="Logical Partition">LPAR</abbr> name</em></strong></li>
+<li><strong><em>Retrieve jobs running on a z/<abbr title="Operating System">OS</abbr> system</em></strong></li>
+</ul>
+<p>When finished, you should see all 3 <strong>skill-based actions</strong> added to your list as shown below:</p>
+<p><a class="glightbox" href="../_attachments/aiops16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aiops16.png"></a></p>
+<h3 id="creating-the-custom-built-action-for-lpar-flow">Creating the custom-built action for <abbr title="Logical Partition">LPAR</abbr> flow<a class="headerlink" href="#creating-the-custom-built-action-for-lpar-flow" title="Permanent link">#</a></h3>
+<p>Now that you have all the relevant skills configured as <strong>skill-based actions</strong>, the final step is to build out the full <strong>AIOps <abbr title="Logical Partition">LPAR</abbr> flow</strong> by creating a new <strong>custom-built action</strong>.</p>
+<ol>
+<li>Just as you did previously, click on <strong>New action +</strong> in the top-right corner.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>Click on the tile for <strong>Custom-built action</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>In the <strong>New action</strong> dialogue, enter <strong><em>Show all my LPARs</em></strong> for the starter prompt and click <strong>Save</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<p>By default, Step 1 is selected. Follow the below instructions to complete the configuration.</p>
+<h4 id="step-1">Step 1:<a class="headerlink" href="#step-1" title="Permanent link">#</a></h4>
+<ol>
+<li>Click on the <strong>And then</strong> drop-down and click on <strong>Go to a subaction</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>In the <strong>Go to</strong> field, select the action called <strong><em>Returns information about all z/<abbr title="Operating System">OS</abbr> systems</em></strong>, then click <strong>Apply</strong>.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>Click on <strong>New step +</strong></li>
+</ol>
+<h4 id="step-2">Step 2:<a class="headerlink" href="#step-2" title="Permanent link">#</a></h4>
+<ol>
+<li>Click on <strong>Set variable values</strong> </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>Then click on <strong>Set new value +</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>In the drop-down, select <strong>Session variables</strong> and then <strong>allLPARTable</strong> as shown below:</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>In the <strong>To</strong> field, select <strong>Expression</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="5">
+<li>Expand the <strong>Expression</strong> text box by clicking on the icon shown below:</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="6">
+<li>In the expanded Expressions text box, type a <code>$</code> to reference a variable, then click on <strong>Returns information about all...(Step 1)</strong>. Then click on <strong>1. Returns information about all z/<abbr title="Operating System">OS</abbr> systems result variable</strong> as shown below:</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="7">
+<li>Followed by that variable, enter <code>.message</code> and click <strong>Apply</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="8">
+<li>Now you will set a value for another session variable. </li>
+</ol>
+<p>Click on <strong>Set new value +</strong></p>
+<ol start="9">
+<li>
+<p>In the drop-down, select <strong>Session variables</strong> and then <strong>LPARNormalizedTable1</strong> as shown below:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Again, in the <strong>To</strong> field, select <strong>Expression</strong> and <strong><em>expand</em></strong> the text box. </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>In the text box, type a <code>$</code> to reference a variable, then click on <strong>Session variables</strong> and then <strong>allLPARTable</strong>:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Following the variable reference, add the following:
+    </p><div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.toString().replace("LPAR Name","LPARName").toJson()
+</span></code></pre></div>
+<p>The result should look like the following:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong></p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>You should now have 2 session variables defined as shown below:</p>
+<p><strong>screenshot</strong></p>
+<p>Next, <strong>repeat steps 8 - 13</strong> in order to set the last 2 values for the following variables:</p>
+<p><strong>Set:</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>LPARNormalizedTable2
+</span></code></pre></div>
+<strong>To:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>LPARNormalizedTable1.toString().replace("SMF ID", "smfId").toJson()
+</span></code></pre></div>
+<br>
+<br>
+<p><strong>Set:</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>LPARIdList
+</span></code></pre></div>
+<strong>To:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>LPARNormalizedTable1.joinToArray("%e.LPARName%", true)
+</span></code></pre></div>
+<p>The result should look like the following:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> field, type <strong><em>Do you want to see details of a specific <abbr title="Logical Partition">LPAR</abbr>?</em></strong></p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Click <strong>Define customer response</strong> and select <strong>Confirmation</strong>. </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Click on <strong>New step +</strong></p>
+</li>
+</ol>
+<h4 id="step-3">Step 3:<a class="headerlink" href="#step-3" title="Permanent link">#</a></h4>
+<ol>
+<li>In the <strong>Is taken</strong> field, click on <strong>without conditions</strong> and select <strong>with conditions</strong>.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>In the default condition, click <strong>Yes</strong> and instead select <strong>No</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>In the <strong>And then</strong> drop-down, select <strong>End the action</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>Click on <strong>New step +</strong></li>
+</ol>
+<h4 id="step-4">Step 4:<a class="headerlink" href="#step-4" title="Permanent link">#</a></h4>
+<ol>
+<li>In the <strong>Is taken</strong> field, click on <strong>without conditions</strong> and select <strong>with conditions</strong>.</li>
+</ol>
+<p>Leave the default condition set to <strong>Yes</strong></p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> text box, type <strong><em>Which <abbr title="Logical Partition">LPAR</abbr> instance detail would you like to see?</em></strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>Click <strong>Define customer response* and then click </strong>Options**</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>In the <strong>Edit response</strong> window, toggle the <strong>Dynamic</strong> switch to the <strong>On</strong> position. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="5">
+<li>Then click on the <strong>Choose source variable</strong> drop-down and select <strong>Session variables</strong> and then the <strong>LPARIdList</strong> session variable you created earlier. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="6">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="7">
+<li>Then click <strong>New step +</strong></li>
+</ol>
+<h4 id="step-5">Step 5:<a class="headerlink" href="#step-5" title="Permanent link">#</a></h4>
+<ol>
+<li>Click on <strong>Set variable values</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>Then click on <strong>Set new value +</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>In the drop-down, select <strong>Session variables</strong> and then <strong>selectedLPARId</strong> as shown below:</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>In the <strong>To</strong> field, select <strong>Expression</strong> and then expand the text box.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="5">
+<li>In the text box, type a <code>$</code>, then click on <strong>Action step variables</strong> and then <strong>4. Which <abbr title="Logical Partition">LPAR</abbr> instance detail would you like to see?</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="6">
+<li>Followed by that variable, enter <code>.value</code> and click <strong>Apply</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="7">
+<li>Now you will set a value for another session variable. </li>
+</ol>
+<p>Click on <strong>Set new value +</strong></p>
+<ol start="8">
+<li>
 </ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
