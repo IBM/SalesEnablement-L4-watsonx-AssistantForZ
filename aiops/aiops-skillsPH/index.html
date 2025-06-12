@@ -1245,8 +1245,75 @@
 </ol>
 <p>Click on <strong>Set new value +</strong></p>
 <ol start="8">
-<li>
+<li>In the drop-down, select <strong>Session variables</strong> and then <strong>selectedLPARIdIndex</strong> as shown below:</li>
 </ol>
+<p><strong>screenshot</strong></p>
+<ol start="9">
+<li>
+<p>In the <strong>To</strong> field, select <strong>Expression</strong> and then expand the text box. </p>
+</li>
+<li>
+<p>In the text box, type a <code>$</code>, then click on <strong>Session variables</strong> and then <strong>LPARIdList</strong>.</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Following the referenced variable, type <strong><em>.indexOf(</em></strong></p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>After the open parentheses, add a space and then type another <code>$</code> to reference the next variable.</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then select <strong>Session variables</strong> and then <strong>selectedLPARId</strong> as shown below:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Once done, add a close parentheses <code>)</code> and delete the extra space after the <code>(</code>. The final expression should look like the following:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Finally, <strong>repeat steps 7 - 14</strong> to add a third variable value:</p>
+<p><strong>Set:</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>selectedSMFId
+</span></code></pre></div>
+<strong>To:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>LPARNormalizedTable2.get(selectedLPARIdIndex).smfId
+</span></code></pre></div>
+<p>The final result should look like the following:</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>In the <strong>And then</strong> drop-down, select <strong>Go to a subaction</strong> </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>In the <strong>Go to a subaction</strong> window, click on the drop-down and select <strong>Retrieve a z/<abbr title="Operating System">OS</abbr>-system by <abbr title="Logical Partition">LPAR</abbr> name</strong> subaction. </p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Click on the <strong>Edit passed values</strong> option and click on <strong>Set new value +</strong>. Then click on <strong>1. <abbr title="Logical Partition">LPAR</abbr> name</strong>.</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>In the <strong>To</strong> field, click on <strong>Session variables</strong> and then <strong>selectedLPARId</strong>.</p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong></p>
+<p><strong>screenshot</strong></p>
+</li>
+<li>
+<p>Then click <strong>New step +</strong></p>
+</li>
+</ol>
+<h4 id="step-6">Step 6:<a class="headerlink" href="#step-6" title="Permanent link">#</a></h4>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
