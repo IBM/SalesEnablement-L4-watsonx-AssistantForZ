@@ -363,4 +363,71 @@ By default, Step 1 is selected. Follow the below instructions to complete the co
    
    Click on **Set new value +**
 
-8. 
+8. In the drop-down, select **Session variables** and then **selectedLPARIdIndex** as shown below:
+   
+   **screenshot**
+
+9. In the **To** field, select **Expression** and then expand the text box. 
+   
+10. In the text box, type a `$`, then click on **Session variables** and then **LPARIdList**.
+    
+    **screenshot**
+
+11. Following the referenced variable, type ***.indexOf(***
+    
+    **screenshot**
+
+12. After the open parentheses, add a space and then type another `$` to reference the next variable.
+    
+    **screenshot**
+
+13. Then select **Session variables** and then **selectedLPARId** as shown below:
+    
+    **screenshot**
+
+14. Once done, add a close parentheses `)` and delete the extra space after the `(`. The final expression should look like the following:
+    
+    **screenshot**
+
+15. Then click **Apply**. 
+
+16. Finally, **repeat steps 7 - 14** to add a third variable value:
+    
+    **Set:**
+    ```
+    selectedSMFId
+    ```
+    **To:**
+    ```
+    LPARNormalizedTable2.get(selectedLPARIdIndex).smfId
+    ```
+   
+    The final result should look like the following:
+
+    **screenshot**
+
+17. In the **And then** drop-down, select **Go to a subaction** 
+    
+    **screenshot**
+
+18. In the **Go to a subaction** window, click on the drop-down and select **Retrieve a z/OS-system by LPAR name** subaction. 
+    
+    **screenshot**
+   
+19. Then click **Apply**. 
+
+20. Click on the **Edit passed values** option and click on **Set new value +**. Then click on **1. LPAR name**.
+    
+    **screenshot**
+
+21. In the **To** field, click on **Session variables** and then **selectedLPARId**.
+    
+    **screenshot**
+
+22. Then click **Apply**
+    
+    **screenshot**
+
+23. Then click **New step +**
+
+#### Step 6:
