@@ -1314,6 +1314,71 @@
 </li>
 </ol>
 <h4 id="step-6">Step 6:<a class="headerlink" href="#step-6" title="Permanent link">#</a></h4>
+<ol>
+<li>In the <strong>Assistant says</strong> text box, type <strong><em>Would you like to see the top 5 jobs running on this <abbr title="Logical Partition">LPAR</abbr>?</em></strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>In the <strong>Define customer response</strong> drop-down, select <strong>Confirmation</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>Then click <strong>New step +</strong></li>
+</ol>
+<h4 id="step-7">Step 7:<a class="headerlink" href="#step-7" title="Permanent link">#</a></h4>
+<ol>
+<li>In the <strong>Is taken</strong> field, click on <strong>without conditions</strong> and select <strong>with conditions</strong>.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>In the default condition, click on <strong>Yes</strong> and instead select <strong>No</strong>.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="3">
+<li>In the <strong>And then</strong> drop-down, select <strong>End the action</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>Then click <strong>New step +</strong>.</li>
+</ol>
+<h4 id="step-8">Step 8:<a class="headerlink" href="#step-8" title="Permanent link">#</a></h4>
+<ol>
+<li>In <strong>Is taken</strong> field, click on <strong>without conditions</strong> and select <strong>with conditions</strong>. </li>
+</ol>
+<p>Leave the default condition as shown below:</p>
+<p><strong>screenshot</strong></p>
+<ol start="2">
+<li>
+<p>In the <strong>And then</strong> drop-down, select <strong>Go to a subaction</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Go to a subaction</strong> window, click on the drop-down and select <strong>Retrieve jobs running on a z/<abbr title="Operating System">OS</abbr> system</strong>. </p>
+</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="4">
+<li>Click <strong>Apply</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="5">
+<li>Then click on <strong>Edit passed values</strong>. And then click on <strong>Set new value</strong></li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="6">
+<li>In the drop-down, select <strong><abbr title="System Management Facility">SMF</abbr> id</strong>.</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="7">
+<li>In the <strong>To</strong> drop-down, select <strong>Session variables</strong> and then select <strong>selectedSMFId</strong> as shown below:</li>
+</ol>
+<p><strong>screenshot</strong></p>
+<ol start="8">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><strong>screenshot</strong></p>
+<p>Congrats! Your custom-built action for the <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong> is completed. Make sure to click the <strong>Save</strong> icon in the top-right corner and exit out of the action-builder page so you can test out the flow. </p>
+<p>Now test out your <strong><abbr title="Logical Partition">LPAR</abbr> flow</strong> use case by prompting your assistant with <strong>*Show all my LPARs</strong>:</p>
+<p><div class="video-container"><iframe src="../_videos/lparflow.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
