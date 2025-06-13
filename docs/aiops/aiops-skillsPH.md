@@ -431,3 +431,72 @@ By default, Step 1 is selected. Follow the below instructions to complete the co
 23. Then click **New step +**
 
 #### Step 6:
+
+1. In the **Assistant says** text box, type ***Would you like to see the top 5 jobs running on this LPAR?***
+   
+   **screenshot**
+
+2. In the **Define customer response** drop-down, select **Confirmation**. 
+   
+   **screenshot**
+
+3. Then click **New step +**
+
+#### Step 7:
+
+1. In the **Is taken** field, click on **without conditions** and select **with conditions**.
+   
+   **screenshot**
+
+2. In the default condition, click on **Yes** and instead select **No**.
+   
+   **screenshot**
+
+3. In the **And then** drop-down, select **End the action**
+   
+   **screenshot**
+
+4. Then click **New step +**.
+
+
+#### Step 8: 
+
+1. In **Is taken** field, click on **without conditions** and select **with conditions**. 
+   
+   Leave the default condition as shown below:
+
+   **screenshot**
+
+2. In the **And then** drop-down, select **Go to a subaction**. 
+
+3. In the **Go to a subaction** window, click on the drop-down and select **Retrieve jobs running on a z/OS system**. 
+   
+   **screenshot**
+
+4. Click **Apply**. 
+   
+   **screenshot**
+
+5. Then click on **Edit passed values**. And then click on **Set new value**
+   
+   **screenshot**
+
+6. In the drop-down, select **SMF id**.
+   
+   **screenshot**
+
+7. In the **To** drop-down, select **Session variables** and then select **selectedSMFId** as shown below:
+   
+   **screenshot**
+
+8. Then click **Apply**. 
+   
+   **screenshot**
+
+
+Congrats! Your custom-built action for the **LPAR flow** is completed. Make sure to click the **Save** icon in the top-right corner and exit out of the action-builder page so you can test out the flow. 
+
+
+Now test out your **LPAR flow** use case by prompting your assistant with ***Show all my LPARs**:
+
+ ![type:video](./_videos/lparflow.mp4)
