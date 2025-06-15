@@ -1,10 +1,10 @@
- # Use case: Db2 Error Message Debugging
+# Use case: Db2 Error Message Debugging
 
  Database Administrators (DBAs) often spend significant time performing many routine database management tasks. And may often require manual intervention, increasing the risk of human error, slowing down operations and reducing overall productivity. And especially for early-tenure staff members, the troubleshooting and diagnosing error messages can take longer than necessary due to knowledge gaps, manual processes and lack of automation. 
 
  This scenario will show how a purpose-built assistant flow can help streamline the process of understanding a particular error message, generating accurate and current answers to questions, along with step-by-step guidance to learn more with conversational AI. Additionally, the assistant has the ability to recommend skills at different points in the conversation to help automate the resolution on their behalf, depending on the error message. This results in less time spent debugging error messages and improving the time-to-resolution of Db2 for z/OS errors.
 
- ## Test the Db2 Reorg Ansible Automation in AAP
+## Test the Db2 Reorg Ansible Automation in AAP
 
  In this scenario, an Ansible Automation Platform (AAP) template will be used to help streamline the resolution of a previously identified Db2 for z/OS error message, indicating that a Db2 table space reorg is necessary. The Ansible template which is pre-loaded into your AAP environment is titled **Db2 Reorg**. 
 
@@ -64,7 +64,7 @@
    
     ![](_attachments/aap6.png)
 
- ## Importing the Ansible Playbooks as Skills
+## Importing the Ansible Playbooks as Skills
 
  For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. 
 
@@ -1097,17 +1097,15 @@ Now that you have fully configured your **custom-built action** to handle the Db
 
 To do this, first open the **Preview** screen within the **AI assistant builder**. 
    
-   **screenshot**
-
 To begin the conversation that an early-tenure DBA may have with the assistant to start the debugging process following the discovery of a Db2 for z/OS error message, they might prompt the assistant with something like:  ***I need help debugging a Db2 for z/OS error message***. 
 
 1. Enter the following text in the assistant to begin the flow:
    
-   **Prompt:**
+    **Prompt:**
 
-   ```
-   I need help debugging a Db2 for z/OS error message.
-   ```
+    ```
+    I need help debugging a Db2 for z/OS error message.
+    ```
 
    As was configured previously, the assistant asks for more details in order to help debug as shown below: 
    
@@ -1115,11 +1113,11 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
 
 2. In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code **00C9009D**. 
    
-   Enter **00C9009D** in response to the assistant asking for the error message:
+    Enter **00C9009D** in response to the assistant asking for the error message:
 
-   ```
-   00C9009D
-   ```
+    ```
+    00C9009D
+    ```
 
    ![](_attachments/db2error-2.png)
 
