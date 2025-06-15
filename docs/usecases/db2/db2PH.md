@@ -193,13 +193,11 @@
 
 ## Create a skill flow to extract and display job completion details
 
-**The goal of this...**
-
 Recall in the AAP template you executed earlier the output that was displayed showing:
 
-- placeholder
-- placeholder
-- placeholder
+- the job's ***Return Code***
+- the ***Job ID***
+- and the ***Image Copy DSN*** for the copied dataset
 
 You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.
 
@@ -995,31 +993,31 @@ Lets create a custom-built action to handle this.
 
 2. In the **Assistant says** text box, type ***Getting full job output...***
    
-   ![](_attachments/d2.png)
+
 
 3. Click on the **And then** drop-down and select **Go to a subaction**. 
 
 4. In the **Subaction** window, click on the **Select an action** field, and select the **Retrieve job output** subaction. 
    
-   ![](_attachments/d3.png)
+   ![](_attachments/d2.png)
 
 5. Then click **Apply**. 
    
-   ![](_attachments/d4.png)
+   ![](_attachments/d3.png)
 
 6. Click **Edit passed values**. 
    
-   ![](_attachments/d5.png)
+   ![](_attachments/d4.png)
    
    You'll now edit the passed values to map the **Job ID** of the **Db2 Reorg** skill as input to **Retrieve job output** utility skill. 
 
 7. Click **Set new value** and then select the ***1. id*** variable. 
    
-   ![](_attachments/d6.png)
+   ![](_attachments/d5.png)
 
 8. In the **To** field, select **Expression**. 
    
-   ![](_attachments/d7.png)
+   ![](_attachments/d6.png)
    
    You will now write a regular expression to retrieve the **Job ID** of the **Db2 Reorg result variable**. 
 
@@ -1027,7 +1025,7 @@ Lets create a custom-built action to handle this.
 
 10. Select **Db2 Reorg (step 9)** and then select **1. Db2 Reorg result variable**. 
     
-    ![](_attachments/d8.png)
+    ![](_attachments/d7.png)
     
     This will autofill the variable reference in the expression text box as shown below. 
 
@@ -1214,8 +1212,6 @@ To begin the conversation that an early-tenure DBA may have with the assistant t
     ![](_attachments/db2error-14.png)
 
 12. The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select **View job completion details**. 
-    
-    ![](_attachments/db2error-15.png)
 
     In the output, the user can see the job completed with a Return Code of `0`, indicating a successful job completion with no errors or warnings. 
 
