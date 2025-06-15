@@ -5404,20 +5404,18 @@ To both run the action and display the results, a skill flow is needed. Skills a
 </li>
 <li>
 <p>Review the output of the job. </p>
-</li>
-</ol>
 <p>In the output of the playbook, notice that there is a task titled <strong><em>modify jobclass(a) to allow job submit</em></strong>. This is an administrative task that configures a jobclass and allows the next task to successfully execute. </p>
 <p>Following that task, there is a task titled <strong><em>Submit Db2 re-org <abbr title="Job Control Language">JCL</abbr></em></strong> which executes the provided <abbr title="Job Control Language">JCL</abbr> on Wazi aaS (z/<abbr title="Operating System">OS</abbr> back-end) to perform the Db2 reorg based on the inputs provided previously. </p>
 <p>Afterwards, there is a task titled <strong><em>Print <abbr title="Job Control Language">JCL</abbr></em></strong> to retrieve and display the job output from the JES message log. </p>
 <p>And finally, there is a task titled <strong><em>Print return code, job id, and image copy dataset name</em></strong> which is used to extract important job summary details from the previous output and display it to the user. </p>
-<div class="highlight"><pre><span></span><code>![](_attachments/aap5.png)
-</code></pre></div>
-<ol start="7">
-<li>Take this time to click on any of the tasks and view the JSON output in further detail before moving on. </li>
-</ol>
+<p><a class="glightbox" href="../usecases/db2/_attachments/aap5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/aap5.png"></a></p>
+</li>
+<li>
+<p>Take this time to click on any of the tasks and view the JSON output in further detail before moving on. </p>
 <p>The <strong><em>Return Code</em></strong> value displayed in the final task shows a return code of <code>0</code>, indicating that the Db2 Reorg job was executed successfully. </p>
-<div class="highlight"><pre><span></span><code>![](_attachments/aap6.png)
-</code></pre></div>
+<p><a class="glightbox" href="../usecases/db2/_attachments/aap6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/aap6.png"></a></p>
+</li>
+</ol>
 <h2 id="usecases-db2-db2-importing-the-ansible-playbooks-as-skills">Importing the Ansible Playbooks as Skills<a class="headerlink" href="#usecases-db2-db2-importing-the-ansible-playbooks-as-skills" title="Permanent link">#</a></h2>
 <p>For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. </p>
 <p>The Ansible templates you will import are:</p>
@@ -5810,10 +5808,8 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <p><a class="glightbox" href="../usecases/db2/_attachments/flow8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/flow8.png"></a></p>
 <p>Followed by that text, enter the <code>$</code> symbol to select a variable. In the pop-up window, select <strong>Action step variables</strong> --&gt; <strong>1. Please provide the error message</strong>.</p>
 <p><a class="glightbox" href="../usecases/db2/_attachments/flow9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/flow9.png"></a></p>
-<div class="highlight"><pre><span></span><code>Then click **Apply**.
-
-![](_attachments/flow10.png)
-</code></pre></div>
+<p>Then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../usecases/db2/_attachments/flow10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/flow10.png"></a></p>
 <ol start="3">
 <li>Click <strong>New step +</strong>.</li>
 </ol>
@@ -5958,8 +5954,7 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <li>Click <strong>Edit passed values</strong>. </li>
 </ol>
 <p>Edit the passed values to use them in the <strong>Db2 Reorg</strong> skill subaction.</p>
-<div class="highlight"><pre><span></span><code>![](_attachments/flow33.png)
-</code></pre></div>
+<p><a class="glightbox" href="../usecases/db2/_attachments/flow33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/flow33.png"></a></p>
 <ol start="7">
 <li>Click <strong>Set new value +</strong> and then select the <strong><em>extra_vars.sub</em></strong> variable. </li>
 </ol>
