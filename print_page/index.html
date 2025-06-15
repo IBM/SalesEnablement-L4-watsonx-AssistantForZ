@@ -5363,10 +5363,10 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <p>In the demo, the <abbr title="Security Administrator">SA</abbr> receives immediate guidance on identifying the certificate expiration date via <abbr title="Resource Access Control Facility">RACF</abbr> commands. The <abbr title="Security Administrator">SA</abbr> runs automation that is proposed by the assistant to retrieve the certificate information. Also, because the assistant is configured with step-by-step conversation flows, it is possible to add other prompts within the conversation. For example, proposing the automation of renewing the certificate on their behalf. By doing so, the <abbr title="Security Administrator">SA</abbr> is able to reduce the time it takes to complete this routine task.</p>
 <p>Recall how many steps were involved in the Ansible template for <strong>z/<abbr title="Operating System">OS</abbr> Certs – Search and Renew</strong>. By automating these tasks with Ansible, the System Administrator streamlines the entire process and ensures that their critical certificates are up to date and reduce the risk of expired certificates disrupting their business services.</p>
 <!-- Terminology -->
-<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-db2-db2" heading-number="8.3"><h1 id="usecases-db2-db2-usecases-db2-db2">Db2 error code debugging</h1><div><p># Use case: Db2 Error Message Debugging</p>
+<!-- Keep the list alphabetized for easy deduplication --></div></section><section class="print-page" id="usecases-db2-db2" heading-number="8.3"><div><h1 id="use-case-db2-error-message-debugging">Use case: Db2 Error Message Debugging<a class="headerlink" href="#usecases-db2-db2-use-case-db2-error-message-debugging" title="Permanent link">#</a></h1>
 <p>Database Administrators (DBAs) often spend significant time performing many routine database management tasks. And may often require manual intervention, increasing the risk of human error, slowing down operations and reducing overall productivity. And especially for early-tenure staff members, the troubleshooting and diagnosing error messages can take longer than necessary due to knowledge gaps, manual processes and lack of automation. </p>
 <p>This scenario will show how a purpose-built assistant flow can help streamline the process of understanding a particular error message, generating accurate and current answers to questions, along with step-by-step guidance to learn more with conversational <abbr title="Artificial intelligence">AI</abbr>. Additionally, the assistant has the ability to recommend skills at different points in the conversation to help automate the resolution on their behalf, depending on the error message. This results in less time spent debugging error messages and improving the time-to-resolution of Db2 for z/<abbr title="Operating System">OS</abbr> errors.</p>
-<p>## Test the Db2 Reorg Ansible Automation in <abbr title="Ansible Automation Platform">AAP</abbr></p>
+<h2 id="usecases-db2-db2-test-the-db2-reorg-ansible-automation-in-aap">Test the Db2 Reorg Ansible Automation in <abbr title="Ansible Automation Platform">AAP</abbr><a class="headerlink" href="#usecases-db2-db2-test-the-db2-reorg-ansible-automation-in-aap" title="Permanent link">#</a></h2>
 <p>In this scenario, an Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) template will be used to help streamline the resolution of a previously identified Db2 for z/<abbr title="Operating System">OS</abbr> error message, indicating that a Db2 table space reorg is necessary. The Ansible template which is pre-loaded into your <abbr title="Ansible Automation Platform">AAP</abbr> environment is titled <strong>Db2 Reorg</strong>. </p>
 <p>In this section, you will test the execution of this template directly in <abbr title="Ansible Automation Platform">AAP</abbr> to get familiar with the input parameters as well as the corresponding output. </p>
 <ol>
@@ -5418,7 +5418,7 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <p>The <strong><em>Return Code</em></strong> value displayed in the final task shows a return code of <code>0</code>, indicating that the Db2 Reorg job was executed successfully. </p>
 <div class="highlight"><pre><span></span><code>![](_attachments/aap6.png)
 </code></pre></div>
-<p>## Importing the Ansible Playbooks as Skills</p>
+<h2 id="usecases-db2-db2-importing-the-ansible-playbooks-as-skills">Importing the Ansible Playbooks as Skills<a class="headerlink" href="#usecases-db2-db2-importing-the-ansible-playbooks-as-skills" title="Permanent link">#</a></h2>
 <p>For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. </p>
 <p>The Ansible templates you will import are:</p>
 <ul>
@@ -6401,22 +6401,25 @@ To both run the action and display the results, a skill flow is needed. Skills a
 <h2 id="usecases-db2-db2-demonstrate-the-assistant-action">Demonstrate the assistant action<a class="headerlink" href="#usecases-db2-db2-demonstrate-the-assistant-action" title="Permanent link">#</a></h2>
 <p>Now that you have fully configured your <strong>custom-built action</strong> to handle the Db2 error troubleshooting process, you will next be able to demonstrate the end-to-end flow. </p>
 <p>To do this, first open the <strong>Preview</strong> screen within the <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong>. </p>
-<p><strong>screenshot</strong></p>
 <p>To begin the conversation that an early-tenure DBA may have with the assistant to start the debugging process following the discovery of a Db2 for z/<abbr title="Operating System">OS</abbr> error message, they might prompt the assistant with something like:  <strong><em>I need help debugging a Db2 for z/<abbr title="Operating System">OS</abbr> error message</em></strong>. </p>
 <ol>
-<li>Enter the following text in the assistant to begin the flow:</li>
-</ol>
+<li>
+<p>Enter the following text in the assistant to begin the flow:</p>
 <p><strong>Prompt:</strong></p>
 <div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#usecases-db2-db2-__codelineno-8-1"></a>I need help debugging a Db2 for z/OS error message.
 </span></code></pre></div>
+</li>
+</ol>
 <p>As was configured previously, the assistant asks for more details in order to help debug as shown below: </p>
 <p><a class="glightbox" href="../usecases/db2/_attachments/db2error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/db2error-1.png"></a></p>
 <ol start="2">
-<li>In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code <strong>00C9009D</strong>. </li>
-</ol>
+<li>
+<p>In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code <strong>00C9009D</strong>. </p>
 <p>Enter <strong>00C9009D</strong> in response to the assistant asking for the error message:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#usecases-db2-db2-__codelineno-9-1"></a>00C9009D
 </span></code></pre></div>
+</li>
+</ol>
 <p><a class="glightbox" href="../usecases/db2/_attachments/db2error-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../usecases/db2/_attachments/db2error-2.png"></a></p>
 <ol start="3">
 <li>The assistant then outputs a very detailed explanation for the Db2 for z/<abbr title="Operating System">OS</abbr> error message, including the <strong>System action</strong>, the <strong>System Programmer Response</strong>, <strong>User Response</strong>, as well as <strong>Problem Determination</strong> with additional information as shown below:</li>
