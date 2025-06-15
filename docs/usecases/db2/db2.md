@@ -46,21 +46,22 @@
    
     ![](_attachments/aap4.png)
 
+
 6. Review the output of the job. 
    
-   In the output of the playbook, notice that there is a task titled ***modify jobclass(a) to allow job submit***. This is an administrative task that configures a jobclass and allows the next task to successfully execute. 
+    In the output of the playbook, notice that there is a task titled ***modify jobclass(a) to allow job submit***. This is an administrative task that configures a jobclass and allows the next task to successfully execute. 
    
-   Following that task, there is a task titled ***Submit Db2 re-org JCL*** which executes the provided JCL on Wazi aaS (z/OS back-end) to perform the Db2 reorg based on the inputs provided previously. 
+    Following that task, there is a task titled ***Submit Db2 re-org JCL*** which executes the provided JCL on Wazi aaS (z/OS back-end) to perform the Db2 reorg based on the inputs provided previously. 
    
-   Afterwards, there is a task titled ***Print JCL*** to retrieve and display the job output from the JES message log. 
+    Afterwards, there is a task titled ***Print JCL*** to retrieve and display the job output from the JES message log. 
    
-   And finally, there is a task titled ***Print return code, job id, and image copy dataset name*** which is used to extract important job summary details from the previous output and display it to the user. 
+    And finally, there is a task titled ***Print return code, job id, and image copy dataset name*** which is used to extract important job summary details from the previous output and display it to the user. 
 
     ![](_attachments/aap5.png)
 
 7. Take this time to click on any of the tasks and view the JSON output in further detail before moving on. 
    
-   The ***Return Code*** value displayed in the final task shows a return code of `0`, indicating that the Db2 Reorg job was executed successfully. 
+    The ***Return Code*** value displayed in the final task shows a return code of `0`, indicating that the Db2 Reorg job was executed successfully. 
    
     ![](_attachments/aap6.png)
 
@@ -492,9 +493,9 @@ Lets create a custom-built action to handle this.
 
    ![](_attachments/flow9.png)
 
-    Then click **Apply**. 
+   Then click **Apply**. 
 
-    ![](_attachments/flow10.png)
+   ![](_attachments/flow10.png)
 
 3. Click **New step +**.
    
@@ -632,7 +633,7 @@ Lets create a custom-built action to handle this.
 
    Edit the passed values to use them in the **Db2 Reorg** skill subaction.
     
-    ![](_attachments/flow33.png)
+   ![](_attachments/flow33.png)
 
 7. Click **Set new value +** and then select the ***extra_vars.sub*** variable. 
    
