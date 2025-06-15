@@ -1087,12 +1087,11 @@
 </li>
 </ol>
 <h2 id="create-a-skill-flow-to-extract-and-display-job-completion-details">Create a skill flow to extract and display job completion details<a class="headerlink" href="#create-a-skill-flow-to-extract-and-display-job-completion-details" title="Permanent link">#</a></h2>
-<p><strong>The goal of this...</strong></p>
 <p>Recall in the <abbr title="Ansible Automation Platform">AAP</abbr> template you executed earlier the output that was displayed showing:</p>
 <ul>
-<li>placeholder</li>
-<li>placeholder</li>
-<li>placeholder</li>
+<li>the job's <strong><em>Return Code</em></strong></li>
+<li>the <strong><em>Job ID</em></strong></li>
+<li>and the <strong><em>Image Copy DSN</em></strong> for the copied dataset</li>
 </ul>
 <p>You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.</p>
 <ol>
@@ -1863,10 +1862,9 @@
 <p>To configure this, in the <strong>Step 17</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option in step 14. </p>
 <p><a class="glightbox" href="../_attachments/d1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d1.png"></a></p>
 <ol start="2">
-<li>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></li>
-</ol>
-<p><a class="glightbox" href="../_attachments/d2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d2.png"></a></p>
-<ol start="3">
+<li>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></p>
+</li>
 <li>
 <p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
 </li>
@@ -1874,24 +1872,24 @@
 <p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Retrieve job output</strong> subaction. </p>
 </li>
 </ol>
-<p><a class="glightbox" href="../_attachments/d3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d3.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d2.png"></a></p>
 <ol start="5">
 <li>Then click <strong>Apply</strong>. </li>
 </ol>
-<p><a class="glightbox" href="../_attachments/d4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d4.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d3.png"></a></p>
 <ol start="6">
 <li>Click <strong>Edit passed values</strong>. </li>
 </ol>
-<p><a class="glightbox" href="../_attachments/d5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d5.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d4.png"></a></p>
 <p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to <strong>Retrieve job output</strong> utility skill. </p>
 <ol start="7">
 <li>Click <strong>Set new value</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
 </ol>
-<p><a class="glightbox" href="../_attachments/d6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d6.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d5.png"></a></p>
 <ol start="8">
 <li>In the <strong>To</strong> field, select <strong>Expression</strong>. </li>
 </ol>
-<p><a class="glightbox" href="../_attachments/d7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d7.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d6.png"></a></p>
 <p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
 <ol start="9">
 <li>
@@ -1899,7 +1897,7 @@
 </li>
 <li>
 <p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
-<p><a class="glightbox" href="../_attachments/d8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d8.png"></a></p>
+<p><a class="glightbox" href="../_attachments/d7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d7.png"></a></p>
 <p>This will autofill the variable reference in the expression text box as shown below. </p>
 </li>
 <li>
@@ -2031,7 +2029,7 @@
 <li>
 <p>After submitting the job, we see that it's in a <strong>Pending</strong> status and the assistant informs the user: <strong><em>Job not yet ready. Would you like to check the job status?</em></strong></p>
 <p>From here, the user selects <strong>Yes</strong>. </p>
-<p><a class="glightbox" href="_attachments/db2error-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-13.png"></a></p>
+<p><a class="glightbox" href="../_attachments/db2error-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-13.png"></a></p>
 </li>
 <li>
 <p>Depending on how long waited, the job status may come back as still <strong>Running</strong> or <strong>Successful</strong>. </p>
@@ -2041,11 +2039,10 @@
 <li><strong><em>View job completion details</em></strong></li>
 <li><strong><em>Exit</em></strong></li>
 </ul>
-<p><a class="glightbox" href="_attachments/db2error-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-14.png"></a></p>
+<p><a class="glightbox" href="../_attachments/db2error-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-14.png"></a></p>
 </li>
 <li>
 <p>The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select <strong>View job completion details</strong>. </p>
-<p><a class="glightbox" href="_attachments/db2error-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-15.png"></a></p>
 <p>In the output, the user can see the job completed with a Return Code of <code>0</code>, indicating a successful job completion with no errors or warnings. </p>
 <p>They can also view the <code>Job ID</code> value if they want to explore the logs in further detail. </p>
 </li>
@@ -2053,21 +2050,21 @@
 <p>Following those details, the assistant returns by again asking what the user would like to do next. </p>
 <p>In addition to providing the extracted summary of the job completion, the assistant is also able to provide the full job log if the user would like to investigate. </p>
 <p>To view this, the user selects the <strong>Get full job output</strong> option. </p>
-<p><a class="glightbox" href="_attachments/db2error-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-16.png"></a></p>
+<p><a class="glightbox" href="../_attachments/db2error-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-16.png"></a></p>
 </li>
 <li>
 <p>Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. </p>
-<p><a class="glightbox" href="_attachments/db2error-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-17.png"></a></p>
+<p><a class="glightbox" href="../_attachments/db2error-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-17.png"></a></p>
 <p>Scrolling down in the log, they find a message indicating:
 </p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
 </span></code></pre></div>
-<a class="glightbox" href="_attachments/db2error-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-18.png"></a>
+<a class="glightbox" href="../_attachments/db2error-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-18.png"></a>
 <p>They can then again verify that the job was executed successfully without error. </p>
 </li>
 <li>
 <p>Just like previously, the assistant comes back asking what the user would like to do next.</p>
 <p>Now that the user has verified the job completed successfully, they would like to end the conversation. So they select <strong>Exit</strong> to conclude the demo. </p>
-<p><a class="glightbox" href="_attachments/db2error-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="_attachments/db2error-19.png"></a></p>
+<p><a class="glightbox" href="../_attachments/db2error-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-19.png"></a></p>
 </li>
 </ol>
 <!-- Terminology -->

@@ -131,11 +131,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#coming-soon" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -812,8 +807,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -923,8 +916,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -940,7 +931,1156 @@
 
 
 
-<div><h1 id="coming-soon">COMING SOON!<a class="headerlink" href="#coming-soon" title="Permanent link">#</a></h1>
+  <h1>Db2 error code debugging</h1>
+
+<div><p># Use case: Db2 Error Message Debugging</p>
+<p>Database Administrators (DBAs) often spend significant time performing many routine database management tasks. And may often require manual intervention, increasing the risk of human error, slowing down operations and reducing overall productivity. And especially for early-tenure staff members, the troubleshooting and diagnosing error messages can take longer than necessary due to knowledge gaps, manual processes and lack of automation. </p>
+<p>This scenario will show how a purpose-built assistant flow can help streamline the process of understanding a particular error message, generating accurate and current answers to questions, along with step-by-step guidance to learn more with conversational <abbr title="Artificial intelligence">AI</abbr>. Additionally, the assistant has the ability to recommend skills at different points in the conversation to help automate the resolution on their behalf, depending on the error message. This results in less time spent debugging error messages and improving the time-to-resolution of Db2 for z/<abbr title="Operating System">OS</abbr> errors.</p>
+<p>## Test the Db2 Reorg Ansible Automation in <abbr title="Ansible Automation Platform">AAP</abbr></p>
+<p>In this scenario, an Ansible Automation Platform (<abbr title="Ansible Automation Platform">AAP</abbr>) template will be used to help streamline the resolution of a previously identified Db2 for z/<abbr title="Operating System">OS</abbr> error message, indicating that a Db2 table space reorg is necessary. The Ansible template which is pre-loaded into your <abbr title="Ansible Automation Platform">AAP</abbr> environment is titled <strong>Db2 Reorg</strong>. </p>
+<p>In this section, you will test the execution of this template directly in <abbr title="Ansible Automation Platform">AAP</abbr> to get familiar with the input parameters as well as the corresponding output. </p>
+<ol>
+<li>
+<p>Open and log into the <strong><abbr title="Ansible Automation Platform">AAP</abbr> web console</strong>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Don't remember how?</p>
+<p>Refer to the first 5 steps in <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Templates</strong> under the <strong>Resources</strong> section. </p>
+<p><a class="glightbox" href="../_attachments/aap1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap1.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>launch</strong> icon (<a class="glightbox" href="../../_attachments/rocketIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/rocketIcon.png"></a>) for the <strong>Db2 Reorg</strong> template.</p>
+<p><a class="glightbox" href="../_attachments/aap2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap2.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Survey</strong> screen, modify the input fields with the values that follow and then click <strong>Next</strong>. </p>
+<p><strong>a</strong>: <strong>Subsystem name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DBC1
+</span></code></pre></div>
+<p><strong>b</strong>: <strong>Database name</strong>
+</p><div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DSN8D12A
+</span></code></pre></div>
+<strong>c</strong>: <strong>Tablespace name</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DSN8S12E
+</span></code></pre></div>
+<a class="glightbox" href="../_attachments/aap3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap3.png"></a>
+</li>
+<li>
+<p>Click <strong>Launch</strong>. </p>
+<p><a class="glightbox" href="../_attachments/aap4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/aap4.png"></a></p>
+</li>
+<li>
+<p>Review the output of the job. </p>
+</li>
+</ol>
+<p>In the output of the playbook, notice that there is a task titled <strong><em>modify jobclass(a) to allow job submit</em></strong>. This is an administrative task that configures a jobclass and allows the next task to successfully execute. </p>
+<p>Following that task, there is a task titled <strong><em>Submit Db2 re-org <abbr title="Job Control Language">JCL</abbr></em></strong> which executes the provided <abbr title="Job Control Language">JCL</abbr> on Wazi aaS (z/<abbr title="Operating System">OS</abbr> back-end) to perform the Db2 reorg based on the inputs provided previously. </p>
+<p>Afterwards, there is a task titled <strong><em>Print <abbr title="Job Control Language">JCL</abbr></em></strong> to retrieve and display the job output from the JES message log. </p>
+<p>And finally, there is a task titled <strong><em>Print return code, job id, and image copy dataset name</em></strong> which is used to extract important job summary details from the previous output and display it to the user. </p>
+<div class="highlight"><pre><span></span><code>![](_attachments/aap5.png)
+</code></pre></div>
+<ol start="7">
+<li>Take this time to click on any of the tasks and view the JSON output in further detail before moving on. </li>
+</ol>
+<p>The <strong><em>Return Code</em></strong> value displayed in the final task shows a return code of <code>0</code>, indicating that the Db2 Reorg job was executed successfully. </p>
+<div class="highlight"><pre><span></span><code>![](_attachments/aap6.png)
+</code></pre></div>
+<p>## Importing the Ansible Playbooks as Skills</p>
+<p>For this use case, you will need to import 3 Ansible templates into watsonx Orchestrate as skills. </p>
+<p>The Ansible templates you will import are:</p>
+<ul>
+<li>Db2 Reorg</li>
+<li>Retrieve job output (<em>utility skill</em>)</li>
+<li>Retrieve job status (<em>utility skill</em>)</li>
+</ul>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Import API</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-2a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator (Trial)</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-3a.png"></a></p>
+</li>
+<li>
+<p>Enter the following values in the <strong>z/<abbr title="Operating System">OS</abbr> Skills accelerator</strong> form and then click <strong>Connect</strong>.</p>
+<p>Use the <strong><abbr title="Uniform Resource Locator">URL</abbr></strong>, <strong>User Name</strong>, and <strong>Password</strong> values recorded in the <a href="../../../skills/exploreAAP/">Explore Ansible Automation Platform</a> section earlier.</p>
+<p><strong>a</strong>: Connection Type: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ansible
+</span></code></pre></div>
+<p><strong>b</strong>: Application Name: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>db2-error
+</span></code></pre></div>
+<p><strong>c</strong>: Connection <abbr title="Uniform Resource Locator">URL</abbr>: </p>
+<p>&lt;Enter the <abbr title="Uniform Resource Locator">URL</abbr> for your <abbr title="Ansible Automation Platform">AAP</abbr> <abbr title="User Interface">UI</abbr>&gt;</p>
+<p><strong>d</strong>: User Name: </p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Name (for <abbr title="User Interface">UI</abbr> access)&gt;</p>
+<p><strong>e</strong>: Password:</p>
+<p>&lt;Enter the <abbr title="Ansible Automation Platform">AAP</abbr> User Password&gt;</p>
+<p><strong>f</strong>: Search Pattern: 
+</p><div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-1.png"></a></p>
+</li>
+<li>
+<p>Expand the <strong>Ansible Job Template Proj...</strong> folder and then click <strong>aap4zos</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-5a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-5a.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db-2.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <strong>Db2 Reorg</strong> skill and select <strong>Enhance this skill</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-3.png"></a></p>
+</li>
+<li>
+<p>Review the skill enhancement options and then click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-4.png"></a></p>
+</li>
+<li>
+<p><strong>Challenge</strong>: You also need to import the <strong>Retrieve job output</strong> and <strong>Retrieve job status</strong> utility skills to your <strong>db2-error</strong> app just like you did when creating the <strong>Gather Facts</strong> skill flow. Repeat steps 2 - 8 to import the <strong>Retrieve job output</strong> and <strong>Retrieve job status</strong> utility skills to your <strong>db2-error</strong> app. </p>
+<p>Once done, you should be able to see all 3 skills in your <strong>Skills Catalog</strong> in the <strong>Published</strong> state.</p>
+</li>
+</ol>
+<h2 id="verify-all-the-skills-are-successfully-imported-and-create-the-app-connection">Verify all the skills are successfully imported and create the app connection.<a class="headerlink" href="#verify-all-the-skills-are-successfully-imported-and-create-the-app-connection" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill catalog</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-skill-9a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-9a.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>db2-error</strong> in the search bar and click the application tile..</p>
+<p><a class="glightbox" href="../_attachments/db2-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-5.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> for each of the 3 skills in the db2-error app and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-6.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-7.png"></a></p>
+</li>
+<li>
+<p>Verify that the app is connected.</p>
+<p><a class="glightbox" href="../_attachments/db2-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-8.png"></a></p>
+</li>
+</ol>
+<h2 id="connect-the-app-to-the-assistant">Connect the app to the assistant.<a class="headerlink" href="#connect-the-app-to-the-assistant" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open <strong>Skill sets</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-app-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-app-1.png"></a></p>
+</li>
+<li>
+<p>Select the <strong>Draft</strong> version of your assistant and click <strong>Connections</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-app-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-app-2.png"></a></p>
+</li>
+<li>
+<p>Enter <strong>db2-error</strong> in the search bar.</p>
+<p><a class="glightbox" href="../_attachments/db2-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-9.png"></a></p>
+</li>
+<li>
+<p>Click the ellipses (<a class="glightbox" href="../../_attachments/ellipsesIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../_attachments/ellipsesIcon.png"></a>) for the <em>db2-error</em> app and select <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-10.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-11.png"></a></p>
+</li>
+<li>
+<p>Enter your <strong><abbr title="Ansible Automation Platform">AAP</abbr> Username</strong> and <strong><abbr title="Ansible Automation Platform">AAP</abbr> Password</strong> and then click <strong>Connect app</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-12.png"></a></p>
+</li>
+</ol>
+<h2 id="create-a-skill-flow-to-extract-and-display-job-completion-details">Create a skill flow to extract and display job completion details<a class="headerlink" href="#create-a-skill-flow-to-extract-and-display-job-completion-details" title="Permanent link">#</a></h2>
+<p>Recall in the <abbr title="Ansible Automation Platform">AAP</abbr> template you executed earlier the output that was displayed showing:</p>
+<ul>
+<li>the job's <strong><em>Return Code</em></strong></li>
+<li>the <strong><em>Job ID</em></strong></li>
+<li>and the <strong><em>Image Copy DSN</em></strong> for the copied dataset</li>
+</ul>
+<p>You will build a skill flow that extracts this information from the Ansible automation's output and formats and displays it to the end user.</p>
+<ol>
+<li>
+<p>Open <strong>Skill studio</strong> in watsonx Orchestrate. </p>
+<p><a class="glightbox" href="../_attachments/c-skill-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-skill-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Create</strong> and then click <strong>Skill flow</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-2a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon.</p>
+<p><a class="glightbox" href="../_attachments/c-sf-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-sf-3a.png"></a> </p>
+</li>
+<li>
+<p>Click the <strong>db2-error</strong> app.</p>
+<div class="admonition tip">
+<p class="admonition-title">Search on <strong>db2-error</strong> if you do not see the tile for your app.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/db2-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-13.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add Skill +</strong> in the <strong>Retrieve job output</strong> tile.</p>
+<p><a class="glightbox" href="../_attachments/db2-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-14.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>+</strong> icon below the <strong>Retrieve job output</strong> skill. Next you'll add the <strong>Input form</strong> skill to extract certain output details. </p>
+<p><a class="glightbox" href="../_attachments/db2-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-15.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Custom forms</strong> app tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-16.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Add skill +</strong> in the <strong>Input form</strong> tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-17.png"></a></p>
+</li>
+<li>
+<p><strong>Repeat steps 6 - 8</strong> to add the <strong>Output form</strong> skill after the previous skill from the same <strong><em>Custom forms</em></strong> app. The resulting skill flow should like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-18.png"></a></p>
+</li>
+</ol>
+<p>Now that you have the skill flow built out, you will modify the inputs/outputs to display useful information about the <strong>Db2 Reorg</strong> automation post-completion. </p>
+<ol start="10">
+<li>
+<p>Click on the <strong>Input form</strong> tile and enter a <strong>Form title</strong>, such as <strong><em>Job completion details</em></strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-19.png"></a></p>
+</li>
+<li>
+<p>Then click on <strong>Add input field +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-20.png"></a></p>
+</li>
+<li>
+<p>Select <strong>Paragraph text</strong> and then click <strong>Next</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-21.png"></a></p>
+</li>
+<li>
+<p>For this input field, enter a <strong>Display label</strong> of <strong><em>Return Code</em></strong> and then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-22.png"></a></p>
+</li>
+<li>
+<p>Click on the resulting text box for the <strong>Return Code</strong> field. </p>
+<p><a class="glightbox" href="../_attachments/db2-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-23.png"></a></p>
+<p>Then in the  <strong>Mapping data</strong> window, select your <strong>Retrieve job output</strong> skill, and then click on the <strong>content</strong> skill output. </p>
+<p><a class="glightbox" href="../_attachments/db2-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-24.png"></a></p>
+<p>The result should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-25.png"></a></p>
+</li>
+<li>
+<p>Now <strong>repeat steps 11 - 14</strong> to add two more <strong>Input fields</strong> with <strong>Display labels</strong> titled:</p>
+<ul>
+<li>Job ID</li>
+<li>Image Copy DSN</li>
+</ul>
+<p>Once done, you should see the following with all 3 Input Fields:</p>
+<p><a class="glightbox" href="../_attachments/db2-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-26.png"></a></p>
+</li>
+<li>
+<p>Next, you will add <strong>transformations</strong> to each of the input fields to extract the relevant information from the Ansible output. </p>
+<p>Underneath the <strong>Return Code</strong> input field, click on <strong>Add transformation +</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-27.png"></a></p>
+</li>
+<li>
+<p>Click on the <strong>Operator</strong> drop-down and select <strong>Get substring by regular expression</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-28.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Regular Expression</strong> field, copy and paste the following string and then click <strong>Add</strong>.</p>
+<p><strong>Regular Expression</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>(?&lt;=Return Code: ).[^"]*
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-29.png"></a></p>
+</li>
+<li>
+<p>Now repeat steps 16 - 18 for both the <strong>Job ID</strong> and <strong>Image Copy DSN</strong> Input fields, however, using the following reugular expressions for each:</p>
+<ul>
+<li><strong>Job ID</strong>: <code>(?&lt;=Job ID: ).[^"]*</code></li>
+<li><strong>Image Copy DSN</strong>: <code>(?&lt;=Image Copy DSN: ).[^"]*</code></li>
+</ul>
+<p>Afterwards, you should have set regular expression transformations for all 3 Input fields:</p>
+<p><a class="glightbox" href="../_attachments/db2-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-30.png"></a></p>
+</li>
+<li>
+<p>Next, you will modify the <strong>Output form</strong> skill tile to display the 3 transformed fields to the end-user.</p>
+<p>Click on the <strong>Output form</strong> skill tile within your skill flow.</p>
+<p><a class="glightbox" href="../_attachments/db2-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-31.png"></a></p>
+</li>
+<li>
+<p>Click in the <strong>Custom forms</strong> field and enter <code>#</code> (the pound key, also known as the number sign or hash key).</p>
+<p>Typing the <code>#</code> opens a new dialog window. </p>
+<p><a class="glightbox" href="../_attachments/db2-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-32.png"></a></p>
+</li>
+<li>
+<p>Expand <strong>Input form</strong>, select <strong>Return Code</strong>, and then click <strong>OK</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-33.png"></a></p>
+<p>The result will look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-34.png"></a></p>
+</li>
+<li>
+<p>Now <strong>repeat steps 20 - 22</strong> to add the transformed outputs of the other 2 fields:</p>
+<ul>
+<li><strong>Job ID</strong></li>
+<li><strong>Image Copy DSN</strong></li>
+</ul>
+<p>The result will look like the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-35.png"></a></p>
+</li>
+<li>
+<p>To complete the skill flow, click on the <strong>Retrieve job output</strong> skill tile and hide both the Input and Output tabs. This disables the Retrieve job output skill form from being displayed. Instead, the job id from the Db2 Reorg skill will be automatically passed to the Retrieve job output skill as you will see later. </p>
+<p>To do this, click on the <strong>Retrieve job output</strong> skill tile. </p>
+<p><a class="glightbox" href="../_attachments/db2-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-36.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Input</strong> tab, click on the <strong>Hide this form from the user</strong> toggle as shown below to enable it. </p>
+<p><a class="glightbox" href="../_attachments/db2-37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-37.png"></a></p>
+</li>
+<li>
+<p>Next, click on the <strong>Output</strong> tab and, again, click on <strong>Hide this form from the user</strong> toggle.</p>
+<p><a class="glightbox" href="../_attachments/db2-38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-38.png"></a></p>
+</li>
+<li>
+<p>Finally, click on the <strong>Input form</strong> skill tile in your skill flow and click on the toggle to <strong>Hide this form from the user</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2-39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-39.png"></a></p>
+</li>
+<li>
+<p>Before saving your skill flow, you must give it a name. Click on the <strong>pencil</strong> icon (<a class="glightbox" href="../../../skills/_attachments/pencilIcon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../skills/_attachments/pencilIcon.png"></a>).</p>
+<p><a class="glightbox" href="../_attachments/db2-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-40.png"></a></p>
+</li>
+<li>
+<p>Enter <code>Job completion details</code> in the <strong>Name</strong> field and click <strong>Save</strong>. </p>
+<p><strong>Name</strong>:
+</p><div class="highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Job completion details
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-41.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Save as draft</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-42.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> and then click <strong>Enhance</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-43.png"></a></p>
+</li>
+<li>
+<p>Review the skill flow settings and click <strong>Publish</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-44.png"></a></p>
+<p>You should then see your new skill flow in the <strong>Skill Studio</strong> titled <strong>Job completion details</strong> in the <strong>Published state</strong>:</p>
+<p><a class="glightbox" href="../_attachments/db2-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-45.png"></a></p>
+</li>
+</ol>
+<p><strong>You created a new skill flow that accomplishes part of the use case – retrieving and displaying the expiration date of a z/<abbr title="Operating System">OS</abbr> certificate based on the certificate label the user provides.</strong></p>
+<h2 id="add-skills-to-your-assistant-as-skill-based-actions">Add skills to your assistant as skill-based actions<a class="headerlink" href="#add-skills-to-your-assistant-as-skill-based-actions" title="Permanent link">#</a></h2>
+<p>Next, you will add the imported skills, including your newly created skill flow to your assistant as <strong>skill-based actions</strong> in order to call them from a <strong>custom-built action</strong> you will later create to handle the Db2 error debugging flow a user may initiate via natural conversation. </p>
+<p>In this section, you will add the following skills/skill flows to your assistant as <strong>skill-based actions</strong>:</p>
+<ul>
+<li><strong>Db2 Reorg</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr></li>
+<li><strong>Retrieve job status</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr> as <em>utility skill</em></li>
+<li><strong>Retrieve job output</strong> - imported from <abbr title="Ansible Automation Platform">AAP</abbr> as <em>utility skill</em></li>
+<li><strong>Job completion details</strong> - skill flow you previously created to extract and return job-specific completion details</li>
+</ul>
+<ol>
+<li>
+<p>Open <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong> in watsonx Orchestrate.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-1a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-1a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Actions</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-2a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-2a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New action+</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-3a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-3a.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Skill-based action</strong>.</p>
+<p><a class="glightbox" href="../_attachments/c-actions-4a.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/c-actions-4a.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Db2 Reorg</strong> tile and then click <strong>Next</strong>.</p>
+<p><a class="glightbox" href="../_attachments/db2-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-46.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Cancel</strong> on the <strong>New action</strong> dialog.</p>
+<div class="admonition note">
+<p class="admonition-title">For this use case, the action is triggered from a custom-built action. To prevent the skill flow from being run as the skill-based action, do not enter any example phrases.</p>
+</div>
+<p><a class="glightbox" href="../_attachments/db2-47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-47.png"></a></p>
+</li>
+<li>
+<p>Click <strong>x</strong> to close the <strong>Db2 Reorg</strong> skill.</p>
+<p><a class="glightbox" href="../_attachments/db2-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-48.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 3 - 7 to create a skill-based action for the following skills and skill flow you previously added:
+   - <strong>Retrieve job status</strong>
+   - <strong>Retrieve job output</strong>
+   - <strong>Job completion details</strong></p>
+<div class="admonition note">
+<p class="admonition-title">These actions are also triggered from a custom-built action. Do not enter any example phrases.</p>
+</div>
+<p>When finished, all 4 new actions should appear in your <strong>Actions list</strong> similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/db2-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2-49.png"></a></p>
+</li>
+</ol>
+<h2 id="create-a-custom-built-action-for-db2-error-debugging">Create a custom-built action for Db2 error Debugging<a class="headerlink" href="#create-a-custom-built-action-for-db2-error-debugging" title="Permanent link">#</a></h2>
+<p>Next, you will create a custom-built action that handles the end-to-end debugging process when a user reports a Db2 error message. The steps in this section illustrate one way of accomplishing this. </p>
+<h3 id="provide-error-message-troubleshooting">Provide error message troubleshooting<a class="headerlink" href="#provide-error-message-troubleshooting" title="Permanent link">#</a></h3>
+<p>The expected prompt when a user has to begin the debugging process may be something like <strong><em>I need help debugging</em></strong>. </p>
+<p>Lets create a custom-built action to handle this. </p>
+<ol>
+<li>Click <strong>New action +</strong>.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow1.png"></a></p>
+<ol start="2">
+<li>Click <strong>Custom-built action</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow2.png"></a></p>
+<ol start="3">
+<li>Enter <strong><em>I need help debugging</em></strong> and then click <strong>Save</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow3.png"></a></p>
+<h3 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>In the <strong>Step 1</strong> tile, in the <strong>Assistant says</strong> text box, type <strong><em>Please provide the error message</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow4.png"></a></p>
+</li>
+<li>
+<p>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong> </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow5.png"></a></p>
+<div class="highlight"><pre><span></span><code>This will prompt the user to enter their error message.
+</code></pre></div>
+<ol start="3">
+<li>Click <strong>New step +</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow6.png"></a></p>
+<h3 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>In the <strong>Step 2</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong></p>
+</li>
+<li>
+<p>Then click the <strong>And then</strong> drop down and select <strong>Search for the answer</strong>. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow7.png"></a></p>
+<p>Click <strong>Edit settings</strong>, and in the <strong>custom search query</strong> field, enter the following prompt:</p>
+<p><code>What is Db2 for z/OS error message</code></p>
+<p><a class="glightbox" href="../_attachments/flow8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow8.png"></a></p>
+<p>Followed by that text, enter the <code>$</code> symbol to select a variable. In the pop-up window, select <strong>Action step variables</strong> --&gt; <strong>1. Please provide the error message</strong>.</p>
+<p><a class="glightbox" href="../_attachments/flow9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow9.png"></a></p>
+<div class="highlight"><pre><span></span><code>Then click **Apply**.
+
+![](_attachments/flow10.png)
+</code></pre></div>
+<ol start="3">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-3">Step 3<a class="headerlink" href="#step-3" title="Permanent link">#</a></h3>
+<ol>
+<li>In the <strong>Step 3</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow11.png"></a></p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Is there anything else I can help you with?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow12.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow13.png"></a></p>
+<p>This will prompt the user to select Yes/No. </p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-4">Step 4<a class="headerlink" href="#step-4" title="Permanent link">#</a></h3>
+<ol>
+<li>In the <strong>Step 4</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Leave the defaults. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow14.png"></a></p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>What can I help you with?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow15.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow16.png"></a></p>
+<ol start="4">
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Search for the answer</strong> </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow17.png"></a></p>
+<ol start="5">
+<li>Click <strong>New step +</strong>. </li>
+</ol>
+<h3 id="step-5">Step 5<a class="headerlink" href="#step-5" title="Permanent link">#</a></h3>
+<ol>
+<li>In the <strong>Step 5</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will change the defaults. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow18.png"></a></p>
+<ol start="2">
+<li>In the default condition that is displayed, click on the <strong><em>"is"</em></strong> option and instead select <strong><em>contains</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow19.png"></a></p>
+<ol start="3">
+<li>In the field to the right of that where it says <strong>Enter a string</strong>, type <strong><em>reorg</em></strong>.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow20.png"></a></p>
+<p>This will handle the logic in the case where the user prompts the assistant about performing a reorg. </p>
+<ol start="4">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Would you like to run a skill to execute a table space reorg?</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow21.png"></a></p>
+<ol start="5">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow22.png"></a></p>
+<ol start="6">
+<li>Click <strong>New step +</strong>. </li>
+</ol>
+<h3 id="step-6">Step 6<a class="headerlink" href="#step-6" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>In the <strong>Step 6</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+</li>
+<li>
+<p>Now you'll configure the assistant to begin gathering the needed information to perform the Db2 reorg. </p>
+</li>
+</ol>
+<p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the Db2 subsystem name</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow23.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow24.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-7">Step 7<a class="headerlink" href="#step-7" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>In the <strong>Step 7</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the database name</em></strong>.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow25.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow26.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-8">Step 8<a class="headerlink" href="#step-8" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>In the <strong>Step 8</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> field, type <strong><em>Please provide the table space name</em></strong>.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow27.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Free text</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow28.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-9">Step 9<a class="headerlink" href="#step-9" title="Permanent link">#</a></h3>
+<ol>
+<li>Now you will define the logic in the case that the user specified earlier that they would like to perform the reorg. This will involve triggering the <strong>Db2 reorg</strong> sub-action that you previously defined as a skill-based action. </li>
+</ol>
+<p>In the <strong>Step 9</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+<ol start="2">
+<li>In the <strong>Assistant says</strong> field, type <strong><em>Running the Db2 Reorg skill based on the above input</em></strong>.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow29.png"></a></p>
+<ol start="3">
+<li>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>.</p>
+<p><a class="glightbox" href="../_attachments/flow30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow30.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Subaction</strong> window, click on the <strong><em>Select an action</em></strong> field, and select the <strong>Db2 Reorg</strong> subaction. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow31.png"></a></p>
+<ol start="5">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow32.png"></a></p>
+<ol start="6">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p>Edit the passed values to use them in the <strong>Db2 Reorg</strong> skill subaction.</p>
+<div class="highlight"><pre><span></span><code>![](_attachments/flow33.png)
+</code></pre></div>
+<ol start="7">
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>extra_vars.sub</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow34.png"></a></p>
+<ol start="8">
+<li>In the <strong>To</strong> field, select <strong>Action step variables</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow35.png"></a></p>
+<ol start="9">
+<li>
+<p>Click <strong><em>6. Please provide the Db2 subsystem name</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow36.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 7 - 9 to add two additional passed values:</p>
+<ul>
+<li>Set <strong>extra_vars.db</strong> --&gt; <strong>7. Please provide the database name</strong></li>
+<li>Set <strong>extra_vars.ts</strong> --&gt; <strong>8. Please provide the table space name</strong></li>
+</ul>
+<p>The result should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow37.png"></a></p>
+</li>
+<li>
+<p>Once done, click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow38.png"></a></p>
+</li>
+<li>
+<p>Click <strong>New step +</strong>.</p>
+</li>
+</ol>
+<h3 id="step-10">Step 10<a class="headerlink" href="#step-10" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>This step will handle the logic in the case that the skill is being run and providing a status update on the job. </p>
+<p>In the <strong>Step 10</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> field, type <strong><em>Job not yet ready. Would you like to check the job status?</em></strong>.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow39.png"></a></p>
+<ol start="3">
+<li>Click the <strong>Define customer response</strong> option list and select <strong>Confirmation</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow40.png"></a></p>
+<ol start="4">
+<li>Click <strong>New step +</strong>.</li>
+</ol>
+<h3 id="step-11">Step 11<a class="headerlink" href="#step-11" title="Permanent link">#</a></h3>
+<ol>
+<li>This step will handle the logic given that the user previously selected <strong>Yes</strong>. </li>
+</ol>
+<p>In the <strong>Step 11</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Keep the default condition. </p>
+<ol start="2">
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow41.png"></a></p>
+<ol start="3">
+<li>In the <strong>Subaction</strong> window, click on the <strong><em>Select an action</em></strong> field, and select the <strong>Retrieve job status</strong> subaction. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow42.png"></a></p>
+<ol start="4">
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+</li>
+<li>
+<p>Click <strong>Edit passed values</strong>. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow43.png"></a></p>
+<ol start="6">
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow44.png"></a></p>
+<ol start="7">
+<li>In the <strong>To</strong> field, select the <strong>Expression</strong> option. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow45.png"></a></p>
+<p>This will display a text box where you will next enter in a regular expression to pass the Job ID of the previously run <strong>Db2 Reorg</strong> skill to the <strong>Retrieve job status</strong> utility skill. </p>
+<ol start="8">
+<li>In the <strong>Expression</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow46.png"></a></p>
+<ol start="9">
+<li>
+<p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow47.png"></a></p>
+<p>This will autofill the variable reference in the expression text box as shown below. </p>
+</li>
+<li>
+<p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/flow48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow48.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
+<p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/flow49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow49.png"></a></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong> again. </p>
+<p><a class="glightbox" href="../_attachments/flow50.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow50.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>.</p>
+</li>
+</ol>
+<h3 id="step-12">Step 12<a class="headerlink" href="#step-12" title="Permanent link">#</a></h3>
+<ol>
+<li>Now you will handle the logic in the case that the <strong>Db2 Reorg</strong> job hasn't yet completed. </li>
+</ol>
+<p>In the <strong>Step 12</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you will modify the default condition. </p>
+<p><a class="glightbox" href="../_attachments/flow51.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow51.png"></a></p>
+<ol start="2">
+<li>In the default condition, click on the first part of the condition labeled <strong><em>10. Job not yet ready</em></strong> and instead select <strong>Expression</strong> from the drop-down list. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow52.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow52.png"></a></p>
+<p>This will then present a field to enter a regular expression. </p>
+<ol start="3">
+<li>Click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow53.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow53.png"></a></p>
+<ol start="4">
+<li>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted anything other than <strong>Successful</strong>, indicating that the <strong>Db2 Reorg</strong> job hasn't completed yet. </li>
+</ol>
+<p>In the <strong>Expression Editor</strong> text box, enter a <code>$</code> which will display an option list for referencing a variable. </p>
+<p><a class="glightbox" href="../_attachments/flow54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow54.png"></a></p>
+<ol start="5">
+<li>Select <strong>Retrieve job status (step 11)</strong> and then <strong>1. Retrieve job status result variable</strong> </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow55.png"></a></p>
+<p>The result will look something like this:</p>
+<p><a class="glightbox" href="../_attachments/flow56.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow56.png"></a></p>
+<ol start="6">
+<li>Following the variable reference, type <code>.status</code> as shown below:</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow57.png"></a></p>
+<ol start="7">
+<li>Then set the condition that the status <strong>does not</strong> equal <strong>successful</strong> by entering a space followed by <code>!= 'successful'</code></li>
+</ol>
+<p>The full regular expression should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow58.png"></a></p>
+<ol start="8">
+<li>Then click <strong>Apply</strong> to save your changes.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow59.png"></a></p>
+<ol start="9">
+<li>
+<p>In the case that the job hasn't completed, the assistant will repeat steps 10-11. </p>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>.</p>
+<p><a class="glightbox" href="../_attachments/flow60.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow60.png"></a></p>
+</li>
+<li>
+<p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 10 and 11</strong> as shown below. </p>
+<p><a class="glightbox" href="../_attachments/flow61.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow61.png"></a></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow62.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow62.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>.</p>
+</li>
+</ol>
+<h3 id="step-13">Step 13<a class="headerlink" href="#step-13" title="Permanent link">#</a></h3>
+<ol>
+<li>Now you will handle the logic in the case that the <strong>Db2 Reorg</strong> job has completed. </li>
+</ol>
+<p>In the <strong>Step 13</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Again, you will modify the default condition. </p>
+<ol start="2">
+<li>In the default condition, click on the first part of the condition labeled <strong><em>10. Job not yet ready</em></strong> and instead select <strong>Expression</strong> from the drop-down list. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow63.png"></a></p>
+<p>This will then present a field to enter a regular expression. </p>
+<ol start="3">
+<li>Just as you did in the previous step, click on the <strong><em>Expand</em></strong> icon to the right of the field to enter the text box in full display. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow64.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow64.png"></a></p>
+<ol start="4">
+<li>You will now enter an expression to create the condition that the previously ran <strong>Retrieve job status</strong> skill outputted a <strong>Successful</strong> message, indicating that the <strong>Db2 Reorg</strong> job has completed. </li>
+</ol>
+<p>In the <strong>Expression Editor</strong> text box, enter a <code>$</code> which will display an option list for referencing a variable. </p>
+<ol start="5">
+<li>Select <strong>Retrieve job status (step 11)</strong> and then <strong>1. Retrieve job status result variable</strong> </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow65.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow65.png"></a></p>
+<p>The result will look something like this:</p>
+<p><a class="glightbox" href="../_attachments/flow66.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow66.png"></a></p>
+<ol start="6">
+<li>Following the variable reference, type <code>.status</code> as shown below:</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow67.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow67.png"></a></p>
+<ol start="7">
+<li>Then set the condition that the status <strong>does</strong> equal <strong>successful</strong> by entering a space followed by <code>== 'successful'</code></li>
+</ol>
+<p>The full regular expression should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow68.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow68.png"></a></p>
+<ol start="8">
+<li>Then click <strong>Apply</strong> to save your changes.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow69.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow69.png"></a></p>
+<ol start="9">
+<li>
+<p>In the case that the job did successfully complete, the assistant will inform the user. </p>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>The job has completed successfully</em></strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow70.png"></a></p>
+</li>
+<li>
+<p>Then click <strong>New step +</strong>. </p>
+</li>
+</ol>
+<h3 id="step-14">Step 14<a class="headerlink" href="#step-14" title="Permanent link">#</a></h3>
+<ol>
+<li>
+<p>You will now handle the logic following the successful completion of the <strong>Db2 Reorg</strong> skill to give the user an option on what they'd like to do:
+   - <strong>Get the full job output</strong> - retrieve and display the full log of the job
+   - <strong>View the job completion details</strong> - extract and display key details from the job completion using the skill flow you previously created
+   - <strong>Exit</strong></p>
+<p><strong>Challenge</strong>: Create the same condition used in the previous step defining the logic that the output of the <strong>Retrieve job status</strong> equals <strong>successful</strong>. </p>
+<p>Once done, the condition for <strong>Step 14</strong> should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow71.png"></a></p>
+</li>
+<li>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>What would you like to do?</em></strong> in order to prompt the user to select a following option. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow72.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow72.png"></a></p>
+<ol start="3">
+<li>Click on the <strong>Define customer response</strong> option list and select <strong>Options</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow73.png"></a></p>
+<ol start="4">
+<li>Now enter the following options:
+   - <em>Get full job output</em>
+   - <em>View job completion details</em>
+   - <em>Exit</em></li>
+</ol>
+<p>The options should look like the following:</p>
+<p><a class="glightbox" href="../_attachments/flow74.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow74.png"></a></p>
+<ol start="5">
+<li>Then click <strong>Apply</strong> to save your changes. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow75.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow75.png"></a></p>
+<ol start="6">
+<li>Click on the <strong>Settings</strong> icon and then select <strong>Always ask for this information, regardless of previous messages.</strong> to ensure the user is always asked. </li>
+</ol>
+<p>Then click <strong>Apply</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow76.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow76.png"></a></p>
+<ol start="7">
+<li>Then click <strong>New step +</strong>. </li>
+</ol>
+<h3 id="step-15">Step 15<a class="headerlink" href="#step-15" title="Permanent link">#</a></h3>
+<ol>
+<li>This step will handle the logic on condition that the user selected the <strong>View job completion details</strong> in the previous step. </li>
+</ol>
+<p>In the <strong>Step 15</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time you will again modify the default condition. </p>
+<ol start="2">
+<li>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow77.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow77.png"></a></p>
+<ol start="3">
+<li>In the <strong>Assistant says</strong> text box, type <strong><em>Retrieving job completion details</em></strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow78.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow78.png"></a></p>
+<ol start="4">
+<li>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow79.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow79.png"></a></p>
+<ol start="5">
+<li>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Job completion details</strong> subaction, which is the skill flow you previously created.</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow80.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow80.png"></a> </p>
+<ol start="6">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow81.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow81.png"></a></p>
+<ol start="7">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow82.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow82.png"></a></p>
+<p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to the skill flow. </p>
+<ol start="8">
+<li>Click <strong>Set new value +</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow83.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow83.png"></a></p>
+<ol start="9">
+<li>
+<p>In the <strong>To</strong> field, select <strong>Expression</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow84.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow84.png"></a></p>
+<p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Expressions</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow85.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow85.png"></a></p>
+<p>This will autofill the variable reference in the expression text box as shown below:</p>
+<p><a class="glightbox" href="../_attachments/flow86.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow86.png"></a></p>
+</li>
+<li>
+<p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/flow87.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow87.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
+<p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/flow88.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow88.png"></a></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong> again. </p>
+<p><a class="glightbox" href="../_attachments/flow89.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow89.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>.</p>
+</li>
+</ol>
+<h3 id="step-16">Step 16<a class="headerlink" href="#step-16" title="Permanent link">#</a></h3>
+<ol>
+<li>In the previous step, if the user selected the <strong>View job completion details</strong> option, the skill flow you created will get executed and return the extracted job completion details for the <strong>Db2 Reorg</strong> skill. </li>
+</ol>
+<p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next - i.e. <strong><em>Get the full job output</em></strong> or <strong><em>Exit</em></strong> the current conversation altogether. </p>
+<p>To configure this, in the <strong>Step 16</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just like you did in the previous step, you will again modify the default condition, specifying that the user previously selected the <strong>View job completion details</strong>. </p>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>View job completion details</strong>. </p>
+<p><a class="glightbox" href="../_attachments/flow90.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow90.png"></a></p>
+<ol start="2">
+<li>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow91.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow91.png"></a></p>
+<ol start="3">
+<li>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 and 15</strong> as shown below. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow92.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow92.png"></a></p>
+<ol start="4">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/flow93.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/flow93.png"></a></p>
+<ol start="5">
+<li>Finally, click <strong>New step +</strong>. </li>
+</ol>
+<h3 id="step-17">Step 17<a class="headerlink" href="#step-17" title="Permanent link">#</a></h3>
+<ol>
+<li>In this step, you'll configure the condition that the user previously selected the <strong>Get full job output</strong> option. </li>
+</ol>
+<p>To configure this, in the <strong>Step 17</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. This time, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option in step 14. </p>
+<p><a class="glightbox" href="../_attachments/d1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d1.png"></a></p>
+<ol start="2">
+<li>
+<p>In the <strong>Assistant says</strong> text box, type <strong><em>Getting full job output...</em></strong></p>
+</li>
+<li>
+<p>Click on the <strong>And then</strong> drop-down and select <strong>Go to a subaction</strong>. </p>
+</li>
+<li>
+<p>In the <strong>Subaction</strong> window, click on the <strong>Select an action</strong> field, and select the <strong>Retrieve job output</strong> subaction. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d2.png"></a></p>
+<ol start="5">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d3.png"></a></p>
+<ol start="6">
+<li>Click <strong>Edit passed values</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d4.png"></a></p>
+<p>You'll now edit the passed values to map the <strong>Job ID</strong> of the <strong>Db2 Reorg</strong> skill as input to <strong>Retrieve job output</strong> utility skill. </p>
+<ol start="7">
+<li>Click <strong>Set new value</strong> and then select the <strong><em>1. id</em></strong> variable. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d5.png"></a></p>
+<ol start="8">
+<li>In the <strong>To</strong> field, select <strong>Expression</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d6.png"></a></p>
+<p>You will now write a regular expression to retrieve the <strong>Job ID</strong> of the <strong>Db2 Reorg result variable</strong>. </p>
+<ol start="9">
+<li>
+<p>In the <strong>Expressions</strong> text box, enter <code>$</code> which will display an option list for referencing a variable. </p>
+</li>
+<li>
+<p>Select <strong>Db2 Reorg (step 9)</strong> and then select <strong>1. Db2 Reorg result variable</strong>. </p>
+<p><a class="glightbox" href="../_attachments/d7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d7.png"></a></p>
+<p>This will autofill the variable reference in the expression text box as shown below. </p>
+</li>
+<li>
+<p>Following the variable reference, type <code>.job</code> to reference the <strong>Job ID</strong> of that job execution. </p>
+<p><a class="glightbox" href="../_attachments/d9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d9.png"></a></p>
+</li>
+<li>
+<p>Finally, click <strong>Apply</strong> to save the regular expression. </p>
+<p>The new passed value should look similar to the following:</p>
+<p><a class="glightbox" href="../_attachments/d10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d10.png"></a></p>
+</li>
+<li>
+<p>Then click <strong>Apply</strong> again. </p>
+</li>
+<li>
+<p>Finally, click <strong>New step +</strong>. </p>
+</li>
+</ol>
+<h3 id="step-18">Step 18<a class="headerlink" href="#step-18" title="Permanent link">#</a></h3>
+<ol>
+<li>In the previous step, if the user selected the <strong>Get full job output</strong> option, the <strong>Retrieve job output</strong> skill will get executed and return the full output log of the <strong>Db2 Reorg</strong> skill. </li>
+</ol>
+<p>Once that information is returned, the assistant should then present the user the same 3 options as previously configured asking them what they'd like to do next.</p>
+<p>To configure this, in the <strong>Step 18</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Just as in the previous step, you can leave the default condition specifying that the user selected the <strong>Get full job output</strong> option. </p>
+<p><a class="glightbox" href="../_attachments/d11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d11.png"></a></p>
+<ol start="2">
+<li>
+<p>Then click on the <strong>And then</strong> drop-down and select <strong>Re-ask previous step(s)</strong>. </p>
+</li>
+<li>
+<p>In the new <strong>Settings</strong> window, <em>select the checkboxes</em> for <strong>Steps 14 - 17</strong> as shown below. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d12.png"></a></p>
+<ol start="4">
+<li>Then click <strong>Apply</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d13.png"></a></p>
+<ol start="5">
+<li>Finally, click <strong>New step +</strong>. </li>
+</ol>
+<h3 id="step-19">Step 19<a class="headerlink" href="#step-19" title="Permanent link">#</a></h3>
+<ol>
+<li>This will be the final step in the <strong>custom-built action</strong> you're creating to handle the condition that the user selected the <strong>Exit</strong> option previously. </li>
+</ol>
+<p>In this case, the assistant guided conversation will conclude and the action should end. </p>
+<p>To configure this, in the <strong>Step 19</strong> tile, click the <strong>Is taken</strong> option list and select <strong>with conditions</strong>. Now you will modify the default condition, specifying that the user previously selected the <strong>Exit</strong> option. </p>
+<p>Click on the default condition labeled <strong>Get full job output</strong> and in the drop-down, select <strong>Exit</strong>.</p>
+<p><a class="glightbox" href="../_attachments/d14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d14.png"></a></p>
+<ol start="2">
+<li>Lastly, click on the <strong>And then</strong> drop-down and select <strong>End the action</strong>. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/d15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d15.png"></a></p>
+<p><strong>IMPORTANT</strong>: Make sure to save the entire action before exiting the action view by <strong>clicking on the save icon</strong> in the top-right corner of the screen.</p>
+<p><a class="glightbox" href="../_attachments/d16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/d16.png"></a></p>
+<p><strong><em>This concludes the creation of your custom-built action and you will next be able to test out the flow</em></strong>.  </p>
+<h2 id="demonstrate-the-assistant-action">Demonstrate the assistant action<a class="headerlink" href="#demonstrate-the-assistant-action" title="Permanent link">#</a></h2>
+<p>Now that you have fully configured your <strong>custom-built action</strong> to handle the Db2 error troubleshooting process, you will next be able to demonstrate the end-to-end flow. </p>
+<p>To do this, first open the <strong>Preview</strong> screen within the <strong><abbr title="Artificial intelligence">AI</abbr> assistant builder</strong>. </p>
+<p><strong>screenshot</strong></p>
+<p>To begin the conversation that an early-tenure DBA may have with the assistant to start the debugging process following the discovery of a Db2 for z/<abbr title="Operating System">OS</abbr> error message, they might prompt the assistant with something like:  <strong><em>I need help debugging a Db2 for z/<abbr title="Operating System">OS</abbr> error message</em></strong>. </p>
+<ol>
+<li>Enter the following text in the assistant to begin the flow:</li>
+</ol>
+<p><strong>Prompt:</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>I need help debugging a Db2 for z/OS error message.
+</span></code></pre></div>
+<p>As was configured previously, the assistant asks for more details in order to help debug as shown below: </p>
+<p><a class="glightbox" href="../_attachments/db2error-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-1.png"></a></p>
+<ol start="2">
+<li>In response, the user is able to provide any error message and the assistant will provide a summary of it. In our scenario for any early-tenure DBA, we'll use error code <strong>00C9009D</strong>. </li>
+</ol>
+<p>Enter <strong>00C9009D</strong> in response to the assistant asking for the error message:</p>
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>00C9009D
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-2.png"></a></p>
+<ol start="3">
+<li>The assistant then outputs a very detailed explanation for the Db2 for z/<abbr title="Operating System">OS</abbr> error message, including the <strong>System action</strong>, the <strong>System Programmer Response</strong>, <strong>User Response</strong>, as well as <strong>Problem Determination</strong> with additional information as shown below:</li>
+</ol>
+<p><a class="glightbox" href="../_attachments/db2error-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-3.png"></a></p>
+<p>Based on the information provided, the DBA understand that the error occurred due to lack of sufficient space in the relevant table space. And one solution would be to <strong><em>run the REORG TABLESPACE</em></strong> utility to attempt to claim additional free space. Additionally, they understand that the the table space in question could be identified from the <strong>DSNT501I</strong> error message. </p>
+<p>In addition to providing that detailed response, the assistant then asks <strong><em>Is there anything else I can help you with?</em></strong></p>
+<p>The DBA would like to get more details on the tablespace reorg process in order to resolve the issue, so they respond to the assistant by clicking <strong>Yes</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2error-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-4.png"></a></p>
+<ol start="4">
+<li>After clicking <strong>Yes</strong>, the assistant responds asking <strong><em>What can I help you with?</em></strong></li>
+</ol>
+<p>From here, the DBA prompts the assistant with <strong><em>What are the steps to execute a reorg of a Db2 for z/<abbr title="Operating System">OS</abbr> table space?</em></strong></p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>What are the steps to execute a reorg of a Db2 for z/OS table space?
+</span></code></pre></div>
+   <a class="glightbox" href="../_attachments/db2error-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-5.png"></a>
+<ol start="5">
+<li>Again, the assistant provides very detailed guidance on some of the planning considerations and execution of performing a Reorg of a Db2 table space. </li>
+</ol>
+<p><a class="glightbox" href="../_attachments/db2error-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-6.png"></a></p>
+<p>Following the response, the assistant asks the user: <strong><em>Would you like to run a skill to execute a table space reorg?</em></strong> 
+   This was because the user prompted the assistant with a question related to a Db2 reorg. </p>
+<p>The user then decides to click <strong>Yes</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2error-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-7.png"></a></p>
+<ol start="6">
+<li>At this point in the flow, the assistant begins collecting information needed in order to perform the reorg via Ansible Automation. </li>
+</ol>
+<p>The assistant responds <strong><em>Please provide the Db2 subsystem name</em></strong>. </p>
+<p>The user will then respond with <strong>DBC1</strong> as their Db2 for z/<abbr title="Operating System">OS</abbr> subsytem name. </p>
+<p></p><div class="highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>DBC1
+</span></code></pre></div>
+   <a class="glightbox" href="../_attachments/db2error-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-8.png"></a>
+<ol start="7">
+<li>The assistant then comes back asking to <strong><em>Please provide the database name</em></strong>. </li>
+</ol>
+<p>The user responds with <strong>DSN8D12A</strong> as their database name.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DSN8D12A
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-9.png"></a></p>
+<ol start="8">
+<li>Finally, the assistant asks <strong><em>Please provide the table space name</em></strong>. </li>
+</ol>
+<p>The user responds with <strong>DSN8S12E</strong> as their table space name. </p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>DSN8S12E
+</span></code></pre></div>
+<p><a class="glightbox" href="../_attachments/db2error-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-10.png"></a></p>
+<ol start="9">
+<li>
+<p>After providing all 3 pieces of information, the assistant displays the ansible job form for performing the Db2 Reorg and contains all  3 details the user just provided. </p>
+<p><a class="glightbox" href="../_attachments/db2error-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-11.png"></a></p>
+<p>The user will then click <strong>Apply</strong> to kick of the job execution. </p>
+<p><a class="glightbox" href="../_attachments/db2error-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-12.png"></a></p>
+</li>
+<li>
+<p>After submitting the job, we see that it's in a <strong>Pending</strong> status and the assistant informs the user: <strong><em>Job not yet ready. Would you like to check the job status?</em></strong></p>
+<p>From here, the user selects <strong>Yes</strong>. </p>
+<p><a class="glightbox" href="../_attachments/db2error-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-13.png"></a></p>
+</li>
+<li>
+<p>Depending on how long waited, the job status may come back as still <strong>Running</strong> or <strong>Successful</strong>. </p>
+<p>In the case of a <strong>Successful</strong> message as shown below, the assistant informs the user that <strong><em>The job has completed successfully</em></strong> and then asks what the user would like to do next, presenting 3 options:</p>
+<ul>
+<li><strong><em>Get full job output</em></strong></li>
+<li><strong><em>View job completion details</em></strong></li>
+<li><strong><em>Exit</em></strong></li>
+</ul>
+<p><a class="glightbox" href="../_attachments/db2error-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-14.png"></a></p>
+</li>
+<li>
+<p>The user firstly wants to check the job summary to ensure it completed with a successful return code, so they select <strong>View job completion details</strong>. </p>
+<p>In the output, the user can see the job completed with a Return Code of <code>0</code>, indicating a successful job completion with no errors or warnings. </p>
+<p>They can also view the <code>Job ID</code> value if they want to explore the logs in further detail. </p>
+</li>
+<li>
+<p>Following those details, the assistant returns by again asking what the user would like to do next. </p>
+<p>In addition to providing the extracted summary of the job completion, the assistant is also able to provide the full job log if the user would like to investigate. </p>
+<p>To view this, the user selects the <strong>Get full job output</strong> option. </p>
+<p><a class="glightbox" href="../_attachments/db2error-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-16.png"></a></p>
+</li>
+<li>
+<p>Then the full job log is retrieved and displayed to the user for their Db2 Reorg execution. </p>
+<p><a class="glightbox" href="../_attachments/db2error-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-17.png"></a></p>
+<p>Scrolling down in the log, they find a message indicating:
+</p><div class="highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>IEF142I SAMPRG DSNUPROC REORG - STEP WAS EXECUTED - COND CODE 0000
+</span></code></pre></div>
+<a class="glightbox" href="../_attachments/db2error-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-18.png"></a>
+<p>They can then again verify that the job was executed successfully without error. </p>
+</li>
+<li>
+<p>Just like previously, the assistant comes back asking what the user would like to do next.</p>
+<p>Now that the user has verified the job completed successfully, they would like to end the conversation. So they select <strong>Exit</strong> to conclude the demo. </p>
+<p><a class="glightbox" href="../_attachments/db2error-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/db2error-19.png"></a></p>
+</li>
+</ol>
 <!-- Terminology -->
 <!-- Keep the list alphabetized for easy deduplication --></div>
 
