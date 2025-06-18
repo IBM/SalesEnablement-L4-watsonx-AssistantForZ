@@ -362,8 +362,14 @@ Before ingesting documents, complete the following setup steps.
         
 15. Finally, run the following command to update the list of targeted namespaces, where **`<operatorgroup-name>`** is substituted with ***your*** unique operator group name recorded in the previous step.
     
+    **Mac OS:**
     ```
     oc -n wxa4z-operator patch operatorgroup <operatorgroup-name> --type=merge -p '{"spec": {"targetNamespaces": ["wxa4z-zad"]}}'
+    ```
+
+    **Microsoft Windows:**
+    ```
+    oc -n wxa4z-operator patch operatorgroup <operatorgroup-name> --type=merge -p "{\"spec\": {\"targetNamespaces\": [\"wxa4z-zad\"]}}"
     ```
 
     !!! Warning "The command and corresponding output should like something like"
