@@ -22,7 +22,7 @@ The **zassist** utility is an executable program that automates the ingestion of
 
 1. Click the following link and download the **zassist.zip** file.
    
-    <a href="https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77" target="_blank">https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77</a>
+    <a href="https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br" target="_blank">https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br</a>
 
     ![](_attachments/zassistDownload.png)
 
@@ -159,6 +159,16 @@ Step-by-step guidance for ingesting documents using **zassist** is provided in t
     ```
     zassist ingest dev
     ```
+
+    !!! Failure "Handling PII..."
+
+        With v2.2.5, PII is automatically detected and the ingestion will fail if any PII is detected. This is valuable for security and compliance purposes. In our case, the document in **dev/COBOL-CICS-to-Java-Internal-Framework.pdf** was detected to contain PII and you will receive an error message. As this is dummy data, you can override this error by re-ingesting the index using the **--skip-pii** flag in the following command:
+
+        `zassist ingest dev --skip-pii`
+
+        This will override the PII detection. However, as part of a pilot, you should not be ingested any PII data, otherwise cleaning the data to ensure no sensitive data is included. 
+
+
 
     ```
     zassist ingest ops
