@@ -957,7 +957,7 @@
 <ol>
 <li>
 <p>Click the following link and download the <strong>zassist.zip</strong> file.</p>
-<p><a href="https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77" target="_blank">https://ibm.box.com/s/j3nt5iw4fqd5w2jgcqwxnjlsu8bpvl77</a></p>
+<p><a href="https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br" target="_blank">https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br</a></p>
 <p><a class="glightbox" href="../_attachments/zassistDownload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../_attachments/zassistDownload.png"></a></p>
 </li>
 <li>
@@ -1077,6 +1077,12 @@
 <p>For the next steps, you must be in the root directory called <abbr title="Bring Your Own Documentation">BYOD</abbr>.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>zassist ingest dev
 </span></code></pre></div>
+<div class="admonition failure">
+<p class="admonition-title">Handling PII...</p>
+<p>With v2.2.5, PII is automatically detected and the ingestion will fail if any PII is detected. This is valuable for security and compliance purposes. In our case, the document in <strong>dev/COBOL-<abbr title="Custom Information Control System">CICS</abbr>-to-Java-Internal-Framework.pdf</strong> was detected to contain PII and you will receive an error message. As this is dummy data, you can override this error by re-ingesting the index using the <strong>--skip-pii</strong> flag in the following command:</p>
+<p><code>zassist ingest dev --skip-pii</code></p>
+<p>This will override the PII detection. However, as part of a pilot, you should not be ingested any PII data, otherwise cleaning the data to ensure no sensitive data is included. </p>
+</div>
 <div class="highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>zassist ingest ops
 </span></code></pre></div>
 <div class="admonition tip">
