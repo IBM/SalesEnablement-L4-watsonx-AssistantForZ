@@ -12,17 +12,21 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Summary of new features for v2.2.4 of Z BYOSearch & RAG deployment
+## Summary of new features for v2.2.5 of Z BYOSearch & RAG deployment
 
-The step-by-step instructions in this section will walk you through installing version 2.2.4 of BYOSearch with the corresponding RAG documentation. 
+The step-by-step instructions in this section will walk you through installing version 2.2.5 of BYOSearch with the corresponding RAG documentation. 
 
-**Details of the v2.2.4 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
+**Details of the v2.2.5 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
 
 Key features include:
 
-- Tabular support for IBM documentation pre-ingested into the deployed zRAG
+- Enhanced AI Assistant response quality with improved filtering capability
 
-- Conversational search scoping according to *product areas* now supported
+- Personally Identifiable Information (PII) support to ensure secure and compliant data processing
+  
+- Remote S3 source for ingesting data
+
+- Multilingual support 
 
 For more details on the filtering/scoping of product areas during conversational search, please refer to Step 10 of <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-configuring-your-conversational-search" target="_blank">this page</a>.
 
@@ -294,7 +298,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:22ab4c54e0797f3d73a1e8581cd33f5e51cdaca6ceb8d39e0669f311007af490
+      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:56903b6a29e2ae40695afa7764c4f9c50bf2942bea26bbba74dd0097e68c296e
       publisher: 'IBM' 
       sourceType: grpc 
     ```
@@ -509,6 +513,15 @@ Before ingesting documents, complete the following setup steps.
           accessModes:
             - ReadWriteOnce
           size: 24Gi
+      
+      dashboard:
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "100Mi"
+          limits:
+            cpu: "2"
+            memory: "8Gi"
 
       wrapper:
         createRoute: true
