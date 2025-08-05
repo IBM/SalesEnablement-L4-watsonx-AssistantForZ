@@ -12,21 +12,19 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Summary of new features for v2.2.5 of Z BYOSearch & RAG deployment
+## Summary of new features for v2.2.7 of Z BYOSearch & RAG deployment
 
-The step-by-step instructions in this section will walk you through installing version 2.2.5 of BYOSearch with the corresponding RAG documentation. 
+The step-by-step instructions in this section will walk you through installing version 2.2.7 of BYOSearch with the corresponding RAG documentation. 
 
 **Details of the v2.2.5 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
 
 Key features include:
 
-- Enhanced AI Assistant response quality with improved filtering capability
+- An initial version of structured metadata ingestion is rolled out for a limited ZRAG collection of documents
 
-- Personally Identifiable Information (PII) support to ensure secure and compliant data processing
+- Dynamic filtering to improve retrieval accuracy even further
   
-- Remote S3 source for ingesting data
-
-- Multilingual support 
+- Client ingestion enhancements
 
 For more details on the filtering/scoping of product areas during conversational search, please refer to Step 10 of <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-configuring-your-conversational-search" target="_blank">this page</a>.
 
@@ -298,7 +296,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:56903b6a29e2ae40695afa7764c4f9c50bf2942bea26bbba74dd0097e68c296e
+      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:4b14a1d02f68b4978986b3030157b15ea5591fb66c3b2360fc7f91cd8da5e89f
       publisher: 'IBM' 
       sourceType: grpc 
     ```
@@ -503,6 +501,7 @@ Before ingesting documents, complete the following setup steps.
       - name : icr-pull-secret
       namespace: wxa4z-zad
       clusterDomain: <YOUR_CLUSTER_DOMAIN>
+      license: true
 
       opensearch:
         secretName: opensearch-creds
@@ -563,6 +562,32 @@ Before ingesting documents, complete the following setup steps.
         The new pods will be created in your **wxa4z-zad** namespace. To view the progress of your pods creation, select the **wxa4z-zad** project from the **Projects** drop-down within the OCP Web console. 
 
         ![](_attachments/installAssistantOperator-changeNamespace.png)
+
+
+10. After running the previous command and while the new pods are initializing, run the following command to **disable the dashboard deployment** as this is not required and not supported in TechZone:
+
+    **Mac OS:**
+    ```
+    oc -n wxa4z-zad patch zassistantdeploy zassistantdeploy --type='merge' -p='{"spec": {"dashboard": {"enabled": false}}}'
+    ```
+
+    **Microsoft Windows:**
+    ```
+    oc -n wxa4z-zad patch zassistantdeploy zassistantdeploy --type="merge" -p="{\"spec\": {\"dashboard\": {\"enabled\": false}}}"
+    ```
+
+11. Lastly, run the following command to **disable the assistantBootstrap** feature:
+    
+    **Mac OS:**
+    ```
+    oc -n wxa4z-zad patch zassistantdeploy zassistantdeploy --type='merge' -p='{"spec": {"assistantBootstrap": {"enabled": false}}}'
+    ```
+
+    **Microsoft Windows:**
+    ```
+    oc -n wxa4z-zad patch zassistantdeploy zassistantdeploy --type="merge" -p="{\"spec\": {\"assistantBootstrap\": {\"enabled\": false}}}"
+    ```
+
 
 ### Verify all the required pods are running and get the network route to your BYOS instance
 1. In the OCP console, verify that all pods have the status of **Running** or **Completed** within the **wxa4z-zad** project.
