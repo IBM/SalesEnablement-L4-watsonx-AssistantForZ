@@ -12,11 +12,11 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Summary of new features for v2.2.7 of Z BYOSearch & RAG deployment
+## Summary of new features for v2.2.8 of Z BYOSearch & RAG deployment
 
-The step-by-step instructions in this section will walk you through installing version 2.2.7 of BYOSearch with the corresponding RAG documentation. 
+The step-by-step instructions in this section will walk you through installing version ***2.2.8*** of BYOSearch with the corresponding RAG documentation. 
 
-**Details of the v2.2.5 updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
+**Details of the updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
 
 Key features include:
 
@@ -296,7 +296,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog@sha256:4b14a1d02f68b4978986b3030157b15ea5591fb66c3b2360fc7f91cd8da5e89f
+      image: icr.io/cpopen/ibm-wxa4z-catalog:v2.2.8@sha256:4f31082e8e6796166e03b41131122ca44aa98733264e7a2f2c4735a5733474a0
       publisher: 'IBM' 
       sourceType: grpc 
     ```
