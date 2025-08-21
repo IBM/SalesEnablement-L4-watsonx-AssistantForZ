@@ -20,9 +20,9 @@ The **zassist** utility is an executable program that automates the ingestion of
 
     The utility is available to clients through <a href="https://www.ibm.com/software/passportadvantage/pao_customer.html" target="_blank">IBM Passport Advantage</a>.
 
-1. Click the following link and download the **zassist.zip** file.
+1. Click the following link and download the **zassist.zip** file. **[Make sure you are using the latest version of zassist - v1.0.4]**
    
-    <a href="https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br" target="_blank">https://ibm.box.com/s/tiyv8n6ian78fcjfpf4cjf196difw4br</a>
+    <a href="https://ibm.box.com/s/m7rv8wxxcjla24npdfvy044vf5rr3urq" target="_blank">https://ibm.box.com/s/m7rv8wxxcjla24npdfvy044vf5rr3urq</a>
 
     ![](_attachments/zassistDownload.png)
 
