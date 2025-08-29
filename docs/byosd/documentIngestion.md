@@ -12,19 +12,22 @@ Below is a high-level, logical architecture of the environment deployed in this 
 Earlier, you provisioned three IBM Technology Zone (ITZ) environments. One of which was a single-node Red Hat OpenShift (SNO) cluster. If you have not reserved this environment, or it is not in the **Ready** state, return to the 
 [IBM Technology Zone environment](../TechZoneEnvironment.md) section to complete the reservation.
 
-## Summary of new features for v2.2.8 of Z BYOSearch & RAG deployment
+## Summary of new features for v2.2.9 of Z BYOSearch & RAG deployment
 
-The step-by-step instructions in this section will walk you through installing version ***2.2.8*** of BYOSearch with the corresponding RAG documentation. 
+The step-by-step instructions in this section will walk you through installing version ***2.2.9*** of BYOSearch with the corresponding RAG documentation. 
 
 **Details of the updates can be found <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=notes-whats-new-in-watsonx-assistant-z#concept_sbp_zqr_pbc__title__2" target="_blank">here</a>**.
 
 Key features include:
 
-- An initial version of structured metadata ingestion is rolled out for a limited ZRAG collection of documents
-
-- Dynamic filtering to improve retrieval accuracy even further
-  
 - Client ingestion enhancements
+  - Beta release now supports s390x architecture
+  - Minor bug fixes to enhance stability and performance
+  - Resolved a Windows-specific issue in the legacy CLI
+
+- Dynamic filtering improvements
+  - Enhanced contextual grouping provides more accurate and intuitive search results
+  
 
 For more details on the filtering/scoping of product areas during conversational search, please refer to Step 10 of <a href="https://www.ibm.com/docs/en/watsonx/waz/2.x?topic=assistants-configuring-your-conversational-search" target="_blank">this page</a>.
 
@@ -296,7 +299,7 @@ Before ingesting documents, complete the following setup steps.
       namespace: wxa4z-operator
     spec: 
       displayName: "IBM watsonx Assistant for Z Operator Catalog" 
-      image: icr.io/cpopen/ibm-wxa4z-catalog:v2.2.8@sha256:4f31082e8e6796166e03b41131122ca44aa98733264e7a2f2c4735a5733474a0
+      image: icr.io/cpopen/ibm-wxa4z-catalog:v2.2.9@sha256:5482b78fed630a022c836cc21eb4aee6f7524067cb4794332c4f5bbfe09c0296
       publisher: 'IBM' 
       sourceType: grpc 
     ```
